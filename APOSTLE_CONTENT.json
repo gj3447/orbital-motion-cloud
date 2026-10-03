@@ -1,0 +1,206 @@
+{
+  "schema": "apostle-content/1",
+  "position": 8,
+  "repository": "gj3447/orbital-motion-cloud",
+  "source_repository": "https://github.com/gj3447/symposium",
+  "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+  "documents": [
+    {
+      "uid": "apostle-document:7085b2c0d6fb33a5b0cbeb0cb22c7e8ea5fef6850aec286c77df56cff4ed6923",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/333/PROM_16_REPORT.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/333/PROM_16_REPORT.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "b8bf2dcfd829bc20ae02a3d3d0900763dcdbf22616d75253422b09ee2f881b3a",
+      "bytes": 9803,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:a2e497db28dd2b41af027d8d9e9064932894a88bbfd4810555f7246ccc77ea38",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/333/SOURCES.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/333/SOURCES.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "4a34ccbcc876e6fc59fb8687762246ed363e31c09f3bc32abca4e9fa8509347e",
+      "bytes": 4998,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:eb82b79687cc8a2d4f785b51dfdda319ea260f938dec261dbe62811d8aa4bfdd",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/KUBERNETES_BORG_ABSORPTION_2026-07-15.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/KUBERNETES_BORG_ABSORPTION_2026-07-15.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "0ef2f42173f5d09bce7c26aa7ed8d2de9bfeccdf7dc0e2f3b54b4b84022b4871",
+      "bytes": 15789,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:fb72f9e09754926b3edd0eaae4a45b4d28b3ffca6ac17db869e601d25f3b4ca2",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/A_p2p_substrate.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/A_p2p_substrate.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "e5a2b4e79f1b0534522bd4080a600e4be615146370923f5c2b5a6b34b0ca284b",
+      "bytes": 3903,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:2388420970461b0a5a9ee30b873f1e6f7770bf6ebfa34720edd2c99c341a74be",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/B_token_primitives.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/B_token_primitives.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "a3eb4259e980e052f3b75e695c5ee669012066d6c707acc52c1f07ce6c313fce",
+      "bytes": 4538,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:d2ed2e136aae62e18b847bdab545b161a396cd1788ab9ce79b8e22c5baa80ec5",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/C_cold_start_sustainability.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/C_cold_start_sustainability.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "b13fcc8ff486bf12a18c1ed9fe017a9eb2966dea7c08ce6bb4201c5fce3872a8",
+      "bytes": 5549,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:8886d30d81f9a05ebddb34825c6f88222fab1005354fb554f64d845825df2dbf",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/D_real_world_cases.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/D_real_world_cases.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "35938c43411a0fc3c0278f2f1c76606f5692e3b35a9862af5b0fdb80bc6bb075",
+      "bytes": 6774,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:f856b01ca8c547fb7cb37ba82ca9dfe341aac202a8cb6417d758d438652a4150",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/INDEX.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/INDEX.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "05ee9f5dc9c649d561353d12e1e65959351315eaccd7a05f7c76b795a536ef06",
+      "bytes": 1609,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:f15af7246691eac233430cf3a685d52f006912db436622da6f9322e003cb2956",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/PROM_16_REPORT.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/PROM_16_REPORT.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "0eae2f6b7597053f7caff0b8017490b6313b2ca64b21d5d631959804f4646248",
+      "bytes": 6814,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:56f1a6e0f8e4d9778a148cdc98d16575d2b4e6d0571090c525b553754d17d09a",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/SOURCES.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/OM_MANI_PADME_HUM/PROM_16_TECH_FEASIBILITY_2026-05-20/SOURCES.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "7a72196b6580c74466d02ba386b12079bab3dcd16dab285d681deea8047ca5b3",
+      "bytes": 10622,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:128499b14dc3e439691a9432606c4fcb34e479d1b12d1e4268c32c7ab03e9a37",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/ORRR/SOURCES.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/ORRR/SOURCES.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "8b9f884fa0dd4ad3c0edebdc16de51c11288c9540c854357b18e3afe184cce9a",
+      "bytes": 3545,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:296addac69dfb583bfdd84834aea66652ec4c6a2a9a083e257bcec0981f13c28",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/PROM_16_FAMILY_VERIFICATION_REPORT.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/PROM_16_FAMILY_VERIFICATION_REPORT.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "cd49456ab6f7e0150343d651be65b3212af22ab97b26e8e387734b9c5ae5efb4",
+      "bytes": 8122,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:be4263ace0a5768720d0121c04a49c895dca37170d590fcb3d69d108cd9fb1fd",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/SOURCES.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/SOURCES.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "7186217061c13a847cb84584ee61facd1051e6edab77047c4596646f3e6b1cc5",
+      "bytes": 22931,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:1a5255fe459cac1d276e0bc642081aa92c9ebd6c005ed9cd17486610ffb7cb2a",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/EMERGENCE_ENGINE_FSM_DESIGN_PRELIMINARY_2026-07-13.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/EMERGENCE_ENGINE_FSM_DESIGN_PRELIMINARY_2026-07-13.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "3c0ecc0cc057371c6937b31d912ed4c22686f3c57e3d43f2b990f03ee2483864",
+      "bytes": 9584,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:3f129e5d56c09b2edd3f41c98cf055eb16f45390755d57c7dd710a150a285ff8",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/ENGINEBOY_333_BINDING_DESIGN_PRELIMINARY_2026-07-12.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/ENGINEBOY_333_BINDING_DESIGN_PRELIMINARY_2026-07-12.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "7fedc67030e740438e795b506d3d60b993077c36d18c8f356d02cdc881d59cd5",
+      "bytes": 9834,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:041c01964567dca6878fe754c3f44dae2c5c764d3cd14852399b62a230be6acd",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/MEASUREMENT_PLAYBOOK_2026-07-12.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/MEASUREMENT_PLAYBOOK_2026-07-12.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "4e425981dafdf7cd4c8027a8927428c96eda2d0908626232db88dab768795761",
+      "bytes": 8156,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:717c56d70c4ce1b6fc61a14239dfd9320db308f74091146bfedb228c094cc150",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/PROM_16_CACHING_TRAFFIC_HIERARCHY_2026-07-13.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/PROM_16_CACHING_TRAFFIC_HIERARCHY_2026-07-13.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "ce80fc7abdbcd474573420d6d9e5f29e0e5eaa60f8821f08fc6b1414fd608e13",
+      "bytes": 7161,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:e428234c96561ee76436df857af055b821c3bb0202b991117a2d141ec5eddc37",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/PROM_16_REPORT.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/PROM_16_REPORT.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "b39461813d30b66894fe8e790fd035a8a1557d5aafaefd3a7ab55f96cd292cfa",
+      "bytes": 11095,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:271c931ae675b7310e385c5ce897bfce4509613b8a8afdbb8c070713dfe0bd58",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/PROM_16_SEMANTIC_HYPERGRAPH_NN_2026-07-12.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/PROM_16_SEMANTIC_HYPERGRAPH_NN_2026-07-12.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "78c81004200c3ccbe9dda29cf9a2affd8a5680d179a1825bf0e6f7590848abe8",
+      "bytes": 13997,
+      "authority": "SOURCE_DOCUMENT"
+    },
+    {
+      "uid": "apostle-document:2640e856aa3a9cf912ffe5c0665cd868a8323a046b601b4cd2ecc1be1d1dc732",
+      "repository_path": "METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/SOURCES.md",
+      "source_path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/engineboy/SOURCES.md",
+      "source_revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "sha256": "31f5b45d3d3d9996f71a20f683939a82834897ce0000bd19fbae2040d756fbf5",
+      "bytes": 8645,
+      "authority": "SOURCE_DOCUMENT"
+    }
+  ],
+  "guides": [
+    {
+      "repository_path": "README.md",
+      "sha256": "483b0dddc4e623d143901fae93b1cc701499c3bfc09930465e83bf5456d70d02",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "repository_path": "docs/WHAT_IS.md",
+      "sha256": "cde9912c9e7d53e9908774fe699985dfe4c8dabd9c2a6b531d1e4be5a21d09e6",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "repository_path": "docs/HOW_TO.md",
+      "sha256": "c7e3245bedf0eca2595ff64f8b6c88c773e3e0f96c1756adb4f91a962321ec93",
+      "authority": "SECONDARY_AI"
+    }
+  ]
+}

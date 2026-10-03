@@ -11,3 +11,7 @@ python3 cli.py check
 ```
 
 `docs/WHAT_IS.md` holds identity/source context. `docs/HOW_TO.md` holds the safe maintenance procedure.
+
+## Content index
+
+`APOSTLE_CONTENT.json` lists every archived source file, byte digest, and source revision. The source archive begins at `sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/`; it is `SOURCE_DOCUMENT`. This README and `docs/` are `SECONDARY_AI` guides.
