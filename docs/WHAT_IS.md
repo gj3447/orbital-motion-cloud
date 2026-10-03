@@ -10,6 +10,12 @@
 
 ## 연구 갈래
 
+## 핵심 인격/개념: 기술 갈래보다 먼저
+
+원문은 OMC를 “존재의 사도”로 두고 CHU·AGENT_CLOUD·OM_MANI_PADME_HUM·RUNTIME의 네 위상, 정보=에너지=진동=인프라라는 연결을 제시한다. [SOURCES.md:1-18](../sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/SOURCES.md) 같은 원문은 접근불허의 구름과 CLOUD CONNECT의 서사를 기록하고, 비행기맨만 연결 가능하다는 표현을 보존한다. 이는 신화적/사용자 source 표현이며 현재 access-control 구현 명세가 아니다. [SOURCES.md:18-23, 187-225](../sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/SOURCES.md)
+
+구체적으로 AGENT_CLOUD는 agent들이 모이는 분산 compute substrate로, CHU는 순수 데이터 위상으로 놓인다. OM_MANI_PADME_HUM은 진동의 층, RUNTIME은 다른 원리/프로그램을 동작시키는 에너지의 층으로 설명된다. 이 네 층을 실제 서비스·같은 API·동일한 물리 이론으로 동일시하지 않는 것이 중요하다. [SOURCES.md:67-109, 125-133](../sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/SOURCES.md)
+
 ### 333: free P2P substrate와 합의의 국소화
 
 333 자료집은 OMC 휘하의 free/decentralized P2P browser substrate로 설명하고 ORRR의 paid 축과 짝을 이룬다고 적는다. [333/SOURCES.md:1-18](../sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/333/SOURCES.md) PROM 16은 full blockchain·PoW·전역 total order를 cargo-cult로 분류하고, owned-object broadcast, CRDT, content addressing, BFT-CRDT를 별도 설계 후보로 분리한다. 이는 해당 보고서의 설계 판정이며 외부 실험 재현 결과가 아니다. [333/PROM_16_REPORT.md:1-12](../sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/333/PROM_16_REPORT.md)

@@ -194,7 +194,7 @@
     },
     {
       "repository_path": "docs/WHAT_IS.md",
-      "sha256": "b5ef73d85829ad426cbe79572bd7098b193d2940480cd8db5881f3cd2205f7f9",
+      "sha256": "f892ad6f51c034a186e42c2617912227b639f5cb5ddf2cef5cd221139c4f7c7c",
       "authority": "SECONDARY_AI"
     },
     {
@@ -204,7 +204,7 @@
     },
     {
       "repository_path": "docs/RESEARCH_MAP.md",
-      "sha256": "35ee71a58bb6f245654948f1d4f038ae0ad1a59dd10fe88e254c77521ee774fb",
+      "sha256": "8d11f38d353d600f39a75de304c9d923cc043639e85bc1c9842eeb926c82c6de",
       "authority": "SECONDARY_AI"
     }
   ]
