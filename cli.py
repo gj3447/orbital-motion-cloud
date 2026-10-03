@@ -1,15 +1,87 @@
 #!/usr/bin/env python3
-"""Read a source-pinned apostle module; this is not an agent runtime."""
-import hashlib,json,re,sys
+"""Read apostle identity and validate local declarations; no agent runtime."""
+import hashlib
+import json
 from pathlib import Path
-ROOT=Path(__file__).resolve().parent; REQUIRED=("README.md","AGENTS.md","docs/WHAT_IS.md","docs/HOW_TO.md","APOSTLE_MODULE.json")
-def load(): return json.loads((ROOT/"APOSTLE_MODULE.json").read_text(encoding="utf-8"))
-def check(d):
- i,p=d.get("identity",{}),d.get("source_pins"); return {"ok":d.get("schema")=="apostle-module/1" and all(isinstance(i.get(k),(str,int)) and i.get(k) not in ("",0) for k in ("stable_entity_uid","slot_uid","position","korean_name","english_name")) and isinstance(p,list) and bool(p) and all((ROOT/x).is_file() for x in REQUIRED),"schema":d.get("schema"),"identity":i,"source_pins":p,"required_files":list(REQUIRED),"manifest_sha256":hashlib.sha256((ROOT/"APOSTLE_MODULE.json").read_bytes()).hexdigest()}
-def strict(d):
- i=d.get("identity",{});p=i.get("position"); pins=d.get("source_pins",[]); role=d.get("runtime_role",{}); return isinstance(p,int) and 1<=p<=12 and i.get("slot_uid")==f"metahumotonic:apostle-slot:{p:02d}" and all(isinstance(i.get(k),str) and i[k] for k in ("stable_entity_uid","korean_name","english_name")) and isinstance(pins,list) and bool(pins) and all(isinstance(x,dict) and re.fullmatch(r"[0-9a-f]{64}",x.get("dashboard_snapshot",{}).get("sha256","")) and re.fullmatch(r"[0-9a-f]{40}",x.get("original_source",{}).get("revision","")) and all(isinstance(x.get("original_source",{}).get(k),str) and x["original_source"][k] for k in ("owner","repository","path")) for x in pins) and ((role.get("state")=="UNASSIGNED" and role.get("label") is None and role.get("authority")=="UNASSIGNED") or (role.get("state")=="USER_ASSIGNED" and isinstance(role.get("label"),str) and role.get("authority")=="USER_PRIMARY"))
+import re
+import sys
+
+ROOT = Path(__file__).resolve().parent
+REQUIRED = ("README.md", "AGENTS.md", "docs/WHAT_IS.md", "docs/HOW_TO.md", "APOSTLE_MODULE.json")
+
+
+def errors(data):
+    problems = []
+    if not isinstance(data, dict) or data.get("schema") != "apostle-module/1":
+        return ["Unsupported manifest schema"]
+    identity = data.get("identity", {})
+    position = identity.get("position")
+    if type(position) is not int or not 1 <= position <= 12:
+        problems.append("Position must be an integer from 1 to 12")
+    elif identity.get("slot_uid") != f"metahumotonic:apostle-slot:{position:02d}":
+        problems.append("Slot UID must match position")
+    if not isinstance(identity.get("korean_name"), str) or not identity["korean_name"].strip():
+        problems.append("Korean name is required")
+    pending = identity.get("selection_state") == "CONFLICT_PENDING"
+    if pending:
+        if identity.get("stable_entity_uid") is not None or identity.get("english_name") is not None:
+            problems.append("Pending slot cannot select a persona or English name")
+        if not data.get("candidates") or data.get("repository_role", {}).get("state") != "SLOT_WORKSPACE":
+            problems.append("Pending slot needs candidates and a neutral workspace role")
+    elif any(not isinstance(identity.get(key), str) or not identity[key].strip()
+             for key in ("stable_entity_uid", "english_name")):
+        problems.append("Selected identity needs an entity UID and English name")
+    pins = data.get("source_pins")
+    if not isinstance(pins, list) or not pins:
+        problems.append("Source pins are required")
+    else:
+        for pin in pins:
+            if not isinstance(pin, dict):
+                problems.append("Invalid source pin")
+                continue
+            snapshot, original = pin.get("dashboard_snapshot", {}), pin.get("original_source", {})
+            if not isinstance(snapshot, dict) or not isinstance(original, dict):
+                problems.append("Source and snapshot locators are required")
+                continue
+            digest, revision = snapshot.get("sha256"), original.get("revision")
+            if not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+                problems.append("Snapshot SHA-256 is invalid")
+            if not isinstance(revision, str) or not re.fullmatch(r"[0-9a-f]{40}", revision):
+                problems.append("Original source Git revision is invalid")
+            if any(not isinstance(original.get(key), str) or not original[key] for key in ("owner", "repository", "path")):
+                problems.append("Original source locator is incomplete")
+    role = data.get("runtime_role", {})
+    if role.get("state") == "UNASSIGNED":
+        if role.get("authority") != "UNASSIGNED" or role.get("label") is not None:
+            problems.append("Unassigned role cannot claim an assignment")
+    elif role.get("state") == "USER_ASSIGNED":
+        if pending or role.get("authority") != "USER_PRIMARY" or not isinstance(role.get("label"), str) or not role["label"].strip():
+            problems.append("Assigned role needs a selected identity and user authority")
+    else:
+        problems.append("Unknown runtime role state")
+    return problems
+
+
 def main():
- c=sys.argv[1] if len(sys.argv)==2 else "";
- if c not in {"identity","show","check"}: raise SystemExit("usage: cli.py identity|show|check")
- d=load();v=d["identity"] if c=="identity" else (check(d) if c=="check" else d);v.update({"ok":bool(v["ok"] and strict(d)),"pin_verification":"PIN_METADATA_ONLY"}) if c=="check" else None;print(json.dumps(v,ensure_ascii=False,sort_keys=True));return 0 if c!="check" or v["ok"] else 1
-if __name__=="__main__":raise SystemExit(main())
+    command = sys.argv[1] if len(sys.argv) == 2 else ""
+    if command not in {"identity", "show", "check"}:
+        raise SystemExit("usage: cli.py identity|show|check")
+    try:
+        raw = (ROOT / "APOSTLE_MODULE.json").read_bytes()
+        data = json.loads(raw)
+        if command == "check":
+            problems = errors(data) + ["Missing file: " + path for path in REQUIRED if not (ROOT / path).is_file()]
+            value = {"ok": not problems, "errors": problems, "schema": data.get("schema"),
+                     "identity": data.get("identity"), "manifest_sha256": hashlib.sha256(raw).hexdigest(),
+                     "pin_verification": "PIN_METADATA_ONLY"}
+        else:
+            value = data["identity"] if command == "identity" else data
+    except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
+        print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))
+        return 1
+    print(json.dumps(value, ensure_ascii=False, sort_keys=True))
+    return 0 if command != "check" or value["ok"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
