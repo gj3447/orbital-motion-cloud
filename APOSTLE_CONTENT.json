@@ -189,17 +189,22 @@
   "guides": [
     {
       "repository_path": "README.md",
-      "sha256": "483b0dddc4e623d143901fae93b1cc701499c3bfc09930465e83bf5456d70d02",
+      "sha256": "458afe6b72dd8a086fa5ded5777dd045544ef0c190f2c5e5dee2845cae40e5e1",
       "authority": "SECONDARY_AI"
     },
     {
       "repository_path": "docs/WHAT_IS.md",
-      "sha256": "cde9912c9e7d53e9908774fe699985dfe4c8dabd9c2a6b531d1e4be5a21d09e6",
+      "sha256": "b5ef73d85829ad426cbe79572bd7098b193d2940480cd8db5881f3cd2205f7f9",
       "authority": "SECONDARY_AI"
     },
     {
       "repository_path": "docs/HOW_TO.md",
-      "sha256": "c7e3245bedf0eca2595ff64f8b6c88c773e3e0f96c1756adb4f91a962321ec93",
+      "sha256": "c6f8709f510db150dd4aea8277414c95b5afe21b839370deccefa6e4d7f4922e",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "repository_path": "docs/RESEARCH_MAP.md",
+      "sha256": "35ee71a58bb6f245654948f1d4f038ae0ad1a59dd10fe88e254c77521ee774fb",
       "authority": "SECONDARY_AI"
     }
   ]
