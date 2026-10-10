@@ -1,0 +1,46 @@
+{
+  "schema": "omc-research-save-receipt/v1",
+  "date": "2026-10-10",
+  "authority": "OBSERVED_LOCAL_WORKFLOW_RESULT",
+  "content_owner": "https://github.com/gj3447/orbital-motion-cloud",
+  "content_revision": "7d5317def5220ff14b31501d93f7017740d2cc4e",
+  "content_path": "docs/FLYWHEEL.md",
+  "content_sha256": "99ccb00fc492734d5c4ff9f64fb8a80bd2d7161f3bf59a05e5c7c08b8f9105f5",
+  "graph_path": "graph/flywheel.json",
+  "graph_sha256": "ab3dbc64856df03eff87cdaa23679d96cb5b2a88ed4b1c70093ea4ddd91650ca",
+  "hub": {
+    "repository": "https://github.com/gj3447/the-great-flow",
+    "revision": "5a4a169867b7d929a28b07d1b4861d8fdcb0cebb",
+    "run_id": "omc-token-efficiency-flywheel-20261010",
+    "state": "COMPLETE",
+    "placement": "REUSED",
+    "topic": "infrastructure-orchestration",
+    "completed_at": "2026-10-10T10:49:09Z",
+    "artifact": {
+      "kind": "HOW_TO",
+      "authority": "SECONDARY_AI",
+      "commit": "58c44ce7a143737a85fcd4947f9722691c5f0105",
+      "source_path": "data/research-organization/omc-token-efficiency-flywheel-20261010/how-to.md",
+      "source_sha256": "2cef5559f79e8d9d5b47b48723690e3a2058013d10184065e84b00efea7f21a8",
+      "module_uid": "research:module:eb774eb7-e576-4cdf-a767-e562c5abadbd"
+    }
+  },
+  "checks": {
+    "graph_nodes": 31,
+    "graph_edges": 39,
+    "competency_queries": 5,
+    "conditional_cycles": 3,
+    "source_integrity": "PASS",
+    "counterexample_tests": 6,
+    "module_identity": "PASS",
+    "local_links": "PASS",
+    "original_archive_unchanged": "PASS",
+    "hub_render_and_check": "PASS",
+    "exact_managed_how_to_bytes": "PASS",
+    "workflow_graph_and_usl_pins": "PASS"
+  },
+  "performance_experiment": "NOT_RUN",
+  "economic_simulation": "NOT_RUN",
+  "shared_kg_written": false,
+  "runtime_execution_or_coin_issuance": false
+}
