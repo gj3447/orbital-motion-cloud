@@ -1,0 +1,51 @@
+{
+  "schema": "omc-hardware-fit-research-receipt/1",
+  "recorded_at": "2026-10-10T17:49:05.848116+00:00",
+  "owner_repository": "https://github.com/gj3447/the-great-flow",
+  "request_path": "data/research-organization/omc-hardware-software-fit-20261010.request.json",
+  "workflow": {
+    "actor": "Codex",
+    "artifacts": [
+      {
+        "authority": "SECONDARY_AI",
+        "commit": "13aa12f5ebd70173641c9eaa6fffcb2a90cb1b04",
+        "kind": "HOW_TO",
+        "managed_paths": [
+          ".research/records/omc-hardware-software-fit-20261010/HOW_TO.source",
+          ".research/records/omc-hardware-software-fit-20261010/HOW_TO.json"
+        ],
+        "module_uid": "research:module:eb774eb7-e576-4cdf-a767-e562c5abadbd",
+        "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/infrastructure-orchestration/HOW_TO_infrastructure-orchestration",
+        "source_path": "data/research-organization/omc-hardware-software-fit-20261010.md",
+        "source_sha256": "a62e0fb89bd823a329857b562190d6d86c92bd80f342adb838db938437cee941",
+        "title": "OMC 하드웨어별 프로그램·데이터 실현과 CHU OS 연결 계획"
+      }
+    ],
+    "completed_at": "2026-10-10T17:45:35Z",
+    "id": "omc-hardware-software-fit-20261010",
+    "placement": "REUSED",
+    "placement_basis": "research_modules.py list 및 ACTIVE WHAT_IS/HOW_TO binding을 확인했다. inspect_repos.py search infrastructure-orchestration --corpus metahumotonic은 0건, orbital 검색은 OMC(github:repo:1403344489)와 별개 OMD를 반환했다. OMC의 기존 하드웨어 적응형 데이터 배치와 같은 자원·실행 조정 주제를 프로그램 변형/네이티브 실행까지 확장하므로 infrastructure-orchestration을 재사용한다. 더 발달시킬 방향과 단계·반례를 설계하는 HOW_TO이며 별도 정체성/새 일반 오케스트레이터 저장소를 만들지 않는다. bootstrap research context는 registry 크기 제한으로 PARTIAL; agent_context와 직접 소유 registry 및 OMC 원문으로 보완했다. 기존 Kubernetes 흡수 보존본은 PRELIMINARY AI 해석을 포함한 SOURCE_DOCUMENT로 한정한다.",
+    "recorded_at": "2026-10-10T17:44:29Z",
+    "request_sha256": "16409d52410a6a6f03f4dccb9e3e89ab3c95d4c8dfa46c3faf64fd95b4af439c",
+    "state": "COMPLETE",
+    "topic": "infrastructure-orchestration"
+  },
+  "design_validation": "validation.json",
+  "runtime_implementation_status": "PLANNED; existing bounded placement CLI reused as foundation",
+  "managed_run_id": "d44974198995410db5ee949531b940cc",
+  "owner_publication": "PRIVATE_ORIGIN_MAIN_VERIFIED",
+  "managed_run_exit_code": 0,
+  "owner_commit": "2c3672f7671658162a41811cafdb7e472dc13040",
+  "owner_base": "0546d910bb186500b68ff434f07b40322ef29029",
+  "owner_checks": {
+    "build": "PASS",
+    "research_workflow": "OK"
+  },
+  "publication_managed_run": {
+    "id": "02edba64cede4b0296fa74624c02d679",
+    "exit_code": 0
+  },
+  "other_sessions_source_changes_excluded": true,
+  "omc_design_commit": "d231f781c739ce9bf0a8dde570e77e7bdfed1fa6",
+  "omc_remote_publication": "NOT_PERFORMED"
+}
