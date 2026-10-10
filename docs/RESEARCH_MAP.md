@@ -38,6 +38,13 @@
 기존 구조와 목적의 분석은 WHAT_IS로, 구현을 발전시킬 질문은 후속 HOW_TO 연구의 입력으로 다룬다.
 과거 source archive의 바이트나 당시 주장·판본을 이번 정리로 바꾸지 않는다.
 
+## 2026-10-10 토큰당 지능을 출발점으로 하는 플라이휠
+
+[플라이휠 설계](FLYWHEEL.md)는 동일 모델·동일 총토큰에서의 효용 향상을 먼저 요구한다.
+[기계 판독 그래프](../graph/flywheel.json)는 사용자 원문, AI 가설, 조건부 순환,
+토큰 회계, 미실행 평가를 연결한다. 후속 발전 방향과 실험 설계이므로 HOW_TO로 기록한다.
+기존 `infrastructure-orchestration` 연구 쌍과 OMC 소유를 유지하며 이전 WHAT_IS 기록을 덮어쓰지 않는다.
+
 ## Known limits
 
 The archive records reports and prior claims. It does not contain a current deployment receipt for a browser mesh, a rerun benchmark, or an authorization to allocate shared CPU/RAM.

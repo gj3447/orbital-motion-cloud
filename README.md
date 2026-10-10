@@ -20,4 +20,11 @@ is preserved separately from the explanatory design note and the older source ar
 
 ## Content index
 
+The [token-efficiency flywheel](docs/FLYWHEEL.md) starts with a testable premise:
+the same base LLM and total token budget should yield more useful answers through HSWM·CHU.
+See the [generated cycle diagram](docs/FLYWHEEL_GRAPH.md) and [typed graph](graph/flywheel.json).
+Run `python3 scripts/flywheel.py check` for provenance and graph validation, or
+`python3 scripts/flywheel.py query` for the premise, accounting rules and evaluation status.
+Performance and economic effects remain hypotheses awaiting experiments.
+
 `APOSTLE_CONTENT.json` lists every archived source file, byte digest, and source revision. The source archive begins at `sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/`; it is `SOURCE_DOCUMENT`. This README and `docs/` are `SECONDARY_AI` guides. “OMC” is the canonical abbreviation for Orbital Motion Cloud; “OMD” is a separate shared-source-of-truth / coordination reference, not an alias for this apostle.

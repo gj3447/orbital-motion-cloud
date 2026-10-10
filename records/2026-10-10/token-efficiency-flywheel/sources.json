@@ -1,0 +1,41 @@
+{
+  "schema": "omc-flywheel-sources/1",
+  "subject_uid": "sym:Character:입체운행구름",
+  "base_revision": "2f7066e203cc65879b90134f097442c0c17ad644",
+  "messages": [
+    {
+      "id": "premise",
+      "role": "user",
+      "authority": "USER_PRIMARY",
+      "message_date": null,
+      "captured_on": "2026-10-10",
+      "source": "Current conversation, immediately preceding premise and current construction request",
+      "path": "records/2026-10-10/token-efficiency-flywheel/premise-verbatim.txt",
+      "sha256": "4c5e36cd609db6005e7ecb80bd5bfc0e3c4f516c2c01f7e842eac6f318a27fe1",
+      "digest_scope": "FILE_BYTES_UTF8_WITH_FINAL_NEWLINE"
+    },
+    {
+      "id": "request",
+      "role": "user",
+      "authority": "USER_PRIMARY",
+      "message_date": null,
+      "captured_on": "2026-10-10",
+      "source": "Current conversation, immediately preceding premise and current construction request",
+      "path": "records/2026-10-10/token-efficiency-flywheel/request-verbatim.txt",
+      "sha256": "b4ccd2c83c80bb97807133ab41264f42d965f770a5b77676078590bb92021606",
+      "digest_scope": "FILE_BYTES_UTF8_WITH_FINAL_NEWLINE"
+    }
+  ],
+  "prior_source": "records/2026-10-10/resource-credit-shared-intelligence/sources.json",
+  "interpretation_authority": "SECONDARY_AI",
+  "epistemic_state": "HYPOTHESIS",
+  "performance_observed": false,
+  "kg_resolution": {
+    "checked_on": "2026-10-10",
+    "omc_uid": "sym:Character:입체운행구름",
+    "hswm_uid": "sym:Concept:hswm",
+    "uid_collisions": false,
+    "chu": "CHU search did not identify an unambiguous concept UID; local concept only, not merged with sym:Directory:chu",
+    "scope": "Identity lookup only; no shared KG write"
+  }
+}
