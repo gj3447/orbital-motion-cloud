@@ -189,7 +189,7 @@
   "guides": [
     {
       "repository_path": "README.md",
-      "sha256": "71a26b78546f82916236bdb6fc8935e77fc91648b1c7269e7e808341cb223e82",
+      "sha256": "62ac4bcffca8fc99895abeb613c245960fd055507c0a4a47456d1868c7b09db4",
       "authority": "SECONDARY_AI"
     },
     {
@@ -241,6 +241,16 @@
       "repository_path": "docs/HARDWARE_SOFTWARE_FIT_PLAN.md",
       "sha256": "93286d14cf6b07f5693594c280f81c07d09e0be9ef0b9a419e1f74255a6da9af",
       "authority": "SECONDARY_AI"
+    },
+    {
+      "repository_path": "docs/POST_CLIENT_SERVER_KNOWLEDGE_PLAN.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "ffddfc8902406d035437e283766227f913857a79c6b39c70b4d160e1950ff874"
+    },
+    {
+      "repository_path": "docs/KUBERNETES_SOURCE_ANALYSIS.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "7f99f95ce2f5d19052d198ec2f27934ec14c80c0df2eea13c5580d4cab954453"
     }
   ]
 }

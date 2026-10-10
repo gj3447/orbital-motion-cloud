@@ -1,0 +1,2337 @@
+{
+  "schema": "omc-post-client-server-knowledge/1",
+  "scope": "OWNER_LOCAL_RESEARCH_PROPOSAL",
+  "authority": "SECONDARY_AI",
+  "actor": "Codex",
+  "recorded_on": "2026-10-10",
+  "state": "PROPOSED",
+  "runtime_deployed": false,
+  "shared_kg_written": false,
+  "upstream_commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+  "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json",
+  "predicate_contracts": {
+    "ABOUT": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Subject"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "acyclic": false,
+      "meaning": "Proposal subject reference; does not modify identity"
+    },
+    "DERIVED_FROM": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Source"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "acyclic": false,
+      "meaning": "User statement informing the AI proposal"
+    },
+    "REQUIRES_KNOWLEDGE": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Knowledge"
+      ],
+      "direction": "source_to_target",
+      "out_min": 12,
+      "out_max": 12,
+      "in_min": 0,
+      "in_max": null,
+      "acyclic": false,
+      "meaning": "Knowledge required by the proposed plan"
+    },
+    "PRODUCES_SPEC": {
+      "domain": [
+        "Knowledge"
+      ],
+      "range": [
+        "PlannedArtifact"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "acyclic": false,
+      "meaning": "Expected application of a knowledge area"
+    },
+    "DEPENDS_ON": {
+      "domain": [
+        "Knowledge"
+      ],
+      "range": [
+        "Knowledge"
+      ],
+      "direction": "source_to_target",
+      "out_min": 0,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "acyclic": true,
+      "meaning": "Source knowledge needs target prerequisites; directed acyclic"
+    },
+    "PRESERVES": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Invariant"
+      ],
+      "direction": "source_to_target",
+      "out_min": 4,
+      "out_max": 4,
+      "in_min": 0,
+      "in_max": null,
+      "acyclic": false,
+      "meaning": "Constraint proposed for all realizations"
+    },
+    "SUPPORTED_BY": {
+      "domain": [
+        "CodeClaim"
+      ],
+      "range": [
+        "ReadSpan"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "acyclic": false,
+      "meaning": "Exact source span supporting a bounded code claim"
+    },
+    "INFORMS": {
+      "domain": [
+        "CodeClaim"
+      ],
+      "range": [
+        "Knowledge"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "acyclic": false,
+      "meaning": "Design learning; not proof of OMC implementation"
+    }
+  },
+  "nodes": [
+    {
+      "uid": "sym:Character:입체운행구름",
+      "type": "Subject",
+      "label": "입체운행구름",
+      "authority": "SOURCE_DOCUMENT",
+      "state": "EXISTING_IDENTITY_REFERENCE"
+    },
+    {
+      "uid": "omc:post-client-server:user",
+      "type": "Source",
+      "label": "Current user statement",
+      "path": "records/2026-10-10/post-client-server-kubernetes/user-verbatim.txt",
+      "sha256": "6f08fa7d379dca4bbe8c678782a6764dfc645be7410da7f675823132fa69daa3",
+      "authority": "USER_PRIMARY",
+      "state": "PRESERVED"
+    },
+    {
+      "uid": "omc:post-client-server:plan-source",
+      "type": "Source",
+      "label": "Knowledge plan",
+      "path": "docs/POST_CLIENT_SERVER_KNOWLEDGE_PLAN.md",
+      "sha256": "ffddfc8902406d035437e283766227f913857a79c6b39c70b4d160e1950ff874",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED"
+    },
+    {
+      "uid": "omc:post-client-server:plan",
+      "type": "Proposal",
+      "label": "OMC beyond fixed server/client placement",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:user",
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K01",
+      "type": "Knowledge",
+      "label": "분산 프로그래밍 모델·타입·효과, P0",
+      "priority": "P0",
+      "question": "독립 task, 상태를 가진 actor/service, 연속 stream 중 무엇을 실행 단위로 삼을까? 무엇을 재시도해도 되는가?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K01:artifact",
+      "type": "PlannedArtifact",
+      "label": "WorkloadSpec, 입력·출력·부작용·취소 계약. 중복 요청이 두 번의 외부 효과를 만들지 않는 반례",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K02",
+      "type": "Knowledge",
+      "label": "이름·버전·주소·출처와 그래프 모델, P0",
+      "priority": "P0",
+      "question": "데이터의 정체성과 저장 위치를 어떻게 분리할까? 새로운 실행 variant를 무엇으로 식별할까?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K02:artifact",
+      "type": "PlannedArtifact",
+      "label": "안정된 ID, revision, digest, locator, 이름 있는 참여 역할. 같은 이름의 다른 바이트를 잘못 합치는 반례",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K03",
+      "type": "Knowledge",
+      "label": "부분 실패·동시성·일관성, P0",
+      "priority": "P0",
+      "question": "관측이 늦거나 조정자 둘이 같은 자원을 선택하면 누가 확정할까?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K03:artifact",
+      "type": "PlannedArtifact",
+      "label": "상태 세대 비교, 예약·lease·fencing 계약. 단절 뒤 돌아온 오래된 실행자가 새 결과를 덮는 반례",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K04",
+      "type": "Knowledge",
+      "label": "운영체제·하드웨어 구조, P0",
+      "priority": "P0",
+      "question": "실제로 쓸 수 있는 CPU·RAM·NUMA·GPU·PCIe·저장·네트워크는 무엇인가?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K04:artifact",
+      "type": "PlannedArtifact",
+      "label": "물리/게스트와 cgroup 범위를 구분한 capability 및 TTL 관측. 미지원 ISA·숨은 상위 한도·메모리 대역폭 병목",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K05",
+      "type": "Knowledge",
+      "label": "스케줄링·최적화·대기행렬, P0",
+      "priority": "P0",
+      "question": "어떤 작업을 어느 장비에서 언제 실행하며 전송 비용은 얼마나 드는가?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K05:artifact",
+      "type": "PlannedArtifact",
+      "label": "필수 제약 필터와 후보 점수·기준선. 연산은 빨라도 전송·대기가 커서 전체가 느려지는 반례",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K06",
+      "type": "Knowledge",
+      "label": "제어 순환·내구 실행·복구, P0",
+      "priority": "P0",
+      "question": "선언·예약·명령 접수·실제 실행·검증 완료를 어떻게 구별할까?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K06:artifact",
+      "type": "PlannedArtifact",
+      "label": "상태 기계, 영속 intent, 멱등 키, 재관찰, backoff, 복구 기록. 결과 기록 직전 중단",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K07",
+      "type": "Knowledge",
+      "label": "데이터 배치·캐시·복제·상태 이전, P1",
+      "priority": "P1",
+      "question": "데이터를 옮길지 계산을 옮길지, 활성 상태를 어디서 끊고 재개할지?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K07:artifact",
+      "type": "PlannedArtifact",
+      "label": "분할/복원·일관된 snapshot·체크포인트 계약. 같은 제공 호스트의 두 디스크를 독립 장애 복제본으로 오인하는 반례",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K08",
+      "type": "Knowledge",
+      "label": "컴파일러·ABI·수치 정확성·재현 빌드, P1",
+      "priority": "P1",
+      "question": "어떤 하드웨어별 프로그램 변형이 같은 의미를 구현하는가?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K08:artifact",
+      "type": "PlannedArtifact",
+      "label": "소스·도구chain·라이브러리·드라이버 핀, variant registry, correctness oracle. SIMD/정밀도 변경 후 허용 오차 초과",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K09",
+      "type": "Knowledge",
+      "label": "관측·성능 실험·원인 분석, P0",
+      "priority": "P0",
+      "question": "개선이 실제 실행 방식 때문인가, 캐시나 다른 부하 때문인가?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K09:artifact",
+      "type": "PlannedArtifact",
+      "label": "warm/cold 조건·반복·오류율·p95·전송/메모리 관측. 성공한 시도만 골라 평균을 좋게 보이는 반례",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K10",
+      "type": "Knowledge",
+      "label": "학습 기반 결정·피드백 제어, P1",
+      "priority": "P1",
+      "question": "어떤 후보를 언제 탐색하고 언제 기존 배치를 유지할까?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K10:artifact",
+      "type": "PlannedArtifact",
+      "label": "AI 제안과 결정적 적격성 검사 분리, 예산·불확실성·최소 유지 시간. 작은 부하 변화마다 왕복 재배치하는 반례",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K11",
+      "type": "Knowledge",
+      "label": "신뢰 경계·권한·프로세스 격리, P0",
+      "priority": "P0",
+      "question": "누가 어떤 코드와 데이터에 접근하며 원격 결과를 어디까지 믿을까?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K11:artifact",
+      "type": "PlannedArtifact",
+      "label": "장비/사용자/실행자 ID, 제한 권한, 소유 실행기, 감사 근거. 자원 제공만으로 임의 코드를 실행할 권한을 얻는 반례",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K12",
+      "type": "Knowledge",
+      "label": "기여 계량·합의·정산, P2",
+      "priority": "P2",
+      "question": "실제 유용한 기여를 어떻게 인정하고 이중 보상·기여 철회를 다룰까?",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:K12:artifact",
+      "type": "PlannedArtifact",
+      "label": "작업 계약과 검증 결과에 연결된 기여 receipt, 분쟁·정산 상태. 토큰 개수나 사용 CPU 시간만 늘려 보상을 얻는 반례",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:invariant:semantic",
+      "type": "Invariant",
+      "label": "HSWM semantic identity, roles and provenance remain unchanged by placement",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:invariant:result",
+      "type": "Invariant",
+      "label": "Every program variant must meet the same explicit result contract",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:invariant:authority",
+      "type": "Invariant",
+      "label": "Placement respects provider authority, limits and withdrawal",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:invariant:recovery",
+      "type": "Invariant",
+      "label": "Uncertain execution requires idempotency, ownership and recovery rules",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:span:01",
+      "path": "staging/src/k8s.io/apiserver/pkg/server/config.go",
+      "start_line": 1036,
+      "end_line": 1086,
+      "sha256": "f4027e22360edb9a5b33ce746776f0328aef546f5c07e2c6626ef40a69cfcf9f",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/apiserver/pkg/server/config.go#L1036-L1086",
+      "type": "ReadSpan",
+      "label": "staging/src/k8s.io/apiserver/pkg/server/config.go:1036-1086"
+    },
+    {
+      "uid": "omc:post-client-server:span:02",
+      "path": "staging/src/k8s.io/apiserver/pkg/registry/generic/registry/store.go",
+      "start_line": 878,
+      "end_line": 908,
+      "sha256": "d30880d64c398972efaa4866acbc0462fce41cbbe98be18e04a4bde5af38465a",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/apiserver/pkg/registry/generic/registry/store.go#L878-L908",
+      "type": "ReadSpan",
+      "label": "staging/src/k8s.io/apiserver/pkg/registry/generic/registry/store.go:878-908"
+    },
+    {
+      "uid": "omc:post-client-server:span:03",
+      "path": "staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go",
+      "start_line": 620,
+      "end_line": 650,
+      "sha256": "3e89cf8bf0804559b0dae938b6f6f865d391c5c6f8de5320137d74f4477e878e",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go#L620-L650",
+      "type": "ReadSpan",
+      "label": "staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go:620-650"
+    },
+    {
+      "uid": "omc:post-client-server:span:04",
+      "path": "staging/src/k8s.io/client-go/tools/cache/reflector.go",
+      "start_line": 463,
+      "end_line": 565,
+      "sha256": "4085208553a6903e1baaa8db987ca6c7bfa11bda6b48f346800287fad896881d",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/client-go/tools/cache/reflector.go#L463-L565",
+      "type": "ReadSpan",
+      "label": "staging/src/k8s.io/client-go/tools/cache/reflector.go:463-565"
+    },
+    {
+      "uid": "omc:post-client-server:span:05",
+      "path": "pkg/controller/deployment/deployment_controller.go",
+      "start_line": 475,
+      "end_line": 518,
+      "sha256": "3868095c88cbb2746d318733d905fea468cb9e2694f6c43f47576331c849c810",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/deployment/deployment_controller.go#L475-L518",
+      "type": "ReadSpan",
+      "label": "pkg/controller/deployment/deployment_controller.go:475-518"
+    },
+    {
+      "uid": "omc:post-client-server:span:06",
+      "path": "pkg/controller/deployment/deployment_controller.go",
+      "start_line": 575,
+      "end_line": 661,
+      "sha256": "8f6720e2c8bf08c388536294af0ad126adb7f7d5c58b198fb5efc371592ad1ed",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/deployment/deployment_controller.go#L575-L661",
+      "type": "ReadSpan",
+      "label": "pkg/controller/deployment/deployment_controller.go:575-661"
+    },
+    {
+      "uid": "omc:post-client-server:span:07",
+      "path": "pkg/controller/replicaset/replica_set.go",
+      "start_line": 653,
+      "end_line": 750,
+      "sha256": "4525fad8011db3b54e07c5e0f204442f71cbab998ebb58efb54657a4c96f793d",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/replicaset/replica_set.go#L653-L750",
+      "type": "ReadSpan",
+      "label": "pkg/controller/replicaset/replica_set.go:653-750"
+    },
+    {
+      "uid": "omc:post-client-server:span:08",
+      "path": "pkg/scheduler/algorithm.go",
+      "start_line": 144,
+      "end_line": 203,
+      "sha256": "3281a90b5cab577b913a3eb616bc1ed884a0efff1517b7e6e1acf7133bad9cda",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/algorithm.go#L144-L203",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/algorithm.go:144-203"
+    },
+    {
+      "uid": "omc:post-client-server:span:09",
+      "path": "pkg/scheduler/algorithm.go",
+      "start_line": 327,
+      "end_line": 387,
+      "sha256": "ddf84606ee84504a6df31014fea924f7419146014977d552634ae4169b72cdd6",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/algorithm.go#L327-L387",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/algorithm.go:327-387"
+    },
+    {
+      "uid": "omc:post-client-server:span:10",
+      "path": "pkg/scheduler/schedule_one.go",
+      "start_line": 565,
+      "end_line": 601,
+      "sha256": "ee5de38b06ed5d7e41e1a0d5471611639172dc6b8953f5844514461f396a13cb",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one.go#L565-L601",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/schedule_one.go:565-601"
+    },
+    {
+      "uid": "omc:post-client-server:span:11",
+      "path": "pkg/scheduler/algorithm.go",
+      "start_line": 618,
+      "end_line": 650,
+      "sha256": "a5e1a66948ba8014dea82a3a026751209148b959c5b8865547b7e27914bccc47",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/algorithm.go#L618-L650",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/algorithm.go:618-650"
+    },
+    {
+      "uid": "omc:post-client-server:span:12",
+      "path": "pkg/scheduler/schedule_one.go",
+      "start_line": 129,
+      "end_line": 144,
+      "sha256": "f8b1e83ae9720ce373c51e0e9a74a56f1081af9e3ace0c4bc51b944a0852cfaf",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one.go#L129-L144",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/schedule_one.go:129-144"
+    },
+    {
+      "uid": "omc:post-client-server:span:13",
+      "path": "pkg/scheduler/schedule_one.go",
+      "start_line": 200,
+      "end_line": 231,
+      "sha256": "d4d6e5c21f963523d7fd627a487fa6d0528b0923a06f6ac3ef0d7ad73c11a113",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one.go#L200-L231",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/schedule_one.go:200-231"
+    },
+    {
+      "uid": "omc:post-client-server:span:14",
+      "path": "pkg/scheduler/schedule_one.go",
+      "start_line": 314,
+      "end_line": 427,
+      "sha256": "e4abf4fb5d0ba33c24bf9bad46c03aff2505b387da276799141b074a64bcf329",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one.go#L314-L427",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/schedule_one.go:314-427"
+    },
+    {
+      "uid": "omc:post-client-server:span:15",
+      "path": "pkg/scheduler/framework/plugins/defaultbinder/default_binder.go",
+      "start_line": 52,
+      "end_line": 76,
+      "sha256": "a80f531237f74227fe516a67790068cb908e0d523f50cd3b4c716d4a94dc518c",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/defaultbinder/default_binder.go#L52-L76",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/framework/plugins/defaultbinder/default_binder.go:52-76"
+    },
+    {
+      "uid": "omc:post-client-server:span:16",
+      "path": "pkg/kubelet/config/apiserver.go",
+      "start_line": 36,
+      "end_line": 67,
+      "sha256": "f90d1177918b810ee91fe62c041ea345c7eb55b0233eb3b27a2dc9ad7cbf8761",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/config/apiserver.go#L36-L67",
+      "type": "ReadSpan",
+      "label": "pkg/kubelet/config/apiserver.go:36-67"
+    },
+    {
+      "uid": "omc:post-client-server:span:17",
+      "path": "pkg/kubelet/kubelet.go",
+      "start_line": 2680,
+      "end_line": 2725,
+      "sha256": "0b371204ea34d9f16197056d860758e5d9edd05cb1ff429c7b5896ed181b6259",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kubelet.go#L2680-L2725",
+      "type": "ReadSpan",
+      "label": "pkg/kubelet/kubelet.go:2680-2725"
+    },
+    {
+      "uid": "omc:post-client-server:span:18",
+      "path": "pkg/kubelet/kubelet.go",
+      "start_line": 2759,
+      "end_line": 2845,
+      "sha256": "96931774d5edd1ecc1c75bead4c86141586b78682733d2e1d47d9b9fc2b2099e",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kubelet.go#L2759-L2845",
+      "type": "ReadSpan",
+      "label": "pkg/kubelet/kubelet.go:2759-2845"
+    },
+    {
+      "uid": "omc:post-client-server:span:19",
+      "path": "pkg/kubelet/kubelet.go",
+      "start_line": 2273,
+      "end_line": 2284,
+      "sha256": "a278229e0a93efcb78b12c7a6e81256982bf8baeb8cb631c6c635573f9189646",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kubelet.go#L2273-L2284",
+      "type": "ReadSpan",
+      "label": "pkg/kubelet/kubelet.go:2273-2284"
+    },
+    {
+      "uid": "omc:post-client-server:span:20",
+      "path": "pkg/kubelet/kuberuntime/kuberuntime_manager.go",
+      "start_line": 1570,
+      "end_line": 1618,
+      "sha256": "8f0b1eb1e6e0045400fe73885b07b75e4622b602962f6268768a8f4f73044f93",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kuberuntime/kuberuntime_manager.go#L1570-L1618",
+      "type": "ReadSpan",
+      "label": "pkg/kubelet/kuberuntime/kuberuntime_manager.go:1570-1618"
+    },
+    {
+      "uid": "omc:post-client-server:span:21",
+      "path": "pkg/kubelet/kuberuntime/kuberuntime_sandbox.go",
+      "start_line": 40,
+      "end_line": 79,
+      "sha256": "470622145cad4bf7833783a3af1839f3043143e05519ab83b60544314ca3b122",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kuberuntime/kuberuntime_sandbox.go#L40-L79",
+      "type": "ReadSpan",
+      "label": "pkg/kubelet/kuberuntime/kuberuntime_sandbox.go:40-79"
+    },
+    {
+      "uid": "omc:post-client-server:span:22",
+      "path": "pkg/kubelet/kuberuntime/kuberuntime_container.go",
+      "start_line": 270,
+      "end_line": 300,
+      "sha256": "bbd8622bc8fae51de543d511ef2503af9080c264c18f67bb2733f65b1baa9865",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kuberuntime/kuberuntime_container.go#L270-L300",
+      "type": "ReadSpan",
+      "label": "pkg/kubelet/kuberuntime/kuberuntime_container.go:270-300"
+    },
+    {
+      "uid": "omc:post-client-server:span:23",
+      "path": "pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go",
+      "start_line": 212,
+      "end_line": 235,
+      "sha256": "5ad5ecef0841ded385b1b15f22d10ea2891f3f443e5b90582ae3198137c09a7e",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go#L212-L235",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go:212-235"
+    },
+    {
+      "uid": "omc:post-client-server:span:24",
+      "path": "pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go",
+      "start_line": 269,
+      "end_line": 298,
+      "sha256": "cc3b3ad3fde63ec217df06f48cbe6b61a23e11c394c85febed1c9e694d6268a0",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go#L269-L298",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go:269-298"
+    },
+    {
+      "uid": "omc:post-client-server:span:25",
+      "path": "pkg/kubelet/cm/topologymanager/policy_single_numa_node.go",
+      "start_line": 41,
+      "end_line": 77,
+      "sha256": "2a46d5cfacc5ca36abfa8744afb805602ec284061b8508ad17f6b7b26fd9c7bc",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/cm/topologymanager/policy_single_numa_node.go#L41-L77",
+      "type": "ReadSpan",
+      "label": "pkg/kubelet/cm/topologymanager/policy_single_numa_node.go:41-77"
+    },
+    {
+      "uid": "omc:post-client-server:span:26",
+      "path": "pkg/scheduler/framework/plugins/noderesources/fit.go",
+      "start_line": 713,
+      "end_line": 771,
+      "sha256": "b3b858780f5e6847f129d459342232d1c6cd8a57829c6b3861a18b43427e279c",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/noderesources/fit.go#L713-L771",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/framework/plugins/noderesources/fit.go:713-771"
+    },
+    {
+      "uid": "omc:post-client-server:span:27",
+      "path": "pkg/controller/nodelifecycle/node_lifecycle_controller.go",
+      "start_line": 913,
+      "end_line": 1014,
+      "sha256": "5a7b3f1efa7a01fec96a0d90d496e931e601665f15bdc34c7e25a74e4f4192ab",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/nodelifecycle/node_lifecycle_controller.go#L913-L1014",
+      "type": "ReadSpan",
+      "label": "pkg/controller/nodelifecycle/node_lifecycle_controller.go:913-1014"
+    },
+    {
+      "uid": "omc:post-client-server:span:28",
+      "path": "pkg/proxy/iptables/proxier.go",
+      "start_line": 625,
+      "end_line": 665,
+      "sha256": "be49ad780f80209021ad3b98a07ac52c53f0cce926005fe0fd888a60632343c5",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/proxy/iptables/proxier.go#L625-L665",
+      "type": "ReadSpan",
+      "label": "pkg/proxy/iptables/proxier.go:625-665"
+    },
+    {
+      "uid": "omc:post-client-server:span:29",
+      "path": "pkg/controller/deployment/deployment_controller_test.go",
+      "start_line": 304,
+      "end_line": 329,
+      "sha256": "6caa1caa63ddb066ccb2aca55db055ddcae426c5a405b10a3b18f6b561ceda31",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/deployment/deployment_controller_test.go#L304-L329",
+      "type": "ReadSpan",
+      "label": "pkg/controller/deployment/deployment_controller_test.go:304-329"
+    },
+    {
+      "uid": "omc:post-client-server:span:30",
+      "path": "pkg/scheduler/schedule_one_test.go",
+      "start_line": 774,
+      "end_line": 829,
+      "sha256": "30da942207584bbc119d211fb88d15f0a26dbd2eee153078dc119d709fae929b",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one_test.go#L774-L829",
+      "type": "ReadSpan",
+      "label": "pkg/scheduler/schedule_one_test.go:774-829"
+    },
+    {
+      "uid": "omc:post-client-server:C01",
+      "type": "CodeClaim",
+      "label": "API handler chain composes authentication, authorization, audit and request controls.",
+      "claim_id": "C01",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C02",
+      "type": "CodeClaim",
+      "label": "Conditional registry updates check resourceVersion; etcd OptimisticPut retries conflicts.",
+      "claim_id": "C02",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C03",
+      "type": "CodeClaim",
+      "label": "Reflector can use WatchList or fall back to list plus watch/resync.",
+      "claim_id": "C03",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C04",
+      "type": "CodeClaim",
+      "label": "Deployment queues keys, rereads cached objects and bounds rate-limited retries.",
+      "claim_id": "C04",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C05",
+      "type": "CodeClaim",
+      "label": "ReplicaSet reconciles replica count using its own Pod template and expectations.",
+      "claim_id": "C05",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C06",
+      "type": "CodeClaim",
+      "label": "Single-Pod scheduling filters candidates and scores feasible nodes under search limits.",
+      "claim_id": "C06",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C07",
+      "type": "CodeClaim",
+      "label": "Assume/Reserve uses scheduler cache with Unreserve/Forget failure paths.",
+      "claim_id": "C07",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C08",
+      "type": "CodeClaim",
+      "label": "Binding is a separate cycle and API operation, distinct from application readiness.",
+      "claim_id": "C08",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C09",
+      "type": "CodeClaim",
+      "label": "Kubelet watches Pods assigned to its node and reconciles them through local sync loops.",
+      "claim_id": "C09",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C10",
+      "type": "CodeClaim",
+      "label": "Runtime manager calls the runtime service for sandbox creation and container creation/start.",
+      "claim_id": "C10",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C11",
+      "type": "CodeClaim",
+      "label": "NodeAffinity and single-NUMA admission expose explicit hardware-sensitive paths.",
+      "claim_id": "C11",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C12",
+      "type": "CodeClaim",
+      "label": "The inspected resource-fit checks compare allocatable resources against declared requests.",
+      "claim_id": "C12",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C13",
+      "type": "CodeClaim",
+      "label": "Node lifecycle examines heartbeat/lease freshness and can mark conditions Unknown.",
+      "claim_id": "C13",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C14",
+      "type": "CodeClaim",
+      "label": "The inspected iptables proxier entry reconciles observed Service/endpoint changes.",
+      "claim_id": "C14",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    },
+    {
+      "uid": "omc:post-client-server:C15",
+      "type": "CodeClaim",
+      "label": "Read test definitions cover deletion races and Reserve/Permit failure; tests were not executed.",
+      "claim_id": "C15",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "evidence_path": "records/2026-10-10/post-client-server-kubernetes/evidence.json"
+    }
+  ],
+  "edges": [
+    {
+      "uid": "omc:post-client-server:edge:001",
+      "source": "omc:post-client-server:plan",
+      "type": "ABOUT",
+      "target": "sym:Character:입체운행구름",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:002",
+      "source": "omc:post-client-server:plan",
+      "type": "DERIVED_FROM",
+      "target": "omc:post-client-server:user",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:003",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:004",
+      "source": "omc:post-client-server:K01",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K01:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:005",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K02",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:006",
+      "source": "omc:post-client-server:K02",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K02:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:007",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:008",
+      "source": "omc:post-client-server:K03",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K03:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:009",
+      "source": "omc:post-client-server:K03",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:010",
+      "source": "omc:post-client-server:K03",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K02",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:011",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K04",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:012",
+      "source": "omc:post-client-server:K04",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K04:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:013",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K05",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:014",
+      "source": "omc:post-client-server:K05",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K05:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:015",
+      "source": "omc:post-client-server:K05",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:016",
+      "source": "omc:post-client-server:K05",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:017",
+      "source": "omc:post-client-server:K05",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K04",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:018",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:019",
+      "source": "omc:post-client-server:K06",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K06:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:020",
+      "source": "omc:post-client-server:K06",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:021",
+      "source": "omc:post-client-server:K06",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K02",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:022",
+      "source": "omc:post-client-server:K06",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:023",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K07",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:024",
+      "source": "omc:post-client-server:K07",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K07:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:025",
+      "source": "omc:post-client-server:K07",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K02",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:026",
+      "source": "omc:post-client-server:K07",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:027",
+      "source": "omc:post-client-server:K07",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K04",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:028",
+      "source": "omc:post-client-server:K07",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:029",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K08",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:030",
+      "source": "omc:post-client-server:K08",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K08:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:031",
+      "source": "omc:post-client-server:K08",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:032",
+      "source": "omc:post-client-server:K08",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K04",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:033",
+      "source": "omc:post-client-server:K08",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K09",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:034",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K09",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:035",
+      "source": "omc:post-client-server:K09",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K09:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:036",
+      "source": "omc:post-client-server:K09",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:037",
+      "source": "omc:post-client-server:K09",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K02",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:038",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K10",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:039",
+      "source": "omc:post-client-server:K10",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K10:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:040",
+      "source": "omc:post-client-server:K10",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K05",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:041",
+      "source": "omc:post-client-server:K10",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:042",
+      "source": "omc:post-client-server:K10",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K07",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:043",
+      "source": "omc:post-client-server:K10",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K08",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:044",
+      "source": "omc:post-client-server:K10",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K09",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:045",
+      "source": "omc:post-client-server:K10",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K11",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:046",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K11",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:047",
+      "source": "omc:post-client-server:K11",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K11:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:048",
+      "source": "omc:post-client-server:K11",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:049",
+      "source": "omc:post-client-server:K11",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K02",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:050",
+      "source": "omc:post-client-server:plan",
+      "type": "REQUIRES_KNOWLEDGE",
+      "target": "omc:post-client-server:K12",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:051",
+      "source": "omc:post-client-server:K12",
+      "type": "PRODUCES_SPEC",
+      "target": "omc:post-client-server:K12:artifact",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:052",
+      "source": "omc:post-client-server:K12",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:053",
+      "source": "omc:post-client-server:K12",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K02",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:054",
+      "source": "omc:post-client-server:K12",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:055",
+      "source": "omc:post-client-server:K12",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:056",
+      "source": "omc:post-client-server:K12",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K09",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:057",
+      "source": "omc:post-client-server:K12",
+      "type": "DEPENDS_ON",
+      "target": "omc:post-client-server:K11",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:058",
+      "source": "omc:post-client-server:plan",
+      "type": "PRESERVES",
+      "target": "omc:post-client-server:invariant:semantic",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:059",
+      "source": "omc:post-client-server:plan",
+      "type": "PRESERVES",
+      "target": "omc:post-client-server:invariant:result",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:060",
+      "source": "omc:post-client-server:plan",
+      "type": "PRESERVES",
+      "target": "omc:post-client-server:invariant:authority",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:061",
+      "source": "omc:post-client-server:plan",
+      "type": "PRESERVES",
+      "target": "omc:post-client-server:invariant:recovery",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:062",
+      "source": "omc:post-client-server:C01",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:063",
+      "source": "omc:post-client-server:C01",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K11",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:064",
+      "source": "omc:post-client-server:C02",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:02",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:065",
+      "source": "omc:post-client-server:C02",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:066",
+      "source": "omc:post-client-server:C02",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:067",
+      "source": "omc:post-client-server:C03",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:04",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:068",
+      "source": "omc:post-client-server:C03",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:069",
+      "source": "omc:post-client-server:C04",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:05",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:070",
+      "source": "omc:post-client-server:C04",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:071",
+      "source": "omc:post-client-server:C04",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:072",
+      "source": "omc:post-client-server:C05",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:07",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:073",
+      "source": "omc:post-client-server:C05",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:074",
+      "source": "omc:post-client-server:C05",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K08",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:075",
+      "source": "omc:post-client-server:C06",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:08",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:076",
+      "source": "omc:post-client-server:C06",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:09",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:077",
+      "source": "omc:post-client-server:C06",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:10",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:078",
+      "source": "omc:post-client-server:C06",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K05",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:079",
+      "source": "omc:post-client-server:C07",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:11",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:080",
+      "source": "omc:post-client-server:C07",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:12",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:081",
+      "source": "omc:post-client-server:C07",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:13",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:082",
+      "source": "omc:post-client-server:C07",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:083",
+      "source": "omc:post-client-server:C07",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K05",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:084",
+      "source": "omc:post-client-server:C08",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:14",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:085",
+      "source": "omc:post-client-server:C08",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:15",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:086",
+      "source": "omc:post-client-server:C08",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:087",
+      "source": "omc:post-client-server:C09",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:16",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:088",
+      "source": "omc:post-client-server:C09",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:17",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:089",
+      "source": "omc:post-client-server:C09",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:18",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:090",
+      "source": "omc:post-client-server:C09",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:19",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:091",
+      "source": "omc:post-client-server:C09",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:092",
+      "source": "omc:post-client-server:C10",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:20",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:093",
+      "source": "omc:post-client-server:C10",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:21",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:094",
+      "source": "omc:post-client-server:C10",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:22",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:095",
+      "source": "omc:post-client-server:C10",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K04",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:096",
+      "source": "omc:post-client-server:C10",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:097",
+      "source": "omc:post-client-server:C11",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:23",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:098",
+      "source": "omc:post-client-server:C11",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:24",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:099",
+      "source": "omc:post-client-server:C11",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:25",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:100",
+      "source": "omc:post-client-server:C11",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K04",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:101",
+      "source": "omc:post-client-server:C11",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K05",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:102",
+      "source": "omc:post-client-server:C12",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:26",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:103",
+      "source": "omc:post-client-server:C12",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K04",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:104",
+      "source": "omc:post-client-server:C12",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K09",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:105",
+      "source": "omc:post-client-server:C13",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:27",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:106",
+      "source": "omc:post-client-server:C13",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:107",
+      "source": "omc:post-client-server:C13",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:108",
+      "source": "omc:post-client-server:C14",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:28",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:109",
+      "source": "omc:post-client-server:C14",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K02",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:110",
+      "source": "omc:post-client-server:C14",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K07",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:111",
+      "source": "omc:post-client-server:C15",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:29",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:112",
+      "source": "omc:post-client-server:C15",
+      "type": "SUPPORTED_BY",
+      "target": "omc:post-client-server:span:30",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:113",
+      "source": "omc:post-client-server:C15",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K03",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:114",
+      "source": "omc:post-client-server:C15",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K06",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    },
+    {
+      "uid": "omc:post-client-server:edge:115",
+      "source": "omc:post-client-server:C15",
+      "type": "INFORMS",
+      "target": "omc:post-client-server:K09",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED_RELATION",
+      "sources": [
+        "omc:post-client-server:plan-source"
+      ]
+    }
+  ],
+  "competency_questions": [
+    {
+      "id": "CQ1",
+      "question": "What must be known before the first execution?",
+      "select_type": "Knowledge",
+      "filter": {
+        "priority": "P0"
+      },
+      "expected": [
+        "omc:post-client-server:K01",
+        "omc:post-client-server:K02",
+        "omc:post-client-server:K03",
+        "omc:post-client-server:K04",
+        "omc:post-client-server:K05",
+        "omc:post-client-server:K06",
+        "omc:post-client-server:K09",
+        "omc:post-client-server:K11"
+      ]
+    },
+    {
+      "id": "CQ2",
+      "question": "What direct prerequisites constrain AI adaptation?",
+      "start": "omc:post-client-server:K10",
+      "predicate": "DEPENDS_ON",
+      "expected": [
+        "omc:post-client-server:K05",
+        "omc:post-client-server:K06",
+        "omc:post-client-server:K07",
+        "omc:post-client-server:K08",
+        "omc:post-client-server:K09",
+        "omc:post-client-server:K11"
+      ]
+    },
+    {
+      "id": "CQ3",
+      "question": "Which invariants must all physical realizations preserve?",
+      "start": "omc:post-client-server:plan",
+      "predicate": "PRESERVES",
+      "expected": [
+        "omc:post-client-server:invariant:semantic",
+        "omc:post-client-server:invariant:result",
+        "omc:post-client-server:invariant:authority",
+        "omc:post-client-server:invariant:recovery"
+      ]
+    },
+    {
+      "id": "CQ4",
+      "question": "What source spans support the native execution boundary analysis?",
+      "start": "omc:post-client-server:C10",
+      "predicate": "SUPPORTED_BY",
+      "expected": [
+        "omc:post-client-server:span:20",
+        "omc:post-client-server:span:21",
+        "omc:post-client-server:span:22"
+      ]
+    },
+    {
+      "id": "CQ5",
+      "question": "Which bounded code analyses inform knowledge of partial failures?",
+      "end": "omc:post-client-server:K03",
+      "predicate": "INFORMS",
+      "expected": [
+        "omc:post-client-server:C02",
+        "omc:post-client-server:C07",
+        "omc:post-client-server:C13",
+        "omc:post-client-server:C15"
+      ]
+    }
+  ]
+}

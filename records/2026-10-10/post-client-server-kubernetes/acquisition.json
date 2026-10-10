@@ -1,0 +1,262 @@
+{
+  "schema": "omc-kubernetes-source-acquisition/1",
+  "authority": "SOURCE_DOCUMENT",
+  "recorded_at": "2026-10-10T17:58:59.845952+00:00",
+  "upstream": "https://github.com/kubernetes/kubernetes",
+  "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+  "revision_scope": "2026-10-07 master snapshot; not stable release selection",
+  "acquisition": "REUSE_EXISTING_OFFICIAL_SOURCE; copy selected files and independently refetch three pinned files",
+  "existing_checkout": "/home/lagyeongjun/.cache/chu-os-systems-source/20261007/kubernetes",
+  "archive": "/mnt/development/METAHUMOTONIC_SHARED/sources/os-systems-20261007/kubernetes-841d8db7236e660f53ee9df91133b58a780c8e7f.tar.gz",
+  "archive_sha256": "5795b742f989bf260c96715f21f0cda477a31ecdea863f90d10b847cc8ee7c5b",
+  "archive_bytes": 46530703,
+  "archive_verification": "SHA256_RECHECKED; full archive contents not independently revalidated this turn",
+  "files": [
+    {
+      "path": "staging/src/k8s.io/apiserver/pkg/server/config.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/staging/src/k8s.io/apiserver/pkg/server/config.go",
+      "bytes": 52751,
+      "sha256": "f576ebe7778a416aa5643b4c00673f238334202d1839152a48dc65301f40391c",
+      "git_blob_oid": "8df067da99ddbd208c3a2815c29471b8ab8a4677",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/apiserver/pkg/server/config.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "staging/src/k8s.io/apiserver/pkg/registry/generic/registry/store.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/staging/src/k8s.io/apiserver/pkg/registry/generic/registry/store.go",
+      "bytes": 70359,
+      "sha256": "f40bd7b761011a69117d8fcec8caf6ca95ef1f7cb02f25547f70acddc08d727c",
+      "git_blob_oid": "ee414b2b797cfc81eb912fe373292fc9b1f8f076",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/apiserver/pkg/registry/generic/registry/store.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go",
+      "bytes": 44835,
+      "sha256": "c70d9f66f72d5132c1d56f75480da48929964de484144ce5d0824109db86d0de",
+      "git_blob_oid": "cd6cf0dba8d504b1b7e6e7bec7c8bd176e5fd263",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "staging/src/k8s.io/client-go/tools/cache/reflector.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/staging/src/k8s.io/client-go/tools/cache/reflector.go",
+      "bytes": 54985,
+      "sha256": "2e5ae22e9a248545040fbceab3da7ecc8ca7faa92928ff3509cdcef3ca07c348",
+      "git_blob_oid": "82de01f9ae5f73ca1cd58491156afd7fd9ccb457",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/client-go/tools/cache/reflector.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "staging/src/k8s.io/client-go/tools/cache/shared_informer.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/staging/src/k8s.io/client-go/tools/cache/shared_informer.go",
+      "bytes": 58161,
+      "sha256": "06e7156fff1779882029c823706df766500bff21f1242ed7057ca74a78b4fc9e",
+      "git_blob_oid": "c259cdd9af00ec2e95ba0976c5ab3656de89ee95",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/client-go/tools/cache/shared_informer.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/controller/deployment/deployment_controller.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/controller/deployment/deployment_controller.go",
+      "bytes": 24286,
+      "sha256": "6e5f80a28c6312b58221160651b34d2395880a8a061e918c95cbb958f8c74bd3",
+      "git_blob_oid": "30cd52f462e909433316eeaab1bb104d2a05d37f",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/deployment/deployment_controller.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/controller/deployment/sync.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/controller/deployment/sync.go",
+      "bytes": 26163,
+      "sha256": "afdab25e5f9fb1cdcb6679faf6730bce94e44df67c3a4b93d0b6ad1058db5777",
+      "git_blob_oid": "0b5690a96a6f23d4f3964c6e28a4057cdca3bb16",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/deployment/sync.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/controller/replicaset/replica_set.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/controller/replicaset/replica_set.go",
+      "bytes": 38454,
+      "sha256": "a8de437f9fd4a0b677e78dd78e12375654b6f806119ac84151988e669a87ad01",
+      "git_blob_oid": "58f5ede1aa1f02b1771d2c7a8fdbfe585a52482c",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/replicaset/replica_set.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/scheduler/schedule_one.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/scheduler/schedule_one.go",
+      "bytes": 37662,
+      "sha256": "b843fca3a43fe76825eacb465f7923d863ab90c19caab6a4ea9ab3290040b598",
+      "git_blob_oid": "432dc69642c78e94119397388048f1fcb120adf2",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one.go",
+      "verification": "REMOTE_COMMIT_BYTES_AND_LOCAL_GIT_BLOB_MATCH"
+    },
+    {
+      "path": "pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go",
+      "bytes": 14088,
+      "sha256": "bcaf2645a6e7611a197b5d59431346ce9e4d0330a36079fa85331050cb17723c",
+      "git_blob_oid": "8bcf4431d57b1545f7e91a33175e3fa683300a99",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/scheduler/framework/plugins/noderesources/fit.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/scheduler/framework/plugins/noderesources/fit.go",
+      "bytes": 37615,
+      "sha256": "f03b6b9a4679fb6342ec7d8cb20c310a6a8758e1efaefb379fc410b0e807794c",
+      "git_blob_oid": "8a913d2cbeabf545245cb6ce4281ab5022cb0b54",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/noderesources/fit.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/scheduler/framework/plugins/defaultbinder/default_binder.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/scheduler/framework/plugins/defaultbinder/default_binder.go",
+      "bytes": 2312,
+      "sha256": "d7c96b22522405c3c582c00163e73f5e32e1de374282e9df247fdcf7354d7050",
+      "git_blob_oid": "ae812129826bec26041d641299e0d9995c2c7d7e",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/defaultbinder/default_binder.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/kubelet/kubelet.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/kubelet/kubelet.go",
+      "bytes": 156626,
+      "sha256": "e0f247ef45cb281166b58ba1a013dc6925023388193bd74c1f126c695b770d34",
+      "git_blob_oid": "3441aac96f44d6495cb1c883c4c0c717507b570f",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kubelet.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/kubelet/config/apiserver.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/kubelet/config/apiserver.go",
+      "bytes": 2396,
+      "sha256": "b69198851b76ec6300a435a0b73e100f136a245dcd0dba1c09863bd877bf0eb8",
+      "git_blob_oid": "c02cc9c8ff485fb77a147f1087694978a5b7f752",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/config/apiserver.go",
+      "verification": "REMOTE_COMMIT_BYTES_AND_LOCAL_GIT_BLOB_MATCH"
+    },
+    {
+      "path": "pkg/kubelet/pod_workers.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/kubelet/pod_workers.go",
+      "bytes": 78162,
+      "sha256": "7293b386ad650989f6831801e04769a3b86c5b8523eeb73bddacca790127797b",
+      "git_blob_oid": "7acf6f75fc494239ffd7141c01d553be5ce3a819",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/pod_workers.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/kubelet/kuberuntime/kuberuntime_manager.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/kubelet/kuberuntime/kuberuntime_manager.go",
+      "bytes": 106531,
+      "sha256": "d4f3db3b0975f4f0e144ed5486b5b6c4f4e36ea3c412c777f94bc8067ad36f10",
+      "git_blob_oid": "64d33b4f133bbfb43e3310984a4d5ef58535196f",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kuberuntime/kuberuntime_manager.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/kubelet/cm/topologymanager/policy_single_numa_node.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/kubelet/cm/topologymanager/policy_single_numa_node.go",
+      "bytes": 2605,
+      "sha256": "5763a3c2c898919d1d3656f4ee22b36a328ba463aeb7198efeff629c90c7555c",
+      "git_blob_oid": "1ba0cf263540c60d726546c58cf107478400e9c6",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/cm/topologymanager/policy_single_numa_node.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/controller/nodelifecycle/node_lifecycle_controller.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/controller/nodelifecycle/node_lifecycle_controller.go",
+      "bytes": 54740,
+      "sha256": "4229e61570c5463d7a7f1b0c18d63fdab5785ebddf54429aa9583f33e505822b",
+      "git_blob_oid": "b823d076bb5710d5c95cb45253d31d5deb54fd55",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/nodelifecycle/node_lifecycle_controller.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/proxy/iptables/proxier.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/proxy/iptables/proxier.go",
+      "bytes": 61330,
+      "sha256": "505c54e79527dd3a84d7b2f4619c572e21e71cb5952d8fbd1c17551b993ad6a1",
+      "git_blob_oid": "44dad6f3f5b333e942566db70be7434174a0b5c6",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/proxy/iptables/proxier.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/controller/deployment/deployment_controller_test.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/controller/deployment/deployment_controller_test.go",
+      "bytes": 32099,
+      "sha256": "9324fb3c26be1c45914b7e5a1a8710e1b0f6b4132aad2286d9411867ede73f1e",
+      "git_blob_oid": "08d5b6a79e12a01f46b1ac12957b15dc387939ca",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/deployment/deployment_controller_test.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/scheduler/schedule_one_test.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/scheduler/schedule_one_test.go",
+      "bytes": 216620,
+      "sha256": "3819ecf55d79d4a40194648060f7114c8575437c7e267a889800f2fa872dc0c4",
+      "git_blob_oid": "8d359ea6d85ad930bfe33bc1d1f24103398c5db9",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one_test.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "go.mod",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/go.mod",
+      "bytes": 11201,
+      "sha256": "e889bc40421ef98f19eb7c604e2471719646b385c07a82866a26032b7f3c0b76",
+      "git_blob_oid": "29fdc43604a09ebc09884247a2614d04417cfef3",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/go.mod",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "LICENSE",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "git_blob_oid": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/LICENSE",
+      "verification": "REMOTE_COMMIT_BYTES_AND_LOCAL_GIT_BLOB_MATCH"
+    },
+    {
+      "path": "README.md",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/README.md",
+      "bytes": 4236,
+      "sha256": "0c1159ea384aa0855eaad87f4595da8fd776553830297f3a7c43db81c7708fbd",
+      "git_blob_oid": "831bf0164f8e625d70c35a99ae23fd3522870f52",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/README.md",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/scheduler/algorithm.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/scheduler/algorithm.go",
+      "bytes": 30442,
+      "sha256": "4dfc7494ed7b3007fd2a59a209d61589a625f67128a04ca44c5eb69861abc64b",
+      "git_blob_oid": "89f8e42e2f048b4e9736ea97a1297840750f91e8",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/algorithm.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/kubelet/kuberuntime/kuberuntime_sandbox.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/kubelet/kuberuntime/kuberuntime_sandbox.go",
+      "bytes": 14681,
+      "sha256": "94c2d25724c3188ccaca6fde94566e49129e3adab8f1e9b86043692dcdc89852",
+      "git_blob_oid": "8f4e67f93795292cda21f8f18aa99526fd262707",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kuberuntime/kuberuntime_sandbox.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    },
+    {
+      "path": "pkg/kubelet/kuberuntime/kuberuntime_container.go",
+      "local_path": "records/2026-10-10/post-client-server-kubernetes/upstream/pkg/kubelet/kuberuntime/kuberuntime_container.go",
+      "bytes": 62063,
+      "sha256": "2078db61484941343b201d57f25ebed13a0a3dd95675e321d70f16f473979650",
+      "git_blob_oid": "a8cbcf2bd3098ea5190922913c17b93336a2a34c",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kuberuntime/kuberuntime_container.go",
+      "verification": "LOCAL_BYTES_MATCH_PINNED_GIT_BLOB"
+    }
+  ],
+  "upstream_build": "NOT_RUN",
+  "upstream_tests": "NOT_RUN",
+  "cluster_execution": "NOT_RUN"
+}

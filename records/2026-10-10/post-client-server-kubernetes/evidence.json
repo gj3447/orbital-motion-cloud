@@ -1,0 +1,495 @@
+{
+  "schema": "omc-kubernetes-code-evidence/1",
+  "actor": "Codex",
+  "recorded_on": "2026-10-10",
+  "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+  "acquisition_path": "records/2026-10-10/post-client-server-kubernetes/acquisition.json",
+  "scope": "SELECTED_STATIC_SOURCE_AND_TEST_DEFINITIONS",
+  "upstream_build": "NOT_RUN",
+  "upstream_tests": "NOT_RUN",
+  "cluster_execution": "NOT_RUN",
+  "read_spans": [
+    {
+      "uid": "omc:post-client-server:span:01",
+      "path": "staging/src/k8s.io/apiserver/pkg/server/config.go",
+      "start_line": 1036,
+      "end_line": 1086,
+      "sha256": "f4027e22360edb9a5b33ce746776f0328aef546f5c07e2c6626ef40a69cfcf9f",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/apiserver/pkg/server/config.go#L1036-L1086"
+    },
+    {
+      "uid": "omc:post-client-server:span:02",
+      "path": "staging/src/k8s.io/apiserver/pkg/registry/generic/registry/store.go",
+      "start_line": 878,
+      "end_line": 908,
+      "sha256": "d30880d64c398972efaa4866acbc0462fce41cbbe98be18e04a4bde5af38465a",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/apiserver/pkg/registry/generic/registry/store.go#L878-L908"
+    },
+    {
+      "uid": "omc:post-client-server:span:03",
+      "path": "staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go",
+      "start_line": 620,
+      "end_line": 650,
+      "sha256": "3e89cf8bf0804559b0dae938b6f6f865d391c5c6f8de5320137d74f4477e878e",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/apiserver/pkg/storage/etcd3/store.go#L620-L650"
+    },
+    {
+      "uid": "omc:post-client-server:span:04",
+      "path": "staging/src/k8s.io/client-go/tools/cache/reflector.go",
+      "start_line": 463,
+      "end_line": 565,
+      "sha256": "4085208553a6903e1baaa8db987ca6c7bfa11bda6b48f346800287fad896881d",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/staging/src/k8s.io/client-go/tools/cache/reflector.go#L463-L565"
+    },
+    {
+      "uid": "omc:post-client-server:span:05",
+      "path": "pkg/controller/deployment/deployment_controller.go",
+      "start_line": 475,
+      "end_line": 518,
+      "sha256": "3868095c88cbb2746d318733d905fea468cb9e2694f6c43f47576331c849c810",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/deployment/deployment_controller.go#L475-L518"
+    },
+    {
+      "uid": "omc:post-client-server:span:06",
+      "path": "pkg/controller/deployment/deployment_controller.go",
+      "start_line": 575,
+      "end_line": 661,
+      "sha256": "8f6720e2c8bf08c388536294af0ad126adb7f7d5c58b198fb5efc371592ad1ed",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/deployment/deployment_controller.go#L575-L661"
+    },
+    {
+      "uid": "omc:post-client-server:span:07",
+      "path": "pkg/controller/replicaset/replica_set.go",
+      "start_line": 653,
+      "end_line": 750,
+      "sha256": "4525fad8011db3b54e07c5e0f204442f71cbab998ebb58efb54657a4c96f793d",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/replicaset/replica_set.go#L653-L750"
+    },
+    {
+      "uid": "omc:post-client-server:span:08",
+      "path": "pkg/scheduler/algorithm.go",
+      "start_line": 144,
+      "end_line": 203,
+      "sha256": "3281a90b5cab577b913a3eb616bc1ed884a0efff1517b7e6e1acf7133bad9cda",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/algorithm.go#L144-L203"
+    },
+    {
+      "uid": "omc:post-client-server:span:09",
+      "path": "pkg/scheduler/algorithm.go",
+      "start_line": 327,
+      "end_line": 387,
+      "sha256": "ddf84606ee84504a6df31014fea924f7419146014977d552634ae4169b72cdd6",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/algorithm.go#L327-L387"
+    },
+    {
+      "uid": "omc:post-client-server:span:10",
+      "path": "pkg/scheduler/schedule_one.go",
+      "start_line": 565,
+      "end_line": 601,
+      "sha256": "ee5de38b06ed5d7e41e1a0d5471611639172dc6b8953f5844514461f396a13cb",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one.go#L565-L601"
+    },
+    {
+      "uid": "omc:post-client-server:span:11",
+      "path": "pkg/scheduler/algorithm.go",
+      "start_line": 618,
+      "end_line": 650,
+      "sha256": "a5e1a66948ba8014dea82a3a026751209148b959c5b8865547b7e27914bccc47",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/algorithm.go#L618-L650"
+    },
+    {
+      "uid": "omc:post-client-server:span:12",
+      "path": "pkg/scheduler/schedule_one.go",
+      "start_line": 129,
+      "end_line": 144,
+      "sha256": "f8b1e83ae9720ce373c51e0e9a74a56f1081af9e3ace0c4bc51b944a0852cfaf",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one.go#L129-L144"
+    },
+    {
+      "uid": "omc:post-client-server:span:13",
+      "path": "pkg/scheduler/schedule_one.go",
+      "start_line": 200,
+      "end_line": 231,
+      "sha256": "d4d6e5c21f963523d7fd627a487fa6d0528b0923a06f6ac3ef0d7ad73c11a113",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one.go#L200-L231"
+    },
+    {
+      "uid": "omc:post-client-server:span:14",
+      "path": "pkg/scheduler/schedule_one.go",
+      "start_line": 314,
+      "end_line": 427,
+      "sha256": "e4abf4fb5d0ba33c24bf9bad46c03aff2505b387da276799141b074a64bcf329",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one.go#L314-L427"
+    },
+    {
+      "uid": "omc:post-client-server:span:15",
+      "path": "pkg/scheduler/framework/plugins/defaultbinder/default_binder.go",
+      "start_line": 52,
+      "end_line": 76,
+      "sha256": "a80f531237f74227fe516a67790068cb908e0d523f50cd3b4c716d4a94dc518c",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/defaultbinder/default_binder.go#L52-L76"
+    },
+    {
+      "uid": "omc:post-client-server:span:16",
+      "path": "pkg/kubelet/config/apiserver.go",
+      "start_line": 36,
+      "end_line": 67,
+      "sha256": "f90d1177918b810ee91fe62c041ea345c7eb55b0233eb3b27a2dc9ad7cbf8761",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/config/apiserver.go#L36-L67"
+    },
+    {
+      "uid": "omc:post-client-server:span:17",
+      "path": "pkg/kubelet/kubelet.go",
+      "start_line": 2680,
+      "end_line": 2725,
+      "sha256": "0b371204ea34d9f16197056d860758e5d9edd05cb1ff429c7b5896ed181b6259",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kubelet.go#L2680-L2725"
+    },
+    {
+      "uid": "omc:post-client-server:span:18",
+      "path": "pkg/kubelet/kubelet.go",
+      "start_line": 2759,
+      "end_line": 2845,
+      "sha256": "96931774d5edd1ecc1c75bead4c86141586b78682733d2e1d47d9b9fc2b2099e",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kubelet.go#L2759-L2845"
+    },
+    {
+      "uid": "omc:post-client-server:span:19",
+      "path": "pkg/kubelet/kubelet.go",
+      "start_line": 2273,
+      "end_line": 2284,
+      "sha256": "a278229e0a93efcb78b12c7a6e81256982bf8baeb8cb631c6c635573f9189646",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kubelet.go#L2273-L2284"
+    },
+    {
+      "uid": "omc:post-client-server:span:20",
+      "path": "pkg/kubelet/kuberuntime/kuberuntime_manager.go",
+      "start_line": 1570,
+      "end_line": 1618,
+      "sha256": "8f0b1eb1e6e0045400fe73885b07b75e4622b602962f6268768a8f4f73044f93",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kuberuntime/kuberuntime_manager.go#L1570-L1618"
+    },
+    {
+      "uid": "omc:post-client-server:span:21",
+      "path": "pkg/kubelet/kuberuntime/kuberuntime_sandbox.go",
+      "start_line": 40,
+      "end_line": 79,
+      "sha256": "470622145cad4bf7833783a3af1839f3043143e05519ab83b60544314ca3b122",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kuberuntime/kuberuntime_sandbox.go#L40-L79"
+    },
+    {
+      "uid": "omc:post-client-server:span:22",
+      "path": "pkg/kubelet/kuberuntime/kuberuntime_container.go",
+      "start_line": 270,
+      "end_line": 300,
+      "sha256": "bbd8622bc8fae51de543d511ef2503af9080c264c18f67bb2733f65b1baa9865",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/kuberuntime/kuberuntime_container.go#L270-L300"
+    },
+    {
+      "uid": "omc:post-client-server:span:23",
+      "path": "pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go",
+      "start_line": 212,
+      "end_line": 235,
+      "sha256": "5ad5ecef0841ded385b1b15f22d10ea2891f3f443e5b90582ae3198137c09a7e",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go#L212-L235"
+    },
+    {
+      "uid": "omc:post-client-server:span:24",
+      "path": "pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go",
+      "start_line": 269,
+      "end_line": 298,
+      "sha256": "cc3b3ad3fde63ec217df06f48cbe6b61a23e11c394c85febed1c9e694d6268a0",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/nodeaffinity/node_affinity.go#L269-L298"
+    },
+    {
+      "uid": "omc:post-client-server:span:25",
+      "path": "pkg/kubelet/cm/topologymanager/policy_single_numa_node.go",
+      "start_line": 41,
+      "end_line": 77,
+      "sha256": "2a46d5cfacc5ca36abfa8744afb805602ec284061b8508ad17f6b7b26fd9c7bc",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/kubelet/cm/topologymanager/policy_single_numa_node.go#L41-L77"
+    },
+    {
+      "uid": "omc:post-client-server:span:26",
+      "path": "pkg/scheduler/framework/plugins/noderesources/fit.go",
+      "start_line": 713,
+      "end_line": 771,
+      "sha256": "b3b858780f5e6847f129d459342232d1c6cd8a57829c6b3861a18b43427e279c",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/framework/plugins/noderesources/fit.go#L713-L771"
+    },
+    {
+      "uid": "omc:post-client-server:span:27",
+      "path": "pkg/controller/nodelifecycle/node_lifecycle_controller.go",
+      "start_line": 913,
+      "end_line": 1014,
+      "sha256": "5a7b3f1efa7a01fec96a0d90d496e931e601665f15bdc34c7e25a74e4f4192ab",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/nodelifecycle/node_lifecycle_controller.go#L913-L1014"
+    },
+    {
+      "uid": "omc:post-client-server:span:28",
+      "path": "pkg/proxy/iptables/proxier.go",
+      "start_line": 625,
+      "end_line": 665,
+      "sha256": "be49ad780f80209021ad3b98a07ac52c53f0cce926005fe0fd888a60632343c5",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/proxy/iptables/proxier.go#L625-L665"
+    },
+    {
+      "uid": "omc:post-client-server:span:29",
+      "path": "pkg/controller/deployment/deployment_controller_test.go",
+      "start_line": 304,
+      "end_line": 329,
+      "sha256": "6caa1caa63ddb066ccb2aca55db055ddcae426c5a405b10a3b18f6b561ceda31",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/controller/deployment/deployment_controller_test.go#L304-L329"
+    },
+    {
+      "uid": "omc:post-client-server:span:30",
+      "path": "pkg/scheduler/schedule_one_test.go",
+      "start_line": 774,
+      "end_line": 829,
+      "sha256": "30da942207584bbc119d211fb88d15f0a26dbd2eee153078dc119d709fae929b",
+      "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+      "state": "READ_STATIC",
+      "authority": "SOURCE_DOCUMENT",
+      "url": "https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/pkg/scheduler/schedule_one_test.go#L774-L829"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C01",
+      "statement": "API handler chain composes authentication, authorization, audit and request controls.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:01"
+      ]
+    },
+    {
+      "id": "C02",
+      "statement": "Conditional registry updates check resourceVersion; etcd OptimisticPut retries conflicts.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:02",
+        "omc:post-client-server:span:03"
+      ]
+    },
+    {
+      "id": "C03",
+      "statement": "Reflector can use WatchList or fall back to list plus watch/resync.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:04"
+      ]
+    },
+    {
+      "id": "C04",
+      "statement": "Deployment queues keys, rereads cached objects and bounds rate-limited retries.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:05",
+        "omc:post-client-server:span:06"
+      ]
+    },
+    {
+      "id": "C05",
+      "statement": "ReplicaSet reconciles replica count using its own Pod template and expectations.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:07"
+      ]
+    },
+    {
+      "id": "C06",
+      "statement": "Single-Pod scheduling filters candidates and scores feasible nodes under search limits.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:08",
+        "omc:post-client-server:span:09",
+        "omc:post-client-server:span:10"
+      ]
+    },
+    {
+      "id": "C07",
+      "statement": "Assume/Reserve uses scheduler cache with Unreserve/Forget failure paths.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:11",
+        "omc:post-client-server:span:12",
+        "omc:post-client-server:span:13"
+      ]
+    },
+    {
+      "id": "C08",
+      "statement": "Binding is a separate cycle and API operation, distinct from application readiness.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:14",
+        "omc:post-client-server:span:15"
+      ]
+    },
+    {
+      "id": "C09",
+      "statement": "Kubelet watches Pods assigned to its node and reconciles them through local sync loops.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:16",
+        "omc:post-client-server:span:17",
+        "omc:post-client-server:span:18",
+        "omc:post-client-server:span:19"
+      ]
+    },
+    {
+      "id": "C10",
+      "statement": "Runtime manager calls the runtime service for sandbox creation and container creation/start.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:20",
+        "omc:post-client-server:span:21",
+        "omc:post-client-server:span:22"
+      ]
+    },
+    {
+      "id": "C11",
+      "statement": "NodeAffinity and single-NUMA admission expose explicit hardware-sensitive paths.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:23",
+        "omc:post-client-server:span:24",
+        "omc:post-client-server:span:25"
+      ]
+    },
+    {
+      "id": "C12",
+      "statement": "The inspected resource-fit checks compare allocatable resources against declared requests.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:26"
+      ]
+    },
+    {
+      "id": "C13",
+      "statement": "Node lifecycle examines heartbeat/lease freshness and can mark conditions Unknown.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:27"
+      ]
+    },
+    {
+      "id": "C14",
+      "statement": "The inspected iptables proxier entry reconciles observed Service/endpoint changes.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:28"
+      ]
+    },
+    {
+      "id": "C15",
+      "statement": "Read test definitions cover deletion races and Reserve/Permit failure; tests were not executed.",
+      "authority": "SECONDARY_AI",
+      "state": "STATIC_CODE_ANALYSIS",
+      "read_spans": [
+        "omc:post-client-server:span:29",
+        "omc:post-client-server:span:30"
+      ]
+    }
+  ]
+}

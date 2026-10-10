@@ -16,6 +16,8 @@ Start with [WHAT_IS](docs/WHAT_IS.md) for the conceptual map, then [RESEARCH_MAP
 
 The [hardware and software fit plan](docs/HARDWARE_SOFTWARE_FIT_PLAN.md) extends that direction toward hardware-specific native program variants, execution settings and data placement under CHU OS. The [verbatim user statement](records/2026-10-10/hardware-software-fit/user-verbatim.txt) is separate from the [proposed graph and runtime contracts](graph/hardware-software-fit.proposal.json). This is a HOW_TO design, with phased acceptance criteria; it does not claim a deployed autonomous runtime. Validate the design with `python3 records/2026-10-10/hardware-software-fit/validate.py`.
 
+The [post-client-server knowledge plan](docs/POST_CLIENT_SERVER_KNOWLEDGE_PLAN.md) turns that direction into twelve knowledge areas, their dependencies, concrete contracts and a first bounded experiment. The [Kubernetes source analysis](docs/KUBERNETES_SOURCE_ANALYSIS.md) follows API updates, observation, controllers, scheduling and node execution at an official pinned commit. [Source records](records/2026-10-10/post-client-server-kubernetes/README.md) distinguish verbatim user input, acquired source bytes, static analysis and proposed OMC design. The [knowledge graph](graph/post-client-server-knowledge.json) is owner-local; validate it with `python3 records/2026-10-10/post-client-server-kubernetes/validate.py`.
+
 The [2026-10-10 OMC and MHC purpose note](docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md)
 records the user's direction: continuously contribute computing resources, earn credits,
 and use the larger HSWM·CHU intelligence through a P2P economy and mutual agreement.

@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "scope": "EVIDENCE_AND_GRAPH_INTEGRITY_ONLY",
+  "competency_answers": {
+    "CQ1": [
+      "omc:post-client-server:K01",
+      "omc:post-client-server:K02",
+      "omc:post-client-server:K03",
+      "omc:post-client-server:K04",
+      "omc:post-client-server:K05",
+      "omc:post-client-server:K06",
+      "omc:post-client-server:K09",
+      "omc:post-client-server:K11"
+    ],
+    "CQ2": [
+      "omc:post-client-server:K05",
+      "omc:post-client-server:K06",
+      "omc:post-client-server:K07",
+      "omc:post-client-server:K08",
+      "omc:post-client-server:K09",
+      "omc:post-client-server:K11"
+    ],
+    "CQ3": [
+      "omc:post-client-server:invariant:authority",
+      "omc:post-client-server:invariant:recovery",
+      "omc:post-client-server:invariant:result",
+      "omc:post-client-server:invariant:semantic"
+    ],
+    "CQ4": [
+      "omc:post-client-server:span:20",
+      "omc:post-client-server:span:21",
+      "omc:post-client-server:span:22"
+    ],
+    "CQ5": [
+      "omc:post-client-server:C02",
+      "omc:post-client-server:C07",
+      "omc:post-client-server:C13",
+      "omc:post-client-server:C15"
+    ]
+  },
+  "rejected_negative_probes": [
+    "dangling_edge",
+    "altered_span",
+    "invented_execution",
+    "authority_promotion"
+  ],
+  "upstream_tests": "NOT_RUN",
+  "cluster_execution": "NOT_RUN"
+}
