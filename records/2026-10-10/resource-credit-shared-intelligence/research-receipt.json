@@ -1,0 +1,40 @@
+{
+  "schema": "omc-research-save-receipt/v1",
+  "date": "2026-10-10",
+  "authority": "OBSERVED_LOCAL_WORKFLOW_RESULT",
+  "content_owner": "https://github.com/gj3447/orbital-motion-cloud",
+  "content_revision": "1226991837e3a1f2e3ef45031ba07fbe5914b65d",
+  "content_path": "docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md",
+  "content_sha256": "483346b0cbfe0ddfbe7c284545d1b07edec3c081ef69829198407cdae1113eab",
+  "user_source_path": "records/2026-10-10/resource-credit-shared-intelligence/user-verbatim.txt",
+  "user_source_sha256": "f8c80dee3a5b14738cb94c18ba90df48dd31d620fc6d28c15e060ebdc5b46e5b",
+  "hub": {
+    "repository": "https://github.com/gj3447/the-great-flow",
+    "revision": "db877996a4f13e8406547af93068446bba08a1e4",
+    "run_id": "omc-resource-credit-purpose-20261010",
+    "state": "COMPLETE",
+    "placement": "REUSED",
+    "topic": "infrastructure-orchestration",
+    "completed_at": "2026-10-10T10:20:55Z",
+    "artifact": {
+      "kind": "WHAT_IS",
+      "authority": "SECONDARY_AI",
+      "commit": "8b02a57ca6e4f6b625b9e336e6b7da84eccf2239",
+      "source_path": "data/research-organization/omc-resource-credit-purpose-20261010/what-is.md",
+      "source_sha256": "86538855c71a6dd5e95af615b6a862ee828b0971a729529059c11f7bf3e730e8",
+      "module_uid": "research:module:27598f06-e808-4085-b029-8af1a58a41a3"
+    }
+  },
+  "checks": {
+    "module_identity": "PASS",
+    "verbatim_and_message_hashes": "PASS",
+    "local_document_links": "PASS",
+    "original_archive_unchanged": "PASS",
+    "hub_render_and_check": "PASS",
+    "exact_committed_what_is_bytes": "PASS",
+    "workflow_graph_and_usl_artifact_pins": "PASS",
+    "diff_whitespace": "PASS"
+  },
+  "shared_kg_written": false,
+  "runtime_execution_or_coin_issuance": false
+}

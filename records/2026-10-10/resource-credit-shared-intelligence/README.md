@@ -33,4 +33,5 @@ KG에서는 OMC의 안정 UID `sym:Character:입체운행구름`을 사용한다
 자원 기여, 크레딧 지급 또는 HSWM 서비스의 실행 시험이 아니다.
 
 소유 허브의 연구 정리 작업 ID는 `omc-resource-credit-purpose-20261010`이다.
-실제 연결·검사 결과는 작업을 실행한 뒤 별도 영수증에 기록한다.
+기존 WHAT_IS 모듈에 기록하고 그래프·USL 갱신 및 검사를 완료했다.
+`COMPLETE` 상태와 원문·커밋·검사 근거는 [연구 기록 영수증](research-receipt.json)에 보존한다.
