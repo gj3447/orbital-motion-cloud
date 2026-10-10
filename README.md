@@ -14,6 +14,8 @@ Start with [WHAT_IS](docs/WHAT_IS.md) for the conceptual map, then [RESEARCH_MAP
 
 [Hardware-adaptive placement](docs/HARDWARE_ADAPTIVE_PLACEMENT.md) observes storage and memory, checks an AI-selected batch, uses the existing owner transfer CLI, and verifies that USL resource IDs, meanings, roles and provenance survive location changes. Run `python3 scripts/placement_graph.py check` and `python3 scripts/placement.py --help`. Private host registrations stay under ignored `.local/`; the CLI preserves source files.
 
+The [hardware and software fit plan](docs/HARDWARE_SOFTWARE_FIT_PLAN.md) extends that direction toward hardware-specific native program variants, execution settings and data placement under CHU OS. The [verbatim user statement](records/2026-10-10/hardware-software-fit/user-verbatim.txt) is separate from the [proposed graph and runtime contracts](graph/hardware-software-fit.proposal.json). This is a HOW_TO design, with phased acceptance criteria; it does not claim a deployed autonomous runtime. Validate the design with `python3 records/2026-10-10/hardware-software-fit/validate.py`.
+
 The [2026-10-10 OMC and MHC purpose note](docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md)
 records the user's direction: continuously contribute computing resources, earn credits,
 and use the larger HSWM·CHU intelligence through a P2P economy and mutual agreement.

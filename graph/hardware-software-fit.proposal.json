@@ -1,0 +1,1122 @@
+{
+  "schema": "omc-hardware-software-fit-proposal/1",
+  "scope": "OWNER_LOCAL_DESIGN_ONLY",
+  "authority": "SECONDARY_AI",
+  "state": "PROPOSED",
+  "actor": "Codex",
+  "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+  "shared_kg_written": false,
+  "runtime_deployed": false,
+  "nodes": [
+    {
+      "uid": "omc:hardware-fit:source:user",
+      "type": "Source",
+      "label": "user",
+      "authority": "USER_PRIMARY",
+      "state": "RECORDED",
+      "path": "records/2026-10-10/hardware-software-fit/user-verbatim.txt",
+      "sha256": "0ed24bd3d36fd55d7655d6ac41d8c29393c4335f3543cf453333e8f331cf57ef",
+      "bytes": 716,
+      "revision": null,
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:chu-os-user",
+      "type": "Source",
+      "label": "chu-os-user",
+      "authority": "USER_PRIMARY",
+      "state": "RECORDED",
+      "path": "records/2026-10-10/hardware-software-fit/chu-os-user-verbatim.txt",
+      "sha256": "ee6b967a7cb508d204b4a8860b5c1510115c496ca006b92a4e02c8f1808a50f6",
+      "bytes": 129,
+      "revision": null,
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:placement-user",
+      "type": "Source",
+      "label": "placement-user",
+      "authority": "USER_PRIMARY",
+      "state": "RECORDED",
+      "path": "records/2026-10-10/hardware-adaptive-placement/user-verbatim.txt",
+      "sha256": "98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+      "bytes": 449,
+      "revision": "e34b725d58b3ba1a7e5fe3f607fc6cfed7356966",
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:placement-graph",
+      "type": "Source",
+      "label": "placement-graph",
+      "authority": "SECONDARY_AI",
+      "state": "RECORDED",
+      "path": "graph/placement.json",
+      "sha256": "476072dbfacaefc866052cb77c3ccecc2eaeb45c97c77c20d2407646620c4291",
+      "bytes": 13973,
+      "revision": "34923418424e40705cee2256695497007f7c423b",
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:placement-implementation",
+      "type": "Source",
+      "label": "placement-implementation",
+      "authority": "SECONDARY_AI",
+      "state": "RECORDED",
+      "path": "scripts/placement.py",
+      "sha256": "1b006b8abd50d5913fbc13e68a5f5ce0d4f4948d3f7f22f47ee0184398e6a1d0",
+      "bytes": 32332,
+      "revision": "34923418424e40705cee2256695497007f7c423b",
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:historical-kubernetes",
+      "type": "Source",
+      "label": "historical-kubernetes",
+      "authority": "SOURCE_DOCUMENT",
+      "state": "RECORDED",
+      "path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/KUBERNETES_BORG_ABSORPTION_2026-07-15.md",
+      "sha256": "0ef2f42173f5d09bce7c26aa7ed8d2de9bfeccdf7dc0e2f3b54b4b84022b4871",
+      "bytes": 15789,
+      "revision": "c1d095eadeef6eaeb68e359324dfe244d3ead1ca",
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:plan",
+      "type": "Source",
+      "label": "plan",
+      "authority": "SECONDARY_AI",
+      "state": "RECORDED",
+      "path": "docs/HARDWARE_SOFTWARE_FIT_PLAN.md",
+      "sha256": "93286d14cf6b07f5693594c280f81c07d09e0be9ef0b9a419e1f74255a6da9af",
+      "bytes": 13637,
+      "revision": null,
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:k8s-affinity",
+      "type": "Source",
+      "label": "k8s-affinity",
+      "authority": "SOURCE_DOCUMENT",
+      "state": "READ_EXTERNAL_DOCUMENT",
+      "url": "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/",
+      "accessed_on": "2026-10-10",
+      "sha256": null,
+      "verification": "WEB_READ_NO_IMMUTABLE_SNAPSHOT"
+    },
+    {
+      "uid": "omc:hardware-fit:source:k8s-topology",
+      "type": "Source",
+      "label": "k8s-topology",
+      "authority": "SOURCE_DOCUMENT",
+      "state": "READ_EXTERNAL_DOCUMENT",
+      "url": "https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/",
+      "accessed_on": "2026-10-10",
+      "sha256": null,
+      "verification": "WEB_READ_NO_IMMUTABLE_SNAPSHOT"
+    },
+    {
+      "uid": "sym:Character:입체운행구름",
+      "type": "Subject",
+      "label": "입체운행구름",
+      "authority": "SECONDARY_AI",
+      "state": "IDENTITY_REFERENCE",
+      "sources": [
+        "omc:hardware-fit:source:placement-graph"
+      ]
+    },
+    {
+      "uid": "omc:placement:capability",
+      "type": "Capability",
+      "label": "하드웨어 상태에 적응하는 데이터 배치",
+      "authority": "SECONDARY_AI",
+      "state": "EXISTING_BOUNDED_IMPLEMENTATION",
+      "sources": [
+        "omc:hardware-fit:source:placement-graph",
+        "omc:hardware-fit:source:placement-implementation"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:proposal",
+      "type": "Proposal",
+      "label": "하드웨어에 맞춘 소프트웨어·데이터 실현",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:user",
+        "omc:hardware-fit:source:placement-user",
+        "omc:hardware-fit:source:chu-os-user",
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:chu-os-target",
+      "type": "IntegrationTarget",
+      "label": "CHU OS",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:chu-os-user"
+      ],
+      "canonical_uid": null,
+      "identity_resolution": "UNRESOLVED_CANONICAL_ID"
+    },
+    {
+      "uid": "omc:hardware-fit:semantic-graph",
+      "type": "Invariant",
+      "label": "HSWM ID·의미·연결·역할·출처 보존",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:workload-contract",
+      "type": "Invariant",
+      "label": "입출력·정확성·허용 오차 계약 보존",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:owner-limits",
+      "type": "Invariant",
+      "label": "소유자의 자원 한도·취소 계약 보존",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:variant",
+      "type": "Dimension",
+      "label": "장비 호환 프로그램 변형",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:runtime",
+      "type": "Dimension",
+      "label": "스레드·NUMA·메모리 실행 설정",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:data-placement",
+      "type": "Dimension",
+      "label": "복사본·캐시·USL locator",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:hardware-selection",
+      "type": "Dimension",
+      "label": "실행 장비 선택",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:phase:1",
+      "type": "Stage",
+      "label": "계약과 읽기 전용 관측",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:gate:compatibility",
+      "type": "Gate",
+      "label": "ISA·ABI·관측 TTL·용량 적격성",
+      "authority": "SECONDARY_AI",
+      "state": "NOT_EVALUATED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:phase:2",
+      "type": "Stage",
+      "label": "실행하지 않는 비교 계획",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:gate:reproducible-plan",
+      "type": "Gate",
+      "label": "선택 이유·제약·예상 비용 재현",
+      "authority": "SECONDARY_AI",
+      "state": "NOT_EVALUATED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:phase:3",
+      "type": "Stage",
+      "label": "제한된 네이티브 실험",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:gate:correctness-and-cost",
+      "type": "Gate",
+      "label": "출력 계약·전체 비용·취소·중단 복구 검증",
+      "authority": "SECONDARY_AI",
+      "state": "NOT_EVALUATED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:phase:4",
+      "type": "Stage",
+      "label": "제한된 자동 조정",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:gate:fault-recovery",
+      "type": "Gate",
+      "label": "예약 충돌·장애·성능 악화에서 복구",
+      "authority": "SECONDARY_AI",
+      "state": "NOT_EVALUATED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:phase:5",
+      "type": "Stage",
+      "label": "CHU OS 연결",
+      "authority": "SECONDARY_AI",
+      "state": "PLANNED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:gate:semantic-preservation",
+      "type": "Gate",
+      "label": "확장 시 의미·연결·출처·개입 빈도 검증",
+      "authority": "SECONDARY_AI",
+      "state": "NOT_EVALUATED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "uid": "omc:hardware-fit:edge:1",
+      "source": "omc:hardware-fit:proposal",
+      "type": "PROPOSES_FOR",
+      "target": "sym:Character:입체운행구름",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:2",
+      "source": "omc:hardware-fit:proposal",
+      "type": "REUSES",
+      "target": "omc:placement:capability",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:3",
+      "source": "omc:hardware-fit:proposal",
+      "type": "TARGETS",
+      "target": "omc:hardware-fit:chu-os-target",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:4",
+      "source": "omc:hardware-fit:proposal",
+      "type": "DERIVED_FROM",
+      "target": "omc:hardware-fit:source:user",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:5",
+      "source": "omc:hardware-fit:proposal",
+      "type": "DERIVED_FROM",
+      "target": "omc:hardware-fit:source:chu-os-user",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:6",
+      "source": "omc:hardware-fit:proposal",
+      "type": "DERIVED_FROM",
+      "target": "omc:hardware-fit:source:placement-user",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:7",
+      "source": "omc:hardware-fit:proposal",
+      "type": "DERIVED_FROM",
+      "target": "omc:hardware-fit:source:plan",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:8",
+      "source": "omc:hardware-fit:proposal",
+      "type": "DERIVED_FROM",
+      "target": "omc:hardware-fit:source:historical-kubernetes",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:9",
+      "source": "omc:hardware-fit:proposal",
+      "type": "DERIVED_FROM",
+      "target": "omc:hardware-fit:source:k8s-affinity",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:10",
+      "source": "omc:hardware-fit:proposal",
+      "type": "DERIVED_FROM",
+      "target": "omc:hardware-fit:source:k8s-topology",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:11",
+      "source": "omc:hardware-fit:proposal",
+      "type": "PRESERVES",
+      "target": "omc:hardware-fit:semantic-graph",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:12",
+      "source": "omc:hardware-fit:proposal",
+      "type": "PRESERVES",
+      "target": "omc:hardware-fit:workload-contract",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:13",
+      "source": "omc:hardware-fit:proposal",
+      "type": "PRESERVES",
+      "target": "omc:hardware-fit:owner-limits",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:14",
+      "source": "omc:hardware-fit:proposal",
+      "type": "ADAPTS",
+      "target": "omc:hardware-fit:variant",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:15",
+      "source": "omc:hardware-fit:proposal",
+      "type": "ADAPTS",
+      "target": "omc:hardware-fit:runtime",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:16",
+      "source": "omc:hardware-fit:proposal",
+      "type": "ADAPTS",
+      "target": "omc:hardware-fit:data-placement",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:17",
+      "source": "omc:hardware-fit:proposal",
+      "type": "ADAPTS",
+      "target": "omc:hardware-fit:hardware-selection",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:18",
+      "source": "omc:hardware-fit:proposal",
+      "type": "HAS_PHASE",
+      "target": "omc:hardware-fit:phase:1",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:19",
+      "source": "omc:hardware-fit:phase:1",
+      "type": "REQUIRES",
+      "target": "omc:hardware-fit:gate:compatibility",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:20",
+      "source": "omc:hardware-fit:proposal",
+      "type": "HAS_PHASE",
+      "target": "omc:hardware-fit:phase:2",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:21",
+      "source": "omc:hardware-fit:phase:2",
+      "type": "DEPENDS_ON",
+      "target": "omc:hardware-fit:phase:1",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:22",
+      "source": "omc:hardware-fit:phase:2",
+      "type": "REQUIRES",
+      "target": "omc:hardware-fit:gate:reproducible-plan",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:23",
+      "source": "omc:hardware-fit:proposal",
+      "type": "HAS_PHASE",
+      "target": "omc:hardware-fit:phase:3",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:24",
+      "source": "omc:hardware-fit:phase:3",
+      "type": "DEPENDS_ON",
+      "target": "omc:hardware-fit:phase:2",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:25",
+      "source": "omc:hardware-fit:phase:3",
+      "type": "REQUIRES",
+      "target": "omc:hardware-fit:gate:correctness-and-cost",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:26",
+      "source": "omc:hardware-fit:proposal",
+      "type": "HAS_PHASE",
+      "target": "omc:hardware-fit:phase:4",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:27",
+      "source": "omc:hardware-fit:phase:4",
+      "type": "DEPENDS_ON",
+      "target": "omc:hardware-fit:phase:3",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:28",
+      "source": "omc:hardware-fit:phase:4",
+      "type": "REQUIRES",
+      "target": "omc:hardware-fit:gate:fault-recovery",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:29",
+      "source": "omc:hardware-fit:proposal",
+      "type": "HAS_PHASE",
+      "target": "omc:hardware-fit:phase:5",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:30",
+      "source": "omc:hardware-fit:phase:5",
+      "type": "DEPENDS_ON",
+      "target": "omc:hardware-fit:phase:4",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    },
+    {
+      "uid": "omc:hardware-fit:edge:31",
+      "source": "omc:hardware-fit:phase:5",
+      "type": "REQUIRES",
+      "target": "omc:hardware-fit:gate:semantic-preservation",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "sources": [
+        "omc:hardware-fit:source:plan"
+      ]
+    }
+  ],
+  "predicate_contracts": {
+    "PROPOSES_FOR": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Subject"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Design scope references the existing subject identity; no new identity ratification.",
+      "acyclic": false
+    },
+    "REUSES": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Capability"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Reuse only the bounded capability recorded in the source.",
+      "acyclic": false
+    },
+    "TARGETS": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "IntegrationTarget"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Future integration target, not a live binding.",
+      "acyclic": false
+    },
+    "DERIVED_FROM": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Source"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Attributable design basis; source authority does not transfer to interpretation.",
+      "acyclic": false
+    },
+    "PRESERVES": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Invariant"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Required invariant of an accepted realization.",
+      "acyclic": false
+    },
+    "ADAPTS": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Dimension"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Permitted adaptation dimension subject to preserved contracts.",
+      "acyclic": false
+    },
+    "HAS_PHASE": {
+      "domain": [
+        "Proposal"
+      ],
+      "range": [
+        "Stage"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 1,
+      "in_max": 1,
+      "meaning": "Planned development phase; no claim of runtime completion.",
+      "acyclic": false
+    },
+    "DEPENDS_ON": {
+      "domain": [
+        "Stage"
+      ],
+      "range": [
+        "Stage"
+      ],
+      "direction": "source_to_target",
+      "out_min": 0,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Later phase requires the earlier phase acceptance evidence.",
+      "acyclic": true
+    },
+    "REQUIRES": {
+      "domain": [
+        "Stage"
+      ],
+      "range": [
+        "Gate"
+      ],
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 1,
+      "in_max": 1,
+      "meaning": "Phase exit criterion; evaluation remains separate.",
+      "acyclic": false
+    }
+  },
+  "competency_questions": [
+    {
+      "id": "CQ1",
+      "question": "무엇을 보존하는가?",
+      "start": "omc:hardware-fit:proposal",
+      "predicate": "PRESERVES",
+      "expected": [
+        "omc:hardware-fit:semantic-graph",
+        "omc:hardware-fit:workload-contract",
+        "omc:hardware-fit:owner-limits"
+      ]
+    },
+    {
+      "id": "CQ2",
+      "question": "무엇을 하드웨어에 맞춰 바꾸는가?",
+      "start": "omc:hardware-fit:proposal",
+      "predicate": "ADAPTS",
+      "expected": [
+        "omc:hardware-fit:variant",
+        "omc:hardware-fit:runtime",
+        "omc:hardware-fit:data-placement",
+        "omc:hardware-fit:hardware-selection"
+      ]
+    },
+    {
+      "id": "CQ3",
+      "question": "이 해석의 출처는 무엇인가?",
+      "start": "omc:hardware-fit:proposal",
+      "predicate": "DERIVED_FROM",
+      "expected": [
+        "omc:hardware-fit:source:user",
+        "omc:hardware-fit:source:chu-os-user",
+        "omc:hardware-fit:source:placement-user",
+        "omc:hardware-fit:source:plan",
+        "omc:hardware-fit:source:historical-kubernetes",
+        "omc:hardware-fit:source:k8s-affinity",
+        "omc:hardware-fit:source:k8s-topology"
+      ]
+    },
+    {
+      "id": "CQ4",
+      "question": "현재 어떤 구현을 재사용하는가?",
+      "start": "omc:hardware-fit:proposal",
+      "predicate": "REUSES",
+      "expected": [
+        "omc:placement:capability"
+      ]
+    },
+    {
+      "id": "CQ5",
+      "question": "자동 조정의 다음 단계 진입 조건은 무엇인가?",
+      "start": "omc:hardware-fit:phase:4",
+      "predicate": "REQUIRES",
+      "expected": [
+        "omc:hardware-fit:gate:fault-recovery"
+      ]
+    },
+    {
+      "id": "CQ6",
+      "question": "미래 CHU OS 통합 대상은 무엇이며 정본 ID가 확인됐는가?",
+      "start": "omc:hardware-fit:proposal",
+      "predicate": "TARGETS",
+      "expected": [
+        "omc:hardware-fit:chu-os-target"
+      ],
+      "expected_properties": {
+        "omc:hardware-fit:chu-os-target": {
+          "canonical_uid": null,
+          "identity_resolution": "UNRESOLVED_CANONICAL_ID"
+        }
+      }
+    }
+  ],
+  "runtime_contract": {
+    "state": "PROPOSED_SCHEMA_ONLY",
+    "instances": [],
+    "required_fields": {
+      "WorkloadSpec": [
+        "uid",
+        "contract_revision",
+        "input_schema",
+        "output_schema",
+        "correctness_oracle",
+        "tolerance",
+        "owner_policy",
+        "side_effects",
+        "cancel_contract"
+      ],
+      "HardwareProfile": [
+        "uid",
+        "substrate_kind",
+        "capabilities",
+        "capability_source"
+      ],
+      "Observation": [
+        "uid",
+        "observed_at",
+        "expires_at",
+        "boot_id",
+        "measurements",
+        "unknown_fields",
+        "collector_digest"
+      ],
+      "ProgramVariant": [
+        "uid",
+        "artifact_sha256",
+        "source_revision",
+        "build_provenance",
+        "isa_abi_driver_constraints",
+        "validation_evidence"
+      ],
+      "DataResource": [
+        "uid",
+        "content_revision",
+        "sha256",
+        "owner_policy"
+      ],
+      "Replica": [
+        "uid",
+        "locator",
+        "representation_digest",
+        "device_uid",
+        "failure_domain",
+        "verification_evidence"
+      ],
+      "ExecutionPlan": [
+        "uid",
+        "digest",
+        "generation",
+        "registered_argv",
+        "budget",
+        "reservation",
+        "lease_fencing_generation",
+        "previous_state_digest",
+        "cancel_recovery_contract",
+        "decision_evidence"
+      ],
+      "Run": [
+        "uid",
+        "attempt",
+        "state",
+        "started_at",
+        "ended_at",
+        "executor_identity"
+      ],
+      "Outcome": [
+        "uid",
+        "status",
+        "correctness",
+        "end_to_end_cost",
+        "measurement_units",
+        "evidence",
+        "recorded_at"
+      ]
+    },
+    "predicate_contracts": {
+      "IMPLEMENTS": {
+        "domain": [
+          "ProgramVariant"
+        ],
+        "range": [
+          "WorkloadSpec"
+        ],
+        "direction": "source_to_target",
+        "out_min": 1,
+        "out_max": 1,
+        "in_min": 0,
+        "in_max": null,
+        "meaning": "Variant implements exactly one versioned workload contract in this initial model.",
+        "acyclic": false
+      },
+      "OBSERVES": {
+        "domain": [
+          "Observation"
+        ],
+        "range": [
+          "HardwareProfile"
+        ],
+        "direction": "source_to_target",
+        "out_min": 1,
+        "out_max": 1,
+        "in_min": 0,
+        "in_max": null,
+        "meaning": "Time-bounded measurements of one identified hardware context.",
+        "acyclic": false
+      },
+      "REPRESENTS": {
+        "domain": [
+          "Replica"
+        ],
+        "range": [
+          "DataResource"
+        ],
+        "direction": "source_to_target",
+        "out_min": 1,
+        "out_max": 1,
+        "in_min": 0,
+        "in_max": null,
+        "meaning": "Physical verified representation of one logical data revision.",
+        "acyclic": false
+      },
+      "SELECTS_VARIANT": {
+        "domain": [
+          "ExecutionPlan"
+        ],
+        "range": [
+          "ProgramVariant"
+        ],
+        "direction": "source_to_target",
+        "out_min": 1,
+        "out_max": 1,
+        "in_min": 0,
+        "in_max": null,
+        "meaning": "One admitted variant per single-host execution unit.",
+        "acyclic": false
+      },
+      "TARGETS_HARDWARE": {
+        "domain": [
+          "ExecutionPlan"
+        ],
+        "range": [
+          "HardwareProfile"
+        ],
+        "direction": "source_to_target",
+        "out_min": 1,
+        "out_max": 1,
+        "in_min": 0,
+        "in_max": null,
+        "meaning": "One hardware target per plan; distributed jobs compose child plans.",
+        "acyclic": false
+      },
+      "BASED_ON": {
+        "domain": [
+          "ExecutionPlan"
+        ],
+        "range": [
+          "Observation"
+        ],
+        "direction": "source_to_target",
+        "out_min": 1,
+        "out_max": null,
+        "in_min": 0,
+        "in_max": null,
+        "meaning": "Fresh pinned observations supporting admission.",
+        "acyclic": false
+      },
+      "READS_REPLICA": {
+        "domain": [
+          "ExecutionPlan"
+        ],
+        "range": [
+          "Replica"
+        ],
+        "direction": "source_to_target",
+        "out_min": 0,
+        "out_max": null,
+        "in_min": 0,
+        "in_max": null,
+        "meaning": "Actual input representation, preserving logical resource identity.",
+        "acyclic": false
+      },
+      "EXECUTES": {
+        "domain": [
+          "Run"
+        ],
+        "range": [
+          "ExecutionPlan"
+        ],
+        "direction": "source_to_target",
+        "out_min": 1,
+        "out_max": 1,
+        "in_min": 0,
+        "in_max": null,
+        "meaning": "An actual attempt executing exactly one immutable plan.",
+        "acyclic": false
+      },
+      "RESULT_OF": {
+        "domain": [
+          "Outcome"
+        ],
+        "range": [
+          "Run"
+        ],
+        "direction": "source_to_target",
+        "out_min": 1,
+        "out_max": 1,
+        "in_min": 0,
+        "in_max": 1,
+        "meaning": "Immutable terminal outcome of an actual attempt.",
+        "acyclic": false
+      }
+    },
+    "cross_record_constraints": [
+      "Selected variant must implement the requested workload contract revision.",
+      "Target hardware must satisfy the selected variant compatibility requirements.",
+      "Observations must refer to the selected target and remain fresh at admission.",
+      "Result correctness must be evaluated against the exact workload/input revision.",
+      "Logical HSWM graph is referenced, never rewritten by a realization plan.",
+      "Run failure is not successful performance evidence; unknown metrics remain unknown."
+    ]
+  }
+}

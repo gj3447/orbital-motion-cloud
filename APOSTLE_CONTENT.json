@@ -189,7 +189,7 @@
   "guides": [
     {
       "repository_path": "README.md",
-      "sha256": "c31676e53f7c23572b03c606b64d705ee5bc9b6e7c58814679a94204fa911de0",
+      "sha256": "71a26b78546f82916236bdb6fc8935e77fc91648b1c7269e7e808341cb223e82",
       "authority": "SECONDARY_AI"
     },
     {
@@ -236,6 +236,11 @@
       "repository_path": "docs/HARDWARE_ADAPTIVE_PLACEMENT.md",
       "authority": "SECONDARY_AI",
       "sha256": "996f866d851ecf0bd88a77e41be93b6d6a6f365622b898667d843a30e8202d71"
+    },
+    {
+      "repository_path": "docs/HARDWARE_SOFTWARE_FIT_PLAN.md",
+      "sha256": "93286d14cf6b07f5693594c280f81c07d09e0be9ef0b9a419e1f74255a6da9af",
+      "authority": "SECONDARY_AI"
     }
   ]
 }

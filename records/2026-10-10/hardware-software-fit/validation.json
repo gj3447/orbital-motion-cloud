@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "nodes": 30,
+  "edges": 31,
+  "answers": {
+    "CQ1": [
+      "omc:hardware-fit:owner-limits",
+      "omc:hardware-fit:semantic-graph",
+      "omc:hardware-fit:workload-contract"
+    ],
+    "CQ2": [
+      "omc:hardware-fit:data-placement",
+      "omc:hardware-fit:hardware-selection",
+      "omc:hardware-fit:runtime",
+      "omc:hardware-fit:variant"
+    ],
+    "CQ3": [
+      "omc:hardware-fit:source:chu-os-user",
+      "omc:hardware-fit:source:historical-kubernetes",
+      "omc:hardware-fit:source:k8s-affinity",
+      "omc:hardware-fit:source:k8s-topology",
+      "omc:hardware-fit:source:placement-user",
+      "omc:hardware-fit:source:plan",
+      "omc:hardware-fit:source:user"
+    ],
+    "CQ4": [
+      "omc:placement:capability"
+    ],
+    "CQ5": [
+      "omc:hardware-fit:gate:fault-recovery"
+    ],
+    "CQ6": [
+      "omc:hardware-fit:chu-os-target"
+    ]
+  },
+  "scope": "DESIGN_GRAPH_ONLY; runtime schema declaration checked, runtime instances not evaluated",
+  "recorded_at": "2026-10-10T17:43:14.115424+00:00",
+  "graph_sha256": "efa70762e2c9ff07de766c8f0399e2e3b2b28402225b07a68cb8a5d3780e902b",
+  "validator_sha256": "8f0231b4e13f2be588a532d6ec68c4c12f5d0ecb7209ed1baf5c0e7bed08b02c",
+  "negative_probes": {
+    "dangling_endpoint": "missing endpoint",
+    "ai_promoted_to_user": "interpretation promoted to canon",
+    "false_runtime_completion": "unexecuted phase marked complete",
+    "wrong_exact_cq": "wrong CQ answer: CQ1"
+  },
+  "runtime_experiments_performed": false
+}

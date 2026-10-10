@@ -1,0 +1,131 @@
+{
+  "schema": "omc-hardware-fit-sources/1",
+  "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+  "user_text_encoding": "UTF-8; exact body; no trailing newline",
+  "sources": [
+    {
+      "uid": "omc:hardware-fit:source:user",
+      "type": "Source",
+      "label": "user",
+      "authority": "USER_PRIMARY",
+      "state": "RECORDED",
+      "path": "records/2026-10-10/hardware-software-fit/user-verbatim.txt",
+      "sha256": "0ed24bd3d36fd55d7655d6ac41d8c29393c4335f3543cf453333e8f331cf57ef",
+      "bytes": 716,
+      "revision": null,
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:chu-os-user",
+      "type": "Source",
+      "label": "chu-os-user",
+      "authority": "USER_PRIMARY",
+      "state": "RECORDED",
+      "path": "records/2026-10-10/hardware-software-fit/chu-os-user-verbatim.txt",
+      "sha256": "ee6b967a7cb508d204b4a8860b5c1510115c496ca006b92a4e02c8f1808a50f6",
+      "bytes": 129,
+      "revision": null,
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:placement-user",
+      "type": "Source",
+      "label": "placement-user",
+      "authority": "USER_PRIMARY",
+      "state": "RECORDED",
+      "path": "records/2026-10-10/hardware-adaptive-placement/user-verbatim.txt",
+      "sha256": "98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+      "bytes": 449,
+      "revision": "e34b725d58b3ba1a7e5fe3f607fc6cfed7356966",
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:placement-graph",
+      "type": "Source",
+      "label": "placement-graph",
+      "authority": "SECONDARY_AI",
+      "state": "RECORDED",
+      "path": "graph/placement.json",
+      "sha256": "476072dbfacaefc866052cb77c3ccecc2eaeb45c97c77c20d2407646620c4291",
+      "bytes": 13973,
+      "revision": "34923418424e40705cee2256695497007f7c423b",
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:placement-implementation",
+      "type": "Source",
+      "label": "placement-implementation",
+      "authority": "SECONDARY_AI",
+      "state": "RECORDED",
+      "path": "scripts/placement.py",
+      "sha256": "1b006b8abd50d5913fbc13e68a5f5ce0d4f4948d3f7f22f47ee0184398e6a1d0",
+      "bytes": 32332,
+      "revision": "34923418424e40705cee2256695497007f7c423b",
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:historical-kubernetes",
+      "type": "Source",
+      "label": "historical-kubernetes",
+      "authority": "SOURCE_DOCUMENT",
+      "state": "RECORDED",
+      "path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/KUBERNETES_BORG_ABSORPTION_2026-07-15.md",
+      "sha256": "0ef2f42173f5d09bce7c26aa7ed8d2de9bfeccdf7dc0e2f3b54b4b84022b4871",
+      "bytes": 15789,
+      "revision": "c1d095eadeef6eaeb68e359324dfe244d3ead1ca",
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:plan",
+      "type": "Source",
+      "label": "plan",
+      "authority": "SECONDARY_AI",
+      "state": "RECORDED",
+      "path": "docs/HARDWARE_SOFTWARE_FIT_PLAN.md",
+      "sha256": "93286d14cf6b07f5693594c280f81c07d09e0be9ef0b9a419e1f74255a6da9af",
+      "bytes": 13637,
+      "revision": null,
+      "recorded_at": "2026-10-10T17:41:36.678978+00:00",
+      "event_time": null
+    },
+    {
+      "uid": "omc:hardware-fit:source:k8s-affinity",
+      "type": "Source",
+      "label": "k8s-affinity",
+      "authority": "SOURCE_DOCUMENT",
+      "state": "READ_EXTERNAL_DOCUMENT",
+      "url": "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/",
+      "accessed_on": "2026-10-10",
+      "sha256": null,
+      "verification": "WEB_READ_NO_IMMUTABLE_SNAPSHOT"
+    },
+    {
+      "uid": "omc:hardware-fit:source:k8s-topology",
+      "type": "Source",
+      "label": "k8s-topology",
+      "authority": "SOURCE_DOCUMENT",
+      "state": "READ_EXTERNAL_DOCUMENT",
+      "url": "https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/",
+      "accessed_on": "2026-10-10",
+      "sha256": null,
+      "verification": "WEB_READ_NO_IMMUTABLE_SNAPSHOT"
+    }
+  ],
+  "lookup": {
+    "omc_uid": "sym:Character:입체운행구름",
+    "kg_authority": "UNSPECIFIED",
+    "usage": "IDENTITY_REFERENCE_ONLY",
+    "chu_os_queries": [
+      "CHU OS",
+      "CHU_OS"
+    ],
+    "chu_os_resolution": "UNRESOLVED_IN_QUERIES; no identity merged",
+    "local_fallback": "Owner module registry and OMC placement graph; bootstrap research packet exceeded its input-size limit."
+  }
+}
