@@ -1,0 +1,1700 @@
+{
+  "status": "MAPPED",
+  "paths": [
+    {
+      "path": "data/research-organization/omc-logical-foundations-20261010.json",
+      "status": "MAPPED",
+      "modules": [
+        "dev:module:research-workflow"
+      ],
+      "contracts": [],
+      "generated": false,
+      "edit_sources": [],
+      "sources": [
+        {
+          "uid": "dev:source:registry",
+          "uri": "graph/development.json",
+          "sha256": "bb652f8db8490e0abd7f1dd10b07e992f465501ea50b865cad44814d33727147",
+          "authority": "SOURCE_DECLARED",
+          "actor": "Codex"
+        }
+      ],
+      "note": "Declared ownership; existence of a future path is not an observation."
+    }
+  ],
+  "affected": [
+    {
+      "module": {
+        "uid": "dev:module:research-workflow",
+        "type": "Module",
+        "label": "에이전트 연구 자동 정리",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:research-workflow",
+            "dev:check:research-modules",
+            "dev:check:generated"
+          ],
+          "key": "research-workflow",
+          "label": "에이전트 연구 자동 정리",
+          "paths": [
+            "scripts/research_workflow.py",
+            "tests/test_research_workflow.py",
+            "graph/research-policy.json",
+            "graph/research-workflow.json",
+            "docs/RESEARCH_WORKFLOW.md",
+            "data/research-organization/*",
+            "data/research-organization/resource-orchestration-20261004/*",
+            "tests/test_research_workflow_graph.py",
+            "tests/test_research_workflow_recovery.py",
+            "data/research-organization/make-os-20261004/*",
+            "data/research-organization/make-os-hswm-20261005/*",
+            "data/research-organization/wolfram-os-20261006/*",
+            "data/research-organization/wolfram-corpus-20261006/*",
+            "data/research-organization/os-adjacent-20261006/*",
+            "data/research-organization/os-knowledge-20261006/*",
+            "data/research-organization/chu-backend-20261007/*",
+            "data/research-organization/os-systems-20261007/*",
+            "data/research-organization/rea-linux-20261009/*",
+            "data/research-organization/chu-storage-20261009/*",
+            "tests/test_research_workflow_batch.py",
+            "data/research-organization/20261009-verx-avatar-control/*",
+            "data/research-organization/20261009-hswm-theory-howto/*",
+            "data/research-organization/20261009-vtuber-gacha-open-source/*",
+            "data/research-organization/20261010-verx-hoh-avatar/*"
+          ],
+          "purpose": "에이전트의 배치 판단을 독립 Git 기록·고정 근거·그래프 갱신으로 실행",
+          "uid": "dev:module:research-workflow"
+        }
+      },
+      "reason_path": []
+    },
+    {
+      "module": {
+        "uid": "dev:module:build",
+        "type": "Module",
+        "label": "그래프·생성물",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:core",
+            "dev:check:generated",
+            "dev:check:build-publication"
+          ],
+          "key": "build",
+          "label": "그래프·생성물",
+          "paths": [
+            "scripts/build.py",
+            "scripts/catalog.py",
+            "graph/catalog.json",
+            "graph/hosts.json",
+            "graph/sources.json",
+            "tests/test_graph.py",
+            "docs/VERIFICATION.md",
+            "tests/test_build_publication.py"
+          ],
+          "purpose": "선언·관측을 결합하고 모델·생성물 계약 검증",
+          "uid": "dev:module:build"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:ae541636c5e87fa996a01548",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/build.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/build.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:research-content",
+        "type": "Module",
+        "label": "연구 내용과 원문 판본",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:research-content",
+            "dev:check:generated"
+          ],
+          "key": "research-content",
+          "label": "연구 내용과 원문 판본",
+          "paths": [
+            "scripts/research_content.py",
+            "graph/research-content.json",
+            "docs/RESEARCH_CONTENT.md",
+            "tests/test_research_content.py"
+          ],
+          "purpose": "주제별 최신 WHAT_IS/HOW_TO 기록과 캡처 원문·확인 범위를 연결",
+          "uid": "dev:module:research-content"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:6e63045b09b0d58572c5a077",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/research_content.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/research_content.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:workspace-search",
+        "type": "Module",
+        "label": "통합 자료 본문 검색",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:workspace-search",
+            "dev:check:generated"
+          ],
+          "key": "workspace-search",
+          "label": "통합 자료 본문 검색",
+          "paths": [
+            "scripts/workspace_search.py",
+            "tests/test_workspace_search.py"
+          ],
+          "purpose": "읽기 이력과 독립적인 원문 전체 색인·고정 연구 산출물 조회",
+          "uid": "dev:module:workspace-search"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:030eb382aa1f72618c0fc5a4",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/workspace_search.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/workspace_search.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:serving",
+        "type": "Module",
+        "label": "로컬 문서 서버",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:core",
+            "dev:check:workspace-chat-http"
+          ],
+          "key": "serving",
+          "label": "로컬 문서 서버",
+          "paths": [
+            "scripts/serve.py",
+            "tests/test_workspace_chat_http.py"
+          ],
+          "purpose": "loopback 생성 문서·읽기 상태와 제한된 몬순이 대화 API",
+          "uid": "dev:module:serving"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:39eb9e3ebcaf5e704fa27a60",
+          "type": "PRODUCES",
+          "source": "dev:module:research-workflow",
+          "target": "dev:contract:research-workflow",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        },
+        {
+          "uid": "dev:edge:f8ea9620eb8ac015e61d1ce5",
+          "type": "CONSUMES",
+          "source": "dev:module:serving",
+          "target": "dev:contract:research-workflow",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:avatar-control",
+        "type": "Module",
+        "label": "3D 캐릭터 제어·출처 그래프",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:avatar-control",
+            "dev:check:generated"
+          ],
+          "key": "avatar-control",
+          "label": "3D 캐릭터 제어·출처 그래프",
+          "paths": [
+            "scripts/avatar_graph.py",
+            "tests/test_avatar_graph.py",
+            "graph/avatar-control.json",
+            "docs/AVATAR_GRAPH.md",
+            "work/2026-10-09-avatar-graph/*"
+          ],
+          "purpose": "기록된 모델·리그·동작·제어·시험과 HSWM/CHU 준비 경계를 근거별로 연결",
+          "uid": "dev:module:avatar-control"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:39eb9e3ebcaf5e704fa27a60",
+          "type": "PRODUCES",
+          "source": "dev:module:research-workflow",
+          "target": "dev:contract:research-workflow",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        },
+        {
+          "uid": "dev:edge:cbaa74d067f5e33dbc67c26e",
+          "type": "CONSUMES",
+          "source": "dev:module:avatar-control",
+          "target": "dev:contract:research-workflow",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:query",
+        "type": "Module",
+        "label": "조회 CLI",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:core",
+            "dev:check:inspection"
+          ],
+          "key": "query",
+          "label": "조회 CLI",
+          "paths": [
+            "scripts/query.py",
+            "scripts/inspect_repos.py"
+          ],
+          "purpose": "개인 자원과 두 레포 색인의 읽기 전용 질의",
+          "uid": "dev:module:query"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:ae541636c5e87fa996a01548",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/build.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/build.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            25
+          ]
+        },
+        {
+          "uid": "dev:edge:668146aebc07aa339e3f0e21",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/query.py",
+          "target": "dev:file:scripts/build.py",
+          "sources": [
+            "dev:source:scripts/query.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:inspection",
+        "type": "Module",
+        "label": "두 색인 비교",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:inspection",
+            "dev:check:generated"
+          ],
+          "key": "inspection",
+          "label": "두 색인 비교",
+          "paths": [
+            "scripts/repository_inspection.py",
+            "scripts/import_ailab.py",
+            "tests/test_repository_inspection.py"
+          ],
+          "purpose": "AILAB 원본 투영·권위 보존·레포 질의",
+          "uid": "dev:module:inspection"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:ae541636c5e87fa996a01548",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/build.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/build.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            25
+          ]
+        },
+        {
+          "uid": "dev:edge:899733006ae5cf238d2e06fa",
+          "type": "PRODUCES",
+          "source": "dev:module:build",
+          "target": "dev:contract:dashboard",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        },
+        {
+          "uid": "dev:edge:2f0e99dbc2fb2c1c63288226",
+          "type": "CONSUMES",
+          "source": "dev:module:inspection",
+          "target": "dev:contract:dashboard",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:planning",
+        "type": "Module",
+        "label": "후속 작업 계획",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:planning",
+            "dev:check:orchestration-plan",
+            "dev:check:generated",
+            "dev:check:workspace-plan"
+          ],
+          "key": "planning",
+          "label": "후속 작업 계획",
+          "paths": [
+            "scripts/work_plan.py",
+            "graph/work-plan.json",
+            "graph/work-plan-contract.json",
+            "tests/test_work_plan.py",
+            "scripts/orchestration_plan.py",
+            "graph/orchestration-plan.json",
+            "graph/orchestration-plan-contract.json",
+            "data/research/20261001-orchestration-role-sources.json",
+            "tests/test_orchestration_plan.py",
+            "scripts/workspace_plan.py",
+            "graph/workspace-plan.json",
+            "graph/workspace-plan-contract.json",
+            "tests/test_workspace_plan.py"
+          ],
+          "purpose": "작업·근거·정보 요구·완료 조건과 현재 진행 조회",
+          "uid": "dev:module:planning"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:ae541636c5e87fa996a01548",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/build.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/build.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            25
+          ]
+        },
+        {
+          "uid": "dev:edge:899733006ae5cf238d2e06fa",
+          "type": "PRODUCES",
+          "source": "dev:module:build",
+          "target": "dev:contract:dashboard",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        },
+        {
+          "uid": "dev:edge:ca75ff95e69638b383cb6980",
+          "type": "CONSUMES",
+          "source": "dev:module:planning",
+          "target": "dev:contract:dashboard",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:interface",
+        "type": "Module",
+        "label": "대시보드 화면",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:browser",
+            "dev:check:generated"
+          ],
+          "key": "interface",
+          "label": "대시보드 화면",
+          "paths": [
+            "scripts/template.html",
+            "scripts/inspection-section.html",
+            "scripts/inspection-ui.js",
+            "tests/browser-*.js",
+            "docs/images/personal-workspace-home-*.png",
+            "scripts/workspace-ui.js",
+            "scripts/workspace-section.html",
+            "scripts/workspace.css",
+            "scripts/fleet-section.html",
+            "scripts/fleet-ui.js",
+            "scripts/research-modules-ui.js",
+            "scripts/research-modules-section.html",
+            "docs/images/workspace-chat-*.png",
+            "docs/images/workspace-feedback-*.png"
+          ],
+          "purpose": "검색·상세·비교·근거의 오프라인 표시",
+          "uid": "dev:module:interface"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:ae541636c5e87fa996a01548",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/build.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/build.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            25
+          ]
+        },
+        {
+          "uid": "dev:edge:899733006ae5cf238d2e06fa",
+          "type": "PRODUCES",
+          "source": "dev:module:build",
+          "target": "dev:contract:dashboard",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        },
+        {
+          "uid": "dev:edge:fd4adad5133253ce6ff622ca",
+          "type": "CONSUMES",
+          "source": "dev:module:interface",
+          "target": "dev:contract:dashboard",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:workspace",
+        "type": "Module",
+        "label": "개인 작업 공간·AILAB 원문",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:workspace",
+            "dev:check:generated",
+            "dev:check:browser"
+          ],
+          "key": "workspace",
+          "label": "개인 작업 공간·AILAB 원문",
+          "paths": [
+            "scripts/workspace.py",
+            "scripts/import_ailab_content.py",
+            "graph/workspace.json",
+            "data/research/20261003-workspace-kg.json",
+            "docs/WORKSPACE.md",
+            "tests/test_workspace.py"
+          ],
+          "purpose": "고정 원문 수집·역할·HOH·개인 적용 그래프와 브라우저 피드백 계약",
+          "uid": "dev:module:workspace"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:030eb382aa1f72618c0fc5a4",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/workspace_search.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/workspace_search.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            14
+          ]
+        },
+        {
+          "uid": "dev:edge:a3afa973463064731b0c5f8d",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/workspace.py",
+          "target": "dev:file:scripts/workspace_search.py",
+          "sources": [
+            "dev:source:scripts/workspace.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:workspace-chat",
+        "type": "Module",
+        "label": "몬순이 원문 대화",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:workspace-chat",
+            "dev:check:browser",
+            "dev:check:generated"
+          ],
+          "key": "workspace-chat",
+          "label": "몬순이 원문 대화",
+          "paths": [
+            "scripts/workspace_chat.py",
+            "scripts/workspace-chat.js",
+            "scripts/workspace-chat.css",
+            "tests/test_workspace_chat.py",
+            "docs/WORKSPACE_CHAT.md"
+          ],
+          "purpose": "고정 원문 맥락과 제한 모델 요청·취소·인용·화면 ACK",
+          "uid": "dev:module:workspace-chat"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:030eb382aa1f72618c0fc5a4",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/workspace_search.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/workspace_search.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            14
+          ]
+        },
+        {
+          "uid": "dev:edge:fefefb2da26602e97bd687f5",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/workspace_chat.py",
+          "target": "dev:file:scripts/workspace_search.py",
+          "sources": [
+            "dev:source:scripts/workspace_chat.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:research",
+        "type": "Module",
+        "label": "DellTower 연구 USL 바인딩",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:research",
+            "dev:check:generated"
+          ],
+          "key": "research",
+          "label": "DellTower 연구 USL 바인딩",
+          "paths": [
+            "scripts/research_probe.py",
+            "scripts/import_research.py",
+            "scripts/research_bindings.py",
+            "graph/research-bindings.json",
+            "docs/RESEARCH_BINDINGS.md",
+            "tests/test_research_bindings.py"
+          ],
+          "purpose": "고정 Git 문서 관측·원문 탐색·범위를 제한한 USL 투영",
+          "uid": "dev:module:research"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:ae541636c5e87fa996a01548",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/build.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/build.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            25
+          ]
+        },
+        {
+          "uid": "dev:edge:899733006ae5cf238d2e06fa",
+          "type": "PRODUCES",
+          "source": "dev:module:build",
+          "target": "dev:contract:dashboard",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        },
+        {
+          "uid": "dev:edge:2f0e99dbc2fb2c1c63288226",
+          "type": "CONSUMES",
+          "source": "dev:module:inspection",
+          "target": "dev:contract:dashboard",
+          "sources": [
+            "dev:source:registry"
+          ],
+          "authority": "SOURCE_DECLARED"
+        },
+        {
+          "uid": "dev:edge:0d0c873459bd58a2fa6d44b1",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/import_research.py",
+          "target": "dev:file:scripts/repository_inspection.py",
+          "sources": [
+            "dev:source:scripts/import_research.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "module": {
+        "uid": "dev:module:social-research",
+        "type": "Module",
+        "label": "Grok·X 연구 자료 수집",
+        "sources": [
+          "dev:source:registry"
+        ],
+        "authority": "SOURCE_DECLARED",
+        "definition": {
+          "checks": [
+            "dev:check:social-research",
+            "dev:check:generated",
+            "dev:check:social-research-schedule"
+          ],
+          "key": "social-research",
+          "label": "Grok·X 연구 자료 수집",
+          "paths": [
+            "scripts/social_research_collector.py",
+            "scripts/social_research_graph.py",
+            "scripts/social_research_xai.py",
+            "graph/social-research-collector.json",
+            "docs/SOCIAL_RESEARCH_COLLECTOR.md",
+            "tests/test_social_research_collector.py",
+            "tests/test_social_research_graph.py",
+            "tests/test_social_research_xai.py",
+            "scripts/social_research_dgx.py",
+            "tests/test_social_research_dgx.py",
+            "scripts/social_research_sources.py",
+            "scripts/social_research_automation.py",
+            "tests/test_social_research_sources.py",
+            "tests/test_social_research_automation.py",
+            "work/2026-10-09-dgx-automation/*"
+          ],
+          "purpose": "공개 피드·X URL·사용자 제공 원문의 제한 수집과 개인 DGX 분석, 출처 문서·주장 후보·검토 그래프 분리. OpenClaw runtime/계정 소유권은 유지.",
+          "uid": "dev:module:social-research"
+        }
+      },
+      "reason_path": [
+        {
+          "uid": "dev:edge:030eb382aa1f72618c0fc5a4",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/workspace_search.py",
+          "target": "dev:file:scripts/research_workflow.py",
+          "sources": [
+            "dev:source:scripts/workspace_search.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            14
+          ]
+        },
+        {
+          "uid": "dev:edge:fefefb2da26602e97bd687f5",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/workspace_chat.py",
+          "target": "dev:file:scripts/workspace_search.py",
+          "sources": [
+            "dev:source:scripts/workspace_chat.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            25
+          ]
+        },
+        {
+          "uid": "dev:edge:726b12c790073aee5ccffa84",
+          "type": "IMPORTS",
+          "source": "dev:file:scripts/social_research_dgx.py",
+          "target": "dev:file:scripts/workspace_chat.py",
+          "sources": [
+            "dev:source:scripts/social_research_dgx.py"
+          ],
+          "authority": "OBSERVED",
+          "lines": [
+            23
+          ]
+        }
+      ]
+    }
+  ],
+  "contracts": [
+    {
+      "uid": "dev:contract:ailab",
+      "type": "Contract",
+      "label": "AILAB 투영 입력",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:build"
+        ],
+        "generated": true,
+        "label": "AILAB 투영 입력",
+        "meaning": "고정 원본 커밋의 레포 중심 투영",
+        "paths": [
+          "data/inspection.current.json",
+          "data/snapshots/repository-inspection-ailab-*.json"
+        ],
+        "producer": "dev:module:inspection",
+        "uid": "dev:contract:ailab",
+        "version": "repository-inspection-input/1; projection_version=2"
+      }
+    },
+    {
+      "uid": "dev:contract:dashboard",
+      "type": "Contract",
+      "label": "개인 그래프",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:query",
+          "dev:module:inspection",
+          "dev:module:planning",
+          "dev:module:interface"
+        ],
+        "generated": true,
+        "label": "개인 그래프",
+        "meaning": "개인 88레포·장비·설치·사용·접근의 타입·출처 계약",
+        "paths": [
+          "graph/dashboard.graph.json"
+        ],
+        "producer": "dev:module:build",
+        "uid": "dev:contract:dashboard",
+        "version": "schema_version=1"
+      }
+    },
+    {
+      "uid": "dev:contract:inspection",
+      "type": "Contract",
+      "label": "레포 비교 그래프",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:query",
+          "dev:module:interface",
+          "dev:module:research"
+        ],
+        "generated": true,
+        "label": "레포 비교 그래프",
+        "meaning": "서로 다른 색인의 소유 범위·출처·원래 권위를 보존",
+        "paths": [
+          "graph/repository-inspection.graph.json"
+        ],
+        "producer": "dev:module:inspection",
+        "uid": "dev:contract:inspection",
+        "version": "repository-inspection/1"
+      }
+    },
+    {
+      "uid": "dev:contract:views",
+      "type": "Contract",
+      "label": "오프라인 화면·문서",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:serving"
+        ],
+        "edit_sources": [
+          "scripts/build.py",
+          "scripts/template.html",
+          "scripts/inspection-section.html",
+          "scripts/inspection-ui.js",
+          "scripts/workspace-ui.js",
+          "scripts/workspace-section.html",
+          "scripts/workspace.css"
+        ],
+        "generated": true,
+        "label": "오프라인 화면·문서",
+        "meaning": "현재 template와 생성 코드에서 만든 산출물; source를 수정하고 render",
+        "paths": [
+          "index.html",
+          "REPOS.md",
+          "HARDWARE.md",
+          "ACCESS.md",
+          "CLI.md",
+          "USAGE.md",
+          "GRAPH.md",
+          "llms.txt",
+          "cli-bindings/*.md"
+        ],
+        "producer": "dev:module:build",
+        "uid": "dev:contract:views",
+        "version": "dashboard-view/1 (local boundary)"
+      }
+    },
+    {
+      "uid": "dev:contract:orchestration-plan",
+      "type": "Contract",
+      "label": "오케스트레이션 작업 계획 뷰",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:build",
+          "dev:module:serving"
+        ],
+        "edit_sources": [
+          "graph/orchestration-plan.json",
+          "graph/orchestration-plan-contract.json",
+          "scripts/orchestration_plan.py"
+        ],
+        "generated": true,
+        "label": "오케스트레이션 작업 계획 뷰",
+        "meaning": "제안 작업·근거·선행 조건·완료 기준·역할 추천의 생성 문서; 실행 상태와 정전 임명은 별도",
+        "paths": [
+          "bindings/orchestration-plan.md"
+        ],
+        "producer": "dev:module:planning",
+        "uid": "dev:contract:orchestration-plan",
+        "version": "metahumotonic-orchestration-plan/1"
+      }
+    },
+    {
+      "uid": "dev:contract:research",
+      "type": "Contract",
+      "label": "연구 원문과 USL 연결",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:build"
+        ],
+        "edit_sources": [
+          "scripts/research_bindings.py",
+          "graph/research-bindings.json"
+        ],
+        "generated": true,
+        "label": "연구 원문과 USL 연결",
+        "meaning": "문서의 저장소·Git commit·blob·SHA-256과 연구 탐색 관계; 실행·접근 권한 없음",
+        "paths": [
+          "graph/research-bindings.graph.json",
+          "graph/research-bindings.usl.json",
+          "bindings/research-usl.md",
+          "bindings/research/*.md"
+        ],
+        "producer": "dev:module:research",
+        "uid": "dev:contract:research",
+        "version": "research-bindings-graph/1; property-graph/v2"
+      }
+    },
+    {
+      "uid": "dev:contract:ailab-content",
+      "type": "Contract",
+      "label": "AILAB 원문 스냅샷",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:build",
+          "dev:module:workspace-search"
+        ],
+        "generated": true,
+        "label": "AILAB 원문 스냅샷",
+        "meaning": "문서·계획·결정·그래프·스키마의 원문 바이트와 commit/blob/SHA-256; 회사 원본은 근거",
+        "paths": [
+          "data/ailab-content.current.json",
+          "data/ailab-content/*.json"
+        ],
+        "producer": "dev:module:workspace",
+        "uid": "dev:contract:ailab-content",
+        "version": "ailab-content-snapshot/1"
+      }
+    },
+    {
+      "uid": "dev:contract:workspace",
+      "type": "Contract",
+      "label": "역할·원문·HOH 연결",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:build",
+          "dev:module:interface",
+          "dev:module:serving"
+        ],
+        "edit_sources": [
+          "scripts/workspace.py",
+          "graph/workspace.json"
+        ],
+        "generated": true,
+        "label": "역할·원문·HOH 연결",
+        "meaning": "원본 관계와 사용자 역할·AI 적용을 구분한 그래프와 원문",
+        "paths": [
+          "graph/workspace.graph.json",
+          "graph/workspace.usl.json",
+          "graph/workspace-vocabulary.json",
+          "bindings/workspace.md",
+          "bindings/ailab-content/*.txt"
+        ],
+        "producer": "dev:module:workspace",
+        "uid": "dev:contract:workspace",
+        "version": "metahumotonic-workspace-graph/1"
+      }
+    },
+    {
+      "uid": "dev:contract:workspace-plan",
+      "type": "Contract",
+      "label": "METAHUMOTONIC 작업 공간 개발 계획",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:build",
+          "dev:module:serving"
+        ],
+        "edit_sources": [
+          "graph/workspace-plan.json",
+          "graph/workspace-plan-contract.json",
+          "scripts/workspace_plan.py"
+        ],
+        "generated": true,
+        "label": "METAHUMOTONIC 작업 공간 개발 계획",
+        "meaning": "요구·작업·모듈·고정 근거·정보 조건·완료 기준을 연결한 후속 계획. 실행 결과 아님.",
+        "paths": [
+          "bindings/workspace-development-plan.md"
+        ],
+        "producer": "dev:module:planning",
+        "uid": "dev:contract:workspace-plan",
+        "version": "metahumotonic-workspace-plan/1"
+      }
+    },
+    {
+      "uid": "dev:contract:research-workflow",
+      "type": "Contract",
+      "label": "에이전트 연구 작업·배치·Git 기록",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:build",
+          "dev:module:serving",
+          "dev:module:workspace-search",
+          "dev:module:avatar-control"
+        ],
+        "edit_sources": [
+          "scripts/research_workflow.py",
+          "graph/research-policy.json",
+          "graph/research-workflow.json"
+        ],
+        "generated": true,
+        "label": "에이전트 연구 작업·배치·Git 기록",
+        "meaning": "에이전트 이벤트에 따른 배치 근거·산출물 권위·Git 커밋·실패/완료 상태의 로컬 투영",
+        "paths": [
+          "graph/research-workflow.graph.json",
+          "graph/research-workflow.usl.json",
+          "bindings/research-workflow.md"
+        ],
+        "producer": "dev:module:research-workflow",
+        "uid": "dev:contract:research-workflow",
+        "version": "research-workflow/1; research-workflow-graph/1; property-graph/v2"
+      }
+    },
+    {
+      "uid": "dev:contract:workspace-search",
+      "type": "Contract",
+      "label": "원문 전체 검색과 연구 기록",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:workspace",
+          "dev:module:build",
+          "dev:module:interface",
+          "dev:module:serving"
+        ],
+        "edit_sources": [
+          "scripts/workspace_search.py",
+          "graph/research-workflow.json"
+        ],
+        "generated": true,
+        "label": "원문 전체 검색과 연구 기록",
+        "meaning": "검증한 workflow 원문 바이트; 검색 텍스트는 파생 색인이고 원문을 대체하지 않음",
+        "paths": [
+          "bindings/research-content/*.txt"
+        ],
+        "producer": "dev:module:workspace-search",
+        "uid": "dev:contract:workspace-search",
+        "version": "metahumotonic-workspace-search/1"
+      }
+    },
+    {
+      "uid": "dev:contract:research-content",
+      "type": "Contract",
+      "label": "연구 내용 충족과 출처 그래프",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:build",
+          "dev:module:workspace-search",
+          "dev:module:serving"
+        ],
+        "edit_sources": [
+          "scripts/research_content.py",
+          "graph/research-content.json",
+          "graph/research-workflow.json",
+          "graph/research-modules.json"
+        ],
+        "generated": true,
+        "label": "연구 내용 충족과 출처 그래프",
+        "meaning": "두 역할의 고정 연구 기록·원문 해시 검증, 의미적 완전성이나 runtime 정상 보장 아님",
+        "paths": [
+          "graph/research-content.graph.json",
+          "graph/research-content.usl.json",
+          "bindings/research-content.md"
+        ],
+        "producer": "dev:module:research-content",
+        "uid": "dev:contract:research-content",
+        "version": "research-content/1; property-graph/v2"
+      }
+    },
+    {
+      "uid": "dev:contract:workspace-chat",
+      "type": "Contract",
+      "label": "출처가 고정된 모델 대화와 화면 확인",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:serving",
+          "dev:module:interface"
+        ],
+        "generated": false,
+        "label": "출처가 고정된 모델 대화와 화면 확인",
+        "meaning": "현재 source/library pin·generation→제한 모델 요청→검증 인용과 읽기 전용 제안→별도 화면 ACK; 인물 정전·명령 실행 권한 아님",
+        "paths": [
+          "docs/WORKSPACE_CHAT.md"
+        ],
+        "producer": "dev:module:workspace-chat",
+        "uid": "dev:contract:workspace-chat",
+        "version": "metahumotonic-chat-request/1; metahumotonic-chat-action/1"
+      }
+    },
+    {
+      "uid": "dev:contract:social-research",
+      "type": "Contract",
+      "label": "수집 원문·주장 후보 그래프·문서",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [],
+        "edit_sources": [
+          "graph/social-research-collector.json",
+          "scripts/social_research_collector.py",
+          "scripts/social_research_graph.py"
+        ],
+        "generated": true,
+        "label": "수집 원문·주장 후보 그래프·문서",
+        "meaning": "바이트 핀 원문과 DGX 분석 보고서를 분리한 로컬 문서/그래프. AnalysisRun은 개인 DGX 모델·요청 digest·입력 source/span을 연결한다. 모든 모델 보고서는 SECONDARY_AI이며 X 검색·사실 검증·공유 KG 정전으로 승격하지 않는다.",
+        "paths": [
+          "graph/social-research-collector.graph.json",
+          "bindings/social-research/*"
+        ],
+        "producer": "dev:module:social-research",
+        "uid": "dev:contract:social-research",
+        "version": "social-research-record/1,2 + social-research-graph/1,2"
+      }
+    },
+    {
+      "uid": "dev:contract:avatar-control",
+      "type": "Contract",
+      "label": "3D 캐릭터 제어와 근거 연결",
+      "sources": [
+        "dev:source:registry"
+      ],
+      "authority": "SOURCE_DECLARED",
+      "definition": {
+        "consumers": [
+          "dev:module:build"
+        ],
+        "edit_sources": [
+          "scripts/avatar_graph.py",
+          "graph/avatar-control.json"
+        ],
+        "generated": true,
+        "label": "3D 캐릭터 제어와 근거 연결",
+        "meaning": "고정 캡처의 리그·표정·행동·검사·후속 작업과 기존 연구 UID의 로컬 연결; 실행 권한·현재 장비 상태를 뜻하지 않음",
+        "paths": [
+          "graph/avatar-control.graph.json",
+          "graph/avatar-control.usl.json",
+          "bindings/avatar-control.md"
+        ],
+        "producer": "dev:module:avatar-control",
+        "uid": "dev:contract:avatar-control",
+        "version": "avatar-control-graph/1; property-graph/v2"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_graph.py"
+      ],
+      "evidence_paths": [
+        "tests/test_graph.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "core 회귀 검사",
+      "uid": "dev:check:core"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_repository_inspection.py"
+      ],
+      "evidence_paths": [
+        "tests/test_repository_inspection.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "inspection 회귀 검사",
+      "uid": "dev:check:inspection"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_work_plan.py"
+      ],
+      "evidence_paths": [
+        "tests/test_work_plan.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "planning 회귀 검사",
+      "uid": "dev:check:planning"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/build.py",
+        "check"
+      ],
+      "evidence_paths": [
+        "scripts/build.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "그래프 계약·snapshot digest·생성물 최신성",
+      "uid": "dev:check:generated"
+    },
+    {
+      "argv": null,
+      "evidence_paths": [
+        "tests/browser-smoke.js",
+        "tests/browser-repository-inspection.js",
+        "tests/browser-usage.js",
+        "tests/browser-workspace.js",
+        "tests/browser-workspace-context.js",
+        "tests/browser-personal-library.js",
+        "tests/browser-workspace-search.js",
+        "tests/browser-workspace-chat.js",
+        "tests/browser-workspace-feedback.js"
+      ],
+      "mode": "BROWSER_SCENARIO",
+      "purpose": "화면 변경 시 기존 Playwright skill로 관련 시나리오 실행",
+      "uid": "dev:check:browser"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_orchestration_plan.py"
+      ],
+      "evidence_paths": [
+        "tests/test_orchestration_plan.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "오케스트레이션 계획의 근거·관계·의존 순서·미실행·사도 추천 경계 검사",
+      "uid": "dev:check:orchestration-plan"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_research_bindings.py"
+      ],
+      "evidence_paths": [
+        "tests/test_research_bindings.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "원문 식별·해시·범위·관계 계약·AI 권위·USL 방향·선택 예산 검사",
+      "uid": "dev:check:research"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_workspace.py"
+      ],
+      "evidence_paths": [
+        "tests/test_workspace.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "원문 바이트·역할·HOH 범위·관계 계약·원문 제공 경계",
+      "uid": "dev:check:workspace"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_workspace_plan.py"
+      ],
+      "evidence_paths": [
+        "tests/test_workspace_plan.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "계획 출처·역할 보존·타입·기수·작업 DAG·로컬/라이브 조건·가짜 완료 반례",
+      "uid": "dev:check:workspace-plan"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_research_modules.py"
+      ],
+      "evidence_paths": [
+        "tests/test_research_modules.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "research-modules 계약 및 동작 검사",
+      "uid": "dev:check:research-modules"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_research_workflow*.py"
+      ],
+      "evidence_paths": [
+        "tests/test_research_workflow.py",
+        "tests/test_research_workflow_graph.py",
+        "tests/test_research_workflow_recovery.py",
+        "tests/test_research_workflow_batch.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "독립 Git 생성·재사용·원문/권위 보존·실패 복구·반복 실행·그래프 계약",
+      "uid": "dev:check:research-workflow"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_workspace_search.py"
+      ],
+      "evidence_paths": [
+        "tests/test_workspace_search.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "읽기 이력과 독립적인 원문 전체 색인·고정 연구 산출물 조회 검사",
+      "uid": "dev:check:workspace-search"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_research_content.py"
+      ],
+      "evidence_paths": [
+        "tests/test_research_content.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "주제/역할/원문 바이트/출처 범위와 거짓 최신성 방지",
+      "uid": "dev:check:research-content"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_workspace_chat.py"
+      ],
+      "evidence_paths": [
+        "tests/test_workspace_chat.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "몬순이 요청·맥락·취소·인용·읽기 동작 경계",
+      "uid": "dev:check:workspace-chat"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_workspace_chat_http.py"
+      ],
+      "evidence_paths": [
+        "tests/test_workspace_chat_http.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "실제 loopback HTTP의 origin·nonce·요청 크기·경로 계약",
+      "uid": "dev:check:workspace-chat-http"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_build_publication.py"
+      ],
+      "evidence_paths": [
+        "tests/test_build_publication.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "생성 파일 교체 중 읽기·실패의 기존 바이트 보존",
+      "uid": "dev:check:build-publication"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_social_research*.py"
+      ],
+      "evidence_paths": [
+        "tests/test_social_research_collector.py",
+        "tests/test_social_research_graph.py",
+        "tests/test_social_research_xai.py",
+        "tests/test_social_research_dgx.py",
+        "tests/test_social_research_sources.py",
+        "tests/test_social_research_automation.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "출처·주장 분리, 공개 수집 범위, 원자적 게시, DGX 입력 선택·지속 대기열·중복·자동화 예산 검사",
+      "uid": "dev:check:social-research"
+    },
+    {
+      "argv": [
+        "python3",
+        "work/2026-10-09-dgx-automation/test_schedule.py"
+      ],
+      "evidence_paths": [
+        "work/2026-10-09-dgx-automation/test_schedule.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "예약 release import closure 실행, 코드·설정 해시 변경 거절, systemd 인수 경계",
+      "uid": "dev:check:social-research-schedule"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_avatar_graph.py"
+      ],
+      "evidence_paths": [
+        "tests/test_avatar_graph.py"
+      ],
+      "mode": "COMMAND",
+      "purpose": "실제 리그·채널·연구 핀 연결, 관계 계약, 출처 변조·부모 순환·거짓 실행 상태 거부",
+      "uid": "dev:check:avatar-control"
+    }
+  ],
+  "unknown_paths": [],
+  "sources": [
+    {
+      "uid": "dev:source:registry",
+      "uri": "graph/development.json",
+      "sha256": "bb652f8db8490e0abd7f1dd10b07e992f465501ea50b865cad44814d33727147",
+      "authority": "SOURCE_DECLARED",
+      "actor": "Codex"
+    },
+    {
+      "uid": "dev:source:scripts/build.py",
+      "uri": "scripts/build.py",
+      "sha256": "ba5ec0e21c5a6e90a37082dedc819e3ab8f19a5cd79c35e1887512415f03d748",
+      "authority": "OBSERVED",
+      "actor": "scripts/development.py AST/file reader",
+      "observation_scope": "CURRENT_WORKTREE_BYTES",
+      "observed_at": null
+    },
+    {
+      "uid": "dev:source:scripts/import_research.py",
+      "uri": "scripts/import_research.py",
+      "sha256": "00684ade7b13bad91eed223dbe95fbc358bbfd401a3f2f0cd0d7375c62e7e165",
+      "authority": "OBSERVED",
+      "actor": "scripts/development.py AST/file reader",
+      "observation_scope": "CURRENT_WORKTREE_BYTES",
+      "observed_at": null
+    },
+    {
+      "uid": "dev:source:scripts/query.py",
+      "uri": "scripts/query.py",
+      "sha256": "5c0b55800fc9f6dfe0d3a4c99d05763a8e769666e299b0889731c03575d5ffac",
+      "authority": "OBSERVED",
+      "actor": "scripts/development.py AST/file reader",
+      "observation_scope": "CURRENT_WORKTREE_BYTES",
+      "observed_at": null
+    },
+    {
+      "uid": "dev:source:scripts/research_content.py",
+      "uri": "scripts/research_content.py",
+      "sha256": "5bf4f504722f52d6545002b0700da541309ca1c1e1041cd1274fbf410140c5f1",
+      "authority": "OBSERVED",
+      "actor": "scripts/development.py AST/file reader",
+      "observation_scope": "CURRENT_WORKTREE_BYTES",
+      "observed_at": null
+    },
+    {
+      "uid": "dev:source:scripts/social_research_dgx.py",
+      "uri": "scripts/social_research_dgx.py",
+      "sha256": "9f54d94f5b518556addef7c7d9db3b01dc873a4d01e2b1a74a8eea9d3af78fb2",
+      "authority": "OBSERVED",
+      "actor": "scripts/development.py AST/file reader",
+      "observation_scope": "CURRENT_WORKTREE_BYTES",
+      "observed_at": null
+    },
+    {
+      "uid": "dev:source:scripts/workspace.py",
+      "uri": "scripts/workspace.py",
+      "sha256": "d7f88e8b6553f5f03a7e647ad1b9784a0cf0f27cd8f026b4140fa96594a7c105",
+      "authority": "OBSERVED",
+      "actor": "scripts/development.py AST/file reader",
+      "observation_scope": "CURRENT_WORKTREE_BYTES",
+      "observed_at": null
+    },
+    {
+      "uid": "dev:source:scripts/workspace_chat.py",
+      "uri": "scripts/workspace_chat.py",
+      "sha256": "5150a2346c050f1316388cf868d57c73a02e6edac25aa7843ef641e80504fe29",
+      "authority": "OBSERVED",
+      "actor": "scripts/development.py AST/file reader",
+      "observation_scope": "CURRENT_WORKTREE_BYTES",
+      "observed_at": null
+    },
+    {
+      "uid": "dev:source:scripts/workspace_search.py",
+      "uri": "scripts/workspace_search.py",
+      "sha256": "57923154c1e1bf20fd21a08f15e0fddc74e94cf88f6d84e6736744e7769c4ff1",
+      "authority": "OBSERVED",
+      "actor": "scripts/development.py AST/file reader",
+      "observation_scope": "CURRENT_WORKTREE_BYTES",
+      "observed_at": null
+    }
+  ],
+  "limitations": [
+    "Module/data contracts are local declarations; imports are static AST observations.",
+    "AILAB source pins are metadata only in this graph; verify-sources compares separately supplied archive bytes.",
+    "Dynamic imports, subprocess calls and external consumers may be missing.",
+    "Potential impact is conservative reachability, not a runtime execution trace."
+  ]
+}

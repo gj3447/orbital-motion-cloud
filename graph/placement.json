@@ -1,0 +1,481 @@
+{
+  "schema": "omc-hardware-placement/1",
+  "scope": "OWNER_LOCAL_IMPLEMENTATION_GRAPH",
+  "nodes": [
+    {
+      "uid": "omc:placement:source:user",
+      "type": "Source",
+      "label": "user",
+      "authority": "USER_PRIMARY",
+      "path": "records/2026-10-10/hardware-adaptive-placement/user-verbatim.txt",
+      "sha256": "98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+      "recorded_on": "2026-10-10"
+    },
+    {
+      "uid": "omc:placement:source:implementation",
+      "type": "Source",
+      "label": "implementation",
+      "authority": "SOURCE_DOCUMENT",
+      "path": "scripts/placement.py",
+      "sha256": "9e3d33b246d34ac4fb69f6e356f172565750cd42a0b079296de1f97405177a12",
+      "recorded_on": "2026-10-10"
+    },
+    {
+      "uid": "omc:placement:source:tests",
+      "type": "Source",
+      "label": "tests",
+      "authority": "SOURCE_DOCUMENT",
+      "path": "tests/test_placement.py",
+      "sha256": "6ec35cd6017496fa653f3a0484aa945e22f382ae3642745d044eee1856916b7f",
+      "recorded_on": "2026-10-10"
+    },
+    {
+      "uid": "sym:Character:입체운행구름",
+      "type": "Subject",
+      "label": "입체운행구름",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user"
+      ]
+    },
+    {
+      "uid": "omc:placement:capability",
+      "type": "Capability",
+      "label": "하드웨어 상태에 적응하는 데이터 배치",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user"
+      ],
+      "scope": "ONE_USER_STATED_OMC_FUNCTION",
+      "implementation_scope": "BOUNDED_IMMUTABLE_FILES_AND_OWNER_HANDOFF"
+    },
+    {
+      "uid": "omc:placement:invariant:identity",
+      "type": "Invariant",
+      "label": "자원 ID·revision·출처 보존",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user"
+      ]
+    },
+    {
+      "uid": "omc:placement:invariant:semantics",
+      "type": "Invariant",
+      "label": "HSWM 추상 구조·관계·역할 보존",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user"
+      ]
+    },
+    {
+      "uid": "omc:placement:invariant:scope",
+      "type": "Invariant",
+      "label": "소유 범위와 단일 쓰기 주체",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user"
+      ]
+    },
+    {
+      "uid": "omc:placement:invariant:content",
+      "type": "Invariant",
+      "label": "내용 해시·길이 검증",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user"
+      ]
+    },
+    {
+      "uid": "omc:placement:invariant:capacity",
+      "type": "Invariant",
+      "label": "SSD·저장 장치·RAM을 분리해 관측",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user"
+      ]
+    },
+    {
+      "uid": "omc:placement:invariant:freshness",
+      "type": "Invariant",
+      "label": "관측 시각·부팅·설정 판본 검증",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user"
+      ]
+    },
+    {
+      "uid": "omc:placement:stage:observe",
+      "type": "Stage",
+      "label": "CLI·디스크·RAM·가시 cgroup 관측",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user",
+        "omc:placement:source:implementation"
+      ]
+    },
+    {
+      "uid": "omc:placement:stage:plan",
+      "type": "Stage",
+      "label": "AI 후보 선택과 결정적 용량 심사",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user",
+        "omc:placement:source:implementation"
+      ]
+    },
+    {
+      "uid": "omc:placement:stage:transfer",
+      "type": "Stage",
+      "label": "기존 소유 전송기로 복사",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user",
+        "omc:placement:source:implementation"
+      ]
+    },
+    {
+      "uid": "omc:placement:stage:rebind",
+      "type": "Stage",
+      "label": "검증된 위치만 USL에 재결속",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user",
+        "omc:placement:source:implementation"
+      ]
+    },
+    {
+      "uid": "omc:placement:stage:recover",
+      "type": "Stage",
+      "label": "기록을 통한 재시작·중복 실행 방지",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:user",
+        "omc:placement:source:implementation"
+      ]
+    },
+    {
+      "uid": "omc:placement:executor",
+      "type": "Executor",
+      "label": "THE GREAT FLOW shared_storage CLI",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:implementation"
+      ],
+      "effects": [
+        "COPY_NEW_OBJECT",
+        "NO_SOURCE_DELETE",
+        "NO_SERVICE_RESTART"
+      ]
+    },
+    {
+      "uid": "omc:placement:usl",
+      "type": "Executor",
+      "label": "USL bind-graph + adapt check",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:implementation"
+      ],
+      "effects": [
+        "LOCAL_GRAPH_REBIND",
+        "NO_HSWM_EXECUTION",
+        "NO_KG_PUBLISH"
+      ]
+    },
+    {
+      "uid": "omc:placement:test:stale",
+      "type": "AcceptanceTest",
+      "label": "오래된 관측·설정 거부",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:tests"
+      ],
+      "status": "TEST_DEFINED_NOT_AN_EXECUTION_RECEIPT"
+    },
+    {
+      "uid": "omc:placement:test:budget",
+      "type": "AcceptanceTest",
+      "label": "누적 용량·메모리 부족 거부",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:tests"
+      ],
+      "status": "TEST_DEFINED_NOT_AN_EXECUTION_RECEIPT"
+    },
+    {
+      "uid": "omc:placement:test:semantic",
+      "type": "AcceptanceTest",
+      "label": "ID·역할·의미·출처 변경 거부",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:tests"
+      ],
+      "status": "TEST_DEFINED_NOT_AN_EXECUTION_RECEIPT"
+    },
+    {
+      "uid": "omc:placement:test:scope",
+      "type": "AcceptanceTest",
+      "label": "비등록 자원·명령·경로 이탈 거부",
+      "authority": "SECONDARY_AI",
+      "source_refs": [
+        "omc:placement:source:tests"
+      ],
+      "status": "TEST_DEFINED_NOT_AN_EXECUTION_RECEIPT"
+    }
+  ],
+  "edges": [
+    {
+      "uid": "omc:placement:edge:has_capability:omc:capability",
+      "type": "HAS_CAPABILITY",
+      "source": "sym:Character:입체운행구름",
+      "target": "omc:placement:capability",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:derived_from:capability:source:user",
+      "type": "DERIVED_FROM",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:source:user",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:preserves:capability:invariant:identity",
+      "type": "PRESERVES",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:invariant:identity",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:preserves:capability:invariant:semantics",
+      "type": "PRESERVES",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:invariant:semantics",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:preserves:capability:invariant:scope",
+      "type": "PRESERVES",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:invariant:scope",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:preserves:capability:invariant:content",
+      "type": "PRESERVES",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:invariant:content",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:preserves:capability:invariant:capacity",
+      "type": "PRESERVES",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:invariant:capacity",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:preserves:capability:invariant:freshness",
+      "type": "PRESERVES",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:invariant:freshness",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:implemented_by:capability:stage:observe",
+      "type": "IMPLEMENTED_BY",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:stage:observe",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:implemented_by:capability:stage:plan",
+      "type": "IMPLEMENTED_BY",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:stage:plan",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:implemented_by:capability:stage:transfer",
+      "type": "IMPLEMENTED_BY",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:stage:transfer",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:implemented_by:capability:stage:rebind",
+      "type": "IMPLEMENTED_BY",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:stage:rebind",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:implemented_by:capability:stage:recover",
+      "type": "IMPLEMENTED_BY",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:stage:recover",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:tested_by:capability:test:stale",
+      "type": "TESTED_BY",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:test:stale",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:tested_by:capability:test:budget",
+      "type": "TESTED_BY",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:test:budget",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:tested_by:capability:test:semantic",
+      "type": "TESTED_BY",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:test:semantic",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:tested_by:capability:test:scope",
+      "type": "TESTED_BY",
+      "source": "omc:placement:capability",
+      "target": "omc:placement:test:scope",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:uses_executor:stage:transfer:executor",
+      "type": "USES_EXECUTOR",
+      "source": "omc:placement:stage:transfer",
+      "target": "omc:placement:executor",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:placement:edge:uses_executor:stage:rebind:usl",
+      "type": "USES_EXECUTOR",
+      "source": "omc:placement:stage:rebind",
+      "target": "omc:placement:usl",
+      "authority": "SECONDARY_AI"
+    }
+  ],
+  "predicate_contracts": {
+    "HAS_CAPABILITY": {
+      "domain": [
+        "Subject"
+      ],
+      "range": [
+        "Capability"
+      ],
+      "out_min": 1,
+      "out_max": null,
+      "meaning": "Subject has this user-requested capability; does not exhaust its identity.",
+      "in_min": 0,
+      "in_max": null
+    },
+    "PRESERVES": {
+      "domain": [
+        "Capability"
+      ],
+      "range": [
+        "Invariant"
+      ],
+      "out_min": 1,
+      "out_max": null,
+      "meaning": "An accepted physical placement must keep this invariant.",
+      "in_min": 0,
+      "in_max": null
+    },
+    "IMPLEMENTED_BY": {
+      "domain": [
+        "Capability"
+      ],
+      "range": [
+        "Stage"
+      ],
+      "out_min": 1,
+      "out_max": null,
+      "meaning": "The bounded implementation includes this stage, not unrestricted autonomy.",
+      "in_min": 0,
+      "in_max": null
+    },
+    "USES_EXECUTOR": {
+      "domain": [
+        "Stage"
+      ],
+      "range": [
+        "Executor"
+      ],
+      "out_min": 0,
+      "out_max": null,
+      "meaning": "Stage delegates to the existing owner tool; no authority is inferred.",
+      "in_min": 0,
+      "in_max": null
+    },
+    "TESTED_BY": {
+      "domain": [
+        "Capability"
+      ],
+      "range": [
+        "AcceptanceTest"
+      ],
+      "out_min": 1,
+      "out_max": null,
+      "meaning": "Test definitions exercise the capability; execution evidence is recorded separately.",
+      "in_min": 0,
+      "in_max": null
+    },
+    "DERIVED_FROM": {
+      "domain": [
+        "Capability"
+      ],
+      "range": [
+        "Source"
+      ],
+      "out_min": 1,
+      "out_max": null,
+      "meaning": "The interpretation derives from an identified source, not a new user utterance.",
+      "in_min": 0,
+      "in_max": null
+    }
+  },
+  "competency_questions": [
+    {
+      "id": "preserve",
+      "question": "배치가 달라져도 무엇을 유지하는가?",
+      "start": "sym:Character:입체운행구름",
+      "via": [
+        "HAS_CAPABILITY",
+        "PRESERVES"
+      ],
+      "expected": [
+        "omc:placement:invariant:identity",
+        "omc:placement:invariant:semantics",
+        "omc:placement:invariant:scope",
+        "omc:placement:invariant:content",
+        "omc:placement:invariant:capacity",
+        "omc:placement:invariant:freshness"
+      ]
+    },
+    {
+      "id": "execute",
+      "question": "실제 파일 복사는 누가 담당하는가?",
+      "start": "omc:placement:stage:transfer",
+      "via": [
+        "USES_EXECUTOR"
+      ],
+      "expected": [
+        "omc:placement:executor"
+      ]
+    },
+    {
+      "id": "authority",
+      "question": "기능 역할의 직접 사용자 근거는 무엇인가?",
+      "start": "omc:placement:capability",
+      "via": [
+        "DERIVED_FROM"
+      ],
+      "expected": [
+        "omc:placement:source:user"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "schema": "agent-resource-context/1",
+  "topic": {
+    "uid": "research:topic:metahumotonic-apostles",
+    "slug": "metahumotonic-apostles",
+    "title": "메타휴모토닉 사도 자료·정체성 연구",
+    "domain": "engineering"
+  },
+  "research": {
+    "schema": "research-module-context/1",
+    "topic": {
+      "uid": "research:topic:metahumotonic-apostles",
+      "slug": "metahumotonic-apostles",
+      "title": "메타휴모토닉 사도 자료·정체성 연구",
+      "domain": "engineering"
+    },
+    "modules": [
+      {
+        "uid": "research:module:85863221-bd79-4b66-a447-a0d366467fdf",
+        "kind": "HOW_TO",
+        "title": "메타휴모토닉 사도 자료·정체성 연구",
+        "path": "/mnt/development/METAHUMOTONIC_SHARED/research/metahumotonic-apostles/HOW_TO_metahumotonic-apostles",
+        "head": "a344310f9ddb3864da98f93cfee39571ec3bdfb7",
+        "manifest_sha256": "70821efd8e31bbfab94894f14a95bea1c4599d149d085534c0c2d7c9130f03cb",
+        "attached_at": "2026-10-04T00:56:48Z",
+        "dirty": false
+      },
+      {
+        "uid": "research:module:985e2169-6f9b-4627-b21a-2ea6c33426be",
+        "kind": "WHAT_IS",
+        "title": "메타휴모토닉 사도 자료·정체성 연구",
+        "path": "/mnt/development/METAHUMOTONIC_SHARED/research/metahumotonic-apostles/WHAT_IS_metahumotonic-apostles",
+        "head": "2eff70c15c4376c074120781a04178e9021af9d6",
+        "manifest_sha256": "75b6536f5555b82ba1a8262f21dbc407260aa5da66e9b8067308a4649511f701",
+        "attached_at": "2026-10-04T00:56:48Z",
+        "dirty": false
+      }
+    ],
+    "datasets": [],
+    "execution_authority": false
+  },
+  "context": {
+    "modules": [
+      {
+        "uid": "research:module:85863221-bd79-4b66-a447-a0d366467fdf",
+        "kind": "HOW_TO",
+        "title": "메타휴모토닉 사도 자료·정체성 연구",
+        "path": "/mnt/development/METAHUMOTONIC_SHARED/research/metahumotonic-apostles/HOW_TO_metahumotonic-apostles",
+        "head": "a344310f9ddb3864da98f93cfee39571ec3bdfb7",
+        "manifest_sha256": "70821efd8e31bbfab94894f14a95bea1c4599d149d085534c0c2d7c9130f03cb",
+        "attached_at": "2026-10-04T00:56:48Z",
+        "dirty": false
+      },
+      {
+        "uid": "research:module:985e2169-6f9b-4627-b21a-2ea6c33426be",
+        "kind": "WHAT_IS",
+        "title": "메타휴모토닉 사도 자료·정체성 연구",
+        "path": "/mnt/development/METAHUMOTONIC_SHARED/research/metahumotonic-apostles/WHAT_IS_metahumotonic-apostles",
+        "head": "2eff70c15c4376c074120781a04178e9021af9d6",
+        "manifest_sha256": "75b6536f5555b82ba1a8262f21dbc407260aa5da66e9b8067308a4649511f701",
+        "attached_at": "2026-10-04T00:56:48Z",
+        "dirty": false
+      }
+    ],
+    "execution_authority": false
+  },
+  "resources": [
+    {
+      "host_uid": "host:dev-01",
+      "label": "dev-01 · CT307",
+      "status": "OK",
+      "freshness": "STALE",
+      "ttl_seconds": 300,
+      "observed_at": "2026-10-04T06:12:48.350+00:00",
+      "boot_id": "714da32e-c731-4be2-a8c7-1d6cb145fa40",
+      "machine_scope": "OS_VISIBLE_NOT_VERIFIED_MACHINE",
+      "cpu": {
+        "logical_count": 16,
+        "utilization_percent": 19.81,
+        "method": "/proc/stat non-guest counter delta",
+        "sample_window_ms": 200
+      },
+      "memory": {
+        "total_bytes": 51539607552,
+        "available_bytes": 42516742144
+      },
+      "swap": {
+        "total_bytes": 17179860992,
+        "available_bytes": 16877494272
+      },
+      "cgroup": {
+        "scope": "DETECTED",
+        "path": "/user.slice/user-1000.slice/user@1000.service/app.slice/orca-daemon-d12c5bbb-f83d-4b6b-bec7-ed832602fa3f.scope",
+        "memory_limit_bytes": null,
+        "memory_current_bytes": 15027781632,
+        "memory_high_bytes": null,
+        "memory_events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0,
+          "sock_throttled": 52
+        },
+        "cpu_max": {
+          "quota_us": null,
+          "period_us": 100000
+        },
+        "cpuset_cpus": null,
+        "ancestors": [
+          {
+            "path": "/user.slice/user-1000.slice/user@1000.service/app.slice/orca-daemon-d12c5bbb-f83d-4b6b-bec7-ed832602fa3f.scope",
+            "memory_max_bytes": null,
+            "memory_max_state": "EXPLICIT_MAX",
+            "memory_current_bytes": 15027781632,
+            "memory_high_bytes": null,
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0,
+              "sock_throttled": 52
+            },
+            "cpu_max": {
+              "quota_us": null,
+              "period_us": 100000
+            },
+            "cpuset_cpus": null,
+            "memory_headroom_bytes": null
+          },
+          {
+            "path": "/user.slice/user-1000.slice/user@1000.service/app.slice",
+            "memory_max_bytes": null,
+            "memory_max_state": "EXPLICIT_MAX",
+            "memory_current_bytes": 15886675968,
+            "memory_high_bytes": null,
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0,
+              "sock_throttled": 52
+            },
+            "cpu_max": {
+              "quota_us": null,
+              "period_us": 100000
+            },
+            "cpuset_cpus": null,
+            "memory_headroom_bytes": null
+          },
+          {
+            "path": "/user.slice/user-1000.slice/user@1000.service",
+            "memory_max_bytes": null,
+            "memory_max_state": "EXPLICIT_MAX",
+            "memory_current_bytes": 15894532096,
+            "memory_high_bytes": null,
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0,
+              "sock_throttled": 52
+            },
+            "cpu_max": {
+              "quota_us": null,
+              "period_us": 100000
+            },
+            "cpuset_cpus": null,
+            "memory_headroom_bytes": null
+          },
+          {
+            "path": "/user.slice/user-1000.slice",
+            "memory_max_bytes": null,
+            "memory_max_state": "EXPLICIT_MAX",
+            "memory_current_bytes": 16697323520,
+            "memory_high_bytes": null,
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0,
+              "sock_throttled": 52
+            },
+            "cpu_max": {
+              "quota_us": null,
+              "period_us": 100000
+            },
+            "cpuset_cpus": null,
+            "memory_headroom_bytes": null
+          },
+          {
+            "path": "/user.slice",
+            "memory_max_bytes": null,
+            "memory_max_state": "EXPLICIT_MAX",
+            "memory_current_bytes": 16697389056,
+            "memory_high_bytes": null,
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0,
+              "sock_throttled": 52
+            },
+            "cpu_max": {
+              "quota_us": null,
+              "period_us": 100000
+            },
+            "cpuset_cpus": null,
+            "memory_headroom_bytes": null
+          },
+          {
+            "path": "/",
+            "memory_max_bytes": null,
+            "memory_max_state": "EXPLICIT_MAX",
+            "memory_current_bytes": 24878960640,
+            "memory_high_bytes": null,
+            "memory_events": {
+              "low": 0,
+              "high": 0,
+              "max": 0,
+              "oom": 0,
+              "oom_kill": 0,
+              "oom_group_kill": 0,
+              "sock_throttled": 52
+            },
+            "cpu_max": {
+              "quota_us": null,
+              "period_us": 100000
+            },
+            "cpuset_cpus": "0,2,4-5,8,10-12,16-17,21-22,26-27,29,31",
+            "memory_headroom_bytes": null
+          }
+        ],
+        "effective_memory_limit_bytes": null,
+        "effective_memory_headroom_bytes": null,
+        "effective_limit_state": "EXPLICIT_MAX",
+        "unobserved_ancestor_state": "UNKNOWN"
+      },
+      "pressure": {
+        "cpu": {
+          "some": {
+            "avg10": 0.0,
+            "avg60": 1.24,
+            "avg300": 2.72,
+            "total": 271160541
+          },
+          "full": {
+            "avg10": 0.0,
+            "avg60": 1.18,
+            "avg300": 2.04,
+            "total": 86303201
+          }
+        },
+        "memory": {
+          "some": {
+            "avg10": 0.0,
+            "avg60": 0.0,
+            "avg300": 0.0,
+            "total": 103253
+          },
+          "full": {
+            "avg10": 0.0,
+            "avg60": 0.0,
+            "avg300": 0.0,
+            "total": 103252
+          }
+        },
+        "io": {
+          "some": {
+            "avg10": 0.36,
+            "avg60": 0.43,
+            "avg300": 0.49,
+            "total": 69899458428
+          },
+          "full": {
+            "avg10": 0.36,
+            "avg60": 0.39,
+            "avg300": 0.42,
+            "total": 67525121160
+          }
+        }
+      },
+      "gpus_status": "UNSUPPORTED",
+      "gpus": [],
+      "errors": [],
+      "scope": "NO_ALLOCATION_HINT"
+    }
+  ],
+  "parent_constraints": [
+    {
+      "schema": "fleet-parent-constraint/1",
+      "owner_host_uid": "host:pve",
+      "target_host_uid": "host:dev-01",
+      "target_kind": "proxmox-lxc",
+      "target_id": "307",
+      "observed_at": "2026-10-04T06:12:55.533+00:00",
+      "source": {
+        "method": "PVE /proc PID cgroup + /sys/fs/cgroup read-only",
+        "owner_boot_id": "05c3d722-843c-423e-bc3c-482717798131",
+        "cgroup_path": "/lxc/307"
+      },
+      "memory": {
+        "max_bytes": 51539607552,
+        "max_state": "LIMITED",
+        "current_bytes": 24834764800,
+        "high_bytes": 51405389824,
+        "events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0,
+          "sock_throttled": 52
+        }
+      },
+      "cpu": {
+        "max": {
+          "quota_us": null,
+          "period_us": 100000
+        },
+        "cpuset_cpus": "0,2,4-5,8,10-12,16-17,21-22,26-27,29,31"
+      },
+      "declared_config": {
+        "memory_max_bytes": 51539607552,
+        "memory_max_state": "LIMITED",
+        "memory_high_bytes": null,
+        "cpu_max": null,
+        "cpuset_cpus": null
+      },
+      "provenance": "OWNER_PVE_READ_ONLY"
+    }
+  ],
+  "data_locations": [],
+  "shared_storage": {
+    "uid": "storage:expansion20tb",
+    "label": "METAHUMOTONIC shared NFS object namespace",
+    "authority": "SOURCE_DECLARED",
+    "state": "DECLARED",
+    "reference": "graph/shared-storage.json",
+    "sha256": "3900a651e2994bd2907aac147a724ba832fe5ac2ccab9a7515100c7e1db8d06a",
+    "meaning": "Declared shared-object-store reference; not a mount grant or live-health assertion."
+  },
+  "source_pins": {
+    "fleet_current": {
+      "schema": "fleet-current/1",
+      "path": "data/snapshots/fleet-20261004T061255536466Z.json",
+      "sha256": "aeae0bacc7eb79f5cdcbffabf478c5ef95366bbfeb2d24d2dfccbfc9168d561c",
+      "collected_at": "2026-10-04T06:12:55.535+00:00",
+      "ttl_seconds": 300
+    },
+    "hosts": {
+      "path": "graph/hosts.json",
+      "sha256": "c9d29464392e2701e13789fc024c879ea67d7434dd6727ed09f9371185381970"
+    },
+    "research_modules": {
+      "path": "graph/research-modules.json",
+      "sha256": "6ae906019da0e3dbd345dddc0ade38f265632960db9965550e855f79fe1e10f2"
+    },
+    "shared_storage": {
+      "path": "graph/shared-storage.json",
+      "sha256": "3900a651e2994bd2907aac147a724ba832fe5ac2ccab9a7515100c7e1db8d06a"
+    }
+  },
+  "generated_at": "2026-10-10T12:20:11.118+00:00",
+  "decision_owner": "calling-agent",
+  "execution_authority": false,
+  "execution_performed": false,
+  "allocation_performed": false,
+  "scope": "Read-only distributed-data and dated resource context. No automatic host selection, CPU ranking, RAM pooling, reservation, mount, network access, or execution."
+}

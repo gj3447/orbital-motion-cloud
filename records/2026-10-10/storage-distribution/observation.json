@@ -1,0 +1,216 @@
+{
+  "schema": "storage-distribution-observation/1",
+  "authority": "OBSERVED",
+  "actor": "Codex",
+  "observed_at": "2026-10-10T15:05:53.114340+00:00",
+  "this_session_moved_data": false,
+  "this_session_changed_bindings": false,
+  "live_kg_published": false,
+  "volumes": [
+    {
+      "path": "/",
+      "total_bytes": 210241560576,
+      "free_bytes": 19892346880,
+      "available_bytes": 9138151424,
+      "mount": {
+        "target": "/",
+        "source": "/dev/mapper/pve-vm--307--disk--0",
+        "fstype": "ext4",
+        "options": "rw,relatime,stripe=16"
+      }
+    },
+    {
+      "path": "/mnt/development",
+      "total_bytes": 19978313007104,
+      "free_bytes": 19266887745536,
+      "available_bytes": 19266870968320,
+      "mount": {
+        "target": "/mnt/development",
+        "source": "192.168.0.25:/srv/expansion20tb/pool/Development",
+        "fstype": "nfs4",
+        "options": "rw,nosuid,nodev,noatime,vers=4.2,rsize=1048576,wsize=1048576,namlen=255,hard,fatal_neterrors=none,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=192.168.0.2,local_lock=none,addr=192.168.0.25"
+      }
+    },
+    {
+      "path": "/mnt/bulk",
+      "total_bytes": 3937984839680,
+      "free_bytes": 1545835905024,
+      "available_bytes": 1345780187136,
+      "mount": {
+        "target": "/mnt/bulk",
+        "source": "192.168.0.25:/srv/dgx4tb/nas/hswm",
+        "fstype": "nfs4",
+        "options": "rw,relatime,vers=4.2,rsize=1048576,wsize=1048576,namlen=255,soft,fatal_neterrors=none,proto=tcp,timeo=60,retrans=2,sec=sys,clientaddr=192.168.0.2,local_lock=none,addr=192.168.0.25"
+      }
+    }
+  ],
+  "guard": {
+    "schema": "storage-guard-status/v1",
+    "observed_at": "2026-10-10T15:05:53.167954+00:00",
+    "pool": {
+      "data_percent": 97.03,
+      "epoch": 1791644697.1011884,
+      "live_kg_published": false,
+      "metadata_percent": 3.88,
+      "observed_at": "2026-10-10T15:04:57.101160+00:00",
+      "owner": "gj3447/ORCA_SETTING/storage",
+      "pool_uuid": "L7udmy-X4VM-ezK1-SdyA-yG7q-fYwr-g92SVG",
+      "schema": "storage-pool-observation/v1",
+      "size_bytes": 390070272000,
+      "vg_free_bytes": 1652555776
+    },
+    "root": {
+      "available_bytes": 9138151424,
+      "available_inodes": 9473152
+    },
+    "bulk": {
+      "available_bytes": 19266870968320,
+      "available_inodes": 75335111
+    },
+    "mount": {
+      "target": "/mnt/development",
+      "source": "192.168.0.25:/srv/expansion20tb/pool/Development",
+      "fstype": "nfs4",
+      "options": "rw,nosuid,nodev,noatime,vers=4.2,rsize=1048576,wsize=1048576,namlen=255,hard,fatal_neterrors=none,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=192.168.0.2,local_lock=none,addr=192.168.0.25"
+    },
+    "ssd_pool_threshold_passed": false,
+    "job_admission_requires_atomic_reservation": true,
+    "coverage": "managed runner only; sampled byte limits are not filesystem quotas",
+    "live_kg_published": false
+  },
+  "provider_filesystems": {
+    "/srv/dgx4tb": {
+      "filesystems": [
+        {
+          "target": "/srv/dgx4tb",
+          "source": "/dev/sdb1",
+          "fstype": "ext4",
+          "uuid": "57bc2272-c87a-48f9-bc8a-fb6c4d8b1148"
+        }
+      ]
+    },
+    "/srv/expansion20tb": {
+      "filesystems": [
+        {
+          "target": "/srv/expansion20tb",
+          "source": "/dev/sdc2",
+          "fstype": "ext4",
+          "uuid": "c679bdb5-4898-4e77-ac24-a06c234edbf6"
+        }
+      ]
+    }
+  },
+  "usl": {
+    "check": {
+      "file": "fleet-check.json",
+      "sha256": "661da97c85f10af8156bc178d46e749033b8f7a4b6bf213a669365c3d7012538",
+      "source": {
+        "adapter": "property-graph/v2",
+        "digest": "sha256:2badb04c9412eb2e27c47c4a79016d94c8a20101e2c90de4c8fddf6adaf16a37"
+      },
+      "receipt": {
+        "sourceDigest": "sha256:2badb04c9412eb2e27c47c4a79016d94c8a20101e2c90de4c8fddf6adaf16a37",
+        "planDigest": "sha256:8d63d92ce04c03dda716cad69470a86eb87e93792c9f7d28e9f1fb2bc5497ab0",
+        "resultDigest": "sha256:4248c085fddde7fd3d904a8cd75224eaed4f8c0f36faa0e3f88129741ea85dcf",
+        "digest": "sha256:ed19ae39eafffa15de3bcb5d7c309a08d0335df8fade5017a0b15171eec59f6f"
+      },
+      "result": {
+        "valid": true,
+        "namespace": "metahumotonic.fleet",
+        "resources": 58,
+        "meanings": 60,
+        "links": 60,
+        "planDigest": "sha256:8d63d92ce04c03dda716cad69470a86eb87e93792c9f7d28e9f1fb2bc5497ab0",
+        "sourceDigest": null
+      }
+    },
+    "context": {
+      "file": "fleet-context.json",
+      "sha256": "232600c526c31edc2123507f4cc019398f98d9a39be8123f916e7be43d89dc53",
+      "source": {
+        "adapter": "property-graph/v2",
+        "digest": "sha256:2badb04c9412eb2e27c47c4a79016d94c8a20101e2c90de4c8fddf6adaf16a37"
+      },
+      "receipt": {
+        "sourceDigest": "sha256:2badb04c9412eb2e27c47c4a79016d94c8a20101e2c90de4c8fddf6adaf16a37",
+        "planDigest": "sha256:8d63d92ce04c03dda716cad69470a86eb87e93792c9f7d28e9f1fb2bc5497ab0",
+        "resultDigest": "sha256:fb34c029a3c61f0163cef8ce19c20a2d9cafd337a93370ae698ac65c8db9712a",
+        "digest": "sha256:cfd8bba37529812147e8c8acebfd2f8353b28465114640822176bc51b5746b67"
+      },
+      "target": {
+        "resource": "pg_resource_98041ff3b36e2ebb8108",
+        "status": "FOUND"
+      }
+    }
+  },
+  "source_pins": [
+    {
+      "path": "/home/lagyeongjun/CD/THE_GREAT_FLOW/graph/fleet.usl.json",
+      "sha256": "2badb04c9412eb2e27c47c4a79016d94c8a20101e2c90de4c8fddf6adaf16a37"
+    },
+    {
+      "path": "/home/lagyeongjun/CD/USL/docs/RESOURCE_BINDINGS.md",
+      "sha256": "a752203f88c1fb31792b08ddf5d50048836283260b3c8fb5df5d19b9d9b1eb32"
+    },
+    {
+      "path": "/home/lagyeongjun/CD/USL/src/resource-bindings.ts",
+      "sha256": "128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef"
+    },
+    {
+      "path": "/home/lagyeongjun/CD/THE_GREAT_FLOW/work/2026-10-10-storage-recovery/migrate.py",
+      "sha256": "e19c689abfa90478a30660da93b4a7df802cc78133958e76a53b27d81977e982"
+    }
+  ],
+  "other_session_migration": {
+    "owner_work_directory": "/home/lagyeongjun/CD/THE_GREAT_FLOW/work/2026-10-10-storage-recovery",
+    "receipts": [
+      {
+        "source": "/home/lagyeongjun/CD/THE_GREAT_FLOW/work/2026-10-10-storage-recovery/workspace-archives.receipt.json",
+        "source_sha256": "715ca42d8d76c56c32936422f6cd0094458669a2d728f0e050af77e54f66a52b",
+        "record": {
+          "schema": "storage-relocation-receipt/v1",
+          "resource_id": "storage:dev01:workspace-archives",
+          "started_at": "2026-10-10T15:01:48.148388+00:00",
+          "source": "/home/lagyeongjun/.local/state/chatgpt-connector-backup/workspace-archives",
+          "destination": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/storage-recovery-20261010-e3b41250d57149a8a9aaf5aecfaca29d/artifacts/payloads/workspace-archives",
+          "status": "COPYING",
+          "original_uid": 1000,
+          "original_gid": 1000,
+          "ownership_mapping": "Existing NFS all-squash mapping; modes retained; payload ancestors private",
+          "bytes": 9105009497,
+          "file_count": 5
+        }
+      }
+    ],
+    "run_followup": {
+      "observed_at": "2026-10-10T15:07:03.625409+00:00",
+      "source": "/home/lagyeongjun/.local/state/storage-guard/receipts/e3b41250d57149a8a9aaf5aecfaca29d.json",
+      "source_sha256": "777c3502f1f4e1f0609d256083b4b4c48c24c79002344c2dc989881a065fcfc5",
+      "record": {
+        "boot_id": "714da32e-c731-4be2-a8c7-1d6cb145fa40",
+        "budget_bytes": 42949672960,
+        "child_pid": 2712974,
+        "exit_code": 1,
+        "finished_at": "2026-10-10T15:04:39.920845+00:00",
+        "id": "e3b41250d57149a8a9aaf5aecfaca29d",
+        "live_kg_published": false,
+        "pid": 2712960,
+        "project": "0497fb9d21d7b57bdaf7",
+        "reason": "command completed",
+        "retention": "explicit artifacts and caches retained; failed scratch retained",
+        "schema": "storage-job-receipt/v1",
+        "start_ticks": "164421089",
+        "started_at": "2026-10-10T15:01:46.523083+00:00",
+        "tier": "bulk",
+        "work_dir": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/storage-recovery-20261010-e3b41250d57149a8a9aaf5aecfaca29d"
+      },
+      "source_path_is_symlink": false,
+      "completion_claim": false
+    }
+  },
+  "limits": [
+    "Point-in-time observation; another session owns the ongoing migration.",
+    "USL structural check/context only; no file resolver observation or complete migration acceptance.",
+    "No 4TB backup created; existing workloads retained."
+  ]
+}

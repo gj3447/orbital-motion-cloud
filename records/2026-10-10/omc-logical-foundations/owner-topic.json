@@ -1,0 +1,33 @@
+{
+  "datasets": [],
+  "execution_authority": false,
+  "modules": [
+    {
+      "attached_at": "2026-10-04T00:56:48Z",
+      "dirty": false,
+      "head": "a344310f9ddb3864da98f93cfee39571ec3bdfb7",
+      "kind": "HOW_TO",
+      "manifest_sha256": "70821efd8e31bbfab94894f14a95bea1c4599d149d085534c0c2d7c9130f03cb",
+      "path": "/mnt/development/METAHUMOTONIC_SHARED/research/metahumotonic-apostles/HOW_TO_metahumotonic-apostles",
+      "title": "메타휴모토닉 사도 자료·정체성 연구",
+      "uid": "research:module:85863221-bd79-4b66-a447-a0d366467fdf"
+    },
+    {
+      "attached_at": "2026-10-04T00:56:48Z",
+      "dirty": false,
+      "head": "2eff70c15c4376c074120781a04178e9021af9d6",
+      "kind": "WHAT_IS",
+      "manifest_sha256": "75b6536f5555b82ba1a8262f21dbc407260aa5da66e9b8067308a4649511f701",
+      "path": "/mnt/development/METAHUMOTONIC_SHARED/research/metahumotonic-apostles/WHAT_IS_metahumotonic-apostles",
+      "title": "메타휴모토닉 사도 자료·정체성 연구",
+      "uid": "research:module:985e2169-6f9b-4627-b21a-2ea6c33426be"
+    }
+  ],
+  "schema": "research-module-context/1",
+  "topic": {
+    "domain": "engineering",
+    "slug": "metahumotonic-apostles",
+    "title": "메타휴모토닉 사도 자료·정체성 연구",
+    "uid": "research:topic:metahumotonic-apostles"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "authority": "SECONDARY_AI",
+  "source_sha256": "98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+  "subject_uid": "sym:Character:입체운행구름",
+  "previous_role": {
+    "state": "UNASSIGNED",
+    "label": null,
+    "authority": "UNASSIGNED",
+    "source_ids": []
+  },
+  "current_role": {
+    "state": "USER_ASSIGNED",
+    "label": "하드웨어 상태에 적응하는 데이터 배치 최적화 — OMC 기능 중 하나",
+    "authority": "USER_PRIMARY",
+    "source_ids": [
+      "apostles:source:omc-hardware-role-user-20261010"
+    ]
+  },
+  "scope": "ONE_FUNCTION_NOT_COMPLETE_IDENTITY",
+  "shared_kg_written": false
+}

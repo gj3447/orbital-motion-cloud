@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "Source bytes, local graph consistency and links; no performance or formal semantic proof",
+  "revision": "1.1",
+  "local_source_hashes": 16,
+  "claims": 18,
+  "conditional_edges": 15,
+  "argument_dependencies_acyclic": true,
+  "local_links": 73,
+  "guide_hashes": 9,
+  "source_archive_unchanged": true,
+  "artifact_sha256": {
+    "docs/OMC_LOGICAL_FOUNDATIONS.md": "39b0ad28b428b684b54f3400eb4574064c19b39f626b25a005d6641335a786c1",
+    "docs/OMC_FOUNDATION_SOURCE_REVIEW.md": "18dd53373640938a709c3d99381a1c52c2c616eef651cb926e5699d3712086ed",
+    "docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md": "a6d8f2716cbd2b81f905248f981b81c971caff7765bc007dafe81f4983713979",
+    "docs/WHAT_IS.md": "1e1e03cb7172f9029fc6647e2540b8a0366ef2079165b6853bb203f49b3423db",
+    "docs/OMC_PERSPECTIVES_AND_MIND.md": "0361ffe062ddf3c2c9e7a71911bb2ae1fcd209675bd9d1a3e92e45d6503ba6ed",
+    "records/2026-10-10/bhgman-contribution-knowledge/README.md": "d56dd81015b5478abd9e0bea6815db30fe74b9ca0e917b5b9e1e06da9592805c",
+    "graph/omc-foundations.json": "ea90a416aeea5afcd1e5440f3943bc9778dc9831c1b994bef7123c8228bd5520"
+  }
+}

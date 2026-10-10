@@ -1,0 +1,370 @@
+[
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-03T12:14:29Z",
+    "domain": "game",
+    "slug": "game",
+    "title": "게임 연구",
+    "uid": "research:topic:game"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-03T12:14:36Z",
+    "domain": "coin",
+    "slug": "coin",
+    "title": "코인 연구",
+    "uid": "research:topic:coin"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-03T12:47:48Z",
+    "domain": "engineering",
+    "slug": "research-organization",
+    "title": "에이전트 기반 연구 정리",
+    "uid": "research:topic:research-organization"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-03T16:25:02Z",
+    "domain": "engineering",
+    "slug": "metahumotonic-apostles",
+    "title": "메타휴모토닉 사도 자료·정체성 연구",
+    "uid": "research:topic:metahumotonic-apostles"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-04T01:15:45Z",
+    "domain": "engineering",
+    "slug": "infrastructure-orchestration",
+    "title": "에이전트·하이퍼그래프 기반 인프라 공동 활용",
+    "uid": "research:topic:infrastructure-orchestration"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-04T07:21:12Z",
+    "domain": "engineering",
+    "slug": "orca",
+    "title": "ORCA 개발 환경 연구",
+    "uid": "research:topic:orca"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-04T09:49:21Z",
+    "domain": "engineering",
+    "slug": "linux",
+    "title": "What is Linux? — 커널 소스 기반 연구",
+    "uid": "research:topic:linux"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-04T09:37:06Z",
+    "domain": "game",
+    "slug": "fun-theory",
+    "title": "게임 재미이론 연구",
+    "uid": "research:topic:fun-theory"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-04T09:53:54Z",
+    "domain": "graphics",
+    "slug": "character-graphics",
+    "title": "2D Live2D·3D 캐릭터 그래픽 연구",
+    "uid": "research:topic:character-graphics"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-04T13:26:37Z",
+    "domain": "engineering",
+    "slug": "hoh-human-exploration",
+    "title": "HOH 추천 기반 인간 탐구",
+    "uid": "research:topic:hoh-human-exploration"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-04T13:08:10Z",
+    "domain": "engineering",
+    "slug": "make-os",
+    "title": "HOW_TO_MAKE_OS — 운영체제 이론·논문·구현 연구",
+    "uid": "research:topic:make-os"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-04T14:25:47Z",
+    "domain": "engineering",
+    "slug": "effect",
+    "title": "Effect의 개념·효용과 에이전트 코딩 비교 연구",
+    "uid": "research:topic:effect"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-05T02:27:26Z",
+    "domain": "engineering",
+    "slug": "agent-coding-paradigm",
+    "title": "함수 우선·반응형 에이전트 코딩 패러다임 연구",
+    "uid": "research:topic:agent-coding-paradigm"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T06:34:38Z",
+    "domain": "engineering",
+    "slug": "chu-backend",
+    "title": "CHU backend — persistence, authority, execution and recovery",
+    "uid": "research:topic:chu-backend"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:21:38Z",
+    "domain": "engineering",
+    "slug": "sqlite",
+    "title": "SQLite: pinned source and storage invariants",
+    "uid": "research:topic:sqlite"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:22:42Z",
+    "domain": "engineering",
+    "slug": "rocksdb",
+    "title": "rocksdb: source-based system study",
+    "uid": "research:topic:rocksdb"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:22:48Z",
+    "domain": "engineering",
+    "slug": "sel4",
+    "title": "sel4: source-based system study",
+    "uid": "research:topic:sel4"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:22:53Z",
+    "domain": "engineering",
+    "slug": "landlock",
+    "title": "landlock: source-based system study",
+    "uid": "research:topic:landlock"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:22:59Z",
+    "domain": "engineering",
+    "slug": "temporal",
+    "title": "temporal: source-based system study",
+    "uid": "research:topic:temporal"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:05Z",
+    "domain": "engineering",
+    "slug": "systemd",
+    "title": "systemd: source-based system study",
+    "uid": "research:topic:systemd"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:10Z",
+    "domain": "engineering",
+    "slug": "kubernetes",
+    "title": "kubernetes: source-based system study",
+    "uid": "research:topic:kubernetes"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:17Z",
+    "domain": "engineering",
+    "slug": "git",
+    "title": "git: source-based system study",
+    "uid": "research:topic:git"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:23Z",
+    "domain": "engineering",
+    "slug": "restic",
+    "title": "restic: source-based system study",
+    "uid": "research:topic:restic"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:28Z",
+    "domain": "engineering",
+    "slug": "rauc",
+    "title": "rauc: source-based system study",
+    "uid": "research:topic:rauc"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:34Z",
+    "domain": "engineering",
+    "slug": "ostree",
+    "title": "ostree: source-based system study",
+    "uid": "research:topic:ostree"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:39Z",
+    "domain": "engineering",
+    "slug": "mkosi",
+    "title": "mkosi: source-based system study",
+    "uid": "research:topic:mkosi"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:45Z",
+    "domain": "engineering",
+    "slug": "fscq",
+    "title": "fscq: source-based system study",
+    "uid": "research:topic:fscq"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:50Z",
+    "domain": "engineering",
+    "slug": "crashmonkey",
+    "title": "crashmonkey: source-based system study",
+    "uid": "research:topic:crashmonkey"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:23:56Z",
+    "domain": "engineering",
+    "slug": "foundationdb",
+    "title": "foundationdb: source-based system study",
+    "uid": "research:topic:foundationdb"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T07:24:01Z",
+    "domain": "engineering",
+    "slug": "raft",
+    "title": "raft: source-based system study",
+    "uid": "research:topic:raft"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T08:33:56Z",
+    "domain": "engineering",
+    "slug": "gepa",
+    "title": "GEPA — 실행 피드백 기반 텍스트 최적화",
+    "uid": "research:topic:gepa"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T08:34:04Z",
+    "domain": "engineering",
+    "slug": "ace",
+    "title": "ACE — 경험 playbook과 문맥 적응",
+    "uid": "research:topic:ace"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T08:34:11Z",
+    "domain": "engineering",
+    "slug": "c3",
+    "title": "C3 — 반사실 후속 실행과 인과 기여",
+    "uid": "research:topic:c3"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T08:34:20Z",
+    "domain": "engineering",
+    "slug": "agent-lightning",
+    "title": "Agent Lightning — 실제 하네스의 강화학습 연결",
+    "uid": "research:topic:agent-lightning"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T08:34:28Z",
+    "domain": "engineering",
+    "slug": "verl",
+    "title": "verl — LLM 강화학습·증류 실행 기반",
+    "uid": "research:topic:verl"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T08:34:35Z",
+    "domain": "engineering",
+    "slug": "memevolve",
+    "title": "MemEvolve — 기억 내용과 아키텍처의 진화",
+    "uid": "research:topic:memevolve"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-07T08:34:43Z",
+    "domain": "engineering",
+    "slug": "memory-r1",
+    "title": "Memory-R1 — 결과 보상 기반 기억 정책 학습",
+    "uid": "research:topic:memory-r1"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-09T03:19:38Z",
+    "domain": "engineering",
+    "slug": "hoh-gui-minimalism",
+    "title": "HOH 미니멀리즘 GUI 발전 연구",
+    "uid": "research:topic:hoh-gui-minimalism"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-09T03:19:46Z",
+    "domain": "engineering",
+    "slug": "hoh-gui-glassmorphism",
+    "title": "HOH 글래스모피즘 GUI 발전 연구",
+    "uid": "research:topic:hoh-gui-glassmorphism"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-09T09:06:20Z",
+    "domain": "engineering",
+    "slug": "grok-knowledge-bot",
+    "title": "Grok/X 글의 출처·주장·검토 문서·그래프 수집",
+    "uid": "research:topic:grok-knowledge-bot"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-09T08:18:12Z",
+    "domain": "engineering",
+    "slug": "rea",
+    "title": "REA: Reverse Engineer Anything — Linux research tooling",
+    "uid": "research:topic:rea"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-09T10:10:16Z",
+    "domain": "engineering",
+    "slug": "hswm-incremental-computation",
+    "title": "HSWM 국지 읽기의 증분 계산",
+    "uid": "research:topic:hswm-incremental-computation"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-09T10:10:24Z",
+    "domain": "engineering",
+    "slug": "hswm-state-abstraction",
+    "title": "HSWM 국지 선택의 의사결정 충분성",
+    "uid": "research:topic:hswm-state-abstraction"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-09T10:10:32Z",
+    "domain": "engineering",
+    "slug": "hswm-rational-metareasoning",
+    "title": "HSWM CHU 활성화와 검색의 계산 가치",
+    "uid": "research:topic:hswm-rational-metareasoning"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-09T10:10:40Z",
+    "domain": "engineering",
+    "slug": "hswm-predictive-state",
+    "title": "HSWM 경험 상태와 정적 조정의 대체",
+    "uid": "research:topic:hswm-predictive-state"
+  },
+  {
+    "authority": "SOURCE_DECLARED",
+    "declared_at": "2026-10-09T10:10:47Z",
+    "domain": "engineering",
+    "slug": "hswm-local-reasoning",
+    "title": "HSWM 국지 실행의 Lean 증명",
+    "uid": "research:topic:hswm-local-reasoning"
+  }
+]

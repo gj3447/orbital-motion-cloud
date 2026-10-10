@@ -1,5 +1,19 @@
 # OMC 원문을 읽고 재현 후보를 다루는 법
 
+## 하드웨어 상태에 적응하는 데이터 배치
+
+[배치 CLI와 그래프](HARDWARE_ADAPTIVE_PLACEMENT.md)는 현재 디스크·메모리 관측을 기반으로 확정 파일을 20TB와 선택적 4TB 복사본에 배치한다. 자원 ID·HSWM 추상 구조·의미 연결을 유지한 위치 변경을 검증한다. 실행 상태와 원본 공간 회수는 구분한다.
+
+## MHC 컴퓨팅 안정화 HOW_TO
+
+사용자 요청에 따라 인류역사흐름의강물 허브에 **HOW_TO_mhc-compute-stability** 독립 Git 연구 저장소를 만들었다.
+[연구 진입 문서](/mnt/development/METAHUMOTONIC_SHARED/research/mhc-compute-stability/HOW_TO_mhc-compute-stability/README.md)와
+[연구 본문](/mnt/development/METAHUMOTONIC_SHARED/research/mhc-compute-stability/HOW_TO_mhc-compute-stability/docs/HOW_TO.md)에서 이어간다.
+
+기준 연산 단위, 기여 검증, 보상·발행·예약 회계, 미래 공급 대비 이용 의무, 강물의 사건 기록과 정책 재생,
+공급 부족 대응을 연구한다. 사용자가 명명한 비행기맨에게 코인으로 지식을 구하는 순환을 출발점으로 삼는다.
+현재는 HOW_TO 연구 설계이며 실험 결과는 아직 없다. [생성과 연결 기록](../records/2026-10-10/mhc-compute-stability/README.md).
+
 ## 1. 원문 무결성부터 확인
 
 1. `python3 cli.py check`로 모듈 identity 선언을 확인한다. 이 명령은 source archive나 외부 시스템을 실행하지 않는다.

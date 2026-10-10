@@ -1,0 +1,65 @@
+{
+  "effects": {
+    "module_access": false,
+    "network": false,
+    "writes": false
+  },
+  "ledger_sha256": "873a53d02d7bd4664b2a3654cde7a409ef9b48852e3355cd883bb40ddaf8fa3a",
+  "reports": [
+    {
+      "assessment": {
+        "limitations": null,
+        "next_work": null,
+        "result": null,
+        "status": "NOT_REPORTED"
+      },
+      "contributions": [
+        {
+          "authority": "SECONDARY_AI",
+          "contribution_uid": "research:work:omc-logical-foundations-20261010:WHAT_IS",
+          "kind": "WHAT_IS",
+          "local_source_verification": "VERIFIED_BYTES",
+          "managed_paths": [
+            ".research/records/omc-logical-foundations-20261010/WHAT_IS.source",
+            ".research/records/omc-logical-foundations-20261010/WHAT_IS.json"
+          ],
+          "module_revision_verification": "RECORDED_NOT_RECHECKED",
+          "owner_module_uid": "research:module:985e2169-6f9b-4627-b21a-2ea6c33426be",
+          "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/metahumotonic-apostles/WHAT_IS_metahumotonic-apostles",
+          "revision_scope": "MANAGED_MODULE_COMMIT",
+          "source_path": "data/research-organization/omc-logical-foundations-20261010-what-is.md",
+          "source_path_scope": "HUB_LOCAL_PATH",
+          "source_revision": "f3a35781d58a0296dbd0baef41c93e80f7eb968c",
+          "source_sha256": "b318729bd1be741ee45bea3be66eec868ad290d87ddd98e3017cfc1afbfa0e68",
+          "title": "OMC 철학·기술철학의 원문과 기존 논리 검토"
+        },
+        {
+          "authority": "SECONDARY_AI",
+          "contribution_uid": "research:work:omc-logical-foundations-20261010:HOW_TO",
+          "kind": "HOW_TO",
+          "local_source_verification": "VERIFIED_BYTES",
+          "managed_paths": [
+            ".research/records/omc-logical-foundations-20261010/HOW_TO.source",
+            ".research/records/omc-logical-foundations-20261010/HOW_TO.json"
+          ],
+          "module_revision_verification": "RECORDED_NOT_RECHECKED",
+          "owner_module_uid": "research:module:85863221-bd79-4b66-a447-a0d366467fdf",
+          "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/metahumotonic-apostles/HOW_TO_metahumotonic-apostles",
+          "revision_scope": "MANAGED_MODULE_COMMIT",
+          "source_path": "data/research-organization/omc-logical-foundations-20261010-how-to.md",
+          "source_path_scope": "HUB_LOCAL_PATH",
+          "source_revision": "cbd30f5428e97026bed9ebd587e9774576864abd",
+          "source_sha256": "a4ca2a26ba64bc45b56f0fad9d9388729b79a85bcdc850519f402723a7c03baa",
+          "title": "OMC 철학·기술철학과 네 순환의 논리 구성 v1"
+        }
+      ],
+      "recorded_by": "Codex",
+      "topic_uid": "research:topic:metahumotonic-apostles",
+      "work_uid": "research:work:omc-logical-foundations-20261010",
+      "workflow_complete": true,
+      "workflow_state": "COMPLETE"
+    }
+  ],
+  "schema": "research-contribution-report/1",
+  "scope": "LOCAL_ARCHIVED_EVIDENCE"
+}

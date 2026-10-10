@@ -1,0 +1,20 @@
+{
+  "schema": "omc-owner-migration-observation/1",
+  "observed_at": "2026-10-10T15:47:56.938649+00:00",
+  "authority": "OBSERVED",
+  "owner_scope": "THE_GREAT_FLOW storage recovery",
+  "source": "/home/lagyeongjun/CD/THE_GREAT_FLOW/work/2026-10-10-storage-recovery/summary.json",
+  "source_sha256": "26208db97d95eb1fe6f6aa66f56a714c4d7097b30e0cc33d76b319000f152769",
+  "owner_report": {
+    "datasets": 12,
+    "files": 67447,
+    "bytes_verified": 28495249001,
+    "resource_ids_preserved": true,
+    "meanings_preserved": true,
+    "roles_preserved": true,
+    "original_path_compatibility": true,
+    "shared_kg_written": false,
+    "verification": "Full independent SHA-256 plus mode/mtime/symlink/entry comparison before cutover"
+  },
+  "interpretation": "This session observes the existing owner migration; it did not execute those large directory moves."
+}

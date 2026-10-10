@@ -1,0 +1,48 @@
+{
+  "schema": "omc-owner-workflow-receipt/1",
+  "run": {
+    "actor": "Codex",
+    "artifacts": [
+      {
+        "authority": "SECONDARY_AI",
+        "commit": "4a265a83c8e8a0f6b49b11108caefd1092bfaf42",
+        "kind": "HOW_TO",
+        "managed_paths": [
+          ".research/records/mhc-compute-stability-20261010/HOW_TO.source",
+          ".research/records/mhc-compute-stability-20261010/HOW_TO.json"
+        ],
+        "module_uid": "research:module:c16b1501-c7f1-4812-83d5-b3666abaff61",
+        "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/mhc-compute-stability/HOW_TO_mhc-compute-stability",
+        "source_path": "data/research-organization/mhc-compute-stability-20261010/HOW_TO.md",
+        "source_sha256": "c1715ab34914f549cc06dcf3e803060a8f5305c3a835a7ecf992441e48a5ff44",
+        "title": "MHC를 컴퓨팅 이용 능력에 안정적으로 연결하기 — 강물 기반 연구 설계 v0.1"
+      }
+    ],
+    "completed_at": "2026-10-10T15:59:46Z",
+    "id": "mhc-compute-stability-20261010",
+    "placement": "CREATED",
+    "placement_basis": "User explicitly requested a HOW_TO repository. Existing coin is a generic coin research scaffold; infrastructure-orchestration records OMC contribution and token efficiency; metahumotonic-apostles records identity/relations. This new question owns compute-denominated MHC stability, forward capacity coverage, metering, settlement and historical policy replay. Reuse their evidence, retain their identities, and separate this bounded research topic under THE GREAT FLOW.",
+    "recorded_at": "2026-10-10T14:48:43Z",
+    "request_sha256": "58eb0cff56f792ab766b4aed96f8be5def34096e2ee8c27bf1c25d34baf748a5",
+    "state": "COMPLETE",
+    "topic": "mhc-compute-stability"
+  },
+  "managed_job_receipt": {
+    "boot_id": "714da32e-c731-4be2-a8c7-1d6cb145fa40",
+    "budget_bytes": 268435456,
+    "child_pid": 2758796,
+    "exit_code": 0,
+    "finished_at": "2026-10-10T16:00:55.693630+00:00",
+    "id": "0c8a4ac26b194a36853081c420dddbfc",
+    "live_kg_published": false,
+    "pid": 2758786,
+    "project": "0497fb9d21d7b57bdaf7",
+    "reason": "command completed",
+    "retention": "explicit artifacts and caches retained; failed scratch retained",
+    "schema": "storage-job-receipt/v1",
+    "start_ticks": "164762034",
+    "started_at": "2026-10-10T15:58:35.965719+00:00",
+    "tier": "bulk",
+    "work_dir": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-placement-mhc-records-0c8a4ac26b194a36853081c420dddbfc"
+  }
+}

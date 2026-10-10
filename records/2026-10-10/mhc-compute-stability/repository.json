@@ -1,0 +1,21 @@
+{
+  "schema": "omc-research-handoff/1",
+  "work_id": "mhc-compute-stability-20261010",
+  "topic": "mhc-compute-stability",
+  "module_uid": "research:module:c16b1501-c7f1-4812-83d5-b3666abaff61",
+  "kind": "HOW_TO",
+  "repository_path": "/mnt/development/METAHUMOTONIC_SHARED/research/mhc-compute-stability/HOW_TO_mhc-compute-stability",
+  "repository_head": "4d1edecbefb05c7b04a9401eae72b71168ed2d66",
+  "readme_path": "/mnt/development/METAHUMOTONIC_SHARED/research/mhc-compute-stability/HOW_TO_mhc-compute-stability/README.md",
+  "research_path": "/mnt/development/METAHUMOTONIC_SHARED/research/mhc-compute-stability/HOW_TO_mhc-compute-stability/docs/HOW_TO.md",
+  "research_sha256": "c1715ab34914f549cc06dcf3e803060a8f5305c3a835a7ecf992441e48a5ff44",
+  "owner_hub": "/home/lagyeongjun/CD/THE_GREAT_FLOW",
+  "owner_request_path": "/home/lagyeongjun/CD/THE_GREAT_FLOW/data/research-organization/mhc-compute-stability-20261010/request.json",
+  "remote_repository_created": false,
+  "authority": "OBSERVED",
+  "user_authority": "USER_PRIMARY",
+  "design_authority": "SECONDARY_AI",
+  "experiments_executed": false,
+  "workflow_state": "COMPLETE",
+  "hub_refresh_completed": true
+}

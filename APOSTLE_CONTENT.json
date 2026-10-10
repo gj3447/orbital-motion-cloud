@@ -189,23 +189,53 @@
   "guides": [
     {
       "repository_path": "README.md",
-      "sha256": "458afe6b72dd8a086fa5ded5777dd045544ef0c190f2c5e5dee2845cae40e5e1",
+      "sha256": "c31676e53f7c23572b03c606b64d705ee5bc9b6e7c58814679a94204fa911de0",
       "authority": "SECONDARY_AI"
     },
     {
       "repository_path": "docs/WHAT_IS.md",
-      "sha256": "f892ad6f51c034a186e42c2617912227b639f5cb5ddf2cef5cd221139c4f7c7c",
+      "sha256": "1e1e03cb7172f9029fc6647e2540b8a0366ef2079165b6853bb203f49b3423db",
       "authority": "SECONDARY_AI"
     },
     {
       "repository_path": "docs/HOW_TO.md",
-      "sha256": "c6f8709f510db150dd4aea8277414c95b5afe21b839370deccefa6e4d7f4922e",
+      "sha256": "915910aac5d2b52e165d71dd9529b2861413b3ae8be817210384ea28f62c7df3",
       "authority": "SECONDARY_AI"
     },
     {
       "repository_path": "docs/RESEARCH_MAP.md",
-      "sha256": "8d11f38d353d600f39a75de304c9d923cc043639e85bc1c9842eeb926c82c6de",
+      "sha256": "7c55a7aa374897e3284777d29d71e6e0f0b178a935e2ae9fe1505a7e8b841ba0",
       "authority": "SECONDARY_AI"
+    },
+    {
+      "repository_path": "docs/OMC_PERSPECTIVES_AND_MIND.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "0361ffe062ddf3c2c9e7a71911bb2ae1fcd209675bd9d1a3e92e45d6503ba6ed"
+    },
+    {
+      "repository_path": "docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "a6d8f2716cbd2b81f905248f981b81c971caff7765bc007dafe81f4983713979"
+    },
+    {
+      "repository_path": "docs/OMC_LOGICAL_FOUNDATIONS.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "39b0ad28b428b684b54f3400eb4574064c19b39f626b25a005d6641335a786c1"
+    },
+    {
+      "repository_path": "docs/OMC_FOUNDATION_SOURCE_REVIEW.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "18dd53373640938a709c3d99381a1c52c2c616eef651cb926e5699d3712086ed"
+    },
+    {
+      "repository_path": "docs/FLYWHEEL.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "ea57b22b018a47e8a81277dec18b5c2014a9620ea512e883ad03516601104685"
+    },
+    {
+      "repository_path": "docs/HARDWARE_ADAPTIVE_PLACEMENT.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "996f866d851ecf0bd88a77e41be93b6d6a6f365622b898667d843a30e8202d71"
     }
   ]
 }

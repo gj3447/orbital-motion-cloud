@@ -1,0 +1,25 @@
+{
+  "status": "CONTEXT_READY",
+  "placement": [
+    {
+      "path": "data/research-organization/omc-logical-foundations-20261010.json",
+      "status": "MAPPED",
+      "modules": [
+        "dev:module:research-workflow"
+      ],
+      "contracts": [],
+      "generated": false,
+      "edit_sources": [],
+      "sources": [
+        {
+          "uid": "dev:source:registry",
+          "uri": "graph/development.json",
+          "sha256": "bb652f8db8490e0abd7f1dd10b07e992f465501ea50b865cad44814d33727147",
+          "authority": "SOURCE_DECLARED",
+          "actor": "Codex"
+        }
+      ],
+      "note": "Declared ownership; existence of a future path is not an observation."
+    }
+  ]
+}

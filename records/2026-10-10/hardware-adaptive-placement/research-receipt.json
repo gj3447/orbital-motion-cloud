@@ -1,0 +1,48 @@
+{
+  "schema": "omc-owner-workflow-receipt/1",
+  "run": {
+    "actor": "Codex",
+    "artifacts": [
+      {
+        "authority": "SECONDARY_AI",
+        "commit": "13ad25b843f61d081a18e59518969a368a30a171",
+        "kind": "HOW_TO",
+        "managed_paths": [
+          ".research/records/omc-hardware-placement-20261010/HOW_TO.source",
+          ".research/records/omc-hardware-placement-20261010/HOW_TO.json"
+        ],
+        "module_uid": "research:module:eb774eb7-e576-4cdf-a767-e562c5abadbd",
+        "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/infrastructure-orchestration/HOW_TO_infrastructure-orchestration",
+        "source_path": "data/research-organization/omc-hardware-placement-20261010.md",
+        "source_sha256": "6bbbc561c27e58bdce23b7591784fc8e288b6ecc7036400271675234fbf6087e",
+        "title": "OMC 하드웨어 관측·배치·USL 불변성 CLI"
+      }
+    ],
+    "completed_at": "2026-10-10T15:59:46Z",
+    "id": "omc-hardware-placement-20261010",
+    "placement": "REUSED",
+    "placement_basis": "research_modules list와 infrastructure-orchestration agent_context를 확인했다. 기존 dev01-20tb-migration 연구와 resource-autonomy의 실행 경계에 이어, OMC가 물리 배치를 변경하되 HSWM 의미를 보존하는 제한 CLI를 구현한 HOW_TO 후속 연구로 같은 주제를 재사용한다. 이름 색인 검색 orbital_motion_cloud는 0건이었으나 명시적 대상 저장소의 소유 구현을 직접 확인했다. 사도 정체성·철학 원전과 범용 인프라 연구의 소유를 분리한다.",
+    "recorded_at": "2026-10-10T15:58:37Z",
+    "request_sha256": "88d38255568693b912a86050a53ccbe1cc209ddbceead83becc07fb2a995e44a",
+    "state": "COMPLETE",
+    "topic": "infrastructure-orchestration"
+  },
+  "managed_job_receipt": {
+    "boot_id": "714da32e-c731-4be2-a8c7-1d6cb145fa40",
+    "budget_bytes": 268435456,
+    "child_pid": 2758796,
+    "exit_code": 0,
+    "finished_at": "2026-10-10T16:00:55.693630+00:00",
+    "id": "0c8a4ac26b194a36853081c420dddbfc",
+    "live_kg_published": false,
+    "pid": 2758786,
+    "project": "0497fb9d21d7b57bdaf7",
+    "reason": "command completed",
+    "retention": "explicit artifacts and caches retained; failed scratch retained",
+    "schema": "storage-job-receipt/v1",
+    "start_ticks": "164762034",
+    "started_at": "2026-10-10T15:58:35.965719+00:00",
+    "tier": "bulk",
+    "work_dir": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-placement-mhc-records-0c8a4ac26b194a36853081c420dddbfc"
+  }
+}

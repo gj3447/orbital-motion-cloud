@@ -1,0 +1,1139 @@
+{
+  "schema": "omc-foundation-argument/1",
+  "scope": "OMC_LOCAL_ONLY",
+  "source_manifest": "records/2026-10-10/omc-logical-foundations/sources.json",
+  "authority": "SECONDARY_AI",
+  "predicates": {
+    "DERIVED_FROM": {
+      "domain": "Claim",
+      "range": "Source",
+      "direction": "claim_to_evidence",
+      "out_min": 1,
+      "out_max": null,
+      "meaning": "Attribution or interpretation basis, not automatic entailment",
+      "in_min": 0,
+      "in_max": null
+    },
+    "REQUIRES": {
+      "domain": "Claim",
+      "range": "Claim",
+      "direction": "conclusion_to_prerequisite",
+      "out_min": 0,
+      "out_max": null,
+      "meaning": "Explicit argumentative dependency; acyclic",
+      "in_min": 0,
+      "in_max": null
+    },
+    "MAY_ENABLE": {
+      "domain": "Stage",
+      "range": "Stage",
+      "direction": "earlier_mechanism_to_later_effect",
+      "out_min": 1,
+      "out_max": null,
+      "meaning": "Conditional activity feedback; cycles allowed",
+      "in_min": 0,
+      "in_max": null
+    }
+  },
+  "acyclic_predicates": [
+    "REQUIRES"
+  ],
+  "nodes": [
+    {
+      "uid": "source:request",
+      "type": "Source",
+      "label": "records/2026-10-10/omc-logical-foundations/user-verbatim.txt",
+      "authority": "USER_PRIMARY",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "request"
+    },
+    {
+      "uid": "source:axioms",
+      "type": "Source",
+      "label": "records/2026-10-10/omc-logical-foundations/mind/선의_공리.md",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "axioms"
+    },
+    {
+      "uid": "source:tree",
+      "type": "Source",
+      "label": "records/2026-10-10/omc-logical-foundations/mind/전설의_리퀘스트_나무.md",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "tree"
+    },
+    {
+      "uid": "source:cosmic-essay",
+      "type": "Source",
+      "label": "records/2026-10-10/omc-logical-foundations/mind/메타휴모토닉_우주적_최적화의_논리적_귀결.md",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "cosmic-essay"
+    },
+    {
+      "uid": "source:totality-essay",
+      "type": "Source",
+      "label": "records/2026-10-10/omc-logical-foundations/mind/절대적_총체의_구조.md",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "totality-essay"
+    },
+    {
+      "uid": "source:relations",
+      "type": "Source",
+      "label": "records/2026-10-10/omc-logical-foundations/owner/20261007-relation-source.md",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "relations"
+    },
+    {
+      "uid": "source:apostle-graph",
+      "type": "Source",
+      "label": "records/2026-10-10/omc-logical-foundations/owner/apostles.json",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "apostle-graph"
+    },
+    {
+      "uid": "source:omc-archive",
+      "type": "Source",
+      "label": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/SOURCES.md",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "omc-archive"
+    },
+    {
+      "uid": "source:perspectives",
+      "type": "Source",
+      "label": "records/2026-10-10/mind-omc-perspectives/user-verbatim.txt",
+      "authority": "USER_PRIMARY",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "perspectives"
+    },
+    {
+      "uid": "source:cloud-scene",
+      "type": "Source",
+      "label": "records/2026-10-10/mind-omc-perspectives/mind/비행기맨꼐서_지켜주실꺼야.md",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "cloud-scene"
+    },
+    {
+      "uid": "source:cloud-texture",
+      "type": "Source",
+      "label": "records/2026-10-10/mind-omc-perspectives/mind/구름의_질감.md",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "cloud-texture"
+    },
+    {
+      "uid": "source:bhgman-principle",
+      "type": "Source",
+      "label": "records/2026-10-10/mind-omc-perspectives/mind/재귀_아티스트_back2the.md",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "bhgman-principle"
+    },
+    {
+      "uid": "source:resource-purpose",
+      "type": "Source",
+      "label": "records/2026-10-10/resource-credit-shared-intelligence/sources.json",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "resource-purpose"
+    },
+    {
+      "uid": "source:efficiency-premise",
+      "type": "Source",
+      "label": "records/2026-10-10/token-efficiency-flywheel/premise-verbatim.txt",
+      "authority": "USER_PRIMARY",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "efficiency-premise"
+    },
+    {
+      "uid": "source:technical-flywheel",
+      "type": "Source",
+      "label": "graph/flywheel.json",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "technical-flywheel"
+    },
+    {
+      "uid": "source:bennett-2003",
+      "type": "Source",
+      "label": "Notes on Landauer's Principle, Reversible Computation, and Maxwell's Demon",
+      "authority": "SOURCE_DOCUMENT",
+      "record_lifecycle": "ACTIVE",
+      "source_ref": "bennett-2003"
+    },
+    {
+      "uid": "claim:distinct",
+      "type": "Claim",
+      "label": "철학·기술·디멘션 워커의 관점을 구분한다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "USER_STATEMENT_SUMMARY",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "perspectives"
+      ],
+      "depends_on": [],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:organic",
+      "type": "Claim",
+      "label": "유기적으로 연결된 메타휴모토닉 플라이휠을 논리적으로 구성한다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "USER_STATEMENT_SUMMARY",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "request"
+      ],
+      "depends_on": [],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:persistence",
+      "type": "Claim",
+      "label": "선의 공리는 존재·시간·지속·상호작용을 연결한다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "SOURCE_REPORTED",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "axioms"
+      ],
+      "depends_on": [],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:enactment",
+      "type": "Claim",
+      "label": "OMC 자료집은 원리를 동작시키는 에너지와 데이터 위상을 함께 다룬다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "SOURCE_REPORTED",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "omc-archive"
+      ],
+      "depends_on": [],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:field",
+      "type": "Claim",
+      "label": "OMC 분석 모형은 표현 영역·규칙·실현 조건·역사로 구성한다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "DEFINITION",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "omc-archive",
+        "axioms"
+      ],
+      "depends_on": [
+        "claim:distinct",
+        "claim:persistence",
+        "claim:enactment"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:representation",
+      "type": "Claim",
+      "label": "표현 가능·규칙상 가능·실현·관측 기록은 서로 다른 조건이다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "INTERPRETATION",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "tree",
+        "omc-archive"
+      ],
+      "depends_on": [
+        "claim:field"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:views",
+      "type": "Claim",
+      "label": "네 위상은 동일한 활동의 서로 다른 측면으로 연결되며 단위의 동일성은 별도 주장이다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "INTERPRETATION",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "omc-archive",
+        "bennett-2003"
+      ],
+      "depends_on": [
+        "claim:field",
+        "claim:representation"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:evaluation",
+      "type": "Claim",
+      "label": "현재 후보를 포함하고 최댓값이 존재하는 비교에서 악_A는 비음수이며 영은 그 비교에서의 최적성이다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "CONDITIONAL_DEDUCTION",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "axioms"
+      ],
+      "depends_on": [
+        "claim:persistence",
+        "claim:representation"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:self-maintenance",
+      "type": "Claim",
+      "label": "자기유지는 활동 결과가 다음 활동의 자원·참여 조건을 확보하는 재생산이다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "INTERPRETATION",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "resource-purpose",
+        "bennett-2003"
+      ],
+      "depends_on": [
+        "claim:field",
+        "claim:views"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:relations",
+      "type": "Claim",
+      "label": "다자 관계와 전체 shell은 참여자 역할 및 출처 상태를 보존해야 한다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "SOURCE_REPORTED",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "relations",
+        "apostle-graph"
+      ],
+      "depends_on": [],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:collective",
+      "type": "Claim",
+      "label": "재사용·분업의 이득이 조정 비용을 넘고 실현 조건이 갖춰지면 공동 조직이 개인의 능력을 넓힐 수 있다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "CONDITIONAL_DEDUCTION",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "efficiency-premise",
+        "resource-purpose",
+        "bhgman-principle"
+      ],
+      "depends_on": [
+        "claim:field",
+        "claim:representation"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:four-loops",
+      "type": "Claim",
+      "label": "의미·지능·자원경제·합의 순환을 서로 다른 작용으로 결합한다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "DESIGN_SYNTHESIS",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel",
+        "relations"
+      ],
+      "depends_on": [
+        "claim:organic",
+        "claim:collective",
+        "claim:self-maintenance",
+        "claim:evaluation",
+        "claim:relations"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:time-feedback",
+      "type": "Claim",
+      "label": "현재 활동이 다음 상태를 바꾸는 시간 피드백은 주장 의존의 순환을 필요로 하지 않는다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "CONDITIONAL_DEDUCTION",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "technical-flywheel"
+      ],
+      "depends_on": [
+        "claim:four-loops"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:gain",
+      "type": "Claim",
+      "label": "동일 평가 기준에서 순증폭은 한 바퀴 이득이 손실보다 큰 경우에만 성립한다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "CONDITIONAL_DEDUCTION",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "technical-flywheel",
+        "efficiency-premise"
+      ],
+      "depends_on": [
+        "claim:time-feedback"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "claim:foundation",
+      "type": "Claim",
+      "label": "원리의 실현·존재의 지속·경험의 축적·조건의 재생산이 철학적 OMC와 기술철학적 OMC를 연결한다",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "claim_kind": "SYNTHESIS",
+      "epistemic_state": "PROPOSED_ARGUMENT",
+      "source_refs": [
+        "request",
+        "axioms",
+        "omc-archive",
+        "resource-purpose"
+      ],
+      "depends_on": [
+        "claim:field",
+        "claim:views",
+        "claim:evaluation",
+        "claim:four-loops",
+        "claim:time-feedback",
+        "claim:gain"
+      ],
+      "scope": "OMC logical construction v1; not ratified canon or machine-checked theorem"
+    },
+    {
+      "uid": "stage:needs",
+      "type": "Stage",
+      "label": "사람과 MetaHumo의 요구",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel"
+      ]
+    },
+    {
+      "uid": "stage:task",
+      "type": "Stage",
+      "label": "해석하고 합의한 과제",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel"
+      ]
+    },
+    {
+      "uid": "stage:organization",
+      "type": "Stage",
+      "label": "상태·기억·전문화의 조직",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel"
+      ]
+    },
+    {
+      "uid": "stage:activity",
+      "type": "Stage",
+      "label": "활동과 답변",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel"
+      ]
+    },
+    {
+      "uid": "stage:experience",
+      "type": "Stage",
+      "label": "당사자의 경험과 효용",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel"
+      ]
+    },
+    {
+      "uid": "stage:history",
+      "type": "Stage",
+      "label": "출처를 확인한 역사와 경험",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel"
+      ]
+    },
+    {
+      "uid": "stage:participation",
+      "type": "Stage",
+      "label": "참여와 서비스 수요",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel"
+      ]
+    },
+    {
+      "uid": "stage:agreement",
+      "type": "Stage",
+      "label": "합의한 기여와 정산",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel"
+      ]
+    },
+    {
+      "uid": "stage:resources",
+      "type": "Stage",
+      "label": "가용 연산과 기억",
+      "authority": "SECONDARY_AI",
+      "record_lifecycle": "ACTIVE",
+      "source_refs": [
+        "request",
+        "resource-purpose",
+        "technical-flywheel"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "uid": "edge:DERIVED_FROM:claim:distinct:source:perspectives",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:distinct",
+      "target": "source:perspectives",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:organic:source:request",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:organic",
+      "target": "source:request",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:persistence:source:axioms",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:persistence",
+      "target": "source:axioms",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:enactment:source:omc-archive",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:enactment",
+      "target": "source:omc-archive",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:field:source:omc-archive",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:field",
+      "target": "source:omc-archive",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:field:source:axioms",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:field",
+      "target": "source:axioms",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:field:claim:distinct",
+      "predicate": "REQUIRES",
+      "source": "claim:field",
+      "target": "claim:distinct",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:field:claim:persistence",
+      "predicate": "REQUIRES",
+      "source": "claim:field",
+      "target": "claim:persistence",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:field:claim:enactment",
+      "predicate": "REQUIRES",
+      "source": "claim:field",
+      "target": "claim:enactment",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:representation:source:tree",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:representation",
+      "target": "source:tree",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:representation:source:omc-archive",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:representation",
+      "target": "source:omc-archive",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:representation:claim:field",
+      "predicate": "REQUIRES",
+      "source": "claim:representation",
+      "target": "claim:field",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:views:source:omc-archive",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:views",
+      "target": "source:omc-archive",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:views:source:bennett-2003",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:views",
+      "target": "source:bennett-2003",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:views:claim:field",
+      "predicate": "REQUIRES",
+      "source": "claim:views",
+      "target": "claim:field",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:views:claim:representation",
+      "predicate": "REQUIRES",
+      "source": "claim:views",
+      "target": "claim:representation",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:evaluation:source:axioms",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:evaluation",
+      "target": "source:axioms",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:evaluation:claim:persistence",
+      "predicate": "REQUIRES",
+      "source": "claim:evaluation",
+      "target": "claim:persistence",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:evaluation:claim:representation",
+      "predicate": "REQUIRES",
+      "source": "claim:evaluation",
+      "target": "claim:representation",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:self-maintenance:source:resource-purpose",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:self-maintenance",
+      "target": "source:resource-purpose",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:self-maintenance:source:bennett-2003",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:self-maintenance",
+      "target": "source:bennett-2003",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:self-maintenance:claim:field",
+      "predicate": "REQUIRES",
+      "source": "claim:self-maintenance",
+      "target": "claim:field",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:self-maintenance:claim:views",
+      "predicate": "REQUIRES",
+      "source": "claim:self-maintenance",
+      "target": "claim:views",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:relations:source:relations",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:relations",
+      "target": "source:relations",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:relations:source:apostle-graph",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:relations",
+      "target": "source:apostle-graph",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:collective:source:efficiency-premise",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:collective",
+      "target": "source:efficiency-premise",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:collective:source:resource-purpose",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:collective",
+      "target": "source:resource-purpose",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:collective:source:bhgman-principle",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:collective",
+      "target": "source:bhgman-principle",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:collective:claim:field",
+      "predicate": "REQUIRES",
+      "source": "claim:collective",
+      "target": "claim:field",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:collective:claim:representation",
+      "predicate": "REQUIRES",
+      "source": "claim:collective",
+      "target": "claim:representation",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:four-loops:source:request",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:four-loops",
+      "target": "source:request",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:four-loops:source:resource-purpose",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:four-loops",
+      "target": "source:resource-purpose",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:four-loops:source:technical-flywheel",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:four-loops",
+      "target": "source:technical-flywheel",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:four-loops:source:relations",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:four-loops",
+      "target": "source:relations",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:four-loops:claim:organic",
+      "predicate": "REQUIRES",
+      "source": "claim:four-loops",
+      "target": "claim:organic",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:four-loops:claim:collective",
+      "predicate": "REQUIRES",
+      "source": "claim:four-loops",
+      "target": "claim:collective",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:four-loops:claim:self-maintenance",
+      "predicate": "REQUIRES",
+      "source": "claim:four-loops",
+      "target": "claim:self-maintenance",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:four-loops:claim:evaluation",
+      "predicate": "REQUIRES",
+      "source": "claim:four-loops",
+      "target": "claim:evaluation",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:four-loops:claim:relations",
+      "predicate": "REQUIRES",
+      "source": "claim:four-loops",
+      "target": "claim:relations",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:time-feedback:source:technical-flywheel",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:time-feedback",
+      "target": "source:technical-flywheel",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:time-feedback:claim:four-loops",
+      "predicate": "REQUIRES",
+      "source": "claim:time-feedback",
+      "target": "claim:four-loops",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:gain:source:technical-flywheel",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:gain",
+      "target": "source:technical-flywheel",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:gain:source:efficiency-premise",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:gain",
+      "target": "source:efficiency-premise",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:gain:claim:time-feedback",
+      "predicate": "REQUIRES",
+      "source": "claim:gain",
+      "target": "claim:time-feedback",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:foundation:source:request",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:foundation",
+      "target": "source:request",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:foundation:source:axioms",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:foundation",
+      "target": "source:axioms",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:foundation:source:omc-archive",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:foundation",
+      "target": "source:omc-archive",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:DERIVED_FROM:claim:foundation:source:resource-purpose",
+      "predicate": "DERIVED_FROM",
+      "source": "claim:foundation",
+      "target": "source:resource-purpose",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:foundation:claim:field",
+      "predicate": "REQUIRES",
+      "source": "claim:foundation",
+      "target": "claim:field",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:foundation:claim:views",
+      "predicate": "REQUIRES",
+      "source": "claim:foundation",
+      "target": "claim:views",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:foundation:claim:evaluation",
+      "predicate": "REQUIRES",
+      "source": "claim:foundation",
+      "target": "claim:evaluation",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:foundation:claim:four-loops",
+      "predicate": "REQUIRES",
+      "source": "claim:foundation",
+      "target": "claim:four-loops",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:foundation:claim:time-feedback",
+      "predicate": "REQUIRES",
+      "source": "claim:foundation",
+      "target": "claim:time-feedback",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:REQUIRES:claim:foundation:claim:gain",
+      "predicate": "REQUIRES",
+      "source": "claim:foundation",
+      "target": "claim:gain",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:needs:stage:task",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:needs",
+      "target": "stage:task",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "의도와 제약의 해석 및 당사자 합의",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:task:stage:organization",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:task",
+      "target": "stage:organization",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "과제를 위한 상태와 전문화 선택",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:resources:stage:organization",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:resources",
+      "target": "stage:organization",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "합의한 자원이 실제로 가용함",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:organization:stage:activity",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:organization",
+      "target": "stage:activity",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "선택·조정 비용을 포함한 수행 가능성",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:activity:stage:experience",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:activity",
+      "target": "stage:experience",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "실제 사용 결과와 당사자 평가",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:experience:stage:needs",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:experience",
+      "target": "stage:needs",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "의도 정정과 다음 요구의 형성",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:activity:stage:history",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:activity",
+      "target": "stage:history",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "성공·실패의 출처와 결과 관측",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:history:stage:organization",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:history",
+      "target": "stage:organization",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "상황에 맞는 재사용 및 퇴행 확인",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:experience:stage:participation",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:experience",
+      "target": "stage:participation",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "품질·가격·대기·신뢰를 고려한 이용 가치",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:participation:stage:agreement",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:participation",
+      "target": "stage:agreement",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "참여 조건을 이해하고 선택함",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:agreement:stage:resources",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:agreement",
+      "target": "stage:resources",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "기여 식별과 검증된 공급",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:agreement:stage:participation",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:agreement",
+      "target": "stage:participation",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "합의한 대가로 서비스를 실제 이용할 수 있음",
+      "time_semantics": "successive activity; feedback changes a later state"
+    },
+    {
+      "uid": "edge:MAY_ENABLE:stage:history:stage:agreement",
+      "predicate": "MAY_ENABLE",
+      "source": "stage:history",
+      "target": "stage:agreement",
+      "authority": "SECONDARY_AI",
+      "relationship_status": "PROPOSED",
+      "condition": "제공·이용 결과를 정산과 조건 검토에 반영",
+      "time_semantics": "successive activity; feedback changes a later state"
+    }
+  ],
+  "competency_questions": [
+    {
+      "question": "철학적 OMC와 기술철학적 OMC는 무엇으로 이어지는가?",
+      "answers": [
+        "claim:foundation",
+        "claim:field",
+        "claim:four-loops"
+      ]
+    },
+    {
+      "question": "자기유지에서 외부 자원은 사라지는가?",
+      "answers": [
+        "claim:self-maintenance",
+        "claim:time-feedback"
+      ]
+    },
+    {
+      "question": "순환이 있다는 사실만으로 개선이 보장되는가?",
+      "answers": [
+        "claim:gain"
+      ]
+    },
+    {
+      "question": "누구의 지속을 평가하며 최적성은 어느 범위인가?",
+      "answers": [
+        "claim:evaluation"
+      ]
+    },
+    {
+      "question": "전체 사도 연결을 일대일 기능 배정으로 바꾸어도 되는가?",
+      "answers": [
+        "claim:relations",
+        "claim:distinct"
+      ]
+    }
+  ],
+  "validation_scope": "Source integrity and structural argument checks only; semantic soundness is explained in prose, not proved by graph validation"
+}

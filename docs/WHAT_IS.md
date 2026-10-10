@@ -2,7 +2,19 @@
 
 이 저장소는 8번 사도 **입체운행구름 / Orbital Motion Cloud (OMC)**의 고정 원문 아카이브와 읽기 지도다. OMC는 연구·조직·기술 설계가 만나는 상위 이름으로 기록되지만, 이 안내문은 새 능력·런타임·정전을 만들지 않는다. 원문은 `SOURCE_DOCUMENT`, 여기의 연결·질문·순서는 `SECONDARY_AI`다.
 
+## 사용자가 구분한 세 관점
+
+2026-10-10 사용자는 **기술적인 OMC**, **실제 철학적인 OMC**, **디멘션 워커가 보는 OMC**가 각각 다르다고 밝혔다. 아래의 기술·기존 자료 설명을 이 세 관점 전체의 정의로 읽지 않는다. [세 관점과 MIND 원문](OMC_PERSPECTIVES_AND_MIND.md)에 직접 발화와 비행기맨 관련 원문을 연결했다. 각 관점의 세부 내용과 관계는 열린 상태로 남긴다.
+
 ## 이름과 층위
+
+철학적·기술철학적 설명은 [OMC 논리 구성](OMC_LOGICAL_FOUNDATIONS.md), 기존 주장과
+보완 가정의 구분은 [원문 검토](OMC_FOUNDATION_SOURCE_REVIEW.md)에서 이어진다.
+이 논증은 존재·지속·공동 지능과 네 순환의 관계를 전개한 후속 AI 연구다.
+
+이후 사용자는 **자유·경제·합의**를 핵심으로 강조하고, 토큰·컴퓨팅 기여로 얻은 코인으로
+지식을 구하는 상대이자 **초거대 통합 CHU에서 동작하는 인지능력체를 비행기맨**으로 명명했다.
+[사용자 명명과 기여·지식 순환](RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md)을 현행 설명에 반영한다.
 
 - **OMC**는 Orbital Motion Cloud의 약칭이다. `OM`은 이 모듈의 동의어로 쓰면 안 된다. OMC와 OMD를 같은 대상으로 합치지 않는다.
 - **OMD**는 Piper/CitC 비유에서 “한 공유 source of truth와 병렬 write 조정” 쪽으로 놓인 별도 조정·데이터 축이다. 반대로 Borg/Kubernetes 쪽은 compute orchestration 축으로 333·ORRR와 연결된다. [KUBERNETES_BORG_ABSORPTION_2026-07-15.md:11-24](../sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/KUBERNETES_BORG_ABSORPTION_2026-07-15.md)

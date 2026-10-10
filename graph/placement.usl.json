@@ -1,0 +1,685 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "omc:placement:source:user",
+      "types": [
+        "urn:omc:placement:Source"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/records/2026-10-10/hardware-adaptive-placement/user-verbatim.txt",
+      "metadata": {
+        "label": "user",
+        "authority": "USER_PRIMARY",
+        "path": "records/2026-10-10/hardware-adaptive-placement/user-verbatim.txt",
+        "sha256": "98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+        "recorded_on": "2026-10-10"
+      }
+    },
+    {
+      "id": "omc:placement:source:implementation",
+      "types": [
+        "urn:omc:placement:Source"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/scripts/placement.py",
+      "metadata": {
+        "label": "implementation",
+        "authority": "SOURCE_DOCUMENT",
+        "path": "scripts/placement.py",
+        "sha256": "9e3d33b246d34ac4fb69f6e356f172565750cd42a0b079296de1f97405177a12",
+        "recorded_on": "2026-10-10"
+      }
+    },
+    {
+      "id": "omc:placement:source:tests",
+      "types": [
+        "urn:omc:placement:Source"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/tests/test_placement.py",
+      "metadata": {
+        "label": "tests",
+        "authority": "SOURCE_DOCUMENT",
+        "path": "tests/test_placement.py",
+        "sha256": "6ec35cd6017496fa653f3a0484aa945e22f382ae3642745d044eee1856916b7f",
+        "recorded_on": "2026-10-10"
+      }
+    },
+    {
+      "id": "sym:Character:입체운행구름",
+      "types": [
+        "urn:omc:placement:Subject"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "입체운행구름",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:capability",
+      "types": [
+        "urn:omc:placement:Capability"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "하드웨어 상태에 적응하는 데이터 배치",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user"
+        ],
+        "scope": "ONE_USER_STATED_OMC_FUNCTION",
+        "implementation_scope": "BOUNDED_IMMUTABLE_FILES_AND_OWNER_HANDOFF"
+      }
+    },
+    {
+      "id": "omc:placement:invariant:identity",
+      "types": [
+        "urn:omc:placement:Invariant"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "자원 ID·revision·출처 보존",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:invariant:semantics",
+      "types": [
+        "urn:omc:placement:Invariant"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "HSWM 추상 구조·관계·역할 보존",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:invariant:scope",
+      "types": [
+        "urn:omc:placement:Invariant"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "소유 범위와 단일 쓰기 주체",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:invariant:content",
+      "types": [
+        "urn:omc:placement:Invariant"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "내용 해시·길이 검증",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:invariant:capacity",
+      "types": [
+        "urn:omc:placement:Invariant"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "SSD·저장 장치·RAM을 분리해 관측",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:invariant:freshness",
+      "types": [
+        "urn:omc:placement:Invariant"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "관측 시각·부팅·설정 판본 검증",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:stage:observe",
+      "types": [
+        "urn:omc:placement:Stage"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "CLI·디스크·RAM·가시 cgroup 관측",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user",
+          "omc:placement:source:implementation"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:stage:plan",
+      "types": [
+        "urn:omc:placement:Stage"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "AI 후보 선택과 결정적 용량 심사",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user",
+          "omc:placement:source:implementation"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:stage:transfer",
+      "types": [
+        "urn:omc:placement:Stage"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "기존 소유 전송기로 복사",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user",
+          "omc:placement:source:implementation"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:stage:rebind",
+      "types": [
+        "urn:omc:placement:Stage"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "검증된 위치만 USL에 재결속",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user",
+          "omc:placement:source:implementation"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:stage:recover",
+      "types": [
+        "urn:omc:placement:Stage"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "기록을 통한 재시작·중복 실행 방지",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:user",
+          "omc:placement:source:implementation"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:executor",
+      "types": [
+        "urn:omc:placement:Executor"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "THE GREAT FLOW shared_storage CLI",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:implementation"
+        ],
+        "effects": [
+          "COPY_NEW_OBJECT",
+          "NO_SOURCE_DELETE",
+          "NO_SERVICE_RESTART"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:usl",
+      "types": [
+        "urn:omc:placement:Executor"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "USL bind-graph + adapt check",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:implementation"
+        ],
+        "effects": [
+          "LOCAL_GRAPH_REBIND",
+          "NO_HSWM_EXECUTION",
+          "NO_KG_PUBLISH"
+        ]
+      }
+    },
+    {
+      "id": "omc:placement:test:stale",
+      "types": [
+        "urn:omc:placement:AcceptanceTest"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "오래된 관측·설정 거부",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:tests"
+        ],
+        "status": "TEST_DEFINED_NOT_AN_EXECUTION_RECEIPT"
+      }
+    },
+    {
+      "id": "omc:placement:test:budget",
+      "types": [
+        "urn:omc:placement:AcceptanceTest"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "누적 용량·메모리 부족 거부",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:tests"
+        ],
+        "status": "TEST_DEFINED_NOT_AN_EXECUTION_RECEIPT"
+      }
+    },
+    {
+      "id": "omc:placement:test:semantic",
+      "types": [
+        "urn:omc:placement:AcceptanceTest"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "ID·역할·의미·출처 변경 거부",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:tests"
+        ],
+        "status": "TEST_DEFINED_NOT_AN_EXECUTION_RECEIPT"
+      }
+    },
+    {
+      "id": "omc:placement:test:scope",
+      "types": [
+        "urn:omc:placement:AcceptanceTest"
+      ],
+      "locator": "https://github.com/gj3447/orbital-motion-cloud/blob/main/graph/placement.json",
+      "metadata": {
+        "label": "비등록 자원·명령·경로 이탈 거부",
+        "authority": "SECONDARY_AI",
+        "source_refs": [
+          "omc:placement:source:tests"
+        ],
+        "status": "TEST_DEFINED_NOT_AN_EXECUTION_RECEIPT"
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "omc:placement:predicate:HAS_CAPABILITY",
+      "description": "Subject has this user-requested capability; does not exhaust its identity."
+    },
+    {
+      "id": "omc:placement:predicate:PRESERVES",
+      "description": "An accepted physical placement must keep this invariant."
+    },
+    {
+      "id": "omc:placement:predicate:IMPLEMENTED_BY",
+      "description": "The bounded implementation includes this stage, not unrestricted autonomy."
+    },
+    {
+      "id": "omc:placement:predicate:USES_EXECUTOR",
+      "description": "Stage delegates to the existing owner tool; no authority is inferred."
+    },
+    {
+      "id": "omc:placement:predicate:TESTED_BY",
+      "description": "Test definitions exercise the capability; execution evidence is recorded separately."
+    },
+    {
+      "id": "omc:placement:predicate:DERIVED_FROM",
+      "description": "The interpretation derives from an identified source, not a new user utterance."
+    }
+  ],
+  "links": [
+    {
+      "id": "omc:placement:edge:has_capability:omc:capability",
+      "meaning": "omc:placement:predicate:HAS_CAPABILITY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "sym:Character:입체운행구름"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:capability"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:derived_from:capability:source:user",
+      "meaning": "omc:placement:predicate:DERIVED_FROM",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:source:user"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:preserves:capability:invariant:identity",
+      "meaning": "omc:placement:predicate:PRESERVES",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:invariant:identity"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:preserves:capability:invariant:semantics",
+      "meaning": "omc:placement:predicate:PRESERVES",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:invariant:semantics"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:preserves:capability:invariant:scope",
+      "meaning": "omc:placement:predicate:PRESERVES",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:invariant:scope"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:preserves:capability:invariant:content",
+      "meaning": "omc:placement:predicate:PRESERVES",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:invariant:content"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:preserves:capability:invariant:capacity",
+      "meaning": "omc:placement:predicate:PRESERVES",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:invariant:capacity"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:preserves:capability:invariant:freshness",
+      "meaning": "omc:placement:predicate:PRESERVES",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:invariant:freshness"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:implemented_by:capability:stage:observe",
+      "meaning": "omc:placement:predicate:IMPLEMENTED_BY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:stage:observe"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:implemented_by:capability:stage:plan",
+      "meaning": "omc:placement:predicate:IMPLEMENTED_BY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:stage:plan"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:implemented_by:capability:stage:transfer",
+      "meaning": "omc:placement:predicate:IMPLEMENTED_BY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:stage:transfer"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:implemented_by:capability:stage:rebind",
+      "meaning": "omc:placement:predicate:IMPLEMENTED_BY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:stage:rebind"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:implemented_by:capability:stage:recover",
+      "meaning": "omc:placement:predicate:IMPLEMENTED_BY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:stage:recover"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:tested_by:capability:test:stale",
+      "meaning": "omc:placement:predicate:TESTED_BY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:test:stale"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:tested_by:capability:test:budget",
+      "meaning": "omc:placement:predicate:TESTED_BY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:test:budget"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:tested_by:capability:test:semantic",
+      "meaning": "omc:placement:predicate:TESTED_BY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:test:semantic"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:tested_by:capability:test:scope",
+      "meaning": "omc:placement:predicate:TESTED_BY",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:capability"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:test:scope"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:uses_executor:stage:transfer:executor",
+      "meaning": "omc:placement:predicate:USES_EXECUTOR",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:stage:transfer"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:executor"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "omc:placement:edge:uses_executor:stage:rebind:usl",
+      "meaning": "omc:placement:predicate:USES_EXECUTOR",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:placement:stage:rebind"
+        },
+        {
+          "role": "target",
+          "resource": "omc:placement:usl"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    }
+  ]
+}

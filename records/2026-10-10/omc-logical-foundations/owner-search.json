@@ -1,0 +1,64 @@
+{
+  "total": 1,
+  "truncated": false,
+  "nodes": [
+    {
+      "uid": "github:repo:1403344489",
+      "type": "Repository",
+      "label": "orbital-motion-cloud",
+      "corpus": "metahumotonic",
+      "original_id": "github:repo:1403344489",
+      "sources": [
+        "metahumotonic:source:github"
+      ],
+      "pointer": "/nodes/82",
+      "properties": {
+        "purpose": "Source-pinned METAHUMOTONIC apostle module",
+        "purpose_authority": "SOURCE_DECLARED",
+        "language": "Python",
+        "archived": false,
+        "visibility": "private"
+      },
+      "full_name": "gj3447/orbital-motion-cloud",
+      "github_id": 1403344489,
+      "identity_basis": "GITHUB_ID",
+      "url": "https://github.com/gj3447/orbital-motion-cloud",
+      "revision": "f04a316ca1e0e8188c3025999718887e56dabc33",
+      "readme": {
+        "repository_id": 1403344489,
+        "observed_at": "2026-10-09T15:51:34+00:00",
+        "status": "OBSERVED",
+        "revision": "f04a316ca1e0e8188c3025999718887e56dabc33",
+        "path": "README.md",
+        "sha256": "458afe6b72dd8a086fa5ded5777dd045544ef0c190f2c5e5dee2845cae40e5e1",
+        "blob_sha": "c04bc1e3d06dd778e00898f227481c93dee0b14d",
+        "uri": "https://github.com/gj3447/orbital-motion-cloud/blob/f04a316ca1e0e8188c3025999718887e56dabc33/README.md",
+        "references": [
+          "metahumotonic_dashboard"
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "uid": "metahumotonic:source:github",
+      "artifact": "artifact:metahumotonic-graph",
+      "original_id": "source:github",
+      "uri": "data/snapshots/repos-20261009T155148Z.json",
+      "sha256": "70e50f7830fb8c4df81814d3b758e980605c4888ea00b0423ba99276d2b513d3",
+      "authority": "OBSERVED",
+      "recorded_at": "2026-10-09T15:51:47+00:00"
+    }
+  ],
+  "artifacts": [
+    {
+      "uid": "artifact:metahumotonic-graph",
+      "uri": "graph/dashboard.graph.json",
+      "sha256": "d9c6dc7b4614a2ca60a12b405c812668137f8e1a8357f9a79b5ecf56b702df87",
+      "generated_at": null,
+      "observed_at": "2026-10-09T15:51:47+00:00",
+      "actor": "scripts/build.py",
+      "scope": "Repository, Domain, and their REFERENCES / CLASSIFIED_AS edges"
+    }
+  ]
+}

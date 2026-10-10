@@ -1,0 +1,139 @@
+{
+  "schema": "omc-mind-preservation/v1",
+  "captured_on": "2026-10-10",
+  "subject_uid": "sym:Character:입체운행구름",
+  "related_subject_uids": [
+    "sym:Character:비행기맨"
+  ],
+  "repository": "https://github.com/gj3447/orbital-motion-cloud",
+  "base_revision": "9b7ceb506ddefdf2daded380699bc42be58670e6",
+  "scope": "Preserve existing MIND texts and the user-stated distinction; no new research or identity definition",
+  "messages": [
+    {
+      "id": "save-and-distinguish",
+      "role": "user",
+      "authority": "USER_PRIMARY",
+      "source": "User message in this conversation",
+      "message_timestamp": null,
+      "captured_on": "2026-10-10",
+      "verbatim": "내용 좀 저장좀 해줘봐 여기에 ㅇㅇ 그 기술적인 omc 와 그 실제 철학적인 omc 그리고 디멘션 워커가 보는 omc 각각 또 다르거든 ㅇㅇ",
+      "message_sha256": "b9e34894be85d3dd9dd9c1e24df488b56a7790a07fcad63752fc3c114660f65f",
+      "repository_path": "records/2026-10-10/mind-omc-perspectives/user-verbatim.txt",
+      "file_sha256": "4b770fb2cec50e6452370695f655fa8d3b995b185b7741ed945f2659c6710715",
+      "file_bytes": 173,
+      "encoding": "UTF-8 with one final LF added"
+    },
+    {
+      "id": "retrieve-mind-context",
+      "role": "user",
+      "authority": "USER_PRIMARY",
+      "source": "User message in this conversation",
+      "message_timestamp": null,
+      "captured_on": "2026-10-10",
+      "verbatim": "입체 운행 구름 관련 mind 내용들좀 가져와줘볼래 ㅇㅇ? 특히 연관 많이된게 비행기맨이거든 ㅇㅇ",
+      "message_sha256": "5884b7b86900c6d9b5f7950bbdb02cf1b96e6e2484408c2307c16d14c4af79bc",
+      "repository_path": "records/2026-10-10/mind-omc-perspectives/retrieval-request-verbatim.txt",
+      "file_sha256": "ac90572f157aa2ad736007aa3a6dd50e550d33dc9b188fbe03ff8a5e43a8436f",
+      "file_bytes": 129,
+      "encoding": "UTF-8 with one final LF added"
+    }
+  ],
+  "user_distinction": {
+    "authority": "USER_PRIMARY",
+    "source_message_id": "save-and-distinguish",
+    "labels": [
+      "기술적인 OMC",
+      "실제 철학적인 OMC",
+      "디멘션 워커가 보는 OMC"
+    ],
+    "statement": "각각 다르다",
+    "detailed_definitions": "NOT_SPECIFIED_IN_THIS_MESSAGE"
+  },
+  "documents": [
+    {
+      "uid": "omc-mind-source:54fb2090b45211e03f8d07c4d26de8fcd7d8511cd2deb367eaa55d9b28fbbd68",
+      "authority": "SOURCE_DOCUMENT",
+      "source_owner": "MIND",
+      "source_repository": "https://github.com/gj3447/MIND.git",
+      "source_path": "metahumotonic/비행기맨꼐서_지켜주실꺼야.md",
+      "source_revision": "4875edbc9348d31c7da3f150f4874bb14722019d",
+      "revision_verification": "COMMIT_BYTES_MATCH",
+      "repository_path": "records/2026-10-10/mind-omc-perspectives/mind/비행기맨꼐서_지켜주실꺼야.md",
+      "sha256": "f37b2d595ce579122aa9b22642f38d52ce274417622e4918b632f9acf9afbc7f",
+      "bytes": 2422,
+      "selection": {
+        "authority": "SECONDARY_AI",
+        "relevance": "DIRECT_OMC_MENTION"
+      }
+    },
+    {
+      "uid": "omc-mind-source:fb9fef42c2be1c6fd718aea7dd2b41109906b0de257cafd8c767662da787d1f3",
+      "authority": "SOURCE_DOCUMENT",
+      "source_owner": "MIND",
+      "source_repository": "https://github.com/gj3447/MIND.git",
+      "source_path": "metahumotonic/구름의_질감.md",
+      "source_revision": "4875edbc9348d31c7da3f150f4874bb14722019d",
+      "revision_verification": "COMMIT_BYTES_MATCH",
+      "repository_path": "records/2026-10-10/mind-omc-perspectives/mind/구름의_질감.md",
+      "sha256": "3d1290b3546b203ba6dd0765a7a03eb78309cb29f9e786ae23df9b874359bef9",
+      "bytes": 276,
+      "selection": {
+        "authority": "SECONDARY_AI",
+        "relevance": "DIRECT_OMC_MENTION"
+      }
+    },
+    {
+      "uid": "omc-mind-source:68f8b6cf320535a6badb7f129c8f9a49c38b1696702068e32ef3a00e50776d60",
+      "authority": "SOURCE_DOCUMENT",
+      "source_owner": "MIND",
+      "source_repository": "https://github.com/gj3447/MIND.git",
+      "source_path": "metahumotonic/12사도_목록_업데이트.md",
+      "source_revision": "4875edbc9348d31c7da3f150f4874bb14722019d",
+      "revision_verification": "COMMIT_BYTES_MATCH",
+      "repository_path": "records/2026-10-10/mind-omc-perspectives/mind/12사도_목록_업데이트.md",
+      "sha256": "30a7d39f1911fd4e2fc379537be7bd45dbf27277298048942f439c877c9e65e8",
+      "bytes": 767,
+      "selection": {
+        "authority": "SECONDARY_AI",
+        "relevance": "DIRECT_OMC_MENTION"
+      }
+    },
+    {
+      "uid": "omc-mind-source:cbe999ac926f3eae95865e23f14429eb120af7e525b984f16034e18d08e2d368",
+      "authority": "SOURCE_DOCUMENT",
+      "source_owner": "MIND",
+      "source_repository": "https://github.com/gj3447/MIND.git",
+      "source_path": "metahumotonic/재귀_아티스트_back2the.md",
+      "source_revision": "4875edbc9348d31c7da3f150f4874bb14722019d",
+      "revision_verification": "COMMIT_BYTES_MATCH",
+      "repository_path": "records/2026-10-10/mind-omc-perspectives/mind/재귀_아티스트_back2the.md",
+      "sha256": "b2ef091aa1c7502c63f7ac9aef5f7cb03c371c98caabc4de7c1b2d70652658b4",
+      "bytes": 2542,
+      "selection": {
+        "authority": "SECONDARY_AI",
+        "relevance": "RELATED_BHGMAN_TEXT"
+      }
+    },
+    {
+      "uid": "omc-mind-source:6100637350ee46ead41053313f3c3a2fb59dbb557459da6e37e696d1cf099ce5",
+      "authority": "SOURCE_DOCUMENT",
+      "source_owner": "MIND",
+      "source_repository": "https://github.com/gj3447/MIND.git",
+      "source_path": "metahumotonic/비행기맨_강림_dense와_spare_space_girl_뽀뽀.md",
+      "source_revision": "4875edbc9348d31c7da3f150f4874bb14722019d",
+      "revision_verification": "COMMIT_BYTES_MATCH",
+      "repository_path": "records/2026-10-10/mind-omc-perspectives/mind/비행기맨_강림_dense와_spare_space_girl_뽀뽀.md",
+      "sha256": "f0868eababa58b750494ef1f6792d6f59a21aa541a0f322c653ece0c9083aa2f",
+      "bytes": 4032,
+      "selection": {
+        "authority": "SECONDARY_AI",
+        "relevance": "RELATED_BHGMAN_TEXT"
+      }
+    }
+  ],
+  "guide": {
+    "repository_path": "docs/OMC_PERSPECTIVES_AND_MIND.md",
+    "authority": "SECONDARY_AI",
+    "actor": "OpenAI Codex"
+  }
+}

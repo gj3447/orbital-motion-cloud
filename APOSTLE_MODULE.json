@@ -37,9 +37,14 @@
     "workflow": "docs/RESEARCH_WORKFLOW.md"
   },
   "runtime_role": {
-    "state": "UNASSIGNED",
-    "label": null,
-    "authority": "UNASSIGNED"
+    "state": "USER_ASSIGNED",
+    "label": "하드웨어 상태에 적응하는 데이터 배치 최적화 — OMC 기능 중 하나",
+    "authority": "USER_PRIMARY",
+    "source": {
+      "path": "records/2026-10-10/hardware-adaptive-placement/user-verbatim.txt",
+      "sha256": "98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97"
+    },
+    "implementation_scope": "BOUNDED_LOCAL_CLI; NOT_AN_AUTONOMOUS_HSWM_RUNTIME"
   },
   "content_manifest": "APOSTLE_CONTENT.json"
 }

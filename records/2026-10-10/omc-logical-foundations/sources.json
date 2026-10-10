@@ -1,0 +1,162 @@
+{
+  "schema": "omc-foundation-sources/1",
+  "subject_uid": "sym:Character:입체운행구름",
+  "recorded_on": "2026-10-10",
+  "local_sources": [
+    {
+      "uid": "request",
+      "path": "records/2026-10-10/omc-logical-foundations/user-verbatim.txt",
+      "authority": "USER_PRIMARY",
+      "sha256": "2bbd83dcbaa11c981112d7d52e95b3f78543d30a16c144eb33830b7a281d75de",
+      "bytes": 207,
+      "message_sha256": "bad964411efa64ec3fc34b0f0aa9848903cb520669983340d7b4116d253bd2a6",
+      "captured_on": "2026-10-10",
+      "message_timestamp": null
+    },
+    {
+      "uid": "axioms",
+      "path": "records/2026-10-10/omc-logical-foundations/mind/선의_공리.md",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "c2c268c090ad387bf9367bf9e81197cea9179bf9446e1e9768108ae2b6f19855",
+      "bytes": 1006,
+      "source_owner": "MIND",
+      "source_path": "metahumotonic/선의_공리.md",
+      "source_revision": "4875edbc9348d31c7da3f150f4874bb14722019d",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "uid": "tree",
+      "path": "records/2026-10-10/omc-logical-foundations/mind/전설의_리퀘스트_나무.md",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "fa7354feef1bf63ea2c433ca8a960603659a615f8152eb43a844f26245b6ea55",
+      "bytes": 5293,
+      "source_owner": "MIND",
+      "source_path": "metahumotonic/전설의_리퀘스트_나무.md",
+      "source_revision": "4875edbc9348d31c7da3f150f4874bb14722019d",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "uid": "cosmic-essay",
+      "path": "records/2026-10-10/omc-logical-foundations/mind/메타휴모토닉_우주적_최적화의_논리적_귀결.md",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "35c89ca29e9a6c742549573937b276b46d25a7524bfeb6447c4a3eef79f1ebd9",
+      "bytes": 4232,
+      "source_owner": "MIND",
+      "source_path": "metahumotonic/메타휴모토닉_우주적_최적화의_논리적_귀결.md",
+      "source_revision": "4875edbc9348d31c7da3f150f4874bb14722019d",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "uid": "totality-essay",
+      "path": "records/2026-10-10/omc-logical-foundations/mind/절대적_총체의_구조.md",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "47d882cc451cd715955fe79f101da326186bb3a6aee3915f5082eb376e756ab7",
+      "bytes": 9492,
+      "source_owner": "MIND",
+      "source_path": "metahumotonic/절대적_총체의_구조.md",
+      "source_revision": "4875edbc9348d31c7da3f150f4874bb14722019d",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "uid": "relations",
+      "path": "records/2026-10-10/omc-logical-foundations/owner/20261007-relation-source.md",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "1b84f45c4c79c264de8b2488b206a2f0cb294892d99fab9c30012b70d96d36fe",
+      "bytes": 41909,
+      "source_owner": "THE_GREAT_FLOW",
+      "source_path": "data/apostles/20261007-relation-source.md",
+      "source_revision": "a2f1c048e2b35f85419beda4c40df905f95d963f",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "uid": "apostle-graph",
+      "path": "records/2026-10-10/omc-logical-foundations/owner/apostles.json",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "022239aa98d8cb0dc02cd2f6444a002feacac001f60cf4870c86c678aba0f425",
+      "bytes": 43403,
+      "source_owner": "THE_GREAT_FLOW",
+      "source_path": "graph/apostles.json",
+      "source_revision": "a2f1c048e2b35f85419beda4c40df905f95d963f",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "uid": "omc-archive",
+      "path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/SOURCES.md",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "7186217061c13a847cb84584ee61facd1051e6edab77047c4596646f3e6b1cc5",
+      "bytes": 22931
+    },
+    {
+      "uid": "perspectives",
+      "path": "records/2026-10-10/mind-omc-perspectives/user-verbatim.txt",
+      "authority": "USER_PRIMARY",
+      "sha256": "4b770fb2cec50e6452370695f655fa8d3b995b185b7741ed945f2659c6710715",
+      "bytes": 173
+    },
+    {
+      "uid": "cloud-scene",
+      "path": "records/2026-10-10/mind-omc-perspectives/mind/비행기맨꼐서_지켜주실꺼야.md",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "f37b2d595ce579122aa9b22642f38d52ce274417622e4918b632f9acf9afbc7f",
+      "bytes": 2422
+    },
+    {
+      "uid": "cloud-texture",
+      "path": "records/2026-10-10/mind-omc-perspectives/mind/구름의_질감.md",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "3d1290b3546b203ba6dd0765a7a03eb78309cb29f9e786ae23df9b874359bef9",
+      "bytes": 276
+    },
+    {
+      "uid": "bhgman-principle",
+      "path": "records/2026-10-10/mind-omc-perspectives/mind/재귀_아티스트_back2the.md",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "b2ef091aa1c7502c63f7ac9aef5f7cb03c371c98caabc4de7c1b2d70652658b4",
+      "bytes": 2542
+    },
+    {
+      "uid": "resource-purpose",
+      "path": "records/2026-10-10/resource-credit-shared-intelligence/sources.json",
+      "authority": "SOURCE_DOCUMENT",
+      "sha256": "ebe08674858f0c4c05d15cc26e19f3d41f313bbeade0c627fbdab3e2d321671b",
+      "bytes": 4746,
+      "content_authorities": [
+        "USER_PRIMARY",
+        "SECONDARY_AI"
+      ]
+    },
+    {
+      "uid": "efficiency-premise",
+      "path": "records/2026-10-10/token-efficiency-flywheel/premise-verbatim.txt",
+      "authority": "USER_PRIMARY",
+      "sha256": "4c5e36cd609db6005e7ecb80bd5bfc0e3c4f516c2c01f7e842eac6f318a27fe1",
+      "bytes": 312
+    },
+    {
+      "uid": "technical-flywheel",
+      "path": "graph/flywheel.json",
+      "authority": "SECONDARY_AI",
+      "sha256": "ab3dbc64856df03eff87cdaa23679d96cb5b2a88ed4b1c70093ea4ddd91650ca",
+      "bytes": 25795
+    }
+  ],
+  "external_sources": [
+    {
+      "uid": "bennett-2003",
+      "authority": "SOURCE_DOCUMENT",
+      "author": "Charles H. Bennett",
+      "title": "Notes on Landauer's Principle, Reversible Computation, and Maxwell's Demon",
+      "year": 2003,
+      "version": "arXiv:physics/0210005v2",
+      "version_date": "2003-01-09",
+      "doi": "10.1016/S1355-2198(03)00039-X",
+      "uri": "https://arxiv.org/html/physics/0210005v2",
+      "bibliographic_uri": "https://arxiv.org/abs/physics/0210005v2",
+      "section": "Landauer’s Principle",
+      "read_on": "2026-10-10",
+      "verification": "SECTION_READ_NO_LOCAL_BYTE_PIN",
+      "supports": "Physical implementation and entropy accounting constraints; not energy creation or knowledge completion at heat death"
+    }
+  ],
+  "interpretation_authority": "SECONDARY_AI"
+}

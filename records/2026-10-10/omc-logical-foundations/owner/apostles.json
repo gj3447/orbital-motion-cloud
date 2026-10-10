@@ -1,0 +1,1160 @@
+{
+  "schema": "apostle-repositories/1",
+  "owner": "github:repo:1403344274",
+  "owner_url": "https://github.com/gj3447/the-great-flow",
+  "recorded_at": "2026-10-03T15:19:30.941322+00:00",
+  "request": {
+    "authority": "USER_PRIMARY",
+    "quote": "사도들도 하나씩 레포 만들어줘봐봐 ㅇㅇ 그 영어 네이밍 알고있냐 ㅇㅇ?"
+  },
+  "sources": [
+    {
+      "uid": "apostles:source:roster",
+      "path": "data/apostles/20261003-source-roster.json",
+      "sha256": "0ee224bd351804c567166f0083d4cbf58ed43fa2d69bc76e81b84aca8c64f597",
+      "revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "authority": "SOURCE_DOCUMENT",
+      "original_path": "METAHUMOTONIC/ontology/metahumotonic-public-graph.v1.json",
+      "original_owner": "SYMPOSIUM",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "uid": "apostles:source:hyper-void-name",
+      "path": "data/apostles/20261003-hyper-void-name.txt",
+      "sha256": "796b7b265d5c4f6516648449ef159ab2350890e80b021d0f660b6d18caff77df",
+      "revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "authority": "SOURCE_DOCUMENT",
+      "original_owner": "SYMPOSIUM",
+      "original_path": "METAHUMOTONIC/초공동의용사/SOURCES.md",
+      "original_sha256": "3c93abd9eb3bcfee95a212a43b8703f58deb816a0488c016294f4b6af6008a2a",
+      "excerpt_lines": [
+        1,
+        1
+      ],
+      "verification": "EXCERPT_FROM_COMMIT_BYTES"
+    },
+    {
+      "uid": "apostles:source:great-flow-name",
+      "path": "data/apostles/20261003-great-flow-name.txt",
+      "sha256": "17a5b812ce7dac6d356e5cdf2e146287b87c07c93334b525e5cba0d67fd058e6",
+      "revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "authority": "SOURCE_DOCUMENT",
+      "original_owner": "SYMPOSIUM",
+      "original_path": "METAHUMOTONIC/THE_GREATE_FLOW/SOURCES.md",
+      "original_sha256": "2eabfdd79661411c2aa8001920a8a5c5686f14ee5306f289a5fd8d29c03fb5eb",
+      "excerpt_lines": [
+        1,
+        1
+      ],
+      "verification": "EXCERPT_FROM_COMMIT_BYTES"
+    },
+    {
+      "uid": "apostles:source:roles",
+      "path": "data/apostles/20261003-role-request.json",
+      "sha256": "e04d6248a3610f786a6150ed1bf6c0a9061d16a3d07945c495bb608af2103509",
+      "revision": "698e35f615d3462bf60c451ce6ae3a33a6f05dde",
+      "authority": "SOURCE_DOCUMENT",
+      "original_path": "graph/workspace.json",
+      "original_owner": "METAHUMOTONIC_DASHBOARD"
+    },
+    {
+      "uid": "apostles:source:jesus-user-verdict",
+      "path": "data/apostles/20261003-jesus-user-verdict.json",
+      "sha256": "d5b5d1616ad57a475a3343d021cc1faf0017becb9965a99fea13f7a4268505a5",
+      "revision": "user-message-2026-10-03",
+      "authority": "SOURCE_DOCUMENT",
+      "original_owner": "USER",
+      "content_authority": "USER_PRIMARY"
+    },
+    {
+      "uid": "apostles:source:jesus-document",
+      "path": "data/apostles/20261003-jesus-sources.md",
+      "sha256": "e920fb674613e936f0b09ab5787a780a940148897bc55eee9e0a9531bb19d43b",
+      "revision": "ceaf2ccf1db10f621570badf9a88a394ca5c45a6",
+      "authority": "SOURCE_DOCUMENT",
+      "original_owner": "SYMPOSIUM",
+      "original_path": "METAHUMOTONIC/예수/SOURCES.md",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "uid": "apostles:source:roster-jesus-confirmed",
+      "path": "data/apostles/20261003-source-roster-jesus-confirmed.json",
+      "sha256": "09c480ecc9fa8c334070ecd89985729196cd6920dc055847c0bbdfb8be7c762b",
+      "revision": "a0739357db06941cb2883d90ad2467ae12fe38f0",
+      "authority": "SOURCE_DOCUMENT",
+      "original_owner": "SYMPOSIUM",
+      "original_path": "METAHUMOTONIC/ontology/metahumotonic-public-graph.v1.json",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "uid": "apostles:source:hub-role-user-20261007",
+      "path": "data/apostles/20261007-hub-role-user.txt",
+      "sha256": "adc5a2e86e72e76bf1a22145f0059f39168a4dcdcb52625191bb36ed2bc4a475",
+      "revision": "user-message-2026-10-07",
+      "authority": "SOURCE_DOCUMENT",
+      "content_authority": "USER_PRIMARY",
+      "original_owner": "USER",
+      "original_path": "conversation/2026-10-07-hub-role.txt"
+    },
+    {
+      "uid": "apostles:source:workspace-feedback-20261007",
+      "path": "data/apostles/20261007-workspace-feedback.txt",
+      "sha256": "823fe3bc249401de81dc53669949debaaeeaebe75a7f3caab88bc7746df5fc3b",
+      "revision": "user-message-2026-10-07",
+      "authority": "SOURCE_DOCUMENT",
+      "content_authority": "USER_PRIMARY",
+      "original_owner": "USER",
+      "original_path": "docs/feedback/2026-10-07-workspace-naming-and-apostle-links.txt",
+      "recorded_at": "2026-10-07"
+    },
+    {
+      "uid": "apostles:source:relation-canon-20261007",
+      "path": "data/apostles/20261007-relation-source.md",
+      "sha256": "1b84f45c4c79c264de8b2488b206a2f0cb294892d99fab9c30012b70d96d36fe",
+      "revision": "bce26732768cd2d37165c32f227009dfec40ee50",
+      "authority": "SOURCE_DOCUMENT",
+      "content_authority": "UNSPECIFIED",
+      "original_owner": "SYMPOSIUM",
+      "original_path": "THEORY/00_공통/세계관_정전.md",
+      "verification": "COMMIT_BYTES_MATCH",
+      "recorded_at": "2026-10-07"
+    },
+    {
+      "uid": "apostles:source:persona-repos-user-20261007",
+      "path": "data/apostles/20261007-persona-repos-user.txt",
+      "sha256": "933e3788200c53ebd3d59e84dd799b96171b9952865371a7977752c44215e2e3",
+      "revision": "user-message-2026-10-07",
+      "authority": "SOURCE_DOCUMENT",
+      "content_authority": "USER_PRIMARY",
+      "original_owner": "USER",
+      "recorded_at": "2026-10-07"
+    },
+    {
+      "uid": "apostles:source:hoh-backend-bhgman-user-20261007",
+      "path": "data/apostles/20261007-hoh-backend-bhgman-unification-user.txt",
+      "sha256": "82c47ec210c398a7c2e31464f7e93361ba8fa48e9ee2d96ba43272b9216d43d0",
+      "revision": "135612ed15174588ca2c1af32b856b6d003fad05",
+      "recorded_at": "2026-10-07",
+      "authority": "SOURCE_DOCUMENT",
+      "content_authority": "USER_PRIMARY",
+      "original_owner": "USER"
+    },
+    {
+      "uid": "apostles:source:persona-publication-user-20261007",
+      "path": "data/apostles/20261007-persona-publication-user.txt",
+      "sha256": "60e80db3c70043865f8421e9a3f820714de673882ceb27feafe342b41f35b8e2",
+      "revision": "350220f97ac1104140a08af2d0d70fc6a004c4db",
+      "recorded_at": "2026-10-07",
+      "authority": "SOURCE_DOCUMENT",
+      "content_authority": "USER_PRIMARY",
+      "original_owner": "USER"
+    }
+  ],
+  "apostles": [
+    {
+      "position": 1,
+      "slot_uid": "metahumotonic:apostle-slot:01",
+      "public_id": "mtg1-ba385c764ed30c5b",
+      "entity_uid": "sym:Character:디멘션워커",
+      "korean_name": "디멘션워커",
+      "english_name": "Dimension Walker",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1403344039",
+          "full_name": "gj3447/dimension-walker",
+          "url": "https://github.com/gj3447/dimension-walker",
+          "visibility": "PRIVATE",
+          "head": "0cbfdbd11699169dc666014455c50547a015f055",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "CREATED",
+          "role": "PRIMARY",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/dimension-walker",
+          "default_branch": "main",
+          "manifest_sha256": "50b517b15fbc2e89d035baccc552cc9b6d84e8a080e238d9e6e458eb3294a99b",
+          "provisioning_receipt": {
+            "path": "data/apostles/20261003-repository-provisioning.json",
+            "sha256": "4922c57d8bdfc97fdf64ce20b5f8a6b74303461e3e4f017fade7a8abdb497ff1"
+          },
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-dimension-walker.json",
+            "sha256": "c32308bbf2e6a90a597f2d66550cb703a595afbfad7bf4fcc3d8eb05c18b172b"
+          }
+        }
+      ],
+      "runtime_role": {
+        "state": "UNASSIGNED",
+        "label": null,
+        "authority": "UNASSIGNED",
+        "source_ids": []
+      }
+    },
+    {
+      "position": 2,
+      "slot_uid": "metahumotonic:apostle-slot:02",
+      "public_id": "mtg1-232e1ef763e4c4ee",
+      "entity_uid": "sym:Character:ice_orca_dragon",
+      "korean_name": "ICE ORCA DRAGON",
+      "english_name": "ICE ORCA DRAGON",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1241590531",
+          "full_name": "gj3447/ICE_ORCA_DRAGON",
+          "url": "https://github.com/gj3447/ICE_ORCA_DRAGON",
+          "visibility": "PUBLIC",
+          "head": "1d184b15b26f705d4024d162f126b758139c184b",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "REUSED",
+          "role": "PRIMARY",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/ICE_ORCA_DRAGON",
+          "default_branch": "main",
+          "description": "ICE_ORCA_DRAGON empirical layer — 12사도 #2 physics/math computation workbench (split from SYMPOSIUM 2026-05-17)",
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-ICE_ORCA_DRAGON.json",
+            "sha256": "46b113ae77c2368843074ed8c30c504440086803fa3ff4c4a272a4fc239406ff"
+          }
+        }
+      ],
+      "runtime_role": {
+        "state": "UNASSIGNED",
+        "label": null,
+        "authority": "UNASSIGNED",
+        "source_ids": []
+      }
+    },
+    {
+      "position": 3,
+      "slot_uid": "metahumotonic:apostle-slot:03",
+      "public_id": "mtg1-1b71d1d65a6960d5",
+      "entity_uid": "sym:Character:초공동의_용사",
+      "korean_name": "초공동의 용사",
+      "english_name": "HYPER-VOID WARRIOR",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster",
+        "apostles:source:hyper-void-name"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1403344139",
+          "full_name": "gj3447/hyper-void-warrior",
+          "url": "https://github.com/gj3447/hyper-void-warrior",
+          "visibility": "PRIVATE",
+          "head": "675b6ad9c7ee12c3ba19352392b1dfefdc528adb",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "CREATED",
+          "role": "PRIMARY",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/hyper-void-warrior",
+          "default_branch": "main",
+          "manifest_sha256": "a6a61bda331717c7150f2522826ca40c48749f9610d20dc6b678c7b90a1b9746",
+          "provisioning_receipt": {
+            "path": "data/apostles/20261003-repository-provisioning.json",
+            "sha256": "4922c57d8bdfc97fdf64ce20b5f8a6b74303461e3e4f017fade7a8abdb497ff1"
+          },
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-hyper-void-warrior.json",
+            "sha256": "98c0a50dbd99c5b9b7fd2bf785b61872d08dfe8b42eea788d0eb56be23f96870"
+          }
+        }
+      ],
+      "runtime_role": {
+        "state": "UNASSIGNED",
+        "label": null,
+        "authority": "UNASSIGNED",
+        "source_ids": []
+      }
+    },
+    {
+      "position": 4,
+      "slot_uid": "metahumotonic:apostle-slot:04",
+      "public_id": "mtg1-4f0913324fca12bf",
+      "entity_uid": "sym:Character:비행기맨",
+      "korean_name": "비행기맨",
+      "english_name": "Airplane Man",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1408294645",
+          "full_name": "gj3447/bhgman",
+          "url": "https://github.com/gj3447/bhgman",
+          "visibility": "PUBLIC",
+          "head": "2402fcbe74cd70653ab970899bbda42441db0ed9",
+          "observed_at": "2026-10-07T08:02:22.542633+00:00",
+          "status": "CREATED",
+          "default_branch": "main",
+          "role": "PRIMARY",
+          "display_name": "bhgman",
+          "name_source_ids": [
+            "apostles:source:persona-repos-user-20261007"
+          ],
+          "binding_source_ids": [
+            "apostles:source:hoh-backend-bhgman-user-20261007",
+            "apostles:source:persona-publication-user-20261007"
+          ],
+          "binding_authority": "USER_PRIMARY",
+          "local_path": "/home/lagyeongjun/CD/bhgman",
+          "manifest_sha256": "b52e71400400bffbd70565fbf917519c542d44d7cc70f42103ba547e0c7a679d",
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261007-public-visual-content-bhgman.json",
+            "sha256": "b370c81fe9c7adbff59252328890fcd8c392faa6bb102257afeb93ba99ad40fe"
+          },
+          "aliases": [
+            "bhgman_essence",
+            "gj3447/bhgman_essence"
+          ],
+          "previous_home": {
+            "uid": "github:repo:1237381207",
+            "full_name": "gj3447/bhgman_essence",
+            "url": "https://github.com/gj3447/bhgman_essence",
+            "state": "HISTORICAL_SOURCE",
+            "authority": "SOURCE_DECLARED",
+            "source_ids": [
+              "apostles:source:hoh-backend-bhgman-user-20261007"
+            ]
+          }
+        },
+        {
+          "uid": "github:repo:1237310972",
+          "full_name": "gj3447/bhgman_tool",
+          "url": "https://github.com/gj3447/bhgman_tool",
+          "visibility": "PUBLIC",
+          "head": "0912625bb38e5c06a885f7160fb99d57c4674b77",
+          "observed_at": "2026-10-03T15:21:01.019833+00:00",
+          "status": "REUSED",
+          "role": "ENGINEERING_COMPANION",
+          "local_path": null,
+          "default_branch": "main",
+          "description": "비행기맨 framework — academic-grounded multi-agent ontology for Claude Code (CHU type theory ∀-cover + 17 axes external grounding + 134+ Lean 4 verified theorem + Goodhart safeguard + EXTRACTED/INFERRED/AMBIGUOUS confidence schema)"
+        }
+      ],
+      "runtime_role": {
+        "state": "USER_ASSIGNED",
+        "label": "평가·개선 피드백 (AIRAM 역할)",
+        "authority": "USER_PRIMARY",
+        "source_ids": [
+          "apostles:source:roles"
+        ]
+      }
+    },
+    {
+      "position": 5,
+      "slot_uid": "metahumotonic:apostle-slot:05",
+      "public_id": "mtg1-32c0300ea643893b",
+      "entity_uid": "sym:Character:space_girl",
+      "korean_name": "스페이스걸",
+      "english_name": "Space Girl",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1408294828",
+          "full_name": "gj3447/spacegirl",
+          "url": "https://github.com/gj3447/spacegirl",
+          "visibility": "PUBLIC",
+          "head": "d432eb8bc06e32f3ee104486c6d1efdb70e0f2ba",
+          "observed_at": "2026-10-07T08:02:23.176299+00:00",
+          "status": "CREATED",
+          "default_branch": "main",
+          "role": "PRIMARY",
+          "display_name": "spacegirl",
+          "name_source_ids": [
+            "apostles:source:persona-repos-user-20261007"
+          ],
+          "binding_source_ids": [
+            "apostles:source:persona-repos-user-20261007",
+            "apostles:source:persona-publication-user-20261007"
+          ],
+          "binding_authority": "USER_PRIMARY",
+          "local_path": "/home/lagyeongjun/CD/spacegirl",
+          "manifest_sha256": "ccd37ab8be23d0b956aedc3a3dfaf3024b1214b50644867d3140911c13d00a2a",
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261007-public-visual-content-spacegirl.json",
+            "sha256": "c94921bcae38821669ef51a016d26f17396918f9110af048f602b3d876b2baf8"
+          }
+        },
+        {
+          "uid": "github:repo:1255653636",
+          "full_name": "gj3447/spacegirl_tool",
+          "url": "https://github.com/gj3447/spacegirl_tool",
+          "visibility": "PUBLIC",
+          "head": "11f525373763211e73af623cae05e5502da490ae",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "REUSED",
+          "role": "ENGINEERING_COMPANION",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/spacegirl_tool",
+          "default_branch": "main",
+          "description": "SpaceGirl(#5) SSB 의미론적 잠금 도구 — 로직 보존 + 가역 식별자 오염으로 LLM 학습 거부. network<->sexvoid 경계 횡단. METAHUMOTONIC.",
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-spacegirl_tool.json",
+            "sha256": "e4479cffa876773d4d383cced370dcd0b09a5c7da8c46b2a7379e9170aba2cb2"
+          },
+          "binding_source_ids": [
+            "apostles:source:persona-repos-user-20261007"
+          ],
+          "binding_authority": "USER_PRIMARY"
+        }
+      ],
+      "runtime_role": {
+        "state": "UNASSIGNED",
+        "label": null,
+        "authority": "UNASSIGNED",
+        "source_ids": []
+      }
+    },
+    {
+      "position": 6,
+      "slot_uid": "metahumotonic:apostle-slot:06",
+      "public_id": "mtg1-3e904485e404ac30",
+      "entity_uid": "sym:KG_CREATIVE:인류역사흐름의강물",
+      "korean_name": "인류역사흐름의강물",
+      "english_name": "THE GREAT FLOW",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster",
+        "apostles:source:great-flow-name"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1403344274",
+          "full_name": "gj3447/the-great-flow",
+          "url": "https://github.com/gj3447/the-great-flow",
+          "visibility": "PRIVATE",
+          "head": "da1348306473efa0b22ebd7ed5d9a6464ff21af8",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "CREATED",
+          "role": "PRIMARY",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/the-great-flow",
+          "default_branch": "main",
+          "manifest_sha256": "fa0ea82539a22a5b21f484ad2e9dad0861e4acf24bd3e52b3521dbf4b707aa09",
+          "provisioning_receipt": {
+            "path": "data/apostles/20261003-repository-provisioning.json",
+            "sha256": "4922c57d8bdfc97fdf64ce20b5f8a6b74303461e3e4f017fade7a8abdb497ff1"
+          },
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-the-great-flow.json",
+            "sha256": "a3ef6f7542ead8a69f3f047398289183367ddf9b14c4ef95802cf284ce1830d5"
+          },
+          "display_name": "THE GREAT FLOW",
+          "aliases": [
+            "the-great-flow",
+            "인류역사흐름의강물",
+            "인류 역사흐름의 강물"
+          ],
+          "name_source_ids": [
+            "apostles:source:workspace-feedback-20261007"
+          ],
+          "binding_source_ids": [
+            "apostles:source:workspace-feedback-20261007",
+            "apostles:source:hub-role-user-20261007"
+          ],
+          "binding_authority": "USER_PRIMARY",
+          "previous_home": {
+            "uid": "github:repo:1394690803",
+            "full_name": "gj3447/RIVER_OF_HUMAN_HISTORY",
+            "url": "https://github.com/gj3447/RIVER_OF_HUMAN_HISTORY",
+            "state": "HISTORICAL_SOURCE",
+            "authority": "SOURCE_DECLARED",
+            "source_ids": [
+              "apostles:source:hub-role-user-20261007"
+            ]
+          }
+        }
+      ],
+      "runtime_role": {
+        "state": "USER_ASSIGNED",
+        "label": "Dashboard 역할의 연구 결과 Git 허브",
+        "future_aspiration": "전 인류의 발전사항 기록",
+        "future_aspiration_state": "ASPIRATION",
+        "authority": "USER_PRIMARY",
+        "source_ids": [
+          "apostles:source:hub-role-user-20261007"
+        ]
+      }
+    },
+    {
+      "position": 7,
+      "slot_uid": "metahumotonic:apostle-slot:07",
+      "public_id": "mtg1-c108ed4f2114642f",
+      "entity_uid": "sym:KG_CREATIVE:리퀘스트의_나무",
+      "korean_name": "리퀘스트의 나무",
+      "english_name": "Liquest Tree",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1403344383",
+          "full_name": "gj3447/liquest-tree",
+          "url": "https://github.com/gj3447/liquest-tree",
+          "visibility": "PRIVATE",
+          "head": "5676c5d46bd99ae6bea5effeb00aa45b0aa01454",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "CREATED",
+          "role": "PRIMARY",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/liquest-tree",
+          "default_branch": "main",
+          "manifest_sha256": "02ca47eda8839076e0d9dc776ad20203a2c8cbb48ed21f493d0cbbc632c2b69a",
+          "provisioning_receipt": {
+            "path": "data/apostles/20261003-repository-provisioning.json",
+            "sha256": "4922c57d8bdfc97fdf64ce20b5f8a6b74303461e3e4f017fade7a8abdb497ff1"
+          },
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-liquest-tree.json",
+            "sha256": "243e6c8f46d0bcbecdfd42701d0a49018c18ce73ae8f8ffb81d1bb4d93c8b43b"
+          }
+        }
+      ],
+      "runtime_role": {
+        "state": "UNASSIGNED",
+        "label": null,
+        "authority": "UNASSIGNED",
+        "source_ids": []
+      }
+    },
+    {
+      "position": 8,
+      "slot_uid": "metahumotonic:apostle-slot:08",
+      "public_id": "mtg1-e3cb7a42c17bd48a",
+      "entity_uid": "sym:Character:입체운행구름",
+      "korean_name": "입체운행구름",
+      "english_name": "Orbital Motion Cloud",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1403344489",
+          "full_name": "gj3447/orbital-motion-cloud",
+          "url": "https://github.com/gj3447/orbital-motion-cloud",
+          "visibility": "PRIVATE",
+          "head": "f04a316ca1e0e8188c3025999718887e56dabc33",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "CREATED",
+          "role": "PRIMARY",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/orbital-motion-cloud",
+          "default_branch": "main",
+          "manifest_sha256": "66258691ffd9c96aca05ab4b6894426f0deb8fc5287e9d2e62ae501f4e0797e7",
+          "provisioning_receipt": {
+            "path": "data/apostles/20261003-repository-provisioning.json",
+            "sha256": "4922c57d8bdfc97fdf64ce20b5f8a6b74303461e3e4f017fade7a8abdb497ff1"
+          },
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-orbital-motion-cloud.json",
+            "sha256": "7075d819c87462931b8f7bcec1cce11d1f348c81148ed14e26923299c571b309"
+          }
+        }
+      ],
+      "runtime_role": {
+        "state": "UNASSIGNED",
+        "label": null,
+        "authority": "UNASSIGNED",
+        "source_ids": []
+      }
+    },
+    {
+      "position": 9,
+      "slot_uid": "metahumotonic:apostle-slot:09",
+      "public_id": "mtg1-940cb2abdd5c3980",
+      "entity_uid": "metahumotonic:persona:jesus",
+      "korean_name": "예수",
+      "english_name": "JESUS",
+      "naming_authority": "USER_PRIMARY",
+      "source_ids": [
+        "apostles:source:jesus-document",
+        "apostles:source:jesus-user-verdict",
+        "apostles:source:roster-jesus-confirmed"
+      ],
+      "selection_state": "USER_SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1403344966",
+          "full_name": "gj3447/jesus",
+          "url": "https://github.com/gj3447/jesus",
+          "visibility": "PRIVATE",
+          "head": "0bdfcd5c1ab07aa19a771ced0da5a8be583d26f6",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "CREATED",
+          "role": "PRIMARY",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/jesus",
+          "default_branch": "main",
+          "manifest_sha256": "e0807e6d2ae30a73cd0699617bf78a9e8f2e990fa7e6744e5405555c5285f92a",
+          "provisioning_receipt": {
+            "path": "data/apostles/20261003-repository-provisioning.json",
+            "sha256": "4922c57d8bdfc97fdf64ce20b5f8a6b74303461e3e4f017fade7a8abdb497ff1"
+          },
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "previous_full_names": [
+            "gj3447/apostle-09"
+          ],
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-jesus.json",
+            "sha256": "1205172e4c0d2788d53d7e03bbd0e64a177984c60e2e7330bc97755a6550b9b6"
+          }
+        }
+      ],
+      "runtime_role": {
+        "state": "UNASSIGNED",
+        "label": null,
+        "authority": "UNASSIGNED",
+        "source_ids": []
+      },
+      "selection_history": [
+        {
+          "state": "CONFLICT_PENDING",
+          "candidates": [
+            {
+              "candidate_id": "apostle-09-candidate-jesus",
+              "canonical_name": "예수",
+              "stable_ref": null,
+              "binding_state": "UNBOUND_PENDING",
+              "supporting_source_refs": [
+                "src-apostle-structure-project-canon",
+                "src-bridge-canon-summary"
+              ],
+              "authority": "PROJECT_CANON",
+              "default_servable": false
+            },
+            {
+              "candidate_id": "apostle-09-candidate-aten",
+              "canonical_name": "검은 태양신 아텐",
+              "stable_ref": "sym:Character:검은_태양신_아텐",
+              "binding_state": "BOUND_LEGACY_CANDIDATE",
+              "supporting_source_refs": [
+                "src-apostle-list-user-primary"
+              ],
+              "authority": "USER_PRIMARY",
+              "default_servable": false
+            }
+          ],
+          "source_ids": [
+            "apostles:source:roster"
+          ],
+          "superseded_by": "apostles:source:jesus-user-verdict"
+        }
+      ],
+      "selection_source": {
+        "authority": "USER_PRIMARY",
+        "quote": "9번은 예수잖아 표준 그래프 엔지니어링으로 정리를 안해놓으니 이렇지"
+      },
+      "binding_state": "LOCAL_USER_SELECTED",
+      "selection_source_refs": [
+        "apostles:source:jesus-user-verdict"
+      ]
+    },
+    {
+      "position": 10,
+      "slot_uid": "metahumotonic:apostle-slot:10",
+      "public_id": "mtg1-fe18ba73f9e093ac",
+      "entity_uid": "sym:Character:깊바존",
+      "korean_name": "깊바존",
+      "english_name": "GIPBAJON",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1403344613",
+          "full_name": "gj3447/gipbajon",
+          "url": "https://github.com/gj3447/gipbajon",
+          "visibility": "PRIVATE",
+          "head": "2b00afee53c26ef79ef12f637857f08890bbb37d",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "CREATED",
+          "role": "PRIMARY",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/gipbajon",
+          "default_branch": "main",
+          "manifest_sha256": "4af43f2dfd52836d09d01ae22526e6f80d40b1878f40d0c62f4b17adf6d7b84b",
+          "provisioning_receipt": {
+            "path": "data/apostles/20261003-repository-provisioning.json",
+            "sha256": "4922c57d8bdfc97fdf64ce20b5f8a6b74303461e3e4f017fade7a8abdb497ff1"
+          },
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-gipbajon.json",
+            "sha256": "2da18650dcde4c7584223039e3bf1719d02ea778c1bcf0664939a6a61de266c7"
+          }
+        }
+      ],
+      "runtime_role": {
+        "state": "UNASSIGNED",
+        "label": null,
+        "authority": "UNASSIGNED",
+        "source_ids": []
+      }
+    },
+    {
+      "position": 11,
+      "slot_uid": "metahumotonic:apostle-slot:11",
+      "public_id": "mtg1-ae2f1a6e71a58adb",
+      "entity_uid": "sym:KG_CREATIVE:hoh",
+      "korean_name": "HOH",
+      "english_name": "HOH",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1403344750",
+          "full_name": "gj3447/hoh",
+          "url": "https://github.com/gj3447/hoh",
+          "visibility": "PRIVATE",
+          "head": "67b6e3d018f9a2afb363fdf813198b29beaafe12",
+          "observed_at": "2026-10-07T06:29:37.244488+00:00",
+          "status": "CREATED",
+          "role": "PRIMARY",
+          "local_path": "/home/lagyeongjun/CD/hoh",
+          "default_branch": "main",
+          "manifest_sha256": "d2ebf4a8cddb9d1ca833327abe47180a87be0530b6b782617a7367a07f70a67b",
+          "provisioning_receipt": {
+            "path": "data/apostles/20261003-repository-provisioning.json",
+            "sha256": "4922c57d8bdfc97fdf64ce20b5f8a6b74303461e3e4f017fade7a8abdb497ff1"
+          },
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261007-hoh-backend-content.json",
+            "sha256": "1311f37d2a67d523754a35b4b556f7f883165f6f432dd1f3e09ae1ede5d24312"
+          },
+          "display_name": "HOH",
+          "name_source_ids": [
+            "apostles:source:persona-repos-user-20261007"
+          ],
+          "binding_source_ids": [
+            "apostles:source:hoh-backend-bhgman-user-20261007"
+          ],
+          "binding_authority": "USER_PRIMARY",
+          "aliases": [
+            "metahumotonic_web_back",
+            "metahumotonic-web-back",
+            "web back",
+            "gj3447/metahumotonic_web_back"
+          ],
+          "previous_home": {
+            "uid": "github:repo:1256774711",
+            "full_name": "gj3447/metahumotonic_web_back",
+            "url": "https://github.com/gj3447/metahumotonic_web_back",
+            "state": "HISTORICAL_SOURCE",
+            "authority": "SOURCE_DECLARED",
+            "source_ids": [
+              "apostles:source:hoh-backend-bhgman-user-20261007"
+            ]
+          }
+        },
+        {
+          "uid": "github:repo:1408029424",
+          "full_name": "gj3447/HOH-Interface",
+          "url": "https://github.com/gj3447/HOH-Interface",
+          "visibility": "PUBLIC",
+          "head": "f8f9f82ad3a9d0ee2180ad5fbef3f3c9b1d180c3",
+          "observed_at": "2026-10-07T05:28:37.102450+00:00",
+          "status": "REUSED",
+          "default_branch": "main",
+          "role": "ENGINEERING_COMPANION",
+          "display_name": "HOH-Interface",
+          "name_source_ids": [
+            "apostles:source:persona-repos-user-20261007"
+          ],
+          "binding_source_ids": [
+            "apostles:source:persona-repos-user-20261007"
+          ],
+          "binding_authority": "USER_PRIMARY",
+          "local_path": "/home/lagyeongjun/CD/HOH"
+        }
+      ],
+      "runtime_role": {
+        "state": "USER_ASSIGNED",
+        "label": "웹백 본체 백엔드",
+        "authority": "USER_PRIMARY",
+        "source_ids": [
+          "apostles:source:hoh-backend-bhgman-user-20261007"
+        ]
+      }
+    },
+    {
+      "position": 12,
+      "slot_uid": "metahumotonic:apostle-slot:12",
+      "public_id": "mtg1-98bf296e46570342",
+      "entity_uid": "sym:Character:몬순",
+      "korean_name": "몬순",
+      "english_name": "Monsoon",
+      "naming_authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:roster"
+      ],
+      "selection_state": "SELECTED",
+      "repositories": [
+        {
+          "uid": "github:repo:1403344851",
+          "full_name": "gj3447/monsoon",
+          "url": "https://github.com/gj3447/monsoon",
+          "visibility": "PRIVATE",
+          "head": "18992a4990b1c4178f4d1a99ebc63c1d354205ab",
+          "observed_at": "2026-10-03T17:11:52.300221+00:00",
+          "status": "CREATED",
+          "role": "PRIMARY",
+          "local_path": "/mnt/development/METAHUMOTONIC_SHARED/apostles/monsoon",
+          "default_branch": "main",
+          "manifest_sha256": "cc6d397aaf91aea14913b4eefe21c13c2aec5a10ed7f74bcc0e538536261fc5a",
+          "provisioning_receipt": {
+            "path": "data/apostles/20261003-repository-provisioning.json",
+            "sha256": "4922c57d8bdfc97fdf64ce20b5f8a6b74303461e3e4f017fade7a8abdb497ff1"
+          },
+          "cli_sha256": "cc4f1c8606563b9f4a6e505998e4db858f333fe8febf85ccbeb49ebdbf6623a1",
+          "content_snapshot": {
+            "path": "data/apostles/20261003-enriched-content-monsoon.json",
+            "sha256": "b7e84a23bcc4e251711ac48a5fb7d8bf509ac27292ce3b6504877387bdd39d93"
+          }
+        }
+      ],
+      "runtime_role": {
+        "state": "USER_ASSIGNED",
+        "label": "정보 비서 (AIRO 역할)",
+        "authority": "USER_PRIMARY",
+        "source_ids": [
+          "apostles:source:roles"
+        ]
+      }
+    }
+  ],
+  "phases": [
+    {
+      "uid": "sym:Phase:공허진동자-void-sexer-phase2-gipbajon",
+      "label": "공허진동자",
+      "persona_uid": "sym:Character:깊바존",
+      "authority": "SOURCE_DOCUMENT",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "uid": "apostle:relation:chu-vertical-axis",
+      "label": "CHU 수직축",
+      "axis": "VERTICAL_DEPENDENCY",
+      "topology": "VerticalAxisHyperedge",
+      "participants": [
+        {
+          "uid": "sym:Character:비행기맨",
+          "role": "apex"
+        },
+        {
+          "uid": "sym:Character:입체운행구름",
+          "role": "substrate"
+        },
+        {
+          "uid": "sym:Character:깊바존",
+          "role": "lifecycle_end"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "source_status": "EXPLICIT",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "1. {#4,#8,#10} CHU 수직축 — VerticalAxisHyperedge (PROM 16)"
+    },
+    {
+      "uid": "apostle:relation:self-reference-cycle",
+      "label": "자기참조·경계·공허",
+      "axis": "SELF_REFERENCE",
+      "topology": "SelfReferentialCyclicHyperedge",
+      "participants": [
+        {
+          "uid": "sym:Phase:공허진동자-void-sexer-phase2-gipbajon",
+          "role": "origin"
+        },
+        {
+          "uid": "sym:Character:입체운행구름",
+          "role": "substrate"
+        },
+        {
+          "uid": "sym:KG_CREATIVE:리퀘스트의_나무",
+          "role": "boundary"
+        },
+        {
+          "uid": "sym:Character:깊바존",
+          "role": "void"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "source_status": "EXPLICIT",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "2. {#7,#8,#10,공허진동자} 자기참조-경계-공허 — SelfReferentialCyclic (PROM 8, **Lean 4 PASS**)"
+    },
+    {
+      "uid": "apostle:relation:flow-anchor",
+      "label": "흐름과 앵커",
+      "axis": "FLOW_ANCHOR",
+      "topology": "DualAxisProjection",
+      "participants": [
+        {
+          "uid": "sym:KG_CREATIVE:인류역사흐름의강물",
+          "role": "time_flow"
+        },
+        {
+          "uid": "sym:KG_CREATIVE:리퀘스트의_나무",
+          "role": "spatial_anchor"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "source_status": "EXPLICIT",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "3. {#6,#7} 흐름-anchor — DualAxisProjection (PROM 32 A3)"
+    },
+    {
+      "uid": "apostle:relation:crossing-dismissal",
+      "label": "횡단과 외면",
+      "axis": "CROSSING_DISMISSAL",
+      "topology": "MirrorOpposite",
+      "participants": [
+        {
+          "uid": "sym:Character:space_girl",
+          "role": "crossing"
+        },
+        {
+          "uid": "sym:Character:몬순",
+          "role": "dismissal"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "source_status": "EXPLICIT",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "4. {#5,#12} 횡단-외면 — MirrorOpposite (PROM 32 A4)"
+    },
+    {
+      "uid": "apostle:relation:incarnation-inversion",
+      "label": "성육신과 역전",
+      "axis": "INCARNATION_INVERSION",
+      "topology": "MirrorOpposite",
+      "participants": [
+        {
+          "uid": "metahumotonic:persona:jesus",
+          "role": "incarnation"
+        },
+        {
+          "uid": "sym:Character:몬순",
+          "role": "inversion"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "source_status": "EXPLICIT",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "5. {#9,#12} Incarnation-Inverted — MirrorOpposite (PROM 32 A6)"
+    },
+    {
+      "uid": "apostle:relation:logical-containment",
+      "label": "논리와 수학 정점",
+      "axis": "LOGICAL_CONTAINMENT",
+      "topology": "ContainmentRelation",
+      "participants": [
+        {
+          "uid": "sym:KG_CREATIVE:리퀘스트의_나무",
+          "role": "container"
+        },
+        {
+          "uid": "sym:Character:비행기맨",
+          "role": "contained"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "source_status": "EXPLICIT",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "6. {#7,#4} 논리 ⊃ 수학 정점 — ContainmentRelation (PROM 32 A8)"
+    },
+    {
+      "uid": "apostle:relation:mediation",
+      "label": "대보편화 매개",
+      "axis": "MEDIATION",
+      "topology": "MediationTriad",
+      "participants": [
+        {
+          "uid": "sym:Character:space_girl",
+          "role": "mediator"
+        },
+        {
+          "uid": "sym:KG_CREATIVE:인류역사흐름의강물",
+          "role": "flow_vehicle"
+        },
+        {
+          "uid": "metahumotonic:persona:jesus",
+          "role": "instantiation"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "source_status": "EXPLICIT",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "7. {#5,#6,#9} 대보편화 매개 3원 — MediationTriad (PROM 32 B3)"
+    },
+    {
+      "uid": "apostle:relation:heaven-manifestation",
+      "label": "천국 축 이중 현현",
+      "axis": "HEAVEN_MANIFESTATION",
+      "topology": "TensionTopology",
+      "participants": [
+        {
+          "uid": "metahumotonic:persona:jesus",
+          "role": "transcendent"
+        },
+        {
+          "uid": "sym:KG_CREATIVE:hoh",
+          "role": "immanent"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "source_status": "EXPLICIT",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "8. {#9,#11} 천국 축 이중 현현 — **TensionTopology** (PROM 16 2026-04-30, 7번째 sub-type 격상)"
+    },
+    {
+      "uid": "apostle:relation:foundational-shell",
+      "label": "12사도 공리 shell",
+      "axis": "FOUNDATIONAL_SHELL",
+      "topology": "FoundationalShell",
+      "participants": [
+        {
+          "uid": "sym:Character:디멘션워커",
+          "role": "apostle_01"
+        },
+        {
+          "uid": "sym:Character:ice_orca_dragon",
+          "role": "apostle_02"
+        },
+        {
+          "uid": "sym:Character:초공동의_용사",
+          "role": "apostle_03"
+        },
+        {
+          "uid": "sym:Character:비행기맨",
+          "role": "apostle_04"
+        },
+        {
+          "uid": "sym:Character:space_girl",
+          "role": "apostle_05"
+        },
+        {
+          "uid": "sym:KG_CREATIVE:인류역사흐름의강물",
+          "role": "apostle_06"
+        },
+        {
+          "uid": "sym:KG_CREATIVE:리퀘스트의_나무",
+          "role": "apostle_07"
+        },
+        {
+          "uid": "sym:Character:입체운행구름",
+          "role": "apostle_08"
+        },
+        {
+          "uid": "metahumotonic:persona:jesus",
+          "role": "apostle_09"
+        },
+        {
+          "uid": "sym:Character:깊바존",
+          "role": "apostle_10"
+        },
+        {
+          "uid": "sym:KG_CREATIVE:hoh",
+          "role": "apostle_11"
+        },
+        {
+          "uid": "sym:Character:몬순",
+          "role": "apostle_12"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "source_status": "EXPLICIT",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "9. **{12사도 전체}** CHU 공리 shell — **FoundationalShell** (PROM 32 6 IMPLICIT 격상 C6, n=12, 8번째 sub-type)"
+    },
+    {
+      "uid": "apostle:relation:ice-hoh-sexvoid-mirror",
+      "label": "ICE·HOH 후보 관계",
+      "axis": "SEXVOID_MIRROR",
+      "topology": "MirrorOpposite",
+      "participants": [
+        {
+          "uid": "sym:Character:ice_orca_dragon",
+          "role": "embodier"
+        },
+        {
+          "uid": "sym:KG_CREATIVE:hoh",
+          "role": "censor"
+        }
+      ],
+      "status": "CANDIDATE",
+      "source_status": "CANDIDATE_USER_VERDICT_PENDING",
+      "authority": "SOURCE_DOCUMENT",
+      "interpretation_authority": "SECONDARY_AI",
+      "source_ids": [
+        "apostles:source:relation-canon-20261007"
+      ],
+      "excerpt": "**ICE 신규 CANDIDATE Hyperedge**: {#2 ICE, #11 HOH} sexvoid-axis **MirrorOpposite** (사용자 verdict 대기)"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schema": "omc-placement-acceptance/1",
+  "observed_at": "2026-10-10T15:43:40.693213+00:00",
+  "authority": "OBSERVED",
+  "status": "COMPLETE",
+  "input_resource": "omc:artifact:placement-user-request-20261010",
+  "input_bytes": 449,
+  "copies": [
+    "bulk20",
+    "backup4"
+  ],
+  "semantic_digest_before": "sha256:910f69bb4cdaadf61baf318edf2d019be9b4b9f7c21e33946178412b9ceb8830",
+  "semantic_digest_after": "sha256:910f69bb4cdaadf61baf318edf2d019be9b4b9f7c21e33946178412b9ceb8830",
+  "generation": 1,
+  "usl_check": {
+    "links": 3,
+    "meanings": 3,
+    "namespace": "omc.placement",
+    "planDigest": "sha256:00b7cc5e1e2a790bae2fa82d9b25db30ce7472fe2eac14f2c2f7169441320ba8",
+    "resources": 2,
+    "sourceDigest": null,
+    "valid": true
+  },
+  "implementation_digest": "sha256:a7baab28532d12d4db2d348aa823b99b94357ac4a075728fa4ef0c26be7c5cd0",
+  "source_retained": true,
+  "space_reclaim_bytes": 0,
+  "receipt_sha256": "85e5ab51bfdcab852692055da9378de53ed5728eb40777eafd39725cdd172d69",
+  "private_receipt": ".local/placement/result.json",
+  "recovery_observations": [
+    "4TB provider directory was initially unwritable by the registered SSH account; created a dedicated namespace.",
+    "Initial namespace group did not match the existing NFS anon mapping; corrected only this empty new namespace to GID 20.",
+    "Provider-side copy appeared absent on NFS client readback; recovery now uses bounded provider-side hash verification."
+  ],
+  "limits": [
+    "One 449-byte immutable source, not a bulk throughput benchmark.",
+    "Copies retain source; SSD reclamation belongs to the separate owner migration.",
+    "No live HSWM execution or shared KG publication."
+  ],
+  "duplicate_operation_check": {
+    "generation_unchanged": true,
+    "no_copy_repeated": true,
+    "same_operation": "placement-20261010-001",
+    "state_digest": "sha256:1e27dc6be57c3d9615714829e5584adb56dc3d410e42dcc1c2972d2bcc5603b7"
+  },
+  "tests": {
+    "command": "python3 -m unittest discover -s tests",
+    "passed": 39,
+    "failed": 0,
+    "managed_job_receipt": {
+      "boot_id": "714da32e-c731-4be2-a8c7-1d6cb145fa40",
+      "budget_bytes": 134217728,
+      "child_pid": 2757406,
+      "exit_code": 0,
+      "finished_at": "2026-10-10T15:56:53.519953+00:00",
+      "id": "848107d3874c4607af4e202d362aeb59",
+      "live_kg_published": false,
+      "pid": 2757395,
+      "project": "0f8ea9ab527179326fce",
+      "reason": "command completed",
+      "retention": "explicit artifacts and caches retained; failed scratch retained",
+      "schema": "storage-job-receipt/v1",
+      "start_ticks": "164751214",
+      "started_at": "2026-10-10T15:56:47.775285+00:00",
+      "tier": "bulk",
+      "work_dir": "/mnt/development/managed-dev/0f8ea9ab527179326fce/runs/omc-placement-final-tests-848107d3874c4607af4e202d362aeb59"
+    },
+    "limits": "Filesystem crash recovery tests use bounded managed scratch; no power-loss simulation.",
+    "implementation_digest": "sha256:9e3d33b246d34ac4fb69f6e356f172565750cd42a0b079296de1f97405177a12",
+    "large_transfer_real_lease_admission": "PASS_WITH_128MiB_LEASE_AND_101MiB_DECLARED_BUDGET_NO_LARGE_TRANSFER"
+  },
+  "native_usl_context_check": {
+    "resource_and_link_ids_identical": true,
+    "meanings_and_named_roles_identical": true,
+    "path_witness_identical": true,
+    "target_before": {
+      "resource": "r_3530eaa6e3daaeb3c4500449edc704c36430e05bb7cd7338517d24be2331499a",
+      "status": "FOUND"
+    },
+    "target_after": {
+      "resource": "r_3530eaa6e3daaeb3c4500449edc704c36430e05bb7cd7338517d24be2331499a",
+      "status": "FOUND"
+    }
+  },
+  "native_binding_readback": {
+    "inspected_at": "2026-10-10T15:51:05.457Z",
+    "content": {
+      "kind": "file",
+      "digest": "sha256:98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+      "bytes": 449,
+      "expectedDigest": "sha256:98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+      "pinStatus": "MATCH"
+    }
+  },
+  "final_implementation_verification": {
+    "status": "COMPLETE",
+    "operation": "placement-20261010-final-validation",
+    "implementation_digest": "sha256:9e3d33b246d34ac4fb69f6e356f172565750cd42a0b079296de1f97405177a12",
+    "semantic_digest_before": "sha256:910f69bb4cdaadf61baf318edf2d019be9b4b9f7c21e33946178412b9ceb8830",
+    "semantic_digest_after": "sha256:910f69bb4cdaadf61baf318edf2d019be9b4b9f7c21e33946178412b9ceb8830",
+    "source_retained": true,
+    "space_reclaim_bytes": 0,
+    "transfers": [
+      {
+        "bytes": 449,
+        "sha256": "98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+        "status": "EXISTING_BYTES_VERIFIED",
+        "target": "bulk20"
+      },
+      {
+        "bytes": 449,
+        "sha256": "98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+        "status": "EXISTING_BYTES_VERIFIED",
+        "target": "backup4"
+      }
+    ],
+    "generation": 2,
+    "receipt_sha256": "0374c67bf9bbdb8e468f49a0667ba85f0afa624d6b38ea9c5e3d5193e4039bbe",
+    "managed_job_id": "e77416b62c464c72a8794c4d6f9d0a76"
+  }
+}

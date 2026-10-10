@@ -1,0 +1,32 @@
+{
+  "schema": "omc-archive-verification/1",
+  "status": "PASS",
+  "managed_module_artifacts": [
+    {
+      "kind": "WHAT_IS",
+      "commit": "f3a35781d58a0296dbd0baef41c93e80f7eb968c",
+      "sha256": "b318729bd1be741ee45bea3be66eec868ad290d87ddd98e3017cfc1afbfa0e68",
+      "verification": "VERIFIED_COMMIT_BYTES"
+    },
+    {
+      "kind": "HOW_TO",
+      "commit": "cbd30f5428e97026bed9ebd587e9774576864abd",
+      "sha256": "a4ca2a26ba64bc45b56f0fad9d9388729b79a85bcdc850519f402723a7c03baa",
+      "verification": "VERIFIED_COMMIT_BYTES"
+    }
+  ],
+  "owner_workflow_refresh": "PASS",
+  "owner_workflow_graph_tests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "owner_hub": {
+    "repository": "https://github.com/gj3447/the-great-flow",
+    "commit": "d663c3657bbab2712f33f42de1171447da1a51b6",
+    "pushed_to_private_origin": true,
+    "concurrent_work_preserved": true,
+    "post_merge_render": "PASS",
+    "post_merge_check": "PASS",
+    "verification_scope": "Committed OMC work; later unrelated worktree changes left unchanged"
+  }
+}

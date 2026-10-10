@@ -1,0 +1,38 @@
+{
+  "schema": "omc-clarification-sources/1",
+  "date": "2026-10-10",
+  "scope": "User clarification and naming preserved locally; no runtime or shared KG mutation",
+  "sources": [
+    {
+      "id": "bhgman-contribution-knowledge",
+      "authority": "USER_PRIMARY",
+      "path": "records/2026-10-10/bhgman-contribution-knowledge/user-verbatim.txt",
+      "sha256": "74a265348c4d3d32478dfad7c36a0e86ea2d856dcc8b401c7b725ba7e49a001b",
+      "bytes": 391,
+      "origin": "Current user message",
+      "transcription": "Verbatim UTF-8 with one trailing LF",
+      "subject_uids": [
+        "sym:Character:비행기맨",
+        "sym:Character:입체운행구름"
+      ]
+    }
+  ],
+  "previous_artifacts": {
+    "docs/OMC_LOGICAL_FOUNDATIONS.md": {
+      "snapshot_path": "records/2026-10-10/bhgman-contribution-knowledge/previous/docs/OMC_LOGICAL_FOUNDATIONS.md",
+      "sha256": "a4ca2a26ba64bc45b56f0fad9d9388729b79a85bcdc850519f402723a7c03baa"
+    },
+    "docs/OMC_FOUNDATION_SOURCE_REVIEW.md": {
+      "snapshot_path": "records/2026-10-10/bhgman-contribution-knowledge/previous/docs/OMC_FOUNDATION_SOURCE_REVIEW.md",
+      "sha256": "b318729bd1be741ee45bea3be66eec868ad290d87ddd98e3017cfc1afbfa0e68"
+    },
+    "docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md": {
+      "snapshot_path": "records/2026-10-10/bhgman-contribution-knowledge/previous/docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md",
+      "sha256": "77920e51d3d00e6f6200918c718ec16349c766b3f5e5215d0c9454446bfb23d2"
+    },
+    "graph/omc-foundations.json": {
+      "snapshot_path": "records/2026-10-10/bhgman-contribution-knowledge/previous/graph/omc-foundations.json",
+      "sha256": "10ef5c5a333978c8b4a3fea97c8623b4ef205c0a4b4bd8d5b30be6a6e0090b50"
+    }
+  }
+}
