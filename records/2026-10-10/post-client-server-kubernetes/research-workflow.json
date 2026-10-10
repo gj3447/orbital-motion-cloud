@@ -1,0 +1,67 @@
+{
+  "schema": "omc-research-workflow-observation/1",
+  "authority": "SECONDARY_AI",
+  "state": "COMPLETE",
+  "owner_repository": "https://github.com/gj3447/the-great-flow",
+  "owner_path": "/home/lagyeongjun/CD/THE_GREAT_FLOW",
+  "omc_source_commit": "d02896ef85765cbb9b0d0d9b8bcf42c1c3760280",
+  "managed_job_id": "03cc46cca6f5432ba248b82cc27bffc4",
+  "managed_job_exit_code": 0,
+  "runs": [
+    {
+      "actor": "Codex",
+      "artifacts": [
+        {
+          "authority": "SECONDARY_AI",
+          "commit": "35037dea637957ad7488a3911194e4596520df59",
+          "kind": "WHAT_IS",
+          "managed_paths": [
+            ".research/records/omc-kubernetes-mechanisms-20261010/WHAT_IS.source",
+            ".research/records/omc-kubernetes-mechanisms-20261010/WHAT_IS.json"
+          ],
+          "module_uid": "research:module:e327c5d6-854e-450b-ab4a-6c5d8cc05487",
+          "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/kubernetes/WHAT_IS_kubernetes",
+          "source_path": "data/research-organization/omc-kubernetes-mechanisms-20261010.md",
+          "source_sha256": "d54c8219aaa9e3fc12b8f4e4de46dd1af114058ced4ded51b8451d7c59e3a44c",
+          "title": "쿠버네티스 API·관측·스케줄러·kubelet 고정 코드 분석"
+        }
+      ],
+      "completed_at": "2026-10-10T18:11:58Z",
+      "id": "omc-kubernetes-mechanisms-20261010",
+      "placement": "REUSED",
+      "placement_basis": "기존 kubernetes WHAT_IS 모듈 research:module:e327c5d6-854e-450b-ab4a-6c5d8cc05487 및 공식 소스 snapshot을 재사용한다. inspect_repos.py search kubernetes --corpus metahumotonic, research_modules.py list와 기존 research.md/AGENTS/manifest를 읽었다. 2026-10-07 Deployment 중심 연구에 API 저장, 관측, 스케줄링, 노드 실행, 하드웨어 제약의 실제 코드 구간 분석을 별도 작업으로 누적한다. 기존 코드의 작동 원리 분석이므로 WHAT_IS이며 OMC 발전 제안은 별도 HOW_TO로 연결한다.",
+      "recorded_at": "2026-10-10T18:10:50Z",
+      "request_sha256": "0747bb60f9900236fb4a8cb864001d5981bdc26a7697300e540bfcc1f6034ecb",
+      "state": "COMPLETE",
+      "topic": "kubernetes"
+    },
+    {
+      "actor": "Codex",
+      "artifacts": [
+        {
+          "authority": "SECONDARY_AI",
+          "commit": "ecc7ce32ebbb48351c6b404fc1bab49d596e7191",
+          "kind": "HOW_TO",
+          "managed_paths": [
+            ".research/records/omc-post-client-server-20261010/HOW_TO.source",
+            ".research/records/omc-post-client-server-20261010/HOW_TO.json"
+          ],
+          "module_uid": "research:module:eb774eb7-e576-4cdf-a767-e562c5abadbd",
+          "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/infrastructure-orchestration/HOW_TO_infrastructure-orchestration",
+          "source_path": "data/research-organization/omc-post-client-server-20261010.md",
+          "source_sha256": "bfe02d315c6f6303cd11574d0fb6b4af126ca1dbe2a62d97ce5fa6af6942897e",
+          "title": "서버 클라이언트 이후 OMC의 지식 계약과 구축 계획"
+        }
+      ],
+      "completed_at": "2026-10-10T18:11:58Z",
+      "id": "omc-post-client-server-20261010",
+      "placement": "REUSED",
+      "placement_basis": "기존 infrastructure-orchestration HOW_TO 모듈 research:module:eb774eb7-e576-4cdf-a767-e562c5abadbd 및 omc-hardware-software-fit-20261010을 이어간다. 기존 연구 주제 목록과 원문·OMC 소유 manifest를 확인했다. 배치와 네이티브 실행 적응을 발전시키는 동일 책임 범위이므로 새 저장소 대신 ACTIVE 쌍을 재사용한다. 현재 사용자 방향을 12개 지식 과제, 의존 관계, 결과 계약과 미래 실험으로 발전시키는 HOW_TO이며 Kubernetes 사실 분석은 별도 kubernetes WHAT_IS 소유에 둔다.",
+      "recorded_at": "2026-10-10T18:10:52Z",
+      "request_sha256": "018f11f1bee4e30936117018b28289aa3dfe4d5144954191347ecaa69ee04d42",
+      "state": "COMPLETE",
+      "topic": "infrastructure-orchestration"
+    }
+  ],
+  "runtime_experiment": "NOT_RUN"
+}

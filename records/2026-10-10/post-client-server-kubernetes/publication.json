@@ -1,0 +1,42 @@
+{
+  "schema": "omc-post-client-server-publication/1",
+  "state": "PUSHED_AND_REMOTE_VERIFIED",
+  "base": "835bba650589f129eaa311e7160216431ef5c52c",
+  "commit": "213f6ba055320710a839c628074f50dbb7ef2f3e",
+  "previous_local_head": "6e55799b6fccdf69ea86eee0fdefdf3142d2fffe",
+  "integration": "REBASE_OWN_UNPUBLISHED_COMMIT_ON_REMOTE_ADVANCE",
+  "worktree": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-post-client-server-remote-integration-9ee51fed60214f7487abb4324e4f84f0/tmp/omc-post-client-server-publication",
+  "artifact_root": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-post-client-server-remote-integration-9ee51fed60214f7487abb4324e4f84f0/artifacts",
+  "frozen_inputs": {
+    "data/research-organization/omc-kubernetes-mechanisms-20261010.md": "d54c8219aaa9e3fc12b8f4e4de46dd1af114058ced4ded51b8451d7c59e3a44c",
+    "data/research-organization/omc-kubernetes-mechanisms-20261010.request.json": "696711350475abc3e2c4859e101214f0f4e481c780756265c253e65644244eb3",
+    "data/research-organization/omc-post-client-server-20261010.md": "bfe02d315c6f6303cd11574d0fb6b4af126ca1dbe2a62d97ce5fa6af6942897e",
+    "data/research-organization/omc-post-client-server-20261010.request.json": "45ee6a90036c5b72ea7c47d83021ce1535677f1216464a4a4226d9717924f7f4"
+  },
+  "changed_files": " M bindings/avatar-control.md\n M bindings/research-content.md\n M bindings/research-modules.md\n M bindings/research-workflow.md\n M graph/avatar-control.graph.json\n M graph/avatar-control.usl.json\n M graph/development.graph.json\n M graph/research-content.graph.json\n M graph/research-content.usl.json\n M graph/research-modules.graph.json\n M graph/research-modules.json\n M graph/research-modules.usl.json\n M graph/research-workflow.graph.json\n M graph/research-workflow.json\n M graph/research-workflow.usl.json\n M index.html\n?? bindings/research-content/bfe02d315c6f6303cd11574d0fb6b4af126ca1dbe2a62d97ce5fa6af6942897e.txt\n?? bindings/research-content/d54c8219aaa9e3fc12b8f4e4de46dd1af114058ced4ded51b8451d7c59e3a44c.txt\n?? data/research-organization/omc-kubernetes-mechanisms-20261010.md\n?? data/research-organization/omc-kubernetes-mechanisms-20261010.request.json\n?? data/research-organization/omc-post-client-server-20261010.md\n?? data/research-organization/omc-post-client-server-20261010.request.json",
+  "work_ids": [
+    "omc-kubernetes-mechanisms-20261010",
+    "omc-post-client-server-20261010"
+  ],
+  "unrelated_source_changes_excluded": true,
+  "remote_repository": "https://github.com/gj3447/the-great-flow",
+  "remote_ref": "refs/heads/main",
+  "remote_commit": "213f6ba055320710a839c628074f50dbb7ef2f3e",
+  "verified_at": "2026-10-10T18:17:22.597586+00:00",
+  "checks": {
+    "render": "PASS",
+    "check": "PASS",
+    "research_workflow": "OK"
+  },
+  "managed_job_ids": [
+    "03cc46cca6f5432ba248b82cc27bffc4",
+    "e9ea8d4019fd4fde8802687762def2e5",
+    "9ee51fed60214f7487abb4324e4f84f0"
+  ],
+  "managed_job_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "temporary_worktree_removed": true
+}
