@@ -25,7 +25,7 @@
         "label": "implementation",
         "authority": "SOURCE_DOCUMENT",
         "path": "scripts/placement.py",
-        "sha256": "9e3d33b246d34ac4fb69f6e356f172565750cd42a0b079296de1f97405177a12",
+        "sha256": "1b006b8abd50d5913fbc13e68a5f5ce0d4f4948d3f7f22f47ee0184398e6a1d0",
         "recorded_on": "2026-10-10"
       }
     },
@@ -39,7 +39,7 @@
         "label": "tests",
         "authority": "SOURCE_DOCUMENT",
         "path": "tests/test_placement.py",
-        "sha256": "6ec35cd6017496fa653f3a0484aa945e22f382ae3642745d044eee1856916b7f",
+        "sha256": "df3477c1885b70cfb5c7dbd3144f40dba3301f238b8b3d608a04c9a594362960",
         "recorded_on": "2026-10-10"
       }
     },

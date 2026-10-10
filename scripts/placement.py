@@ -419,6 +419,11 @@ def apply(host, plan, operation, recover=False, reviewed_implementation=None):
             require(recover, 'Existing incomplete operation; use recover with the same plan/key')
         else:
             require(not recover, 'No operation to recover')
+            # A new key must not conceal an unresolved earlier transfer or a
+            # committed state whose final receipt still needs recovery.
+            for previous in (directory / 'operations').glob('*/intent.json'):
+                require((previous.parent / 'result.json').is_file(),
+                        'Unresolved operation ' + previous.parent.name + '; recover the same key first')
         if changed_implementation:
             atomic(op / ('recovery-' + implementation_digest().split(':')[1] + '.json'),
                    {'original_implementation': plan['implementation_digest'], 'reviewed_implementation': reviewed_implementation,

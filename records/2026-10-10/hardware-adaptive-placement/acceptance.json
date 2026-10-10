@@ -43,6 +43,54 @@
     "state_digest": "sha256:1e27dc6be57c3d9615714829e5584adb56dc3d410e42dcc1c2972d2bcc5603b7"
   },
   "tests": {
+    "command": "python3 -B -m unittest discover -s tests",
+    "passed": 40,
+    "failed": 0,
+    "implementation_digest": "sha256:1b006b8abd50d5913fbc13e68a5f5ce0d4f4948d3f7f22f47ee0184398e6a1d0",
+    "managed_job_receipt": {
+      "boot_id": "714da32e-c731-4be2-a8c7-1d6cb145fa40",
+      "budget_bytes": 16777216,
+      "child_pid": 2762609,
+      "exit_code": 0,
+      "finished_at": "2026-10-10T16:04:30.699603+00:00",
+      "id": "eff3f43844d74fb295d7c3adc43992b1",
+      "live_kg_published": false,
+      "pid": 2762603,
+      "project": "0f8ea9ab527179326fce",
+      "reason": "command completed",
+      "retention": "explicit artifacts and caches retained; failed scratch retained",
+      "schema": "storage-job-receipt/v1",
+      "start_ticks": "164797142",
+      "started_at": "2026-10-10T16:04:27.046092+00:00",
+      "tier": "bulk",
+      "work_dir": "/mnt/development/managed-dev/0f8ea9ab527179326fce/runs/omc-unresolved-operation-regression-eff3f43844d74fb295d7c3adc43992b1"
+    },
+    "limits": "Bounded scratch; no physical power-loss simulation."
+  },
+  "native_usl_context_check": {
+    "resource_and_link_ids_identical": true,
+    "meanings_and_named_roles_identical": true,
+    "path_witness_identical": true,
+    "target_before": {
+      "resource": "r_3530eaa6e3daaeb3c4500449edc704c36430e05bb7cd7338517d24be2331499a",
+      "status": "FOUND"
+    },
+    "target_after": {
+      "resource": "r_3530eaa6e3daaeb3c4500449edc704c36430e05bb7cd7338517d24be2331499a",
+      "status": "FOUND"
+    }
+  },
+  "native_binding_readback": {
+    "inspected_at": "2026-10-10T15:51:05.457Z",
+    "content": {
+      "kind": "file",
+      "digest": "sha256:98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+      "bytes": 449,
+      "expectedDigest": "sha256:98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+      "pinStatus": "MATCH"
+    }
+  },
+  "previous_tests": {
     "command": "python3 -m unittest discover -s tests",
     "passed": 39,
     "failed": 0,
@@ -68,30 +116,7 @@
     "implementation_digest": "sha256:9e3d33b246d34ac4fb69f6e356f172565750cd42a0b079296de1f97405177a12",
     "large_transfer_real_lease_admission": "PASS_WITH_128MiB_LEASE_AND_101MiB_DECLARED_BUDGET_NO_LARGE_TRANSFER"
   },
-  "native_usl_context_check": {
-    "resource_and_link_ids_identical": true,
-    "meanings_and_named_roles_identical": true,
-    "path_witness_identical": true,
-    "target_before": {
-      "resource": "r_3530eaa6e3daaeb3c4500449edc704c36430e05bb7cd7338517d24be2331499a",
-      "status": "FOUND"
-    },
-    "target_after": {
-      "resource": "r_3530eaa6e3daaeb3c4500449edc704c36430e05bb7cd7338517d24be2331499a",
-      "status": "FOUND"
-    }
-  },
-  "native_binding_readback": {
-    "inspected_at": "2026-10-10T15:51:05.457Z",
-    "content": {
-      "kind": "file",
-      "digest": "sha256:98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
-      "bytes": 449,
-      "expectedDigest": "sha256:98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
-      "pinStatus": "MATCH"
-    }
-  },
-  "final_implementation_verification": {
+  "physical_revalidation": {
     "status": "COMPLETE",
     "operation": "placement-20261010-final-validation",
     "implementation_digest": "sha256:9e3d33b246d34ac4fb69f6e356f172565750cd42a0b079296de1f97405177a12",
@@ -116,5 +141,6 @@
     "generation": 2,
     "receipt_sha256": "0374c67bf9bbdb8e468f49a0667ba85f0afa624d6b38ea9c5e3d5193e4039bbe",
     "managed_job_id": "e77416b62c464c72a8794c4d6f9d0a76"
-  }
+  },
+  "subsequent_code_change": "Added new-operation refusal while an earlier intent has no final receipt; covered by the 40-test regression. Physical revalidation retains its actual implementation digest."
 }

@@ -226,6 +226,17 @@ class PlacementFilesystemTests(unittest.TestCase):
             with p.locked(host), self.assertRaises(BlockingIOError):
                 with p.locked(host): self.fail('Second writer admitted')
 
+    def test_new_key_cannot_hide_an_unresolved_operation(self):
+        h, state, obs, request = fixture(); h['state_dir'] = str(self.root); obs['config_digest'] = p.digest(h)
+        for committed in (False, True):
+            current = {**state, 'last_operation': 'one' if committed else None}
+            plan = p.make_plan(h, current, obs, request, 1005)
+            p.atomic(self.root / 'state.json', current)
+            p.atomic(self.root / 'operations/one/intent.json', {'plan_digest': 'earlier-plan'})
+            with self.subTest(committed=committed), patch.object(p, 'command', return_value={'filesystems': [{'fstype': 'ext4'}]}), patch.object(p, 'observe', side_effect=AssertionError('must not start another operation')):
+                with self.assertRaisesRegex(p.Refused, 'Unresolved operation one'):
+                    p.apply(h, plan, 'new-key')
+
 
 if __name__ == '__main__':
     unittest.main()
