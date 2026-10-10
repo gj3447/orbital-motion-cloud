@@ -1,0 +1,32 @@
+{
+  "schema": "omc-publication-receipt/1",
+  "authority": "OBSERVED",
+  "observed_at": "2026-10-10T16:22:18.802516+00:00",
+  "owner_repository": "https://github.com/gj3447/the-great-flow",
+  "owner_commit": "943b71a06cd62126845ec7f31875368fd4bac134",
+  "owner_base": "d920a563604fecfda15694552456a575ebfe1042",
+  "private_origin_main_verified": true,
+  "owner_work_ids": [
+    "mhc-compute-stability-20261010",
+    "omc-hardware-placement-20261010"
+  ],
+  "owner_workflows": "COMPLETE",
+  "module_implementation_commit": "34923418424e40705cee2256695497007f7c423b",
+  "module_tests_passed": 40,
+  "owner_tests_passed": 25,
+  "owner_generated_check": "PASS",
+  "validation_artifacts": {
+    "check": "2ddf60d2f17ab3080920d467961ac3d4e6116a72702d5f95d14a2428c40d0b40",
+    "workflow-check": "be1604dc3ed5b911857fc3c5084432b1b65769369b7ceb687b8fb34035edc25e",
+    "regression": "9aecd2a970fbbe0a3ce8ffd499fc5bafd729a20bdbc5f216a5cd8e623dd9da00"
+  },
+  "unrelated_source_changes_excluded": true,
+  "shared_kg_written": false,
+  "publication_method": "Task-only checked worktree; additive commit and main compare-and-swap; normal private push",
+  "finalization_scope": {
+    "copies_or_builds": false,
+    "git_compressed_blob_bytes_observed": 12860809,
+    "automatic_git_gc_disabled": true
+  },
+  "scratch": "Failed managed scratch and checked worktree retained with their receipts for inspection; no lease removal."
+}

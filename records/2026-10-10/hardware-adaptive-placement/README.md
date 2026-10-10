@@ -11,3 +11,5 @@
 - [소유 허브 연구 기록](research-receipt.json): 기존 `infrastructure-orchestration` 주제를 재사용한 HOW_TO 기록과 관리형 최종 갱신이 `COMPLETE`로 끝났다. MHC 안정화 연구의 중단된 갱신도 같은 배치에서 복구했다.
 
 실제 경로·등록·상태·상세 전송 영수증은 무시되는 `.local/placement/`에 있다. 새 4TB OMC namespace에만 소유 계정과 기존 NFS 익명 매핑에 맞는 권한을 설정했다. 기존 공유 export·마운트·서비스·다른 데이터의 권한은 변경하지 않았다.
+
+[완료·게시 기록](publication.json): OMC 테스트 40개, 허브 관련 테스트 25개와 생성물 검사를 통과했다. 이번 변경만 포함한 허브 커밋 `943b71a`를 기존 private origin의 main에서 확인했다. OMC 자체 구현은 로컬 Git에 저장했으며 public 원격 push는 수행하지 않았다.
