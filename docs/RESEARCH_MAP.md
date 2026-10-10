@@ -30,6 +30,14 @@
 | engineboy | PROPOSES_MEASUREMENT_FOR | FSM/binding/traffic/hypergraph components | `engineboy/MEASUREMENT_PLAYBOOK_2026-07-12.md:1-12` | preliminary |
 | OMD | IS_NOT_ALIAS_OF | OMC | `KUBERNETES_BORG_ABSORPTION_2026-07-15.md:11-24` | interpretation boundary |
 
+## 2026-10-10 자원 기여와 공동 지능 이용
+
+[OMC와 MHC의 목적 정리](RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md)는 사용자가 설명한
+지속적인 자원 제공 → 크레딧 획득 → 거대한 HSWM·CHU의 답변 이용을 연결한다.
+사용자 원문은 `records/2026-10-10/resource-credit-shared-intelligence/`에 별도로 보존한다.
+기존 구조와 목적의 분석은 WHAT_IS로, 구현을 발전시킬 질문은 후속 HOW_TO 연구의 입력으로 다룬다.
+과거 source archive의 바이트나 당시 주장·판본을 이번 정리로 바꾸지 않는다.
+
 ## Known limits
 
 The archive records reports and prior claims. It does not contain a current deployment receipt for a browser mesh, a rerun benchmark, or an authorization to allocate shared CPU/RAM.
