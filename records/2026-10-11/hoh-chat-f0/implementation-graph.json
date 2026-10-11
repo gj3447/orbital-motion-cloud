@@ -1,0 +1,541 @@
+{
+  "schema": "hoh-chat-turn-f0-implementation-graph/1",
+  "scope": "OWNER_LOCAL_IMPLEMENTATION_EVIDENCE",
+  "nodes": [
+    {
+      "uid": "sym:KG_CREATIVE:hoh",
+      "type": "Owner",
+      "authority": "SECONDARY_AI",
+      "label": "HOH backend owner"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F0",
+      "type": "WorkItem",
+      "authority": "SECONDARY_AI",
+      "label": "Durable host turn and outcome boundary"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F1",
+      "type": "ExternalWorkItem",
+      "authority": "SECONDARY_AI",
+      "label": "Owner-specific CHU state and admission adapter",
+      "status": "PLANNED"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:observation",
+      "type": "Observation",
+      "authority": "SECONDARY_AI",
+      "label": "Bounded F0 host implementation verified locally",
+      "status": "LOCAL_TESTS_PASSED",
+      "runtime_scope": "HOH_HOST_ONLY",
+      "next_native_admission": "NOT_PERFORMED"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:verification",
+      "type": "Evidence",
+      "authority": "SECONDARY_AI",
+      "path": "backend/engineering/chat-turn-f0/verification.json",
+      "sha256": "b6bf51cf2cfe60fe12779ab1619ce69da94d21c116b84867f36e793ee1f7cb38"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:plan",
+      "type": "DesignReference",
+      "authority": "SECONDARY_AI",
+      "repository": "repo:orbital_motion_cloud",
+      "path": "graph/hoh-chat-flywheel.json",
+      "revision": "8f3f4df2156db5763d4931f331c6c2f52c4a57af",
+      "sha256": "5f1f7f7bc7c1adfd3206dbb95f8477717ffee684f6e0e2b3d2b39015450f59dc"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/src/api/ProgramFeedApi.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/src/api/ProgramFeedApi.ts",
+      "sha256": "56b5329679fd040c7fa0154626a11c5f7831a09a09d1e3a4a398f74384bc43b5",
+      "source_kind": "CODE"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/src/server/ProgramFeedHandlers.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/src/server/ProgramFeedHandlers.ts",
+      "sha256": "bf8559cf5ab4a1fd65358eb7dfec9ba59af92f8e0e0b84e43b5915b3391ff1ce",
+      "source_kind": "CODE"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/src/programFeed/Chat.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/src/programFeed/Chat.ts",
+      "sha256": "a6c495c558b663c71b3b7beac8d06fe70022a91618786176093d78e5bb7bb81b",
+      "source_kind": "CODE"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/src/programFeed/ChatTurns.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/src/programFeed/ChatTurns.ts",
+      "sha256": "a5271e585b1674a2206a0ec3ad7fa1f797307072cd9e110bb8b2faaa347a2dbb",
+      "source_kind": "CODE"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/src/programFeed/Domain.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/src/programFeed/Domain.ts",
+      "sha256": "6f36614d558c994fcaa1613487ef9360c12386db117a6f88d2ed218eec585abd",
+      "source_kind": "CODE"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/src/programFeed/Store.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/src/programFeed/Store.ts",
+      "sha256": "d91c48228176da03f02e7f1e22aeaa984b3e30ebce94d2ebdd56b05a18d64d3a",
+      "source_kind": "CODE"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/src/programFeed/Planner.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/src/programFeed/Planner.ts",
+      "sha256": "682adefdd3793ebc67f2042aaaae2ecf8148a77f07f8d87647a7cfb712d28f8c",
+      "source_kind": "CODE"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/http.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/http.test.ts",
+      "sha256": "fa277c0bb8242416f4382d7ccae2d8821a022a9beee0d069d371e678c4d80485",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-chat-turns.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-chat-turns.test.ts",
+      "sha256": "9b841f3b9d6d8914750d4e38877c0b9a5245f9eae680620aa2ec2481c3fe0130",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-completion.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-completion.test.ts",
+      "sha256": "c71c28e2acd17da7964e52121b41b5767893f25014a55d2de87b3ad4f3b11d80",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-content-actions.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-content-actions.test.ts",
+      "sha256": "ba3644df5c025f2833f4397a0ab6851833d1751f734f0108894559d9f72c4dea",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-dashboard.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-dashboard.test.ts",
+      "sha256": "27ca81147049685e332a215667173fc2b40430cd1b45af31216fe64eb2f66f40",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-http.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-http.test.ts",
+      "sha256": "29cb512f544a5e3c0d7c27b4540305aa1015777f5f2f350a735a8598db25e6a4",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-login.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-login.test.ts",
+      "sha256": "32d9b391366cd6d9d24d331256d52dc0b849935b7ee3a7d54b51ac8861b36bd0",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-main-entry.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-main-entry.test.ts",
+      "sha256": "ffc359ffd1da701bc0ea2b11327a1a0e02f82fe35ddcefcedc1fd7517b8bac4e",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-planner.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-planner.test.ts",
+      "sha256": "0ccdb19ac291b77adcb12df7b8abd92ab52f82be7c130a56f30d3907c93c3615",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-recommendation-graph.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-recommendation-graph.test.ts",
+      "sha256": "84f6ad7a20f1a4d883396900632930d6432068d169f52cf5033463a28bc40592",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-store.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-store.test.ts",
+      "sha256": "d843d1b82c9f7dbb579175f280499217d2db2656fa0d7b22034a6955b1db711f",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-substrate.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-substrate.test.ts",
+      "sha256": "1ec4258de0aa0427ae97fae17f65bdab6e7c28fa7e4eb0804856b63a78d6371f",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-taste.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-taste.test.ts",
+      "sha256": "2b592025c217e70d1acb0808b4f38a77601691e402e06601e2d6e8590b621653",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/ts/test/program-feed-ui-source.test.ts",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/ts/test/program-feed-ui-source.test.ts",
+      "sha256": "c0d58e0f66256e31f1bae94bfed1b87a00df6e594eac2ae2bf39ce1d0311dd72",
+      "source_kind": "TEST"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/engineering/chat-turn-f0/prediction.json",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/engineering/chat-turn-f0/prediction.json",
+      "sha256": "d58a2ac71740e5c5f469e666c106a6cde2f3d2a1197b324e9ec83a269cebb523",
+      "source_kind": "DOCUMENT"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:backend/docs/HOH_CHAT_TURNS.md",
+      "type": "Source",
+      "authority": "SECONDARY_AI",
+      "path": "backend/docs/HOH_CHAT_TURNS.md",
+      "sha256": "4781dd8ae24c48efe5492e72a1becb63825de526c08b935c97c9b49c8c3d9eca",
+      "source_kind": "DOCUMENT"
+    }
+  ],
+  "edges": [
+    {
+      "uid": "hoh:chat-turn-f0:edge:0",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "IMPLEMENTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/src/api/ProgramFeedApi.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:1",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "IMPLEMENTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/src/server/ProgramFeedHandlers.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:2",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "IMPLEMENTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/src/programFeed/Chat.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:3",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "IMPLEMENTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/src/programFeed/ChatTurns.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:4",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "IMPLEMENTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/src/programFeed/Domain.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:5",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "IMPLEMENTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/src/programFeed/Store.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:6",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "IMPLEMENTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/src/programFeed/Planner.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:7",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/http.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:8",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-chat-turns.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:9",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-completion.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:10",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-content-actions.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:11",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-dashboard.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:12",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-http.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:13",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-login.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:14",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-main-entry.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:15",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-planner.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:16",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-recommendation-graph.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:17",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-store.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:18",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-substrate.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:19",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-taste.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:20",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "TESTED_BY",
+      "target": "hoh:chat-turn-f0:backend/ts/test/program-feed-ui-source.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:21",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:KG_CREATIVE:hoh",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:22",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "OBSERVES",
+      "target": "omc:chat-flywheel:work:F0",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:23",
+      "source": "hoh:chat-turn-f0:observation",
+      "type": "EVIDENCED_BY",
+      "target": "hoh:chat-turn-f0:verification",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:24",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "DERIVED_FROM",
+      "target": "hoh:chat-turn-f0:plan",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-turn-f0:edge:25",
+      "source": "omc:chat-flywheel:work:F1",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F0",
+      "authority": "SECONDARY_AI"
+    }
+  ],
+  "predicates": {
+    "IMPLEMENTED_BY": {
+      "domain": "WorkItem",
+      "range": "Source",
+      "out_min": 7,
+      "out_max": 7,
+      "in_min": 0,
+      "in_max": null,
+      "direction": "source_to_target",
+      "meaning": "Owner source files implement the bounded host portion"
+    },
+    "RESPONSIBLE_OWNER": {
+      "domain": "WorkItem",
+      "range": "Owner",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "direction": "source_to_target",
+      "meaning": "Code ownership, not a new canonical role grant"
+    },
+    "OBSERVES": {
+      "domain": "Observation",
+      "range": "WorkItem",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "direction": "source_to_target",
+      "meaning": "Local observation of this bounded work"
+    },
+    "EVIDENCED_BY": {
+      "domain": "Observation",
+      "range": "Evidence",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "direction": "source_to_target",
+      "meaning": "Actual test report; not model efficacy"
+    },
+    "TESTED_BY": {
+      "domain": "Observation",
+      "range": "Source",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "direction": "source_to_target",
+      "meaning": "Executed test source files"
+    },
+    "DERIVED_FROM": {
+      "domain": "WorkItem",
+      "range": "DesignReference",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "direction": "source_to_target",
+      "meaning": "Frozen OMC design reference"
+    },
+    "REQUIRES": {
+      "domain": "ExternalWorkItem",
+      "range": "WorkItem",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "direction": "source_to_target",
+      "meaning": "Later F1 requires F0; F1 is unimplemented here"
+    }
+  },
+  "acyclic_predicates": [
+    "REQUIRES"
+  ],
+  "competency_questions": [
+    {
+      "id": "implementation",
+      "start": "omc:chat-flywheel:work:F0",
+      "via": [
+        "IMPLEMENTED_BY"
+      ],
+      "expected": [
+        "hoh:chat-turn-f0:backend/ts/src/api/ProgramFeedApi.ts",
+        "hoh:chat-turn-f0:backend/ts/src/programFeed/Chat.ts",
+        "hoh:chat-turn-f0:backend/ts/src/programFeed/ChatTurns.ts",
+        "hoh:chat-turn-f0:backend/ts/src/programFeed/Domain.ts",
+        "hoh:chat-turn-f0:backend/ts/src/programFeed/Planner.ts",
+        "hoh:chat-turn-f0:backend/ts/src/programFeed/Store.ts",
+        "hoh:chat-turn-f0:backend/ts/src/server/ProgramFeedHandlers.ts"
+      ]
+    },
+    {
+      "id": "owner",
+      "start": "omc:chat-flywheel:work:F0",
+      "via": [
+        "RESPONSIBLE_OWNER"
+      ],
+      "expected": [
+        "sym:KG_CREATIVE:hoh"
+      ]
+    },
+    {
+      "id": "evidence",
+      "start": "hoh:chat-turn-f0:observation",
+      "via": [
+        "EVIDENCED_BY"
+      ],
+      "expected": [
+        "hoh:chat-turn-f0:verification"
+      ]
+    },
+    {
+      "id": "next-prerequisite",
+      "start": "omc:chat-flywheel:work:F1",
+      "via": [
+        "REQUIRES"
+      ],
+      "expected": [
+        "omc:chat-flywheel:work:F0"
+      ]
+    }
+  ]
+}

@@ -29,6 +29,8 @@ is preserved separately from the explanatory design note and the older source ar
 
 The [HOH chat flywheel plan](docs/HOH_CHAT_FLYWHEEL_PLAN.md) connects the user's near-term flywheel priority and long-term device participation direction. It specifies a CHU/HSWM-based conversation path, OMC execution, independently assessed outcomes and revision consumption in the next turn, with eight planned implementation stages. The [source review](docs/HOH_CHAT_FLYWHEEL_SOURCE_REVIEW.md) and [typed plan graph](graph/hoh-chat-flywheel.json) preserve observed source structure, user input and AI design separately. Run `python3 records/2026-10-11/hoh-chat-flywheel/validate.py`; this validates the plan, not a deployed cognitive loop.
 
+The [F0 implementation record](records/2026-10-11/hoh-chat-f0/README.md) now links the bounded HOH host implementation to that plan: durable turns and outcomes, atomic confirmation/cancellation, restart recovery, and authenticated history/assessment APIs. Type checking, build and 110 tests passed locally; CHU admission, HSWM execution and live deployment remain subsequent work.
+
 ## Content index
 
 Start with [philosophical and technical-philosophical OMC](docs/OMC_LOGICAL_FOUNDATIONS.md)

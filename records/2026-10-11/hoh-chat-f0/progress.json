@@ -1,0 +1,54 @@
+{
+  "schema": "omc-hoh-chat-f0-progress/1",
+  "authority": "SECONDARY_AI",
+  "recorded_at": "2026-10-11T11:11:42.928829+00:00",
+  "work_uid": "omc:chat-flywheel:work:F0",
+  "status": "BOUNDED_HOST_IMPLEMENTATION_VERIFIED",
+  "next_work_uid": "omc:chat-flywheel:work:F1",
+  "next_status": "PLANNED",
+  "owner": {
+    "repository": "https://github.com/gj3447/HOH",
+    "commit": "8f7af5acc52310fc9e9667f1d5391638a04eebac",
+    "branch": "main",
+    "remote_verified": true
+  },
+  "source_user_request": {
+    "path": "user-request.txt",
+    "authority": "USER_PRIMARY",
+    "sha256": "c8dd857a7281ffac2978d40b6d0ff433430bb0fbfa97a2c17f8a61b1c35fbf26"
+  },
+  "snapshots": [
+    {
+      "path": "implementation-graph.json",
+      "owner_path": "backend/engineering/chat-turn-f0/graph.json",
+      "sha256": "cf71f59463fe4e5c7e82469c440985f3197a83f7b32541f8d5f15db016fd2880",
+      "bytes": 18280,
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "path": "verification.json",
+      "owner_path": "backend/engineering/chat-turn-f0/verification.json",
+      "sha256": "b6bf51cf2cfe60fe12779ab1619ce69da94d21c116b84867f36e793ee1f7cb38",
+      "bytes": 25950,
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "path": "implementation-note.md",
+      "owner_path": "backend/docs/HOH_CHAT_TURNS.md",
+      "sha256": "4781dd8ae24c48efe5492e72a1becb63825de526c08b935c97c9b49c8c3d9eca",
+      "bytes": 7026,
+      "verification": "COMMIT_BYTES_MATCH"
+    }
+  ],
+  "validation": {
+    "typescript": "PASS",
+    "build": "PASS",
+    "tests_passed": 110,
+    "graph_nodes": 29,
+    "graph_edges": 26,
+    "graph_questions": 4,
+    "rejected_graph_negative_controls": 3
+  },
+  "scope": "HOH host turn persistence, cancellation, outcome and user-assessment APIs. No CHU admission, HSWM execution, model efficacy test or live deployment.",
+  "old_design_graph": "graph/hoh-chat-flywheel.json is preserved as its source-bound design revision; this additive observation records implementation progress."
+}

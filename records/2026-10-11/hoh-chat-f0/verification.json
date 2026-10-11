@@ -1,0 +1,602 @@
+{
+  "schema": "hoh-chat-turn-f0-verification/1",
+  "authority": "SECONDARY_AI",
+  "status": "LOCAL_CHECKS_PASSED",
+  "recorded_at": "2026-10-11T11:09:42.546055+00:00",
+  "source_base_commit": "2cbd434",
+  "work_uid": "omc:chat-flywheel:work:F0",
+  "scope": "Bounded HOH host persistence and API implementation. No CHU admission, HSWM execution, learning efficacy or live deployment.",
+  "source_sha256": {
+    "backend/ts/src/api/ProgramFeedApi.ts": "56b5329679fd040c7fa0154626a11c5f7831a09a09d1e3a4a398f74384bc43b5",
+    "backend/ts/src/server/ProgramFeedHandlers.ts": "bf8559cf5ab4a1fd65358eb7dfec9ba59af92f8e0e0b84e43b5915b3391ff1ce",
+    "backend/ts/src/programFeed/Chat.ts": "a6c495c558b663c71b3b7beac8d06fe70022a91618786176093d78e5bb7bb81b",
+    "backend/ts/src/programFeed/ChatTurns.ts": "a5271e585b1674a2206a0ec3ad7fa1f797307072cd9e110bb8b2faaa347a2dbb",
+    "backend/ts/src/programFeed/Domain.ts": "6f36614d558c994fcaa1613487ef9360c12386db117a6f88d2ed218eec585abd",
+    "backend/ts/src/programFeed/Store.ts": "d91c48228176da03f02e7f1e22aeaa984b3e30ebce94d2ebdd56b05a18d64d3a",
+    "backend/ts/src/programFeed/Planner.ts": "682adefdd3793ebc67f2042aaaae2ecf8148a77f07f8d87647a7cfb712d28f8c",
+    "backend/ts/test/http.test.ts": "fa277c0bb8242416f4382d7ccae2d8821a022a9beee0d069d371e678c4d80485",
+    "backend/ts/test/program-feed-chat-turns.test.ts": "9b841f3b9d6d8914750d4e38877c0b9a5245f9eae680620aa2ec2481c3fe0130",
+    "backend/ts/test/program-feed-completion.test.ts": "c71c28e2acd17da7964e52121b41b5767893f25014a55d2de87b3ad4f3b11d80",
+    "backend/ts/test/program-feed-content-actions.test.ts": "ba3644df5c025f2833f4397a0ab6851833d1751f734f0108894559d9f72c4dea",
+    "backend/ts/test/program-feed-dashboard.test.ts": "27ca81147049685e332a215667173fc2b40430cd1b45af31216fe64eb2f66f40",
+    "backend/ts/test/program-feed-http.test.ts": "29cb512f544a5e3c0d7c27b4540305aa1015777f5f2f350a735a8598db25e6a4",
+    "backend/ts/test/program-feed-login.test.ts": "32d9b391366cd6d9d24d331256d52dc0b849935b7ee3a7d54b51ac8861b36bd0",
+    "backend/ts/test/program-feed-main-entry.test.ts": "ffc359ffd1da701bc0ea2b11327a1a0e02f82fe35ddcefcedc1fd7517b8bac4e",
+    "backend/ts/test/program-feed-planner.test.ts": "0ccdb19ac291b77adcb12df7b8abd92ab52f82be7c130a56f30d3907c93c3615",
+    "backend/ts/test/program-feed-recommendation-graph.test.ts": "84f6ad7a20f1a4d883396900632930d6432068d169f52cf5033463a28bc40592",
+    "backend/ts/test/program-feed-store.test.ts": "d843d1b82c9f7dbb579175f280499217d2db2656fa0d7b22034a6955b1db711f",
+    "backend/ts/test/program-feed-substrate.test.ts": "1ec4258de0aa0427ae97fae17f65bdab6e7c28fa7e4eb0804856b63a78d6371f",
+    "backend/ts/test/program-feed-taste.test.ts": "2b592025c217e70d1acb0808b4f38a77601691e402e06601e2d6e8590b621653",
+    "backend/ts/test/program-feed-ui-source.test.ts": "c0d58e0f66256e31f1bae94bfed1b87a00df6e594eac2ae2bf39ce1d0311dd72"
+  },
+  "runs": [
+    {
+      "job_id": "3d0595d69d71422289f03ad7a89997ac",
+      "finished_at": "2026-10-11T11:07:04.646283+00:00",
+      "exit_code": 0,
+      "num_tests": 78,
+      "num_passed": 78,
+      "checks": [
+        {
+          "path": "backend/ts/test/program-feed-chat-turns.test.ts",
+          "tests": [
+            {
+              "name": "persists answers, exact requests, parent lineage and user assessments across reopen without rerunning inference",
+              "status": "passed"
+            },
+            {
+              "name": "restores a pending proposal, then atomically records its one content effect and replays after navigation",
+              "status": "passed"
+            },
+            {
+              "name": "serializes the confirmation/cancellation race (cancel-first) into one durable terminal outcome",
+              "status": "passed"
+            },
+            {
+              "name": "serializes the confirmation/cancellation race (confirm-first) into one durable terminal outcome",
+              "status": "passed"
+            },
+            {
+              "name": "reopens an unfinished durable request as UNKNOWN and does not automatically execute it",
+              "status": "passed"
+            },
+            {
+              "name": "rejects a filesystem publication failure without committing either the content effect or a success receipt",
+              "status": "passed"
+            },
+            {
+              "name": "isolates principals, validates parent scope and rejects changed requests and revoked sessions",
+              "status": "passed"
+            },
+            {
+              "name": "coalesces concurrent duplicate commands without duplicate effects and keeps request IDs bound across endpoints",
+              "status": "passed"
+            },
+            {
+              "name": "rejects corrupt persisted chat history (fingerprint) on reopen",
+              "status": "passed"
+            },
+            {
+              "name": "rejects corrupt persisted chat history (parent) on reopen",
+              "status": "passed"
+            },
+            {
+              "name": "rejects corrupt persisted chat history (false-success) on reopen",
+              "status": "passed"
+            },
+            {
+              "name": "rejects corrupt persisted chat history (receipt) on reopen",
+              "status": "passed"
+            },
+            {
+              "name": "rejects corrupt persisted chat history (terminal-event) on reopen",
+              "status": "passed"
+            },
+            {
+              "name": "bounds retained turns without evicting old replay identities or accepting another effect",
+              "status": "passed"
+            },
+            {
+              "name": "cancels a running turn durably, signals its provider and refuses a late model result",
+              "status": "passed"
+            },
+            {
+              "name": "records a failed stale model answer without altering content or rerunning it on retry",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-completion.test.ts",
+          "tests": [
+            {
+              "name": "migrates the exact pre-game catalog and preserves state, favorites and session across reopen",
+              "status": "passed"
+            },
+            {
+              "name": "uses explicit feedback to rank unseen related content and removes its influence on CLEAR",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-content-actions.test.ts",
+          "tests": [
+            {
+              "name": "discovers only supported commands for every existing kind; inspection does not write or navigate",
+              "status": "passed"
+            },
+            {
+              "name": "human and chat actions share durable state, idempotency and revision checks",
+              "status": "passed"
+            },
+            {
+              "name": "serializes competing actions and includes legacy state writes in the same revision",
+              "status": "passed"
+            },
+            {
+              "name": "rejects malformed, undeclared and wrong-contract commands without a durable write",
+              "status": "passed"
+            },
+            {
+              "name": "does not publish an action or revision after a filesystem failure and can retry",
+              "status": "passed"
+            },
+            {
+              "name": "reads historical profiles without revision counters and rejects corrupt new counters",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-dashboard.test.ts",
+          "tests": [
+            {
+              "name": "dashboard apps and the prior catalog upgrade migrates the exact previous catalog while retaining sessions, private data and original immutable revision",
+              "status": "passed"
+            },
+            {
+              "name": "dashboard apps and the prior catalog upgrade deduplicates fixed apps and ignores inaccessible or missing favorite entries",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-http.test.ts",
+          "tests": [
+            {
+              "name": "program feed through the production composition issues account cookies only after a browser-bound provider exchange and revokes logout",
+              "status": "passed"
+            },
+            {
+              "name": "program feed through the production composition requires authenticated same-origin confirmation before applying a model proposal",
+              "status": "passed"
+            },
+            {
+              "name": "program feed through the production composition exposes private durable turn/history readback and CSRF-protected explicit assessments",
+              "status": "passed"
+            },
+            {
+              "name": "program feed through the production composition serves the complete pinned game UI with scoped frame policy and no arbitrary file access",
+              "status": "passed"
+            },
+            {
+              "name": "program feed through the production composition persists isolated profiles and app data, rejects stale/cross-origin writes, and exposes truthful readiness",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-login.test.ts",
+          "tests": [
+            {
+              "name": "Google identity and durable personalization binds one PKCE exchange to the initiating browser, expires and prevents replay",
+              "status": "passed"
+            },
+            {
+              "name": "Google identity and durable personalization reopens one account on another session, isolates other identities, and revokes logout",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-main-entry.test.ts",
+          "tests": [
+            {
+              "name": "opt-in HOH main entry through production composition defaults off and requires an explicit boolean setting",
+              "status": "passed"
+            },
+            {
+              "name": "opt-in HOH main entry through production composition preserves the default JSON root and exposes only the retiring root worker",
+              "status": "passed"
+            },
+            {
+              "name": "opt-in HOH main entry through production composition refuses the enabled root when its profile store is unavailable",
+              "status": "passed"
+            },
+            {
+              "name": "opt-in HOH main entry through production composition serves root deep links with public assets, stable PWA identity and shared durable profiles",
+              "status": "passed"
+            },
+            {
+              "name": "root service worker isolation and retirement caches only allowed public assets and handles root navigation without taking over other apps",
+              "status": "passed"
+            },
+            {
+              "name": "root service worker isolation and retirement unregisters only the root worker and deletes only its caches on rollback",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-planner.test.ts",
+          "tests": [
+            {
+              "name": "uses a real loopback HTTP exchange but performs no mutation before host confirmation; confirm is durable and idempotent",
+              "status": "passed"
+            },
+            {
+              "name": "binds confirmation to the profile, selected view, state revision and expiry; cancellation removes authority",
+              "status": "passed"
+            },
+            {
+              "name": "rejects undeclared tools and forged arguments; durable reads and answers preserve content state",
+              "status": "passed"
+            },
+            {
+              "name": "invalidates delayed inference after navigation and bounds simultaneous requests",
+              "status": "passed"
+            },
+            {
+              "name": "rejects truncated provider output",
+              "status": "passed"
+            },
+            {
+              "name": "rejects refusal provider output",
+              "status": "passed"
+            },
+            {
+              "name": "rejects many-tools provider output",
+              "status": "passed"
+            },
+            {
+              "name": "rejects invalid-json provider output",
+              "status": "passed"
+            },
+            {
+              "name": "rejects oversize provider output",
+              "status": "passed"
+            },
+            {
+              "name": "aborts an in-flight provider request on close and never silently substitutes a result",
+              "status": "passed"
+            },
+            {
+              "name": "replays a lost command response across restart but rejects different input and a fresh stale command",
+              "status": "passed"
+            },
+            {
+              "name": "retires a pending proposal when the next turn is answer",
+              "status": "passed"
+            },
+            {
+              "name": "retires a pending proposal when the next turn is read",
+              "status": "passed"
+            },
+            {
+              "name": "retires a pending proposal when the next turn is command",
+              "status": "passed"
+            },
+            {
+              "name": "cannot publish a delayed proposal after a newer read command",
+              "status": "passed"
+            },
+            {
+              "name": "aborts only the selected provider request using its caller signal",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-recommendation-graph.test.ts",
+          "tests": [
+            {
+              "name": "answers why a different simulation game rises, even with unrelated words",
+              "status": "passed"
+            },
+            {
+              "name": "uses the published game graph and removes or reverses explicit evidence without hidden history",
+              "status": "passed"
+            },
+            {
+              "name": "reconstructs every score, graph contribution and pair contribution exactly",
+              "status": "passed"
+            },
+            {
+              "name": "does not use absent feedback or incomplete pairs to reveal inaccessible content",
+              "status": "passed"
+            },
+            {
+              "name": "keeps imported genre statements separate from AI annotations and changes provenance with source bytes",
+              "status": "passed"
+            },
+            {
+              "name": "exports the scoring evidence as typed, source-bearing, authenticated graph paths",
+              "status": "passed"
+            },
+            {
+              "name": "migrates the exact deployed taste catalog while preserving profile bytes and replay",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-store.test.ts",
+          "tests": [
+            {
+              "name": "program feed local content-addressed store writes immutable object then durable head, stores token digest only, and reopens",
+              "status": "passed"
+            },
+            {
+              "name": "program feed local content-addressed store rejects a second writer and corrupt content bytes",
+              "status": "passed"
+            },
+            {
+              "name": "program feed local content-addressed store keeps reactions separate from favorites and requires current opened view",
+              "status": "passed"
+            },
+            {
+              "name": "program feed local content-addressed store requires an unexpired persisted session for every actor operation",
+              "status": "passed"
+            },
+            {
+              "name": "program feed local content-addressed store uses the manifest kind and rejects unknown or duplicate checklist state fields",
+              "status": "passed"
+            },
+            {
+              "name": "program feed local content-addressed store recovers its write queue after a rejected mutation without publishing it",
+              "status": "passed"
+            },
+            {
+              "name": "program feed local content-addressed store rejects unknown fields in a persisted state object on reopen",
+              "status": "passed"
+            },
+            {
+              "name": "program feed local content-addressed store does not publish a failed filesystem write and can retry the same request after repair",
+              "status": "passed"
+            },
+            {
+              "name": "program feed local content-addressed store never reseeds a missing referenced object and releases the failed initialization lock",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-substrate.test.ts",
+          "tests": [
+            {
+              "name": "matches independently generated native CHU byte vectors",
+              "status": "passed"
+            },
+            {
+              "name": "uses native USL with bounded, source-attributed, actor-scoped context",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-taste.test.ts",
+          "tests": [
+            {
+              "name": "learns relative preferences, reverses ordering for opposite choices, and removes the signal on reset",
+              "status": "passed"
+            },
+            {
+              "name": "resumes durable choices, shares human/chat commands, rejects stale and forged writes, and isolates profiles",
+              "status": "passed"
+            },
+            {
+              "name": "completes five bounded pairs, persists skipping, and refuses a sixth choice",
+              "status": "passed"
+            },
+            {
+              "name": "admits only the exact deployed predecessor and preserves existing state, comments, sessions and replay",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "path": "backend/ts/test/program-feed-ui-source.test.ts",
+          "tests": [
+            {
+              "name": "ships the explicitly pinned HOH UI assets with their source identity and license",
+              "status": "passed"
+            }
+          ]
+        }
+      ],
+      "commands": [
+        "npm --prefix ts run typecheck",
+        "npm --prefix ts test -- program-feed --maxWorkers=1"
+      ],
+      "logs": {
+        "typecheck.log": {
+          "sha256": "261e1dd8126da9b73b558a35e83d9e2e41de615a3484ce6a939c52ad78375ecb",
+          "text": "\n> metahumotonic-web-back-ts@0.1.0 typecheck\n> tsc -p tsconfig.json --noEmit\n\n"
+        },
+        "vitest.json": {
+          "sha256": "5381925e55718ec30674a4de057a3ecdc77cc9adae324f7457db495b7398453f",
+          "text": null
+        }
+      }
+    },
+    {
+      "job_id": "c77f5e39a9b648e1bb1411e075fdc3ec",
+      "finished_at": "2026-10-11T11:08:12.746112+00:00",
+      "exit_code": 0,
+      "num_tests": 32,
+      "num_passed": 32,
+      "checks": [
+        {
+          "path": "backend/ts/test/http.test.ts",
+          "tests": [
+            {
+              "name": "meta GET /health matches the contract the live checker asserts",
+              "status": "passed"
+            },
+            {
+              "name": "meta GET /ready emits every key ops/check-web-back-live.sh:296-302 reads",
+              "status": "passed"
+            },
+            {
+              "name": "meta GET /ready is 503 with the same body when the wiki plane is required but absent",
+              "status": "passed"
+            },
+            {
+              "name": "meta the harness cannot boot a config production would refuse",
+              "status": "passed"
+            },
+            {
+              "name": "meta GET / carries the endpoints array the Python payload has",
+              "status": "passed"
+            },
+            {
+              "name": "curated KG surfaces keeps stats.domains == len(/api/domains) in snapshot mode",
+              "status": "passed"
+            },
+            {
+              "name": "curated KG surfaces keeps research summary domains consistent with /api/domains",
+              "status": "passed"
+            },
+            {
+              "name": "pagination rejects an over-range limit with 422 instead of clamping",
+              "status": "passed"
+            },
+            {
+              "name": "pagination rejects a zero or negative limit",
+              "status": "passed"
+            },
+            {
+              "name": "pagination rejects an offset past research_max_offset",
+              "status": "passed"
+            },
+            {
+              "name": "pagination accepts the boundary values",
+              "status": "passed"
+            },
+            {
+              "name": "research agent feed labels snapshot magnitudes so an agent cannot cite them as live",
+              "status": "passed"
+            },
+            {
+              "name": "feedback accepts a valid submission",
+              "status": "passed"
+            },
+            {
+              "name": "feedback rejects an email without consent with 422",
+              "status": "passed"
+            },
+            {
+              "name": "feedback swallows a honeypot hit and returns a null id",
+              "status": "passed"
+            },
+            {
+              "name": "feedback rate-limits by client IP, and a varying subject does not evade it",
+              "status": "passed"
+            },
+            {
+              "name": "operator inbox 401s without a credential and with a wrong one",
+              "status": "passed"
+            },
+            {
+              "name": "operator inbox accepts X-API-Key, which is what the Python service reads",
+              "status": "passed"
+            },
+            {
+              "name": "operator inbox also accepts Authorization: Bearer (additive, not a replacement)",
+              "status": "passed"
+            },
+            {
+              "name": "operator inbox never lets an intermediary cache the operator plane",
+              "status": "passed"
+            },
+            {
+              "name": "operator inbox lists submissions newest-first with an exact count",
+              "status": "passed"
+            },
+            {
+              "name": "operator inbox 404s a malformed record id before touching the store",
+              "status": "passed"
+            },
+            {
+              "name": "operator inbox 409s an unknown but well-formed id — not an existence oracle",
+              "status": "passed"
+            },
+            {
+              "name": "operator inbox 404s DELETE of a malformed id",
+              "status": "passed"
+            },
+            {
+              "name": "KG Cypher proxy 503s — not 200, not 401 — when no key is configured",
+              "status": "passed"
+            },
+            {
+              "name": "KG Cypher proxy rejects an empty query at the schema boundary with 422",
+              "status": "passed"
+            },
+            {
+              "name": "KG Cypher proxy accepts X-API-Key on the proxy, matching app/routers/kg_proxy.py:74",
+              "status": "passed"
+            },
+            {
+              "name": "KG Cypher proxy 401s a wrong X-API-Key",
+              "status": "passed"
+            },
+            {
+              "name": "security boundary regressions verifies a nonempty Turnstile token before accepting feedback",
+              "status": "passed"
+            },
+            {
+              "name": "security boundary regressions keeps CORS in the harness and accepts declared X-API-Key preflight",
+              "status": "passed"
+            },
+            {
+              "name": "CORS and verification failure boundaries preserves unauthorized status and attaches CORS only for an allowed origin",
+              "status": "passed"
+            },
+            {
+              "name": "CORS and verification failure boundaries does not verify honeypots or already rate-limited submissions",
+              "status": "passed"
+            }
+          ]
+        }
+      ],
+      "commands": [
+        "npm --prefix ts run build",
+        "npm --prefix ts test -- test/http.test.ts --maxWorkers=1"
+      ],
+      "logs": {
+        "build.log": {
+          "sha256": "d9483e671c2b1903251125a2ae24b063af334b8f104766b4b2671ef2d869c4bd",
+          "text": "\n> metahumotonic-web-back-ts@0.1.0 build\n> tsc -p tsconfig.json && node scripts/copy-assets.mjs\n\n"
+        },
+        "vitest.json": {
+          "sha256": "219dc2c1a8f20390f9c7ffa98e4a9b5e187a99d744694c4ada8af745cd2e4a47",
+          "text": null
+        }
+      }
+    }
+  ],
+  "initial_regression": {
+    "job_id": "969f6bed11b440248112cc7f7e203840",
+    "passed": 73,
+    "failed": 2,
+    "reason": "Two old assertions required chat reads not to publish state. Replaced with actual unchanged-content and durable-chat assertions; corrected the first assertion fixture."
+  },
+  "next_work_uid": "omc:chat-flywheel:work:F1",
+  "limitations": [
+    "256 retained turns per profile; immutable objects retained; no retention compactor or browser history UI.",
+    "Store reopen tested; no power-loss certification. Existing single-writer lock needs verified operator recovery after a crash.",
+    "Schema upgrade is not readable by old binaries; preserve new data and use an existing compatible snapshot for rollback."
+  ]
+}
