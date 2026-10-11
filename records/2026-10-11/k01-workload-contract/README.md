@@ -8,6 +8,8 @@
 - [Unit checks](unit-tests.json): 14 tests, zero failures/errors; exact command and source pins.
 - [Research graph](../../../graph/k01-workload-contract.json): existing K01/K02 identities, sources, artifacts, actual observations and a separately marked retry simulation. This is an owner-local property graph, not shared KG publication or an RDF/SHACL certification.
 - [Integrity validation](validation.json): exact-answer queries and negative probes; not another workload execution.
+- [Owner workflow receipt](research-workflow.json): both research artifacts committed and workflow COMPLETE.
+- [Private hub publication](publication.json): generated graph checks passed and remote main commit independently read back; completed temporary worktree removed.
 
 Reproduce using [the local fixture](../../../research/k01_workload_contract/README.md). Preserve existing experiment bytes and write a new output file for another run. The original twelve-task knowledge plan remains unchanged; only this first bounded K01 study is complete.
 

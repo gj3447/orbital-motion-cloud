@@ -1,0 +1,50 @@
+{
+  "schema": "omc-k01-workflow-observation/1",
+  "authority": "SECONDARY_AI",
+  "state": "COMPLETE",
+  "owner_repository": "https://github.com/gj3447/the-great-flow",
+  "managed_job_id": "d677790372c54b7c942afbb169aebb36",
+  "managed_job_exit_code": 0,
+  "run": {
+    "actor": "Codex",
+    "artifacts": [
+      {
+        "authority": "SECONDARY_AI",
+        "commit": "45cba6f8096491e48bb53172fcd288be743ef345",
+        "kind": "WHAT_IS",
+        "managed_paths": [
+          ".research/records/omc-k01-workload-contract-20261011/WHAT_IS.source",
+          ".research/records/omc-k01-workload-contract-20261011/WHAT_IS.json"
+        ],
+        "module_uid": "research:module:27598f06-e808-4085-b029-8af1a58a41a3",
+        "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/infrastructure-orchestration/WHAT_IS_infrastructure-orchestration",
+        "source_path": "data/research-organization/omc-k01-workload-contract-20261011.what-is.md",
+        "source_sha256": "b8205d77f5cbfa00dc3512f9cd2ce194c47dce8b68f9dcc67f1f666140555757",
+        "title": "K01 작업 의미·재시도·효과 분석"
+      },
+      {
+        "authority": "SECONDARY_AI",
+        "commit": "5daae98dcf7f8b7a0830a8b5e50edf21c2eeebb9",
+        "kind": "HOW_TO",
+        "managed_paths": [
+          ".research/records/omc-k01-workload-contract-20261011/HOW_TO.source",
+          ".research/records/omc-k01-workload-contract-20261011/HOW_TO.json"
+        ],
+        "module_uid": "research:module:eb774eb7-e576-4cdf-a767-e562c5abadbd",
+        "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/infrastructure-orchestration/HOW_TO_infrastructure-orchestration",
+        "source_path": "data/research-organization/omc-k01-workload-contract-20261011.how-to.md",
+        "source_sha256": "3f90c6a0dc570c82157f3a7125008d01e89dc7cb280f2f887edfc42e1440ca57",
+        "title": "K01 순수 task 계약과 로컬 정확성 실험"
+      }
+    ],
+    "completed_at": "2026-10-11T01:21:21Z",
+    "id": "omc-k01-workload-contract-20261011",
+    "placement": "REUSED",
+    "placement_basis": "research_modules.py list에서 기존 infrastructure-orchestration 주제를 확인했다. inspect_repos.py search infrastructure-orchestration --corpus metahumotonic은 0건이지만 native registry의 두 ACTIVE 모듈 UID(WHAT_IS 27598f06-e808-4085-b029-8af1a58a41a3, HOW_TO eb774eb7-e576-4cdf-a767-e562c5abadbd), manifest/AGENTS 및 기존 omc-post-client-server-20261010 계획을 확인했다. K01 실행 의미·재시도 분석과 발전 계약은 기존 인프라 공동 활용 책임에 속하므로 새 주제를 만들지 않는다. 문헌의 기존 개념·반례 분석은 WHAT_IS, 새 WorkloadSpec과 실제 작은 검증 실험은 HOW_TO로 별도 보존한다. 역사적 detach와 현재 ACTIVE 상태를 구분한다.",
+    "recorded_at": "2026-10-11T01:20:07Z",
+    "request_sha256": "44797cdea23bf23be4263bef3874afa908dc6e41db259c16c0d8071804a2291e",
+    "state": "COMPLETE",
+    "topic": "infrastructure-orchestration"
+  },
+  "meaning": "Research record completion; distributed runtime remains unimplemented"
+}

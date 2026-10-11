@@ -1,0 +1,36 @@
+{
+  "schema": "omc-k01-publication/1",
+  "state": "PUSHED_AND_REMOTE_VERIFIED",
+  "base": "adcb2b32d64cc8b9762dd2fe0c0923d9ec9198e4",
+  "commit": "776cf061beb55f3b0fcb976f251a2b08af95b49f",
+  "worktree": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-k01-publication-ce9765d89b9e40cf9c32a79e651b0206/tmp/omc-k01-publication",
+  "artifact_root": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-k01-publication-ce9765d89b9e40cf9c32a79e651b0206/artifacts",
+  "frozen_inputs": {
+    "data/research-organization/omc-k01-workload-contract-20261011.what-is.md": "b8205d77f5cbfa00dc3512f9cd2ce194c47dce8b68f9dcc67f1f666140555757",
+    "data/research-organization/omc-k01-workload-contract-20261011.how-to.md": "3f90c6a0dc570c82157f3a7125008d01e89dc7cb280f2f887edfc42e1440ca57",
+    "data/research-organization/omc-k01-workload-contract-20261011.request.json": "9bebbe39943d0e8d6d5109054deddf7c83fe48911725d31fa82d3cd79ebdd30c"
+  },
+  "changed_files": " M bindings/avatar-control.md\n M bindings/research-content.md\n M bindings/research-modules.md\n M bindings/research-workflow.md\n M graph/avatar-control.graph.json\n M graph/avatar-control.usl.json\n M graph/development.graph.json\n M graph/research-content.graph.json\n M graph/research-content.usl.json\n M graph/research-modules.graph.json\n M graph/research-modules.json\n M graph/research-modules.usl.json\n M graph/research-workflow.graph.json\n M graph/research-workflow.json\n M graph/research-workflow.usl.json\n M index.html\n?? bindings/research-content/3f90c6a0dc570c82157f3a7125008d01e89dc7cb280f2f887edfc42e1440ca57.txt\n?? bindings/research-content/b8205d77f5cbfa00dc3512f9cd2ce194c47dce8b68f9dcc67f1f666140555757.txt\n?? data/research-organization/omc-k01-workload-contract-20261011.how-to.md\n?? data/research-organization/omc-k01-workload-contract-20261011.request.json\n?? data/research-organization/omc-k01-workload-contract-20261011.what-is.md",
+  "work_ids": [
+    "omc-k01-workload-contract-20261011"
+  ],
+  "unrelated_source_changes_excluded": true,
+  "remote_repository": "https://github.com/gj3447/the-great-flow",
+  "remote_ref": "refs/heads/main",
+  "remote_commit": "776cf061beb55f3b0fcb976f251a2b08af95b49f",
+  "verified_at": "2026-10-11T01:24:44.792020+00:00",
+  "checks": {
+    "render": "PASS",
+    "check": "PASS",
+    "research_workflow": "OK"
+  },
+  "managed_job_ids": [
+    "d677790372c54b7c942afbb169aebb36",
+    "ce9765d89b9e40cf9c32a79e651b0206"
+  ],
+  "managed_job_exit_codes": [
+    0,
+    0
+  ],
+  "temporary_worktree_removed": true
+}
