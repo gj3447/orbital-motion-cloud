@@ -1,0 +1,16 @@
+{
+  "schema": "omc-k01-unit-test-observation/1",
+  "authority": "SECONDARY_AI",
+  "state": "OBSERVED_LOCAL",
+  "command": "python3 -m unittest discover -s research/k01_workload_contract -p 'test_*.py' -v",
+  "tests_run": 14,
+  "failures": 0,
+  "errors": 0,
+  "exit_code": 0,
+  "source_sha256": {
+    "test_workload.py": "7c6942c4bd254bac58182ade590ce87fa5b9b537dc2917b69484e5eceec08e4d",
+    "workload.py": "d3f363a30ff890449dca17ea14c60a5891aa909d0d052bba674d307fd9c7e429",
+    "contract.json": "c5f9acbbfa57a0c93133d05df5dc4bc440dce03cc825ab8a6208d881b3fd7cd2"
+  },
+  "scope": "ONE_LOCAL_PYTHON_RUNTIME; no distributed failures or performance benchmark"
+}

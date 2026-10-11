@@ -189,7 +189,7 @@
   "guides": [
     {
       "repository_path": "README.md",
-      "sha256": "62ac4bcffca8fc99895abeb613c245960fd055507c0a4a47456d1868c7b09db4",
+      "sha256": "88fa98ec070e3101c9696e46a00b963c9aae782bd2eb0e5e91dad16988d32288",
       "authority": "SECONDARY_AI"
     },
     {
@@ -251,6 +251,16 @@
       "repository_path": "docs/KUBERNETES_SOURCE_ANALYSIS.md",
       "authority": "SECONDARY_AI",
       "sha256": "7f99f95ce2f5d19052d198ec2f27934ec14c80c0df2eea13c5580d4cab954453"
+    },
+    {
+      "repository_path": "docs/research/K01_WORKLOAD_SEMANTICS.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "2c16ddafb38145a371d1c9269792cf7db5aad4bbd0dd404f0e6e877502cc7814"
+    },
+    {
+      "repository_path": "docs/research/K01_WORKLOAD_CONTRACT.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "284caf60905182c63ed143be3011117bf4db45a8c75bb79356d24da2a95c7d17"
     }
   ]
 }

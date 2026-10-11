@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "RECORD_AND_GRAPH_INTEGRITY",
+  "competency_answers": {
+    "CQ1": [
+      "omc:post-client-server:K01"
+    ],
+    "CQ2": [
+      "omc:k01:artifact:definition",
+      "omc:k01:artifact:implementation",
+      "omc:k01:artifact:study-runner"
+    ],
+    "CQ3": [
+      "omc:k01:source:experiment"
+    ],
+    "CQ4": [
+      "omc:post-client-server:K02"
+    ]
+  },
+  "negative_probes_rejected": [
+    "missing_endpoint",
+    "promoted_simulation"
+  ]
+}

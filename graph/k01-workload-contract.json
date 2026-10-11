@@ -1,0 +1,398 @@
+{
+  "schema": "omc-k01-research-graph/1",
+  "scope": "OWNER_LOCAL_RESEARCH",
+  "authority": "SECONDARY_AI",
+  "recorded_on": "2026-10-11",
+  "runtime_deployed": false,
+  "shared_kg_written": false,
+  "nodes": [
+    {
+      "uid": "omc:k01:source:user",
+      "type": "Source",
+      "path": "records/2026-10-11/k01-workload-contract/user-verbatim.txt",
+      "sha256": "5eedff7947c4b6e1f2ac4051ba1c1eb425fd21b8769f989749d697fa74bc09e8",
+      "authority": "USER_PRIMARY",
+      "state": "PRESERVED"
+    },
+    {
+      "uid": "omc:k01:source:plan",
+      "type": "Source",
+      "path": "docs/POST_CLIENT_SERVER_KNOWLEDGE_PLAN.md",
+      "sha256": "ffddfc8902406d035437e283766227f913857a79c6b39c70b4d160e1950ff874",
+      "authority": "SECONDARY_AI",
+      "state": "PRESERVED"
+    },
+    {
+      "uid": "omc:k01:source:literature",
+      "type": "Source",
+      "path": "records/2026-10-11/k01-workload-contract/sources.json",
+      "sha256": "97c88278d2a8d23274dfbba2e9cd0147cceab36841006d951b7cbc5873241150",
+      "authority": "SECONDARY_AI",
+      "state": "PRESERVED"
+    },
+    {
+      "uid": "omc:k01:source:analysis",
+      "type": "Source",
+      "path": "docs/research/K01_WORKLOAD_SEMANTICS.md",
+      "sha256": "2c16ddafb38145a371d1c9269792cf7db5aad4bbd0dd404f0e6e877502cc7814",
+      "authority": "SECONDARY_AI",
+      "state": "PRESERVED"
+    },
+    {
+      "uid": "omc:k01:source:design",
+      "type": "Source",
+      "path": "docs/research/K01_WORKLOAD_CONTRACT.md",
+      "sha256": "284caf60905182c63ed143be3011117bf4db45a8c75bb79356d24da2a95c7d17",
+      "authority": "SECONDARY_AI",
+      "state": "PRESERVED"
+    },
+    {
+      "uid": "omc:k01:source:experiment",
+      "type": "Source",
+      "path": "records/2026-10-11/k01-workload-contract/experiment.json",
+      "sha256": "6eee56261395a313f99d59076e82ad24888e1893f994b722f2e91b6194cf033b",
+      "authority": "SECONDARY_AI",
+      "state": "PRESERVED"
+    },
+    {
+      "uid": "omc:k01:study:20261011",
+      "type": "Study",
+      "authority": "SECONDARY_AI",
+      "state": "LOCAL_FIRST_SLICE_COMPLETE",
+      "label": "K01 pure task semantics, equivalence and retry boundary",
+      "scope": "SINGLE_LOCAL_RUNTIME; NOT_DISTRIBUTED_VALIDATION"
+    },
+    {
+      "uid": "omc:post-client-server:K01",
+      "type": "KnowledgeReference",
+      "authority": "SECONDARY_AI",
+      "state": "REFERENCE",
+      "label": "Workload model and effects",
+      "source_graph": "graph/post-client-server-knowledge.json",
+      "source_graph_sha256": "a691e733822c64dbdd4f0378e21a74a252c2538be74a7673b7ef205806819b16"
+    },
+    {
+      "uid": "omc:post-client-server:K02",
+      "type": "KnowledgeReference",
+      "authority": "SECONDARY_AI",
+      "state": "REFERENCE",
+      "label": "Identity, version and location",
+      "source_graph": "graph/post-client-server-knowledge.json",
+      "source_graph_sha256": "a691e733822c64dbdd4f0378e21a74a252c2538be74a7673b7ef205806819b16"
+    },
+    {
+      "uid": "omc:k01:artifact:definition",
+      "type": "Artifact",
+      "path": "research/k01_workload_contract/contract.json",
+      "sha256": "c5f9acbbfa57a0c93133d05df5dc4bc440dce03cc825ab8a6208d881b3fd7cd2",
+      "authority": "SECONDARY_AI",
+      "state": "LOCAL_RESEARCH_IMPLEMENTED"
+    },
+    {
+      "uid": "omc:k01:artifact:implementation",
+      "type": "Artifact",
+      "path": "research/k01_workload_contract/workload.py",
+      "sha256": "d3f363a30ff890449dca17ea14c60a5891aa909d0d052bba674d307fd9c7e429",
+      "authority": "SECONDARY_AI",
+      "state": "LOCAL_RESEARCH_IMPLEMENTED"
+    },
+    {
+      "uid": "omc:k01:artifact:study-runner",
+      "type": "Artifact",
+      "path": "research/k01_workload_contract/run_study.py",
+      "sha256": "28c97ca56f0053b7c3ba13ebc97065bc2523da09b876f480cb1ee9a412d0ecf5",
+      "authority": "SECONDARY_AI",
+      "state": "LOCAL_RESEARCH_IMPLEMENTED"
+    },
+    {
+      "uid": "omc:k01:finding:equivalence",
+      "type": "Finding",
+      "authority": "SECONDARY_AI",
+      "state": "OBSERVED_LOCAL",
+      "label": "4115 inputs, 20575 verified candidates and 209 permutation checks passed."
+    },
+    {
+      "uid": "omc:k01:finding:mutants",
+      "type": "Finding",
+      "authority": "SECONDARY_AI",
+      "state": "OBSERVED_LOCAL",
+      "label": "All five targeted incorrect variants were rejected despite matching self-reported result digests."
+    },
+    {
+      "uid": "omc:k01:finding:retry",
+      "type": "Finding",
+      "authority": "SECONDARY_AI",
+      "state": "SIMULATED_ONLY",
+      "label": "Lost-response trace produces two effects without receiver deduplication; one under an atomic effect-plus-key transition assumption."
+    },
+    {
+      "uid": "omc:k01:finding:native-contract",
+      "type": "Finding",
+      "authority": "SECONDARY_AI",
+      "state": "PROPOSED",
+      "label": "Native program variants must preserve exact intermediate arithmetic and final-range semantics."
+    }
+  ],
+  "edges": [
+    {
+      "uid": "omc:k01:edge:1",
+      "source": "omc:k01:study:20261011",
+      "type": "FOLLOWS",
+      "target": "omc:post-client-server:K01",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:2",
+      "source": "omc:k01:study:20261011",
+      "type": "NEXT_STUDY",
+      "target": "omc:post-client-server:K02",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:3",
+      "source": "omc:k01:study:20261011",
+      "type": "GROUNDED_IN",
+      "target": "omc:k01:source:user",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:4",
+      "source": "omc:k01:study:20261011",
+      "type": "GROUNDED_IN",
+      "target": "omc:k01:source:plan",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:5",
+      "source": "omc:k01:study:20261011",
+      "type": "GROUNDED_IN",
+      "target": "omc:k01:source:literature",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:6",
+      "source": "omc:k01:study:20261011",
+      "type": "GROUNDED_IN",
+      "target": "omc:k01:source:analysis",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:7",
+      "source": "omc:k01:study:20261011",
+      "type": "GROUNDED_IN",
+      "target": "omc:k01:source:design",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:8",
+      "source": "omc:k01:study:20261011",
+      "type": "GROUNDED_IN",
+      "target": "omc:k01:source:experiment",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:9",
+      "source": "omc:k01:study:20261011",
+      "type": "PRODUCES",
+      "target": "omc:k01:artifact:definition",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:10",
+      "source": "omc:k01:study:20261011",
+      "type": "PRODUCES",
+      "target": "omc:k01:artifact:implementation",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:11",
+      "source": "omc:k01:study:20261011",
+      "type": "PRODUCES",
+      "target": "omc:k01:artifact:study-runner",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:12",
+      "source": "omc:k01:study:20261011",
+      "type": "HAS_FINDING",
+      "target": "omc:k01:finding:equivalence",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:13",
+      "source": "omc:k01:finding:equivalence",
+      "type": "SUPPORTED_BY",
+      "target": "omc:k01:source:experiment",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:14",
+      "source": "omc:k01:study:20261011",
+      "type": "HAS_FINDING",
+      "target": "omc:k01:finding:mutants",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:15",
+      "source": "omc:k01:finding:mutants",
+      "type": "SUPPORTED_BY",
+      "target": "omc:k01:source:experiment",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:16",
+      "source": "omc:k01:study:20261011",
+      "type": "HAS_FINDING",
+      "target": "omc:k01:finding:retry",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:17",
+      "source": "omc:k01:finding:retry",
+      "type": "SUPPORTED_BY",
+      "target": "omc:k01:source:experiment",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:18",
+      "source": "omc:k01:study:20261011",
+      "type": "HAS_FINDING",
+      "target": "omc:k01:finding:native-contract",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    },
+    {
+      "uid": "omc:k01:edge:19",
+      "source": "omc:k01:finding:native-contract",
+      "type": "SUPPORTED_BY",
+      "target": "omc:k01:source:design",
+      "authority": "SECONDARY_AI",
+      "source_ref": "omc:k01:source:design"
+    }
+  ],
+  "predicate_contracts": {
+    "FOLLOWS": {
+      "domain": "Study",
+      "range": "KnowledgeReference",
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Studies the existing knowledge question; does not mark its full domain complete",
+      "acyclic": false
+    },
+    "NEXT_STUDY": {
+      "domain": "Study",
+      "range": "KnowledgeReference",
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": 1,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Proposed next research question, not completed work",
+      "acyclic": false
+    },
+    "GROUNDED_IN": {
+      "domain": "Study",
+      "range": "Source",
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Traceable source/evidence used by this study",
+      "acyclic": false
+    },
+    "PRODUCES": {
+      "domain": "Study",
+      "range": "Artifact",
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Implemented bounded local research artifact",
+      "acyclic": false
+    },
+    "HAS_FINDING": {
+      "domain": "Study",
+      "range": "Finding",
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Attributed finding with explicit epistemic scope",
+      "acyclic": false
+    },
+    "SUPPORTED_BY": {
+      "domain": "Finding",
+      "range": "Source",
+      "direction": "source_to_target",
+      "out_min": 1,
+      "out_max": null,
+      "in_min": 0,
+      "in_max": null,
+      "meaning": "Evidence supporting the bounded finding",
+      "acyclic": false
+    }
+  },
+  "competency_questions": [
+    {
+      "id": "CQ1",
+      "question": "Which task was studied?",
+      "start": "omc:k01:study:20261011",
+      "predicate": "FOLLOWS",
+      "expected": [
+        "omc:post-client-server:K01"
+      ]
+    },
+    {
+      "id": "CQ2",
+      "question": "Which implemented artifacts can reproduce this first slice?",
+      "start": "omc:k01:study:20261011",
+      "predicate": "PRODUCES",
+      "expected": [
+        "omc:k01:artifact:definition",
+        "omc:k01:artifact:implementation",
+        "omc:k01:artifact:study-runner"
+      ]
+    },
+    {
+      "id": "CQ3",
+      "question": "What evidence supports the rejected variants?",
+      "start": "omc:k01:finding:mutants",
+      "predicate": "SUPPORTED_BY",
+      "expected": [
+        "omc:k01:source:experiment"
+      ]
+    },
+    {
+      "id": "CQ4",
+      "question": "What is the next proposed study?",
+      "start": "omc:k01:study:20261011",
+      "predicate": "NEXT_STUDY",
+      "expected": [
+        "omc:post-client-server:K02"
+      ]
+    }
+  ]
+}

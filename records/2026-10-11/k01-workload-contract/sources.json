@@ -1,0 +1,70 @@
+{
+  "schema": "omc-k01-sources/1",
+  "sources": [
+    {
+      "id": "hoare",
+      "title": "An Axiomatic Basis for Computer Programming",
+      "authors": [
+        "C. A. R. Hoare"
+      ],
+      "year": 1969,
+      "doi": "10.1145/363235.363259",
+      "url": "https://www.cs.cmu.edu/~crary/819-f09/Hoare69.pdf",
+      "read_scope": "Printed pp. 577–578 (PDF pages 2–3), visually read; full paper not read",
+      "cache": ".local/k01-reading/Hoare69.pdf",
+      "sha256": "f9b85de3537c0f1239cbe767cfd26ad49f2be07f0cc9021a6e46adfffb81dc12",
+      "bytes": 2383379,
+      "authority": "SOURCE_DOCUMENT",
+      "retrieved_at": "2026-10-11T01:12:59.658180+00:00"
+    },
+    {
+      "id": "rfc9110",
+      "title": "HTTP Semantics",
+      "authors": [
+        "Roy Fielding",
+        "Mark Nottingham",
+        "Julian Reschke"
+      ],
+      "year": 2022,
+      "version": "RFC 9110 / STD 97",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "read_scope": "Section 9.2.2: intended effects, retries after lost response, non-idempotent methods",
+      "cache": ".local/k01-reading/rfc9110.html",
+      "sha256": "d431760660ea44e130f6e919dab216df2d0b3a490567a98089267523368fe1e5",
+      "bytes": 1187554,
+      "authority": "SOURCE_DOCUMENT",
+      "retrieved_at": "2026-10-11T01:13:00.029015+00:00"
+    },
+    {
+      "id": "ray",
+      "title": "Task Fault Tolerance",
+      "authors": [
+        "The Ray Team"
+      ],
+      "version": "Ray 2.59.0 as displayed by latest documentation on retrieval",
+      "url": "https://docs.ray.io/en/latest/ray-core/fault_tolerance/tasks.html",
+      "read_scope": "Retrying failed tasks and Cancelling misbehaving tasks; documentation only, Ray not installed or executed",
+      "cache": ".local/k01-reading/ray.html",
+      "sha256": "b1f4c1ef4918ca964105172b163580988bdc01d6fe5e1d2ca39d956d28a35ef0",
+      "bytes": 195809,
+      "authority": "SOURCE_DOCUMENT",
+      "retrieved_at": "2026-10-11T01:13:00.189236+00:00"
+    },
+    {
+      "id": "python",
+      "title": "Built-in Types: Numeric Types",
+      "authors": [
+        "Python Software Foundation"
+      ],
+      "version": "Python 3.15.0 documentation as displayed on retrieval; local interpreter recorded separately",
+      "url": "https://docs.python.org/3/builtins/stdtypes.html",
+      "read_scope": "Numeric types: integers, Booleans and floating-point representation",
+      "cache": ".local/k01-reading/python.html",
+      "sha256": "d54238a02dda039942ce49c30092a89f1660df8ab202ae62c2e52cbc852bf280",
+      "bytes": 786400,
+      "authority": "SOURCE_DOCUMENT",
+      "retrieved_at": "2026-10-11T01:12:59.959082+00:00"
+    }
+  ],
+  "distribution": "External full texts remain in ignored local reading cache; durable records retain bibliography, scope and fetched-byte digests."
+}

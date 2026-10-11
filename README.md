@@ -18,6 +18,8 @@ The [hardware and software fit plan](docs/HARDWARE_SOFTWARE_FIT_PLAN.md) extends
 
 The [post-client-server knowledge plan](docs/POST_CLIENT_SERVER_KNOWLEDGE_PLAN.md) turns that direction into twelve knowledge areas, their dependencies, concrete contracts and a first bounded experiment. The [Kubernetes source analysis](docs/KUBERNETES_SOURCE_ANALYSIS.md) follows API updates, observation, controllers, scheduling and node execution at an official pinned commit. [Source records](records/2026-10-10/post-client-server-kubernetes/README.md) distinguish verbatim user input, acquired source bytes, static analysis and proposed OMC design. The [knowledge graph](graph/post-client-server-knowledge.json) is owner-local; validate it with `python3 records/2026-10-10/post-client-server-kubernetes/validate.py`.
 
+The first follow-up study, **K01**, separates [workload semantics, retries and effects](docs/research/K01_WORKLOAD_SEMANTICS.md), then implements a [bounded pure-task contract](docs/research/K01_WORKLOAD_CONTRACT.md). Two local variants pass 20,575 candidate checks across 4,115 inputs; five deliberately incorrect variants are rejected. [Evidence and reproduction](records/2026-10-11/k01-workload-contract/README.md) distinguish actual local computation from a retry state model and unexecuted distributed work. K02 identity/version/location is the next research question; the twelve-area plan remains open.
+
 The [2026-10-10 OMC and MHC purpose note](docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md)
 records the user's direction: continuously contribute computing resources, earn credits,
 and use the larger HSWM·CHU intelligence through a P2P economy and mutual agreement.

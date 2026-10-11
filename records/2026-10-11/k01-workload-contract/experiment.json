@@ -1,0 +1,148 @@
+{
+  "schema": "omc-k01-study-result/1",
+  "authority": "SECONDARY_AI",
+  "state": "OBSERVED_LOCAL",
+  "recorded_at": "2026-10-11T01:12:33.004096+00:00",
+  "environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "implementation": "CPython",
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "seed": 20261011,
+  "scope": "ONE_LOCAL_PYTHON_RUNTIME; CORRECTNESS_ONLY",
+  "source_sha256": {
+    "workload.py": "d3f363a30ff890449dca17ea14c60a5891aa909d0d052bba674d307fd9c7e429",
+    "contract.json": "c5f9acbbfa57a0c93133d05df5dc4bc440dce03cc825ab8a6208d881b3fd7cd2",
+    "run_study.py": "28c97ca56f0053b7c3ba13ebc97065bc2523da09b876f480cb1ee9a412d0ecf5"
+  },
+  "definition_sha256": "c5f9acbbfa57a0c93133d05df5dc4bc440dce03cc825ab8a6208d881b3fd7cd2",
+  "corpus_sha256": "082ca5c0c10c69bb4d06761481b6064f64acd4c39c6c2c5aeabc0f7eb48fd1b9",
+  "input_cases": 4115,
+  "groups": {
+    "finite-alphabet": 3906,
+    "boundary": 9,
+    "seeded": 200
+  },
+  "verified_candidates": 20575,
+  "permutation_checks": 209,
+  "chunk_sizes": [
+    1,
+    2,
+    7,
+    64
+  ],
+  "mutants": [
+    {
+      "name": "float-rounding",
+      "input_decimal": [
+        "9007199254740992",
+        "1"
+      ],
+      "wrong_result": {
+        "outcome": "OK",
+        "sum_decimal": "9007199254740992",
+        "count": 2
+      },
+      "expected": {
+        "outcome": "OK",
+        "sum_decimal": "9007199254740993",
+        "count": 2
+      },
+      "rejected": true,
+      "reason": "result violates contract"
+    },
+    {
+      "name": "wrapped-overflow",
+      "input_decimal": [
+        "9223372036854775807",
+        "1"
+      ],
+      "wrong_result": {
+        "outcome": "OK",
+        "sum_decimal": "-9223372036854775808",
+        "count": 2
+      },
+      "expected": {
+        "outcome": "DOMAIN_ERROR",
+        "code": "SUM_OUT_OF_I64_RANGE"
+      },
+      "rejected": true,
+      "reason": "result violates contract"
+    },
+    {
+      "name": "saturated-overflow",
+      "input_decimal": [
+        "9223372036854775807",
+        "1"
+      ],
+      "wrong_result": {
+        "outcome": "OK",
+        "sum_decimal": "9223372036854775807",
+        "count": 2
+      },
+      "expected": {
+        "outcome": "DOMAIN_ERROR",
+        "code": "SUM_OUT_OF_I64_RANGE"
+      },
+      "rejected": true,
+      "reason": "result violates contract"
+    },
+    {
+      "name": "premature-partial-overflow",
+      "input_decimal": [
+        "9223372036854775807",
+        "1",
+        "-1"
+      ],
+      "wrong_result": {
+        "outcome": "DOMAIN_ERROR",
+        "code": "SUM_OUT_OF_I64_RANGE"
+      },
+      "expected": {
+        "outcome": "OK",
+        "sum_decimal": "9223372036854775807",
+        "count": 3
+      },
+      "rejected": true,
+      "reason": "result violates contract"
+    },
+    {
+      "name": "dropped-element",
+      "input_decimal": [
+        "1",
+        "2",
+        "3"
+      ],
+      "wrong_result": {
+        "outcome": "OK",
+        "sum_decimal": "3",
+        "count": 3
+      },
+      "expected": {
+        "outcome": "OK",
+        "sum_decimal": "6",
+        "count": 3
+      },
+      "rejected": true,
+      "reason": "result violates contract"
+    }
+  ],
+  "retry_model": {
+    "kind": "SIMULATED_STATE_TRACE",
+    "without_receiver_dedup": 2,
+    "with_atomic_receiver_dedup": 1,
+    "assumptions": [
+      "effect and operation key commit atomically",
+      "same operation key across retry"
+    ],
+    "limitations": [
+      "no real RPC, durable storage, crash injection, concurrency or reward transaction tested"
+    ]
+  },
+  "outcome": "PASS",
+  "heterogeneous_hardware": "NOT_RUN",
+  "performance_comparison": "NOT_RUN",
+  "distributed_single_result_commit": "NOT_IMPLEMENTED",
+  "untrusted_code_isolation": "NOT_IMPLEMENTED"
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "omc-workload-definition/1",
+  "uid": "omc:workload:sum-i64-exact",
+  "revision": 1,
+  "model": "TASK",
+  "effect": "PURE",
+  "input": {
+    "encoding": "omc-i64le/1",
+    "header_hex": "4f4d434936340001",
+    "count_encoding": "uint32-little-endian",
+    "item_encoding": "int64-signed-little-endian",
+    "max_items": 65536
+  },
+  "computation": "Exact mathematical integer sum; intermediate sums must not wrap, saturate or reject valid final sums.",
+  "result": {
+    "encoding": "omc-sum-result/1",
+    "success": "OK with exact sum as canonical decimal string and input count",
+    "overflow": "DOMAIN_ERROR with SUM_OUT_OF_I64_RANGE if final exact sum is outside signed int64",
+    "empty_sum": "0"
+  },
+  "retry": "Repeated pure computation is permitted; publication and rewards require a separate deduplication contract.",
+  "cancellation": "A cancellation known to the result verifier rejects the candidate; this does not prove process termination.",
+  "scope": "BOUNDED_LOCAL_RESEARCH; no remote execution or untrusted-code isolation"
+}
