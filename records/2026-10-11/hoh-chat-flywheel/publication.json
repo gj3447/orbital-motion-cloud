@@ -1,0 +1,50 @@
+{
+  "schema": "omc-chat-flywheel-publication/1",
+  "state": "PUSHED_REMOTE_VERIFIED",
+  "base": "344e9b5bcc9a7fbfcf209e33c8d741f8f9733eee",
+  "commit": "a6530adbe5df499db5186c8061e7053fbbdbeff6",
+  "worktree": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-chat-flywheel-publish-20261011-6c68cdc8dff8451d9b1b078126ff455c/tmp/omc-chat-flywheel-publication",
+  "artifact_root": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-chat-flywheel-publish-20261011-6c68cdc8dff8451d9b1b078126ff455c/artifacts",
+  "frozen_inputs": {
+    "data/research-organization/omc-hoh-chat-flywheel-20261011.what-is.md": "742d9dc24583657601392b4df283c2dbe4c9cf355e336ffc2048cecfb35ca435",
+    "data/research-organization/omc-hoh-chat-flywheel-20261011.how-to.md": "1092d91475dbe14c4bc493c458472814334f186f51cb35615a7ae0fc85c11386",
+    "data/research-organization/omc-hoh-chat-flywheel-20261011.request.json": "72199ff9ef9f38596e44afcf7c883ef55fc613cb481d2029c1538d4a1313638d"
+  },
+  "changed_files": " M bindings/avatar-control.md\n M bindings/research-content.md\n M bindings/research-modules.md\n M bindings/research-workflow.md\n M graph/avatar-control.graph.json\n M graph/avatar-control.usl.json\n M graph/development.graph.json\n M graph/research-content.graph.json\n M graph/research-content.usl.json\n M graph/research-modules.graph.json\n M graph/research-modules.json\n M graph/research-modules.usl.json\n M graph/research-workflow.graph.json\n M graph/research-workflow.json\n M graph/research-workflow.usl.json\n M index.html\n?? bindings/research-content/1092d91475dbe14c4bc493c458472814334f186f51cb35615a7ae0fc85c11386.txt\n?? bindings/research-content/742d9dc24583657601392b4df283c2dbe4c9cf355e336ffc2048cecfb35ca435.txt\n?? data/research-organization/omc-hoh-chat-flywheel-20261011.how-to.md\n?? data/research-organization/omc-hoh-chat-flywheel-20261011.request.json\n?? data/research-organization/omc-hoh-chat-flywheel-20261011.what-is.md",
+  "work_ids": [
+    "omc-hoh-chat-flywheel-20261011"
+  ],
+  "unrelated_source_changes_excluded": true,
+  "verified_at": "2026-10-11T04:10:33.654613+00:00",
+  "remote": {
+    "name": "origin",
+    "branch": "refs/heads/main",
+    "commit": "a6530adbe5df499db5186c8061e7053fbbdbeff6"
+  },
+  "validation": {
+    "render.log": "render: PASS · 121 repos · 11024 nodes · 22640 edges",
+    "check.log": "check: PASS · 121 repos · 11024 nodes · 22640 edges",
+    "workflow-check.log": "{\n  \"status\": \"OK\"\n}"
+  },
+  "managed_job": {
+    "boot_id": "714da32e-c731-4be2-a8c7-1d6cb145fa40",
+    "budget_bytes": 2147483648,
+    "child_pid": 2945578,
+    "exit_code": 0,
+    "finished_at": "2026-10-11T04:09:56.241475+00:00",
+    "id": "6c68cdc8dff8451d9b1b078126ff455c",
+    "live_kg_published": false,
+    "pid": 2945564,
+    "project": "0497fb9d21d7b57bdaf7",
+    "reason": "command completed",
+    "retention": "explicit artifacts and caches retained; failed scratch retained",
+    "schema": "storage-job-receipt/v1",
+    "start_ticks": "169135723",
+    "started_at": "2026-10-11T04:07:32.863800+00:00",
+    "tier": "bulk",
+    "work_dir": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-chat-flywheel-publish-20261011-6c68cdc8dff8451d9b1b078126ff455c"
+  },
+  "scratch_removed": true,
+  "job_lease_released": true,
+  "scope": "Private research owner publication; no runtime deployment, shared KG canon mutation or efficacy claim."
+}

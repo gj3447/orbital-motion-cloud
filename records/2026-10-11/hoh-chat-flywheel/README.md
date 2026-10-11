@@ -12,3 +12,5 @@
 원래 플라이휠은 `python3 scripts/flywheel.py check`로 별도 검사한다.
 
 이번에는 실행 가능한 인지 런타임, 실제 모델 실험, CHU admission, HSWM 학습, 기기 참여나 경제 정산을 수행하지 않았다. 다음 구현은 계획 F0의 HOH durable turn/outcome 경계다. 연구 보관 완료와 F0–F7의 구현 완료를 구분한다.
+
+연구 보관 완료: [workflow 영수증](research-workflow.json)에 기존 infrastructure-orchestration WHAT_IS/HOW_TO 모듈의 커밋과 원문 바이트 검증을 기록했다. [연구 허브 반영 영수증](publication.json)에 렌더링·무결성 검사 및 private owner main의 원격 커밋 확인을 기록했다. 설계 커밋은 `8f3f4df2156db5763d4931f331c6c2f52c4a57af`, 연구 허브 반영은 `a6530adbe5df499db5186c8061e7053fbbdbeff6`다.

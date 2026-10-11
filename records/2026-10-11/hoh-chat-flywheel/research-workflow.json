@@ -1,0 +1,82 @@
+{
+  "schema": "omc-chat-flywheel-research-workflow/1",
+  "recorded_at": "2026-10-11T04:07:54.846760+00:00",
+  "design_commit": "8f3f4df2156db5763d4931f331c6c2f52c4a57af",
+  "owner_repository": "/home/lagyeongjun/CD/THE_GREAT_FLOW",
+  "workflow": {
+    "actor": "Codex",
+    "artifacts": [
+      {
+        "authority": "SECONDARY_AI",
+        "commit": "2344518c09d167926e2c6d104da7e61d1a5278a7",
+        "kind": "WHAT_IS",
+        "managed_paths": [
+          ".research/records/omc-hoh-chat-flywheel-20261011/WHAT_IS.source",
+          ".research/records/omc-hoh-chat-flywheel-20261011/WHAT_IS.json"
+        ],
+        "module_uid": "research:module:27598f06-e808-4085-b029-8af1a58a41a3",
+        "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/infrastructure-orchestration/WHAT_IS_infrastructure-orchestration",
+        "source_path": "data/research-organization/omc-hoh-chat-flywheel-20261011.what-is.md",
+        "source_sha256": "742d9dc24583657601392b4df283c2dbe4c9cf355e336ffc2048cecfb35ca435",
+        "title": "HOH 채팅·CHU 표현·HSWM 학습 연결의 현재 소스 분석"
+      },
+      {
+        "authority": "SECONDARY_AI",
+        "commit": "bf6aa62d3a039f4854a9f8f79340b669a1d2ddf5",
+        "kind": "HOW_TO",
+        "managed_paths": [
+          ".research/records/omc-hoh-chat-flywheel-20261011/HOW_TO.source",
+          ".research/records/omc-hoh-chat-flywheel-20261011/HOW_TO.json"
+        ],
+        "module_uid": "research:module:eb774eb7-e576-4cdf-a767-e562c5abadbd",
+        "repository": "/mnt/development/METAHUMOTONIC_SHARED/research/infrastructure-orchestration/HOW_TO_infrastructure-orchestration",
+        "source_path": "data/research-organization/omc-hoh-chat-flywheel-20261011.how-to.md",
+        "source_sha256": "1092d91475dbe14c4bc493c458472814334f186f51cb35615a7ae0fc85c11386",
+        "title": "첫 채팅 플라이휠과 장기 OMC 기기 참여의 단계·계약·평가 설계"
+      }
+    ],
+    "completed_at": "2026-10-11T04:03:01Z",
+    "id": "omc-hoh-chat-flywheel-20261011",
+    "placement": "REUSED",
+    "placement_basis": "research_modules.py list와 ACTIVE binding에서 infrastructure-orchestration의 WHAT_IS/HOW_TO 쌍 및 기존 OMC 플라이휠·K01 연구를 확인했다. inspect_repos.py search flywheel --corpus metahumotonic는 0건으로 저장된 이름 색인의 제한이다. HOH 추천 연구는 기존 hoh-human-exploration HOW_TO와 연결하되 이번 중심 질문은 대화·인지·물리 실행·학습·장기 기여를 잇는 OMC 플라이휠이므로 기존 인프라 공동 활용 쌍을 재사용한다. HOH/HSWM 소유 규칙과 실제 코드·문서를 읽고 12개 파일을 각각 Git commit 바이트에 고정했다. 사용자 직접 원문은 OMC에 별도 보존했고 상세 계약·역할·단계는 AI 설계다. 새 연구 주제·정체성·제품 writer를 만들거나 detached 모듈을 연결하지 않는다.",
+    "recorded_at": "2026-10-11T04:01:38Z",
+    "request_sha256": "b59282552f2c8d2abacf1330eaac5b57192bfd384f4141a1947f6e73a1e4b224",
+    "state": "COMPLETE",
+    "topic": "infrastructure-orchestration"
+  },
+  "source_checks": [
+    {
+      "kind": "WHAT_IS",
+      "module_uid": "research:module:27598f06-e808-4085-b029-8af1a58a41a3",
+      "commit": "2344518c09d167926e2c6d104da7e61d1a5278a7",
+      "source_sha256": "742d9dc24583657601392b4df283c2dbe4c9cf355e336ffc2048cecfb35ca435",
+      "status": "COMMITTED_SOURCE_MATCH"
+    },
+    {
+      "kind": "HOW_TO",
+      "module_uid": "research:module:eb774eb7-e576-4cdf-a767-e562c5abadbd",
+      "commit": "bf6aa62d3a039f4854a9f8f79340b669a1d2ddf5",
+      "source_sha256": "1092d91475dbe14c4bc493c458472814334f186f51cb35615a7ae0fc85c11386",
+      "status": "COMMITTED_SOURCE_MATCH"
+    }
+  ],
+  "managed_job": {
+    "boot_id": "714da32e-c731-4be2-a8c7-1d6cb145fa40",
+    "budget_bytes": 2147483648,
+    "child_pid": 2943440,
+    "exit_code": 0,
+    "finished_at": "2026-10-11T04:04:12.177058+00:00",
+    "id": "0dd14138eaa042eb86389930dad26e2f",
+    "live_kg_published": false,
+    "pid": 2943319,
+    "project": "0497fb9d21d7b57bdaf7",
+    "reason": "command completed",
+    "retention": "explicit artifacts and caches retained; failed scratch retained",
+    "schema": "storage-job-receipt/v1",
+    "start_ticks": "169098029",
+    "started_at": "2026-10-11T04:01:15.923698+00:00",
+    "tier": "bulk",
+    "work_dir": "/mnt/development/managed-dev/0497fb9d21d7b57bdaf7/runs/omc-hoh-chat-flywheel-20261011-0dd14138eaa042eb86389930dad26e2f"
+  },
+  "scope": "Research organization and committed source preservation. Implementation F0–F7 remains PLANNED; no runtime or efficacy result."
+}
