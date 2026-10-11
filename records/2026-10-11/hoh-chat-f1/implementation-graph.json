@@ -1,0 +1,643 @@
+{
+  "schema": "hoh-chat-chu-f1-graph/1",
+  "scope": "OWNER_LOCAL_IMPLEMENTATION_EVIDENCE",
+  "predicates": {
+    "implements": {
+      "domain": "Observation",
+      "range": "ExternalWorkItem",
+      "out_min": 1,
+      "out_max": 1,
+      "meaning": "Bounded observation about original planned work"
+    },
+    "evidenced_by": {
+      "domain": "Observation",
+      "range": "Evidence",
+      "out_min": 2,
+      "out_max": 2,
+      "meaning": "Retained checked results"
+    },
+    "source_pins": {
+      "domain": "Evidence",
+      "range": "Source",
+      "out_min": 1,
+      "out_max": null,
+      "meaning": "Exact local source bytes used by the check"
+    },
+    "maps_role": {
+      "domain": "Observation",
+      "range": "LocalRole",
+      "out_min": 9,
+      "out_max": 9,
+      "meaning": "Ordered HOH semantic occurrences"
+    },
+    "uses_native": {
+      "domain": "LocalRole",
+      "range": "NativeContract",
+      "out_min": 1,
+      "out_max": 1,
+      "meaning": "Native group/member projection contract"
+    },
+    "has_boundary": {
+      "domain": "Observation",
+      "range": "Boundary",
+      "out_min": 2,
+      "out_max": 2,
+      "meaning": "Explicit remaining runtime boundary"
+    },
+    "next": {
+      "domain": "ExternalWorkItem",
+      "range": "ExternalWorkItem",
+      "out_min": 0,
+      "out_max": 1,
+      "meaning": "Original plan sequence; not completion"
+    }
+  },
+  "nodes": [
+    {
+      "uid": "omc:chat-flywheel:work:F1",
+      "type": "ExternalWorkItem",
+      "status": "PLANNED",
+      "owner": "Orbital Motion Cloud",
+      "source_revision": "8f3f4df2156db5763d4931f331c6c2f52c4a57af",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F2",
+      "type": "ExternalWorkItem",
+      "status": "PLANNED",
+      "owner": "Orbital Motion Cloud",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:observation",
+      "type": "Observation",
+      "status": "BOUNDED_ADAPTER_REFERENCE_VERIFIED",
+      "recorded_at": "2026-10-11T12:38:01.002517+00:00",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:boundary:production",
+      "type": "Boundary",
+      "status": "NOT_READY",
+      "meaning": "CHU durable kernel, owner capability/admission transport remain unavailable",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:boundary:hswm",
+      "type": "Boundary",
+      "status": "NOT_PERFORMED",
+      "meaning": "No HSWM execution; owner transport prerequisites still apply",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:contract:group",
+      "type": "NativeContract",
+      "owner": "CHU",
+      "relation": "group",
+      "role_contract": [
+        "group",
+        "member"
+      ],
+      "arity_min": 2,
+      "source": {
+        "repository": "https://github.com/gj3447/CHU",
+        "revision": "236d5395600f4d2e8dc2509d71e276940b31973f",
+        "path": "scripts/chu_model.py",
+        "sha256": "68db146c1aa1592eace1a987b419016ed47fac60a60149d181399c75a8238ec2"
+      },
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:role:conversation",
+      "type": "LocalRole",
+      "ordinal": 0,
+      "optional": false,
+      "meaning": "HOH occurrence data, not a native CHU relation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:role:turn",
+      "type": "LocalRole",
+      "ordinal": 1,
+      "optional": false,
+      "meaning": "HOH occurrence data, not a native CHU relation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:role:request",
+      "type": "LocalRole",
+      "ordinal": 2,
+      "optional": false,
+      "meaning": "HOH occurrence data, not a native CHU relation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:role:message",
+      "type": "LocalRole",
+      "ordinal": 3,
+      "optional": false,
+      "meaning": "HOH occurrence data, not a native CHU relation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:role:context",
+      "type": "LocalRole",
+      "ordinal": 4,
+      "optional": false,
+      "meaning": "HOH occurrence data, not a native CHU relation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:role:observation",
+      "type": "LocalRole",
+      "ordinal": 5,
+      "optional": false,
+      "meaning": "HOH occurrence data, not a native CHU relation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:role:outcome",
+      "type": "LocalRole",
+      "ordinal": 6,
+      "optional": false,
+      "meaning": "HOH occurrence data, not a native CHU relation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:role:assessments",
+      "type": "LocalRole",
+      "ordinal": 7,
+      "optional": false,
+      "meaning": "HOH occurrence data, not a native CHU relation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:role:parent",
+      "type": "LocalRole",
+      "ordinal": 8,
+      "optional": true,
+      "meaning": "HOH occurrence data, not a native CHU relation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/ts/src/programFeed/ChatChu.ts",
+      "type": "Source",
+      "path": "backend/ts/src/programFeed/ChatChu.ts",
+      "sha256": "74c570bbc46e95f39f221592920a2b8a315015a1f7894af2059f2d14f63facc4",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/ts/src/programFeed/ChatTurns.ts",
+      "type": "Source",
+      "path": "backend/ts/src/programFeed/ChatTurns.ts",
+      "sha256": "1db99bb32cdef95e8bb922f52fba4b00e750576f41e0038e3d58e2ec78e4ecae",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/ts/src/programFeed/Store.ts",
+      "type": "Source",
+      "path": "backend/ts/src/programFeed/Store.ts",
+      "sha256": "1d97d3071b6129d4feefc0d5c43063c38a7674b76668704f79d66125448a68be",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/ts/src/programFeed/Substrate.ts",
+      "type": "Source",
+      "path": "backend/ts/src/programFeed/Substrate.ts",
+      "sha256": "9aeac493e12b0db13ed3a104c0616abcd1cc9161806269394f3f4592f29cbb99",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/ts/src/api/ProgramFeedApi.ts",
+      "type": "Source",
+      "path": "backend/ts/src/api/ProgramFeedApi.ts",
+      "sha256": "97a394a9ccd6bbc2e06a55e9c38a6b82fe639306435075e6ebd6bdf65ce459f0",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/ts/src/server/ProgramFeedHandlers.ts",
+      "type": "Source",
+      "path": "backend/ts/src/server/ProgramFeedHandlers.ts",
+      "sha256": "a363374f7d9336d4bb231800959c5a7bf3e576ef6cf2dd0ff5e049a11002aae2",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/ts/test/program-feed-chat-chu.test.ts",
+      "type": "Source",
+      "path": "backend/ts/test/program-feed-chat-chu.test.ts",
+      "sha256": "4a4a61f1ab6cb14f133cce97e92122eba4657e9f9ee8656828e45c56dcc68741",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/ts/test/program-feed-chat-turns.test.ts",
+      "type": "Source",
+      "path": "backend/ts/test/program-feed-chat-turns.test.ts",
+      "sha256": "9b841f3b9d6d8914750d4e38877c0b9a5245f9eae680620aa2ec2481c3fe0130",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/ts/test/program-feed-http.test.ts",
+      "type": "Source",
+      "path": "backend/ts/test/program-feed-http.test.ts",
+      "sha256": "f865e27ac815e577c83cad3d2e30e72adc63d832f78a26e5e32b426dfd758d72",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/docs/HOH_CHAT_CHU.md",
+      "type": "Source",
+      "path": "backend/docs/HOH_CHAT_CHU.md",
+      "sha256": "25a469ae2ca49f7a0d9818dc67c54639c8dfb8ddf27a579b2dfd44927c74ebd7",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/engineering/chat-chu-f1/prediction.json",
+      "type": "Source",
+      "path": "backend/engineering/chat-chu-f1/prediction.json",
+      "sha256": "822bf80a32951702d1c5eb6cbbe2daf7120c524b0429dfe988df78c13a918a40",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/engineering/chat-chu-f1/verify_native.py",
+      "type": "Source",
+      "path": "backend/engineering/chat-chu-f1/verify_native.py",
+      "sha256": "c226f534da4cedb3490441ac03fa085067df26123b3317daa6a96246b2deb224",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/engineering/chat-chu-f1/check.py",
+      "type": "Source",
+      "path": "backend/engineering/chat-chu-f1/check.py",
+      "sha256": "e40e864169e89975f0f3e376117bffd0c7cb954e2150cb19ba51ca4d32098a11",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:source:backend/engineering/chat-chu-f1/build_report.py",
+      "type": "Source",
+      "path": "backend/engineering/chat-chu-f1/build_report.py",
+      "sha256": "967b1c38d8d126529089ad0b7a6c95171ce8439dfa8c44aa6d152230e8201b5f",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:evidence:verification.json",
+      "type": "Evidence",
+      "path": "backend/engineering/chat-chu-f1/verification.json",
+      "sha256": "383815522106e74beb70b716ed64decf8b1a3fea3bb93ab1fe111ff3df5af2f5",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:evidence:native-verification.json",
+      "type": "Evidence",
+      "path": "backend/engineering/chat-chu-f1/native-verification.json",
+      "sha256": "5d62eac31ce9f1a5cdbb32374dabc753b06af4749e32b8ced779d8f30fbe2403",
+      "authority": "SECONDARY_AI"
+    }
+  ],
+  "edges": [
+    {
+      "uid": "hoh:chat-chu:f1:edge:0",
+      "type": "implements",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "omc:chat-flywheel:work:F1",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:1",
+      "type": "next",
+      "source": "omc:chat-flywheel:work:F1",
+      "target": "omc:chat-flywheel:work:F2",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:2",
+      "type": "evidenced_by",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:evidence:verification.json",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:3",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/src/programFeed/ChatChu.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:4",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/src/programFeed/ChatTurns.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:5",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/src/programFeed/Store.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:6",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/src/programFeed/Substrate.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:7",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/src/api/ProgramFeedApi.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:8",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/src/server/ProgramFeedHandlers.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:9",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/test/program-feed-chat-chu.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:10",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/test/program-feed-chat-turns.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:11",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/test/program-feed-http.test.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:12",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/docs/HOH_CHAT_CHU.md",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:13",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/engineering/chat-chu-f1/prediction.json",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:14",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/engineering/chat-chu-f1/verify_native.py",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:15",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/engineering/chat-chu-f1/check.py",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:16",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/engineering/chat-chu-f1/build_report.py",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:17",
+      "type": "evidenced_by",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:evidence:native-verification.json",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:18",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:native-verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/engineering/chat-chu-f1/verify_native.py",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:19",
+      "type": "source_pins",
+      "source": "hoh:chat-chu:f1:evidence:native-verification.json",
+      "target": "hoh:chat-chu:f1:source:backend/ts/src/programFeed/ChatChu.ts",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:20",
+      "type": "maps_role",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:role:conversation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:21",
+      "type": "uses_native",
+      "source": "hoh:chat-chu:f1:role:conversation",
+      "target": "hoh:chat-chu:f1:contract:group",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:22",
+      "type": "maps_role",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:role:turn",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:23",
+      "type": "uses_native",
+      "source": "hoh:chat-chu:f1:role:turn",
+      "target": "hoh:chat-chu:f1:contract:group",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:24",
+      "type": "maps_role",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:role:request",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:25",
+      "type": "uses_native",
+      "source": "hoh:chat-chu:f1:role:request",
+      "target": "hoh:chat-chu:f1:contract:group",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:26",
+      "type": "maps_role",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:role:message",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:27",
+      "type": "uses_native",
+      "source": "hoh:chat-chu:f1:role:message",
+      "target": "hoh:chat-chu:f1:contract:group",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:28",
+      "type": "maps_role",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:role:context",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:29",
+      "type": "uses_native",
+      "source": "hoh:chat-chu:f1:role:context",
+      "target": "hoh:chat-chu:f1:contract:group",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:30",
+      "type": "maps_role",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:role:observation",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:31",
+      "type": "uses_native",
+      "source": "hoh:chat-chu:f1:role:observation",
+      "target": "hoh:chat-chu:f1:contract:group",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:32",
+      "type": "maps_role",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:role:outcome",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:33",
+      "type": "uses_native",
+      "source": "hoh:chat-chu:f1:role:outcome",
+      "target": "hoh:chat-chu:f1:contract:group",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:34",
+      "type": "maps_role",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:role:assessments",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:35",
+      "type": "uses_native",
+      "source": "hoh:chat-chu:f1:role:assessments",
+      "target": "hoh:chat-chu:f1:contract:group",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:36",
+      "type": "maps_role",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:role:parent",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:37",
+      "type": "uses_native",
+      "source": "hoh:chat-chu:f1:role:parent",
+      "target": "hoh:chat-chu:f1:contract:group",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:38",
+      "type": "has_boundary",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:boundary:production",
+      "authority": "SECONDARY_AI"
+    },
+    {
+      "uid": "hoh:chat-chu:f1:edge:39",
+      "type": "has_boundary",
+      "source": "hoh:chat-chu:f1:observation",
+      "target": "hoh:chat-chu:f1:boundary:hswm",
+      "authority": "SECONDARY_AI"
+    }
+  ],
+  "acyclic_predicates": [
+    "next"
+  ],
+  "competency_questions": [
+    {
+      "id": "roles",
+      "start": "hoh:chat-chu:f1:observation",
+      "via": [
+        "maps_role"
+      ],
+      "expected": [
+        "hoh:chat-chu:f1:role:assessments",
+        "hoh:chat-chu:f1:role:context",
+        "hoh:chat-chu:f1:role:conversation",
+        "hoh:chat-chu:f1:role:message",
+        "hoh:chat-chu:f1:role:observation",
+        "hoh:chat-chu:f1:role:outcome",
+        "hoh:chat-chu:f1:role:parent",
+        "hoh:chat-chu:f1:role:request",
+        "hoh:chat-chu:f1:role:turn"
+      ]
+    },
+    {
+      "id": "native_contract",
+      "start": "hoh:chat-chu:f1:observation",
+      "via": [
+        "maps_role",
+        "uses_native"
+      ],
+      "expected": [
+        "hoh:chat-chu:f1:contract:group"
+      ]
+    },
+    {
+      "id": "evidence",
+      "start": "hoh:chat-chu:f1:observation",
+      "via": [
+        "evidenced_by"
+      ],
+      "expected": [
+        "hoh:chat-chu:f1:evidence:native-verification.json",
+        "hoh:chat-chu:f1:evidence:verification.json"
+      ]
+    },
+    {
+      "id": "boundaries",
+      "start": "hoh:chat-chu:f1:observation",
+      "via": [
+        "has_boundary"
+      ],
+      "expected": [
+        "hoh:chat-chu:f1:boundary:hswm",
+        "hoh:chat-chu:f1:boundary:production"
+      ]
+    },
+    {
+      "id": "next",
+      "start": "omc:chat-flywheel:work:F1",
+      "via": [
+        "next"
+      ],
+      "expected": [
+        "omc:chat-flywheel:work:F2"
+      ]
+    }
+  ]
+}

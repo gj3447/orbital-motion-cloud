@@ -1,0 +1,68 @@
+{
+  "schema": "hoh-chat-chu-native-verification/1",
+  "status": "REFERENCE_MODEL_ACCEPTED",
+  "authority": "SECONDARY_AI",
+  "owner_source": {
+    "repository": "https://github.com/gj3447/CHU",
+    "revision": "236d5395600f4d2e8dc2509d71e276940b31973f",
+    "path": "scripts/chu_model.py",
+    "sha256": "68db146c1aa1592eace1a987b419016ed47fac60a60149d181399c75a8238ec2"
+  },
+  "python": "3.13.5",
+  "scope": "IN_MEMORY_OWNER_MODEL_CONTROLLED_FIXTURES",
+  "production_admission": "NOT_PERFORMED",
+  "hswm_execution": "NOT_PERFORMED",
+  "runs": [
+    {
+      "fixture": "before-assessment",
+      "fixture_sha256": "73c986570fe0ebe1a68d8fc6893b5e59d34c75c56a812314d883c3d3ac8ef37e",
+      "snapshot_cid": "urn:sha256:582851b9a368d740e59c18e3fa380549407e3dfc414db3c577e8061499942628",
+      "record_cid": "urn:sha256:ba5e1f829d582de6e744be2dc0ee00fbb4bf11490e8b296fdf3006b208d23fb0",
+      "nodes": 17,
+      "edges": 9,
+      "roles": [
+        "conversation",
+        "turn",
+        "request",
+        "message",
+        "context",
+        "observation",
+        "outcome",
+        "assessments"
+      ],
+      "exact_bytes_readback": true,
+      "request_replay": "SAME_RESULT_NO_NEW_EVENT"
+    },
+    {
+      "fixture": "after-assessment",
+      "fixture_sha256": "d31ab6602d3bacff49437d804aada674745ee28d89f14d7b26122b6ec16042c6",
+      "snapshot_cid": "urn:sha256:06556de89e3194d7965f6364d23532d9fc0402f819766e1e3e67861871209631",
+      "record_cid": "urn:sha256:d6c169908567391e1f4a6c50ce5d3394ec0f6d351ebffe49d3ae9545ce670008",
+      "nodes": 17,
+      "edges": 9,
+      "roles": [
+        "conversation",
+        "turn",
+        "request",
+        "message",
+        "context",
+        "observation",
+        "outcome",
+        "assessments"
+      ],
+      "exact_bytes_readback": true,
+      "request_replay": "SAME_RESULT_NO_NEW_EVENT"
+    }
+  ],
+  "negative_controls": [
+    "dangling endpoint",
+    "invalid role",
+    "unregistered native relation",
+    "reused request with different input",
+    "unknown base",
+    "delete referenced node",
+    "content digest mismatch"
+  ],
+  "prior_snapshot_retained": true,
+  "authentication_proven_by_reference_model": false
+}

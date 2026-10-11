@@ -31,6 +31,8 @@ The [HOH chat flywheel plan](docs/HOH_CHAT_FLYWHEEL_PLAN.md) connects the user's
 
 The [F0 implementation record](records/2026-10-11/hoh-chat-f0/README.md) now links the bounded HOH host implementation to that plan: durable turns and outcomes, atomic confirmation/cancellation, restart recovery, and authenticated history/assessment APIs. Type checking, build and 110 tests passed locally; CHU admission, HSWM execution and live deployment remain subsequent work.
 
+The [F1 implementation record](records/2026-10-11/hoh-chat-f1/README.md) adds request-time context capture and an authenticated CHU v0.1 graph projection. The actual pinned CHU reference model verifies bytes, ordered roles and two immutable snapshots; 91 tests, type checking and build passed on a frozen source snapshot. Production CHU admission and HSWM execution remain open.
+
 ## Content index
 
 Start with [philosophical and technical-philosophical OMC](docs/OMC_LOGICAL_FOUNDATIONS.md)

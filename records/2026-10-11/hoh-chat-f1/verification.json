@@ -1,0 +1,484 @@
+{
+  "schema": "hoh-chat-chu-f1-verification/1",
+  "authority": "SECONDARY_AI",
+  "recorded_at": "2026-10-11T12:38:01.002517+00:00",
+  "work_uid": "omc:chat-flywheel:work:F1",
+  "status": "BOUNDED_ADAPTER_REFERENCE_VERIFIED",
+  "production_admission": "NOT_PERFORMED",
+  "hswm_execution": "NOT_PERFORMED",
+  "live_deployment": "NOT_PERFORMED",
+  "typecheck": "PASS",
+  "build": "PASS",
+  "runner_id": "819b2350816c4c5e9fffb823fb45c0f3",
+  "runner_exit": 0,
+  "compiler_environment": "Frozen archive reuses installed dependencies through a symlink; tsc uses --preserveSymlinks with all project strict checks intact. Build executes tsc followed by the unchanged copy-assets.mjs.",
+  "setup_observations": "Default symlink realpath resolution caused TS2742 in pre-existing McpServer inference. A bulk dependency copy was stopped because small-file copying was too slow; final run uses explicit TypeScript symlink preservation. Failed setup artifacts remain managed.",
+  "tests_passed": 91,
+  "tests_total": 91,
+  "tests": [
+    {
+      "path": "backend/ts/test/program-feed-chat-chu.test.ts",
+      "assertions": [
+        {
+          "title": "captures pre-effect context, preserves versions across reopen, and emits native-model fixtures",
+          "status": "passed"
+        },
+        {
+          "title": "preserves exact non-normalized Unicode and separate occurrences of equal payload bytes",
+          "status": "passed"
+        },
+        {
+          "title": "rejects corrupt captured context (bytes)",
+          "status": "passed"
+        },
+        {
+          "title": "rejects corrupt captured context (observation)",
+          "status": "passed"
+        },
+        {
+          "title": "rejects corrupt captured context (content-id)",
+          "status": "passed"
+        },
+        {
+          "title": "keeps legacy records readable without inventing context and bounds new capture",
+          "status": "passed"
+        },
+        {
+          "title": "rejects changed transport readback (payload)",
+          "status": "passed"
+        },
+        {
+          "title": "rejects changed transport readback (dangling)",
+          "status": "passed"
+        },
+        {
+          "title": "rejects changed transport readback (role)",
+          "status": "passed"
+        },
+        {
+          "title": "rejects changed transport readback (order)",
+          "status": "passed"
+        },
+        {
+          "title": "rejects changed transport readback (snapshot)",
+          "status": "passed"
+        },
+        {
+          "title": "rejects changed transport readback (admission)",
+          "status": "passed"
+        },
+        {
+          "title": "rejects changed transport readback (extra-object)",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-chat-turns.test.ts",
+      "assertions": [
+        {
+          "title": "persists answers, exact requests, parent lineage and user assessments across reopen without rerunning inference",
+          "status": "passed"
+        },
+        {
+          "title": "restores a pending proposal, then atomically records its one content effect and replays after navigation",
+          "status": "passed"
+        },
+        {
+          "title": "serializes the confirmation/cancellation race (cancel-first) into one durable terminal outcome",
+          "status": "passed"
+        },
+        {
+          "title": "serializes the confirmation/cancellation race (confirm-first) into one durable terminal outcome",
+          "status": "passed"
+        },
+        {
+          "title": "reopens an unfinished durable request as UNKNOWN and does not automatically execute it",
+          "status": "passed"
+        },
+        {
+          "title": "rejects a filesystem publication failure without committing either the content effect or a success receipt",
+          "status": "passed"
+        },
+        {
+          "title": "isolates principals, validates parent scope and rejects changed requests and revoked sessions",
+          "status": "passed"
+        },
+        {
+          "title": "coalesces concurrent duplicate commands without duplicate effects and keeps request IDs bound across endpoints",
+          "status": "passed"
+        },
+        {
+          "title": "rejects corrupt persisted chat history (fingerprint) on reopen",
+          "status": "passed"
+        },
+        {
+          "title": "rejects corrupt persisted chat history (parent) on reopen",
+          "status": "passed"
+        },
+        {
+          "title": "rejects corrupt persisted chat history (false-success) on reopen",
+          "status": "passed"
+        },
+        {
+          "title": "rejects corrupt persisted chat history (receipt) on reopen",
+          "status": "passed"
+        },
+        {
+          "title": "rejects corrupt persisted chat history (terminal-event) on reopen",
+          "status": "passed"
+        },
+        {
+          "title": "bounds retained turns without evicting old replay identities or accepting another effect",
+          "status": "passed"
+        },
+        {
+          "title": "cancels a running turn durably, signals its provider and refuses a late model result",
+          "status": "passed"
+        },
+        {
+          "title": "records a failed stale model answer without altering content or rerunning it on retry",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-completion.test.ts",
+      "assertions": [
+        {
+          "title": "migrates the exact pre-game catalog and preserves state, favorites and session across reopen",
+          "status": "passed"
+        },
+        {
+          "title": "uses explicit feedback to rank unseen related content and removes its influence on CLEAR",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-content-actions.test.ts",
+      "assertions": [
+        {
+          "title": "discovers only supported commands for every existing kind; inspection does not write or navigate",
+          "status": "passed"
+        },
+        {
+          "title": "human and chat actions share durable state, idempotency and revision checks",
+          "status": "passed"
+        },
+        {
+          "title": "serializes competing actions and includes legacy state writes in the same revision",
+          "status": "passed"
+        },
+        {
+          "title": "rejects malformed, undeclared and wrong-contract commands without a durable write",
+          "status": "passed"
+        },
+        {
+          "title": "does not publish an action or revision after a filesystem failure and can retry",
+          "status": "passed"
+        },
+        {
+          "title": "reads historical profiles without revision counters and rejects corrupt new counters",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-dashboard.test.ts",
+      "assertions": [
+        {
+          "title": "dashboard apps and the prior catalog upgrade migrates the exact previous catalog while retaining sessions, private data and original immutable revision",
+          "status": "passed"
+        },
+        {
+          "title": "dashboard apps and the prior catalog upgrade deduplicates fixed apps and ignores inaccessible or missing favorite entries",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-http.test.ts",
+      "assertions": [
+        {
+          "title": "program feed through the production composition issues account cookies only after a browser-bound provider exchange and revokes logout",
+          "status": "passed"
+        },
+        {
+          "title": "program feed through the production composition requires authenticated same-origin confirmation before applying a model proposal",
+          "status": "passed"
+        },
+        {
+          "title": "program feed through the production composition exposes private durable turn/history readback and CSRF-protected explicit assessments",
+          "status": "passed"
+        },
+        {
+          "title": "program feed through the production composition serves the complete pinned game UI with scoped frame policy and no arbitrary file access",
+          "status": "passed"
+        },
+        {
+          "title": "program feed through the production composition persists isolated profiles and app data, rejects stale/cross-origin writes, and exposes truthful readiness",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-login.test.ts",
+      "assertions": [
+        {
+          "title": "Google identity and durable personalization binds one PKCE exchange to the initiating browser, expires and prevents replay",
+          "status": "passed"
+        },
+        {
+          "title": "Google identity and durable personalization reopens one account on another session, isolates other identities, and revokes logout",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-main-entry.test.ts",
+      "assertions": [
+        {
+          "title": "opt-in HOH main entry through production composition defaults off and requires an explicit boolean setting",
+          "status": "passed"
+        },
+        {
+          "title": "opt-in HOH main entry through production composition preserves the default JSON root and exposes only the retiring root worker",
+          "status": "passed"
+        },
+        {
+          "title": "opt-in HOH main entry through production composition refuses the enabled root when its profile store is unavailable",
+          "status": "passed"
+        },
+        {
+          "title": "opt-in HOH main entry through production composition serves root deep links with public assets, stable PWA identity and shared durable profiles",
+          "status": "passed"
+        },
+        {
+          "title": "root service worker isolation and retirement caches only allowed public assets and handles root navigation without taking over other apps",
+          "status": "passed"
+        },
+        {
+          "title": "root service worker isolation and retirement unregisters only the root worker and deletes only its caches on rollback",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-planner.test.ts",
+      "assertions": [
+        {
+          "title": "uses a real loopback HTTP exchange but performs no mutation before host confirmation; confirm is durable and idempotent",
+          "status": "passed"
+        },
+        {
+          "title": "binds confirmation to the profile, selected view, state revision and expiry; cancellation removes authority",
+          "status": "passed"
+        },
+        {
+          "title": "rejects undeclared tools and forged arguments; durable reads and answers preserve content state",
+          "status": "passed"
+        },
+        {
+          "title": "invalidates delayed inference after navigation and bounds simultaneous requests",
+          "status": "passed"
+        },
+        {
+          "title": "rejects truncated provider output",
+          "status": "passed"
+        },
+        {
+          "title": "rejects refusal provider output",
+          "status": "passed"
+        },
+        {
+          "title": "rejects many-tools provider output",
+          "status": "passed"
+        },
+        {
+          "title": "rejects invalid-json provider output",
+          "status": "passed"
+        },
+        {
+          "title": "rejects oversize provider output",
+          "status": "passed"
+        },
+        {
+          "title": "aborts an in-flight provider request on close and never silently substitutes a result",
+          "status": "passed"
+        },
+        {
+          "title": "replays a lost command response across restart but rejects different input and a fresh stale command",
+          "status": "passed"
+        },
+        {
+          "title": "retires a pending proposal when the next turn is answer",
+          "status": "passed"
+        },
+        {
+          "title": "retires a pending proposal when the next turn is read",
+          "status": "passed"
+        },
+        {
+          "title": "retires a pending proposal when the next turn is command",
+          "status": "passed"
+        },
+        {
+          "title": "cannot publish a delayed proposal after a newer read command",
+          "status": "passed"
+        },
+        {
+          "title": "aborts only the selected provider request using its caller signal",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-recommendation-graph.test.ts",
+      "assertions": [
+        {
+          "title": "answers why a different simulation game rises, even with unrelated words",
+          "status": "passed"
+        },
+        {
+          "title": "uses the published game graph and removes or reverses explicit evidence without hidden history",
+          "status": "passed"
+        },
+        {
+          "title": "reconstructs every score, graph contribution and pair contribution exactly",
+          "status": "passed"
+        },
+        {
+          "title": "does not use absent feedback or incomplete pairs to reveal inaccessible content",
+          "status": "passed"
+        },
+        {
+          "title": "keeps imported genre statements separate from AI annotations and changes provenance with source bytes",
+          "status": "passed"
+        },
+        {
+          "title": "exports the scoring evidence as typed, source-bearing, authenticated graph paths",
+          "status": "passed"
+        },
+        {
+          "title": "migrates the exact deployed taste catalog while preserving profile bytes and replay",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-store.test.ts",
+      "assertions": [
+        {
+          "title": "program feed local content-addressed store writes immutable object then durable head, stores token digest only, and reopens",
+          "status": "passed"
+        },
+        {
+          "title": "program feed local content-addressed store rejects a second writer and corrupt content bytes",
+          "status": "passed"
+        },
+        {
+          "title": "program feed local content-addressed store keeps reactions separate from favorites and requires current opened view",
+          "status": "passed"
+        },
+        {
+          "title": "program feed local content-addressed store requires an unexpired persisted session for every actor operation",
+          "status": "passed"
+        },
+        {
+          "title": "program feed local content-addressed store uses the manifest kind and rejects unknown or duplicate checklist state fields",
+          "status": "passed"
+        },
+        {
+          "title": "program feed local content-addressed store recovers its write queue after a rejected mutation without publishing it",
+          "status": "passed"
+        },
+        {
+          "title": "program feed local content-addressed store rejects unknown fields in a persisted state object on reopen",
+          "status": "passed"
+        },
+        {
+          "title": "program feed local content-addressed store does not publish a failed filesystem write and can retry the same request after repair",
+          "status": "passed"
+        },
+        {
+          "title": "program feed local content-addressed store never reseeds a missing referenced object and releases the failed initialization lock",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-substrate.test.ts",
+      "assertions": [
+        {
+          "title": "matches independently generated native CHU byte vectors",
+          "status": "passed"
+        },
+        {
+          "title": "uses native USL with bounded, source-attributed, actor-scoped context",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-taste.test.ts",
+      "assertions": [
+        {
+          "title": "learns relative preferences, reverses ordering for opposite choices, and removes the signal on reset",
+          "status": "passed"
+        },
+        {
+          "title": "resumes durable choices, shares human/chat commands, rejects stale and forged writes, and isolates profiles",
+          "status": "passed"
+        },
+        {
+          "title": "completes five bounded pairs, persists skipping, and refuses a sixth choice",
+          "status": "passed"
+        },
+        {
+          "title": "admits only the exact deployed predecessor and preserves existing state, comments, sessions and replay",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "path": "backend/ts/test/program-feed-ui-source.test.ts",
+      "assertions": [
+        {
+          "title": "ships the explicitly pinned HOH UI assets with their source identity and license",
+          "status": "passed"
+        }
+      ]
+    }
+  ],
+  "artifact_sha256": {
+    "build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "typecheck.log": "4a1cdc6a34ce3ea37cf98dcc2202fc184ee9f7af2d346cb242cec35b1f2e8f11",
+    "native.json": "5d62eac31ce9f1a5cdbb32374dabc753b06af4749e32b8ced779d8f30fbe2403",
+    "base.txt": "54d82bb3467cd5d8a2dd02b40c997d29d6b31351ccf6ed67f5ae14dcf9a83929",
+    "native.log": "5d62eac31ce9f1a5cdbb32374dabc753b06af4749e32b8ced779d8f30fbe2403",
+    "tests.json": "3f02117a88174f66751270174dd716d3dbd5c5a7b986fe79b88d6bb790e1fae6",
+    "candidate.patch": "a461c24833da2e17404d309e03eeb5867a04d7ce5b1d68133dd8f7489d57e6e7",
+    "tests.log": "7e0e659e6a762557c88073911f85290840135172861bfdfa6cd7dd79ff9e5122"
+  },
+  "source_sha256": {
+    "backend/ts/src/programFeed/ChatChu.ts": "74c570bbc46e95f39f221592920a2b8a315015a1f7894af2059f2d14f63facc4",
+    "backend/ts/src/programFeed/ChatTurns.ts": "1db99bb32cdef95e8bb922f52fba4b00e750576f41e0038e3d58e2ec78e4ecae",
+    "backend/ts/src/programFeed/Store.ts": "1d97d3071b6129d4feefc0d5c43063c38a7674b76668704f79d66125448a68be",
+    "backend/ts/src/programFeed/Substrate.ts": "9aeac493e12b0db13ed3a104c0616abcd1cc9161806269394f3f4592f29cbb99",
+    "backend/ts/src/api/ProgramFeedApi.ts": "97a394a9ccd6bbc2e06a55e9c38a6b82fe639306435075e6ebd6bdf65ce459f0",
+    "backend/ts/src/server/ProgramFeedHandlers.ts": "a363374f7d9336d4bb231800959c5a7bf3e576ef6cf2dd0ff5e049a11002aae2",
+    "backend/ts/test/program-feed-chat-chu.test.ts": "4a4a61f1ab6cb14f133cce97e92122eba4657e9f9ee8656828e45c56dcc68741",
+    "backend/ts/test/program-feed-chat-turns.test.ts": "9b841f3b9d6d8914750d4e38877c0b9a5245f9eae680620aa2ec2481c3fe0130",
+    "backend/ts/test/program-feed-http.test.ts": "f865e27ac815e577c83cad3d2e30e72adc63d832f78a26e5e32b426dfd758d72",
+    "backend/docs/HOH_CHAT_CHU.md": "25a469ae2ca49f7a0d9818dc67c54639c8dfb8ddf27a579b2dfd44927c74ebd7",
+    "backend/engineering/chat-chu-f1/prediction.json": "822bf80a32951702d1c5eb6cbbe2daf7120c524b0429dfe988df78c13a918a40",
+    "backend/engineering/chat-chu-f1/verify_native.py": "c226f534da4cedb3490441ac03fa085067df26123b3317daa6a96246b2deb224",
+    "backend/engineering/chat-chu-f1/check.py": "e40e864169e89975f0f3e376117bffd0c7cb954e2150cb19ba51ca4d32098a11",
+    "backend/engineering/chat-chu-f1/build_report.py": "967b1c38d8d126529089ad0b7a6c95171ce8439dfa8c44aa6d152230e8201b5f"
+  },
+  "initial_typecheck": "Two local typing errors (optional schema field and test-state union) were corrected before final checks.",
+  "initial_regression": "Shared-tree run had 86/96 passing assertions during concurrent recommendation/personalization edits. The context assertion was corrected to compare request-time readContent, rather than the earlier open response. Final evidence uses a frozen base plus only this adapter's patch.",
+  "base_revision": "31665463fe01277e2db337479b1e89a259bcfb49",
+  "scope": "Frozen Git archive plus selected HOH adapter changes. Existing pinned node_modules reused; no second Git worktree. Native run uses controlled fixture profiles only."
+}

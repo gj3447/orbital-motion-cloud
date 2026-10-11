@@ -1,0 +1,65 @@
+{
+  "schema": "omc-hoh-chat-f1-progress/1",
+  "authority": "SECONDARY_AI",
+  "recorded_at": "2026-10-11T12:39:05.363055+00:00",
+  "work_uid": "omc:chat-flywheel:work:F1",
+  "status": "BOUNDED_ADAPTER_REFERENCE_VERIFIED",
+  "remaining_f1": "PRODUCTION_OWNER_ADMISSION_PENDING",
+  "next_work_uid": "omc:chat-flywheel:work:F2",
+  "next_status": "PLANNED_CONSUMER_CONTRACT; RUNTIME_NOT_READY",
+  "owner": {
+    "repository": "https://github.com/gj3447/HOH",
+    "commit": "aa07e606b802071079e3e62b9eaa03550bc0c4b5",
+    "branch": "main",
+    "remote_verified": true
+  },
+  "source_user_request": {
+    "path": "user-request.txt",
+    "authority": "USER_PRIMARY",
+    "sha256": "1380cc9c262b1134bac1fa260a622e99b754fd065c0a18c0cbd10b22cc40f51f"
+  },
+  "snapshots": [
+    {
+      "path": "implementation-note.md",
+      "owner_path": "backend/docs/HOH_CHAT_CHU.md",
+      "sha256": "25a469ae2ca49f7a0d9818dc67c54639c8dfb8ddf27a579b2dfd44927c74ebd7",
+      "bytes": 8621,
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "path": "implementation-graph.json",
+      "owner_path": "backend/engineering/chat-chu-f1/graph.json",
+      "sha256": "4881f0fc371f4cba9542e4e780a4b145376baa7647d2bfc9f1ee5bc7d78a7f5e",
+      "bytes": 20774,
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "path": "verification.json",
+      "owner_path": "backend/engineering/chat-chu-f1/verification.json",
+      "sha256": "383815522106e74beb70b716ed64decf8b1a3fea3bb93ab1fe111ff3df5af2f5",
+      "bytes": 20150,
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "path": "native-verification.json",
+      "owner_path": "backend/engineering/chat-chu-f1/native-verification.json",
+      "sha256": "5d62eac31ce9f1a5cdbb32374dabc753b06af4749e32b8ced779d8f30fbe2403",
+      "bytes": 2180,
+      "verification": "COMMIT_BYTES_MATCH"
+    }
+  ],
+  "validation": {
+    "typescript": "PASS",
+    "build": "PASS",
+    "tests_passed": 91,
+    "native_status": "REFERENCE_MODEL_ACCEPTED",
+    "native_versions": 2,
+    "rejected_native_negative_controls": 7,
+    "graph_nodes": 31,
+    "graph_edges": 40,
+    "graph_questions": 5,
+    "rejected_graph_negative_controls": 6
+  },
+  "scope": "Request-time context capture, authenticated CHU projection, actual pinned in-memory owner-model compatibility. No production admission, HSWM execution, learning/efficacy claim or deployment.",
+  "old_design_graph": "The source-bound design revision remains unchanged; this additive observation records bounded implementation progress."
+}
