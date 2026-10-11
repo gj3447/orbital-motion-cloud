@@ -189,7 +189,7 @@
   "guides": [
     {
       "repository_path": "README.md",
-      "sha256": "353d590e832786ceea72cf6efbaf84873c32cd4b14eaa42455c87626f95eb7ab",
+      "sha256": "2a76558b705deeaf44bc20791d8d39854e6604b157c01ce6820a93846f93526f",
       "authority": "SECONDARY_AI"
     },
     {
@@ -271,6 +271,11 @@
       "repository_path": "docs/HOH_CHAT_FLYWHEEL_SOURCE_REVIEW.md",
       "authority": "SECONDARY_AI",
       "sha256": "825c47864dc42ed416bf11dcef2af0516ee3729837235d628d07b00c2aa6049d"
+    },
+    {
+      "repository_path": "docs/HSWM_GRAPH_CHU_OS_BOUNDARY.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "c72c75944010d2c8c25c50ff70de4089cba8513870c5478a125251bb31f0c7dc"
     }
   ]
 }

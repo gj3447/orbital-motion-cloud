@@ -1,0 +1,85 @@
+{
+  "schema": "omc-hswm-chu-scope-correction/1",
+  "authority": "SECONDARY_AI",
+  "recorded_at": "2026-10-11T12:57:15.753860+00:00",
+  "user_source": {
+    "path": "user-verbatim.txt",
+    "authority": "USER_PRIMARY",
+    "sha256": "a3624176d9efcfb3bce352484d0c75e9b5161dd34157e3c37a1deacb2b1a00c1"
+  },
+  "current_guide": "docs/HSWM_GRAPH_CHU_OS_BOUNDARY.md",
+  "roles": {
+    "sym:Concept:hswm": "SEMANTIC_COGNITIVE_GRAPH_AND_TRANSITIONS",
+    "https://github.com/gj3447/CHU": "OPERATING_SYSTEM",
+    "sym:Character:입체운행구름": "HARDWARE_ADAPTIVE_PLACEMENT",
+    "sym:KG_CREATIVE:hoh": "USER_DEVICE_INTERACTION"
+  },
+  "role_scope": "Task interpretation of existing subjects, not new global identity ratification",
+  "corrected_observation": {
+    "work_uid": "omc:chat-flywheel:work:F1",
+    "owner_commit": "aa07e606b802071079e3e62b9eaa03550bc0c4b5",
+    "actual_implementation": "CHU_OS_STORAGE_EXCHANGE_ADAPTER",
+    "graph_kind": "IMPLEMENTATION_EVIDENCE_GRAPH",
+    "hswm_semantic_graph_delivered": false,
+    "prior_test_results_preserved": true
+  },
+  "next_work": {
+    "work_uid": "omc:chat-flywheel:work:F2",
+    "priority": "HOH_TO_HSWM_CANONICAL_GRAPH_MAPPING_AND_STANDARD_VALIDATION",
+    "status": "NOT_IMPLEMENTED_BY_THIS_CORRECTION",
+    "chu_production_kernel_required_for_graph_design": false,
+    "runtime_execution": "NOT_PERFORMED",
+    "standards_validation": "NOT_PERFORMED"
+  },
+  "sources": [
+    {
+      "repository": "https://github.com/gj3447/HSWM",
+      "revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "path": "docs/canon/USER_PRIMARY_CHU_HSWM_OS_AI_2026-10-07.md",
+      "sha256": "80145f46238258396c3a459f975ef281383914b772cda3f1d5aa07f9c5e7ad70",
+      "verification": "COMMIT_BYTES_MATCH",
+      "use": "SOURCE_REVIEW_ONLY; NO_RUNTIME_EXECUTION"
+    },
+    {
+      "repository": "https://github.com/gj3447/HSWM",
+      "revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "path": "docs/canon/sources/USER_PRIMARY_CHU_HSWM_OS_AI_2026-10-07.txt",
+      "sha256": "27e48e1817cf18a3aa76d857943540c606738f3e421ae01516926ee24cdcd68d",
+      "verification": "COMMIT_BYTES_MATCH",
+      "use": "SOURCE_REVIEW_ONLY; NO_RUNTIME_EXECUTION"
+    },
+    {
+      "repository": "https://github.com/gj3447/HSWM",
+      "revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "path": "docs/canon/USER_PRIMARY_HSWM_STATE_LOCAL_OPERATOR_HYPERON_2026-09-14.md",
+      "sha256": "af5490bcb3aa7830dbfcf9c806c0e9d0b966d4c3a4e246ef1140f77bd3d8c32a",
+      "verification": "COMMIT_BYTES_MATCH",
+      "use": "SOURCE_REVIEW_ONLY; NO_RUNTIME_EXECUTION"
+    },
+    {
+      "repository": "https://github.com/gj3447/HSWM",
+      "revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "path": "docs/operations/HSWM_RESEARCH_WORKFLOW.md",
+      "sha256": "9933ff41cccf6c676d11d6c8d7a0b7a5c519f67826d114ffc00edf45d00178b4",
+      "verification": "COMMIT_BYTES_MATCH",
+      "use": "SOURCE_REVIEW_ONLY; NO_RUNTIME_EXECUTION"
+    },
+    {
+      "repository": "https://github.com/gj3447/HSWM",
+      "revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "path": "src/hswm/effect-runtime/src/canonical-atom-v2-schema.ts",
+      "sha256": "65696f948a410954c12fb93c1fce1fe68e875454002844ff1e3e3688c4da3a78",
+      "verification": "COMMIT_BYTES_MATCH",
+      "use": "SOURCE_REVIEW_ONLY; NO_RUNTIME_EXECUTION"
+    },
+    {
+      "repository": "https://github.com/gj3447/HSWM",
+      "revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "path": "src/hswm/effect-runtime/src/canonical-atom-v2-rdf-projection.ts",
+      "sha256": "6bba63be02c36fd245c89a0739afc8def0336015133563be9e89f576007bee41",
+      "verification": "COMMIT_BYTES_MATCH",
+      "use": "SOURCE_REVIEW_ONLY; NO_RUNTIME_EXECUTION"
+    }
+  ],
+  "scope": "Current task correction; no new research result, shared KG publication, runtime schema change or deployment."
+}

@@ -27,11 +27,13 @@ The [verbatim request](records/2026-10-10/resource-credit-shared-intelligence/us
 is preserved separately from the explanatory design note and the older source archive.
 
 
-The [HOH chat flywheel plan](docs/HOH_CHAT_FLYWHEEL_PLAN.md) connects the user's near-term flywheel priority and long-term device participation direction. It specifies a CHU/HSWM-based conversation path, OMC execution, independently assessed outcomes and revision consumption in the next turn, with eight planned implementation stages. The [source review](docs/HOH_CHAT_FLYWHEEL_SOURCE_REVIEW.md) and [typed plan graph](graph/hoh-chat-flywheel.json) preserve observed source structure, user input and AI design separately. Run `python3 records/2026-10-11/hoh-chat-flywheel/validate.py`; this validates the plan, not a deployed cognitive loop.
+The [current HSWM graph / CHU OS correction](docs/HSWM_GRAPH_CHU_OS_BOUNDARY.md) governs the next work: engineer the HSWM semantic and cognitive graph using its existing canonical schema and standards tooling. CHU is the operating system; OMC adapts physical placement. The earlier CHU storage adapter and implementation-evidence graph do not establish an HSWM graph implementation.
+
+The historical [HOH chat flywheel plan](docs/HOH_CHAT_FLYWHEEL_PLAN.md) connects the user's near-term flywheel priority and long-term device participation direction. It specifies a CHU/HSWM-based conversation path, OMC execution, independently assessed outcomes and revision consumption in the next turn, with eight planned implementation stages. The [source review](docs/HOH_CHAT_FLYWHEEL_SOURCE_REVIEW.md) and [typed plan graph](graph/hoh-chat-flywheel.json) preserve observed source structure, user input and AI design separately. Run `python3 records/2026-10-11/hoh-chat-flywheel/validate.py`; this validates the plan, not a deployed cognitive loop.
 
 The [F0 implementation record](records/2026-10-11/hoh-chat-f0/README.md) now links the bounded HOH host implementation to that plan: durable turns and outcomes, atomic confirmation/cancellation, restart recovery, and authenticated history/assessment APIs. Type checking, build and 110 tests passed locally; CHU admission, HSWM execution and live deployment remain subsequent work.
 
-The [F1 implementation record](records/2026-10-11/hoh-chat-f1/README.md) adds request-time context capture and an authenticated CHU v0.1 graph projection. The actual pinned CHU reference model verifies bytes, ordered roles and two immutable snapshots; 91 tests, type checking and build passed on a frozen source snapshot. Production CHU admission and HSWM execution remain open.
+The [F1 implementation record](records/2026-10-11/hoh-chat-f1/README.md) adds request-time context capture and an authenticated CHU OS storage/exchange projection. The actual pinned CHU reference model verifies bytes, ordered roles and two immutable snapshots; 91 tests, type checking and build passed on a frozen source snapshot. HSWM semantic graph construction and its standards validation remain open; the next priority is that HSWM graph work. Production CHU admission and HSWM execution are separate remaining tasks.
 
 ## Content index
 
