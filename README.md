@@ -26,6 +26,9 @@ and use the larger HSWM·CHU intelligence through a P2P economy and mutual agree
 The [verbatim request](records/2026-10-10/resource-credit-shared-intelligence/user-verbatim.txt)
 is preserved separately from the explanatory design note and the older source archive.
 
+
+The [HOH chat flywheel plan](docs/HOH_CHAT_FLYWHEEL_PLAN.md) connects the user's near-term flywheel priority and long-term device participation direction. It specifies a CHU/HSWM-based conversation path, OMC execution, independently assessed outcomes and revision consumption in the next turn, with eight planned implementation stages. The [source review](docs/HOH_CHAT_FLYWHEEL_SOURCE_REVIEW.md) and [typed plan graph](graph/hoh-chat-flywheel.json) preserve observed source structure, user input and AI design separately. Run `python3 records/2026-10-11/hoh-chat-flywheel/validate.py`; this validates the plan, not a deployed cognitive loop.
+
 ## Content index
 
 Start with [philosophical and technical-philosophical OMC](docs/OMC_LOGICAL_FOUNDATIONS.md)

@@ -1,0 +1,161 @@
+{
+  "schema": "omc-chat-flywheel-validation/1",
+  "status": "PASS",
+  "recorded_at": "2026-10-11T03:59:15.437011+00:00",
+  "graph_sha256": "5f1f7f7bc7c1adfd3206dbb95f8477717ffee684f6e0e2b3d2b39015450f59dc",
+  "contract_sha256": "8a812603cf77860006e279fee4ab6b209c3283fbd770a501c1379537fffa6316",
+  "validator_sha256": "268ef983e5b21d783afcce61785baa9ff1b4d140d31095c008287d5a96a56841",
+  "checked": {
+    "nodes": 68,
+    "edges": 105,
+    "sources": [
+      "omc:chat-flywheel:source:omc:FLYWHEEL",
+      "omc:chat-flywheel:source:omc:flywheel",
+      "omc:chat-flywheel:source:omc:HARDWARE_SOFTWARE_FIT_PLAN",
+      "omc:chat-flywheel:source:omc:RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE",
+      "omc:chat-flywheel:source:hoh:Chat",
+      "omc:chat-flywheel:source:hoh:Planner",
+      "omc:chat-flywheel:source:hoh:Substrate",
+      "omc:chat-flywheel:source:hoh:HSWM_CONTENT_PROFILE",
+      "omc:chat-flywheel:source:hswm:HSWM_CORE_SELECTION_LEARNING_BRIDGE_2026-10-10",
+      "omc:chat-flywheel:source:hswm:USER_PRIMARY_CHU_BEING_HSWM_STRUCTURE_2026-10-07",
+      "omc:chat-flywheel:source:hswm:USER_PRIMARY_CHU_HSWM_OS_AI_2026-10-07",
+      "omc:chat-flywheel:source:hswm:USER_PRIMARY_HSWM_LIVING_HARNESS_WORLD_MODEL_2026-08-20",
+      "omc:chat-flywheel:source:user-direction",
+      "omc:chat-flywheel:source:user-request",
+      "omc:chat-flywheel:source:design",
+      "omc:chat-flywheel:source:review"
+    ],
+    "answers": [
+      {
+        "id": "chat-implementation",
+        "subjects": [
+          "omc:chat-flywheel:work:F0",
+          "omc:chat-flywheel:work:F1",
+          "omc:chat-flywheel:work:F2",
+          "omc:chat-flywheel:work:F3",
+          "omc:chat-flywheel:work:F4"
+        ]
+      },
+      {
+        "id": "long-term-device",
+        "subjects": [
+          "omc:chat-flywheel:work:F6",
+          "omc:chat-flywheel:work:F7"
+        ]
+      },
+      {
+        "id": "feedback-gates",
+        "subjects": [
+          "omc:chat-flywheel:work:F2",
+          "omc:chat-flywheel:work:F3"
+        ]
+      },
+      {
+        "id": "source-attribution",
+        "subjects": [
+          "omc:chat-flywheel:source:user-request"
+        ]
+      },
+      {
+        "id": "placement-owner",
+        "subjects": [
+          "sym:Character:입체운행구름"
+        ]
+      },
+      {
+        "id": "turn-participants",
+        "subjects": [
+          "omc:chat-flywheel:contract:application",
+          "omc:chat-flywheel:contract:assessment",
+          "omc:chat-flywheel:contract:context",
+          "omc:chat-flywheel:contract:intent",
+          "omc:chat-flywheel:contract:next",
+          "omc:chat-flywheel:contract:proposal",
+          "omc:chat-flywheel:contract:receipt",
+          "omc:chat-flywheel:contract:selection",
+          "omc:chat-flywheel:contract:turn"
+        ]
+      },
+      {
+        "id": "first-loop-evaluations",
+        "subjects": [
+          "omc:chat-flywheel:evaluation:F0",
+          "omc:chat-flywheel:evaluation:F1",
+          "omc:chat-flywheel:evaluation:F2",
+          "omc:chat-flywheel:evaluation:F3",
+          "omc:chat-flywheel:evaluation:F4",
+          "omc:chat-flywheel:evaluation:F5"
+        ]
+      }
+    ],
+    "cycles": [
+      "turn-learning",
+      "participation-economy",
+      "credit-use"
+    ]
+  },
+  "negative_controls": [
+    {
+      "case": "duplicate UID",
+      "status": "REJECTED",
+      "reason": "duplicate node"
+    },
+    {
+      "case": "dangling endpoint",
+      "status": "REJECTED",
+      "reason": "missing endpoint"
+    },
+    {
+      "case": "AI interpretation promoted",
+      "status": "REJECTED",
+      "reason": "AI authority or plan promoted"
+    },
+    {
+      "case": "unrun work complete",
+      "status": "REJECTED",
+      "reason": "work falsely complete"
+    },
+    {
+      "case": "unrun evaluation result",
+      "status": "REJECTED",
+      "reason": "evaluation falsely executed"
+    },
+    {
+      "case": "fake native admission",
+      "status": "REJECTED",
+      "reason": "false native admission"
+    },
+    {
+      "case": "dependency cycle",
+      "status": "REJECTED",
+      "reason": "dependency cycle"
+    },
+    {
+      "case": "missing feedback closure",
+      "status": "REJECTED",
+      "reason": "cardinality omc:chat-flywheel:stage:turn MAY_ENABLE"
+    },
+    {
+      "case": "n-ary role destroyed",
+      "status": "REJECTED",
+      "reason": "participant roles"
+    },
+    {
+      "case": "participant order collision",
+      "status": "REJECTED",
+      "reason": "participant order"
+    },
+    {
+      "case": "wrong placement owner",
+      "status": "REJECTED",
+      "reason": "CQ identity mismatch: placement-owner"
+    },
+    {
+      "case": "source byte mismatch",
+      "status": "REJECTED",
+      "reason": "source digest mismatch: omc:chat-flywheel:source:omc:FLYWHEEL"
+    }
+  ],
+  "scope": "Source/plan/graph integrity only. No actual cognitive execution, model efficacy or economics measured."
+}

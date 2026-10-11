@@ -1,0 +1,1964 @@
+{
+  "schema": "omc-hoh-chat-flywheel/1",
+  "scope": "OWNER_LOCAL_DESIGN_GRAPH",
+  "authority": "SECONDARY_AI",
+  "recorded_on": "2026-10-11",
+  "runtime_status": "NOT_IMPLEMENTED_BY_THIS_PLAN",
+  "nodes": [
+    {
+      "uid": "omc:chat-flywheel:source:omc:FLYWHEEL",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/OMC/docs/FLYWHEEL.md",
+      "sha256": "ea57b22b018a47e8a81277dec18b5c2014a9620ea512e883ad03516601104685",
+      "bytes": 8869,
+      "original_repository": "https://github.com/gj3447/orbital-motion-cloud.git",
+      "original_path": "docs/FLYWHEEL.md",
+      "source_revision": "24f4ecea472afccab03f4059def3c6c05663b802",
+      "observed_checkout_head": "24f4ecea472afccab03f4059def3c6c05663b802",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "SECONDARY_AI",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "docs/FLYWHEEL.md",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:omc:flywheel",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/OMC/graph/flywheel.json",
+      "sha256": "6e62f960d717ff8c5df2b92335fea82d7796ae75b20362f313a980e3bdc8bc79",
+      "bytes": 25795,
+      "original_repository": "https://github.com/gj3447/orbital-motion-cloud.git",
+      "original_path": "graph/flywheel.json",
+      "source_revision": "24f4ecea472afccab03f4059def3c6c05663b802",
+      "observed_checkout_head": "24f4ecea472afccab03f4059def3c6c05663b802",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "SECONDARY_AI",
+      "read_scope": "SELECTED_RELEVANT_PASSAGES_AND_GRAPH_FIELDS; full file bytes pinned",
+      "type": "Source",
+      "label": "graph/flywheel.json",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:omc:HARDWARE_SOFTWARE_FIT_PLAN",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/OMC/docs/HARDWARE_SOFTWARE_FIT_PLAN.md",
+      "sha256": "93286d14cf6b07f5693594c280f81c07d09e0be9ef0b9a419e1f74255a6da9af",
+      "bytes": 13637,
+      "original_repository": "https://github.com/gj3447/orbital-motion-cloud.git",
+      "original_path": "docs/HARDWARE_SOFTWARE_FIT_PLAN.md",
+      "source_revision": "24f4ecea472afccab03f4059def3c6c05663b802",
+      "observed_checkout_head": "24f4ecea472afccab03f4059def3c6c05663b802",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "SECONDARY_AI",
+      "read_scope": "SELECTED_RELEVANT_PASSAGES_AND_GRAPH_FIELDS; full file bytes pinned",
+      "type": "Source",
+      "label": "docs/HARDWARE_SOFTWARE_FIT_PLAN.md",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:omc:RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/OMC/docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md",
+      "sha256": "a6d8f2716cbd2b81f905248f981b81c971caff7765bc007dafe81f4983713979",
+      "bytes": 8342,
+      "original_repository": "https://github.com/gj3447/orbital-motion-cloud.git",
+      "original_path": "docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md",
+      "source_revision": "24f4ecea472afccab03f4059def3c6c05663b802",
+      "observed_checkout_head": "24f4ecea472afccab03f4059def3c6c05663b802",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "SECONDARY_AI",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "docs/RESOURCE_CREDIT_AND_SHARED_INTELLIGENCE.md",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:hoh:Chat",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/HOH/backend/ts/src/programFeed/Chat.ts",
+      "sha256": "195c4b2691cb8a868be52ac90c08f8b59c1f479bb572efa888bb8e4098e7a2cf",
+      "bytes": 5807,
+      "original_repository": "https://github.com/gj3447/HOH.git",
+      "original_path": "backend/ts/src/programFeed/Chat.ts",
+      "source_revision": "2cbd4344140b81f093815e8b8760b60a23251718",
+      "observed_checkout_head": "2cbd4344140b81f093815e8b8760b60a23251718",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "SOURCE_CODE",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "backend/ts/src/programFeed/Chat.ts",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:hoh:Planner",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/HOH/backend/ts/src/programFeed/Planner.ts",
+      "sha256": "51f188c1f2c9665cf5b51d0e5477681c62c8152b446bf6518cf6e7f4f37809c7",
+      "bytes": 5802,
+      "original_repository": "https://github.com/gj3447/HOH.git",
+      "original_path": "backend/ts/src/programFeed/Planner.ts",
+      "source_revision": "2cbd4344140b81f093815e8b8760b60a23251718",
+      "observed_checkout_head": "2cbd4344140b81f093815e8b8760b60a23251718",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "SOURCE_CODE",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "backend/ts/src/programFeed/Planner.ts",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:hoh:Substrate",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/HOH/backend/ts/src/programFeed/Substrate.ts",
+      "sha256": "9aeac493e12b0db13ed3a104c0616abcd1cc9161806269394f3f4592f29cbb99",
+      "bytes": 2407,
+      "original_repository": "https://github.com/gj3447/HOH.git",
+      "original_path": "backend/ts/src/programFeed/Substrate.ts",
+      "source_revision": "2cbd4344140b81f093815e8b8760b60a23251718",
+      "observed_checkout_head": "2cbd4344140b81f093815e8b8760b60a23251718",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "SOURCE_CODE",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "backend/ts/src/programFeed/Substrate.ts",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:hoh:HSWM_CONTENT_PROFILE",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/HOH/docs/HSWM_CONTENT_PROFILE.md",
+      "sha256": "1d5dd00049f71559e4b2db082a7d45c353de19777e22ff9aa909913ae49465b8",
+      "bytes": 5623,
+      "original_repository": "https://github.com/gj3447/HOH.git",
+      "original_path": "docs/HSWM_CONTENT_PROFILE.md",
+      "source_revision": "2cbd4344140b81f093815e8b8760b60a23251718",
+      "observed_checkout_head": "2cbd4344140b81f093815e8b8760b60a23251718",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "SECONDARY_AI",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "docs/HSWM_CONTENT_PROFILE.md",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:hswm:HSWM_CORE_SELECTION_LEARNING_BRIDGE_2026-10-10",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/HSWM/docs/operations/HSWM_CORE_SELECTION_LEARNING_BRIDGE_2026-10-10.md",
+      "sha256": "dc40e619126d53804dd85e460ae5550c55aaa6c578fbc0de2cad0c38e990fb36",
+      "bytes": 13805,
+      "original_repository": "git@github.com:gj3447/HSWM.git",
+      "original_path": "docs/operations/HSWM_CORE_SELECTION_LEARNING_BRIDGE_2026-10-10.md",
+      "source_revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "observed_checkout_head": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "SECONDARY_AI",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "docs/operations/HSWM_CORE_SELECTION_LEARNING_BRIDGE_2026-10-10.md",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:hswm:USER_PRIMARY_CHU_BEING_HSWM_STRUCTURE_2026-10-07",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/HSWM/docs/canon/USER_PRIMARY_CHU_BEING_HSWM_STRUCTURE_2026-10-07.md",
+      "sha256": "edf0f916564602ae21ce5b008f7a6aac0cbda077b5c788c15b546574f76ac41e",
+      "bytes": 8029,
+      "original_repository": "git@github.com:gj3447/HSWM.git",
+      "original_path": "docs/canon/USER_PRIMARY_CHU_BEING_HSWM_STRUCTURE_2026-10-07.md",
+      "source_revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "observed_checkout_head": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "MIXED_ATTRIBUTED_SOURCE",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "docs/canon/USER_PRIMARY_CHU_BEING_HSWM_STRUCTURE_2026-10-07.md",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:hswm:USER_PRIMARY_CHU_HSWM_OS_AI_2026-10-07",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/HSWM/docs/canon/USER_PRIMARY_CHU_HSWM_OS_AI_2026-10-07.md",
+      "sha256": "80145f46238258396c3a459f975ef281383914b772cda3f1d5aa07f9c5e7ad70",
+      "bytes": 3791,
+      "original_repository": "git@github.com:gj3447/HSWM.git",
+      "original_path": "docs/canon/USER_PRIMARY_CHU_HSWM_OS_AI_2026-10-07.md",
+      "source_revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "observed_checkout_head": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "MIXED_ATTRIBUTED_SOURCE",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "docs/canon/USER_PRIMARY_CHU_HSWM_OS_AI_2026-10-07.md",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:hswm:USER_PRIMARY_HSWM_LIVING_HARNESS_WORLD_MODEL_2026-08-20",
+      "path": "records/2026-10-11/hoh-chat-flywheel/sources/HSWM/docs/canon/sources/USER_PRIMARY_HSWM_LIVING_HARNESS_WORLD_MODEL_2026-08-20.txt",
+      "sha256": "35c911a13e7fb17ddcea19ba73303ec800296f25fb585b92300bb4977892a42e",
+      "bytes": 385,
+      "original_repository": "git@github.com:gj3447/HSWM.git",
+      "original_path": "docs/canon/sources/USER_PRIMARY_HSWM_LIVING_HARNESS_WORLD_MODEL_2026-08-20.txt",
+      "source_revision": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "observed_checkout_head": "9f0587d4edf32f257e03c6d8228aa78785c6cea3",
+      "verification": "COMMIT_BYTES_MATCH",
+      "authority": "USER_PRIMARY",
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "docs/canon/sources/USER_PRIMARY_HSWM_LIVING_HARNESS_WORLD_MODEL_2026-08-20.txt",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:user-direction",
+      "path": "records/2026-10-11/hoh-chat-flywheel/user-direction.txt",
+      "sha256": "306dd6cabf62aa686f864fb3d93ead7341c7909523fb54f5385ff2bb97aa3843",
+      "bytes": 197,
+      "authority": "USER_PRIMARY",
+      "verification": "CURRENT_CONVERSATION_VERBATIM_PLUS_LF",
+      "uttered_at": null,
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "records/2026-10-11/hoh-chat-flywheel/user-direction.txt",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:user-request",
+      "path": "records/2026-10-11/hoh-chat-flywheel/user-request.txt",
+      "sha256": "78c319fc64be44cec8da733da0b81ede888e617f839fe754bf23aada25449117",
+      "bytes": 332,
+      "authority": "USER_PRIMARY",
+      "verification": "CURRENT_CONVERSATION_VERBATIM_PLUS_LF",
+      "uttered_at": null,
+      "read_scope": "ENTIRE_FILE",
+      "type": "Source",
+      "label": "records/2026-10-11/hoh-chat-flywheel/user-request.txt",
+      "status": "PINNED"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:design",
+      "type": "Source",
+      "label": "design",
+      "path": "docs/HOH_CHAT_FLYWHEEL_PLAN.md",
+      "sha256": "c319e9d4c558fd7132c7e63bf27e10ea61d0e25023b82dce730cb2ac492302b1",
+      "authority": "SECONDARY_AI",
+      "status": "PINNED",
+      "verification": "LOCAL_AUTHORED_BYTES"
+    },
+    {
+      "uid": "omc:chat-flywheel:source:review",
+      "type": "Source",
+      "label": "review",
+      "path": "docs/HOH_CHAT_FLYWHEEL_SOURCE_REVIEW.md",
+      "sha256": "825c47864dc42ed416bf11dcef2af0516ee3729837235d628d07b00c2aa6049d",
+      "authority": "SECONDARY_AI",
+      "status": "PINNED",
+      "verification": "LOCAL_AUTHORED_BYTES"
+    },
+    {
+      "uid": "sym:KG_CREATIVE:hoh",
+      "type": "Component",
+      "label": "HOH",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "identity_scope": "EXISTING_UID_REFERENCE",
+      "runtime_state": "NO_NEW_CONNECTION"
+    },
+    {
+      "uid": "sym:Character:입체운행구름",
+      "type": "Component",
+      "label": "OMC",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "identity_scope": "EXISTING_UID_REFERENCE",
+      "runtime_state": "NO_NEW_CONNECTION"
+    },
+    {
+      "uid": "sym:Concept:hswm",
+      "type": "Component",
+      "label": "HSWM",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "identity_scope": "EXISTING_UID_REFERENCE",
+      "runtime_state": "NO_NEW_CONNECTION"
+    },
+    {
+      "uid": "omc:flywheel:subject:chu",
+      "type": "Component",
+      "label": "CHU",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "identity_scope": "EXISTING_UID_REFERENCE",
+      "runtime_state": "NO_NEW_CONNECTION"
+    },
+    {
+      "uid": "omc:flywheel:subject:mhc",
+      "type": "Component",
+      "label": "MHC",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "identity_scope": "EXISTING_UID_REFERENCE",
+      "runtime_state": "NO_NEW_CONNECTION"
+    },
+    {
+      "uid": "omc:chat-flywheel:component:foundation",
+      "type": "Component",
+      "label": "FOUNDATION",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "identity_scope": "LOCAL_ROLE_REFERENCE_NOT_NEW_CANON",
+      "runtime_state": "NO_NEW_CONNECTION"
+    },
+    {
+      "uid": "omc:chat-flywheel:requirement:future",
+      "type": "Requirement",
+      "label": "HOH를 통해 기기가 Foundation·OMC의 참여 노드가 되는 장기 방향",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "epistemic_state": "AI_INTERPRETATION_OF_USER_REQUEST",
+      "verbatim_excerpt": "그 기기에 omc 기반으로"
+    },
+    {
+      "uid": "omc:chat-flywheel:requirement:first",
+      "type": "Requirement",
+      "label": "플라이휠을 먼저 만든다",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "epistemic_state": "AI_INTERPRETATION_OF_USER_REQUEST",
+      "verbatim_excerpt": "일단 플라이휠부터 만들어줘봐봐"
+    },
+    {
+      "uid": "omc:chat-flywheel:requirement:chat",
+      "type": "Requirement",
+      "label": "HOH 채팅 자체를 OMC 기반 CHU·HSWM으로 만든다",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "epistemic_state": "AI_INTERPRETATION_OF_USER_REQUEST",
+      "verbatim_excerpt": "hoh 채팅창 자체도 omc 기반의 chu hswm 이여야해"
+    },
+    {
+      "uid": "omc:chat-flywheel:requirement:graph",
+      "type": "Requirement",
+      "label": "사용자 내용을 계획과 표준 그래프로 구축한다",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "epistemic_state": "AI_INTERPRETATION_OF_USER_REQUEST",
+      "verbatim_excerpt": "표준 그래프 엔지니어링으로 구축"
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:turn",
+      "type": "Contract",
+      "label": "TurnEnvelope",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "turnId",
+        "conversationId",
+        "parentTurnId",
+        "actorRef",
+        "requestId",
+        "messageRef",
+        "contentRevision",
+        "purpose",
+        "permittedScope",
+        "budget",
+        "cancelRef"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:context",
+      "type": "Contract",
+      "label": "ContextFrame",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "stateRevision",
+        "schemaRef",
+        "contentDescriptors",
+        "relationId",
+        "orderedParticipants",
+        "mandatoryRefs",
+        "exceptionRefs",
+        "readScope"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:selection",
+      "type": "Contract",
+      "label": "SelectionTrace",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "turnId",
+        "attemptId",
+        "stateRevision",
+        "policyRevision",
+        "modelRevision",
+        "candidateSet",
+        "chosen",
+        "selectionScore",
+        "loggingProbability",
+        "predictedCost"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:intent",
+      "type": "Contract",
+      "label": "WorkloadIntent",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "traceRef",
+        "semanticContract",
+        "variantDigest",
+        "inputRevision",
+        "allowedHosts",
+        "deadline",
+        "resourceBounds",
+        "idempotencyKey",
+        "reservationFence"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:receipt",
+      "type": "Contract",
+      "label": "ExecutionReceipt",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "runId",
+        "attemptId",
+        "intentRef",
+        "executorRef",
+        "observedAt",
+        "executionStatus",
+        "inputDigest",
+        "outputDigest",
+        "beforeRevision",
+        "afterRevision",
+        "actualCost"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:assessment",
+      "type": "Contract",
+      "label": "OutcomeAssessment",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "receiptRef",
+        "evaluationRevision",
+        "evaluatorRef",
+        "evidenceRef",
+        "utility",
+        "success",
+        "uncertainty",
+        "missingness",
+        "userSatisfaction"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:proposal",
+      "type": "Contract",
+      "label": "RevisionProposal",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "outcomeRef",
+        "targetRef",
+        "baseRevision",
+        "responsibleOwner",
+        "changeScope",
+        "evidenceRef",
+        "hypothesis",
+        "split"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:application",
+      "type": "Contract",
+      "label": "RevisionApplication",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "proposalRef",
+        "ownerDecision",
+        "previousRevision",
+        "newRevision",
+        "applyReceipt",
+        "restoreLineage"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:next",
+      "type": "Contract",
+      "label": "NextTurnEvidence",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "parentOutcome",
+        "consumedRevision",
+        "nextSelectionTrace",
+        "taskFamily"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:contract:contribution",
+      "type": "Contract",
+      "label": "ContributionRecord",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "schema_status": "PROPOSED_NOT_NATIVE_ADMITTED",
+      "required_fields": [
+        "offer",
+        "receiptRef",
+        "dedupKey",
+        "rulesRevision",
+        "verifiedQuantity",
+        "settlementDecision",
+        "consumptionReceipt"
+      ],
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F0",
+      "type": "WorkItem",
+      "label": "HOH durable turn/outcome 계약",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "PLANNED",
+      "horizon": "NEAR",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:evaluation:F0",
+      "type": "Evaluation",
+      "label": "중복·재시작·계정 격리·오래된 상태·취소/UNKNOWN readback",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "NOT_RUN",
+      "result": null,
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "evidence_needed": "중복·재시작·계정 격리·오래된 상태·취소/UNKNOWN readback"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F1",
+      "type": "WorkItem",
+      "label": "CHU 상태·역할·native owner admission 매핑",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "PLANNED",
+      "horizon": "NEAR",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:evaluation:F1",
+      "type": "Evaluation",
+      "label": "원문 bytes·역할·판본 보존과 불허 admission 거절",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "NOT_RUN",
+      "result": null,
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "evidence_needed": "원문 bytes·역할·판본 보존과 불허 admission 거절"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F2",
+      "type": "WorkItem",
+      "label": "HSWM CognitiveTurnPort와 실제 국소 전이",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "PLANNED",
+      "horizon": "NEAR",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:evaluation:F2",
+      "type": "Evaluation",
+      "label": "실제 모델/스텁 구분, 사전 선택 trace, 필수 역할·예외 보존",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "NOT_RUN",
+      "result": null,
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "evidence_needed": "실제 모델/스텁 구분, 사전 선택 trace, 필수 역할·예외 보존"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F3",
+      "type": "WorkItem",
+      "label": "OMC 제한 계산 실행 adapter",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "PLANNED",
+      "horizon": "NEAR",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:evaluation:F3",
+      "type": "Evaluation",
+      "label": "한 등록 호스트의 실행·비용·복구와 의미/위치 분리",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "NOT_RUN",
+      "result": null,
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "evidence_needed": "한 등록 호스트의 실행·비용·복구와 의미/위치 분리"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F4",
+      "type": "WorkItem",
+      "label": "독립 outcome에서 다음 선택까지 연결",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "PLANNED",
+      "horizon": "NEAR",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:evaluation:F4",
+      "type": "Evaluation",
+      "label": "owner 적용 revision의 다음 사용, 중복 학습 배제, 동결·복원",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "NOT_RUN",
+      "result": null,
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "evidence_needed": "owner 적용 revision의 다음 사용, 중복 학습 배제, 동결·복원"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F5",
+      "type": "WorkItem",
+      "label": "동일 예산의 효용·학습 비교",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "PLANNED",
+      "horizon": "NEAR",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:evaluation:F5",
+      "type": "Evaluation",
+      "label": "A/B/C-frozen/C-updated, 독립 holdout·모든 비용·퇴행·UNKNOWN",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "NOT_RUN",
+      "result": null,
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "evidence_needed": "A/B/C-frozen/C-updated, 독립 holdout·모든 비용·퇴행·UNKNOWN"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F6",
+      "type": "WorkItem",
+      "label": "HOH 기기 참여와 OMC capability/lease",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "PLANNED",
+      "horizon": "LATER",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:evaluation:F6",
+      "type": "Evaluation",
+      "label": "자발적 참여·중단·장비 이탈·서로 다른 하드웨어·중복 기여 검증",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "NOT_RUN",
+      "result": null,
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "evidence_needed": "자발적 참여·중단·장비 이탈·서로 다른 하드웨어·중복 기여 검증"
+    },
+    {
+      "uid": "omc:chat-flywheel:work:F7",
+      "type": "WorkItem",
+      "label": "기여 대가에서 공동 지능 이용으로 연결",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "PLANNED",
+      "horizon": "LATER",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:evaluation:F7",
+      "type": "Evaluation",
+      "label": "유효 기여·실제 서비스·비용·재이용·이탈·정산 복구",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "execution_status": "NOT_RUN",
+      "result": null,
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "evidence_needed": "유효 기여·실제 서비스·비용·재이용·이탈·정산 복구"
+    },
+    {
+      "uid": "omc:flywheel:stage:utility",
+      "type": "Stage",
+      "label": "토큰당 답변 유용성",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:omc:flywheel"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:flywheel:stage:demand",
+      "type": "Stage",
+      "label": "공동 지능 이용 수요",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:omc:flywheel"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:flywheel:stage:contribution",
+      "type": "Stage",
+      "label": "합의한 지속적 자원 기여",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:omc:flywheel"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:flywheel:stage:pool",
+      "type": "Stage",
+      "label": "공동 연산과 기억 가용성",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:omc:flywheel"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:flywheel:stage:organization",
+      "type": "Stage",
+      "label": "HSWM·CHU의 선택과 조직",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:omc:flywheel"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:flywheel:stage:experience",
+      "type": "Stage",
+      "label": "검증된 이용 경험",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:omc:flywheel"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:flywheel:stage:credits",
+      "type": "Stage",
+      "label": "MHC 기반 기여 크레딧",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:omc:flywheel"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:chat-flywheel:stage:turn",
+      "type": "Stage",
+      "label": "HOH 요청·대화",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:chat-flywheel:stage:execution",
+      "type": "Stage",
+      "label": "OMC 실제 실행",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:chat-flywheel:stage:outcome",
+      "type": "Stage",
+      "label": "귀속된 결과",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:chat-flywheel:stage:revision",
+      "type": "Stage",
+      "label": "owner가 적용한 새 상태",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ],
+      "mechanism_state": "HYPOTHESIS"
+    },
+    {
+      "uid": "omc:chat-flywheel:turn-relation-template",
+      "type": "RelationTemplate",
+      "label": "TurnRelation 역할 연결 template",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "template_only": true,
+      "source_refs": [
+        "omc:chat-flywheel:source:design"
+      ]
+    },
+    {
+      "uid": "omc:chat-flywheel:observation:hoh-port",
+      "type": "SourceObservation",
+      "label": "현재 planner 입력은 message와 OpenView다",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "scope": "STATIC_SOURCE_ONLY",
+      "excerpt": "plan(message: string, view: OpenView): Promise<Plan>"
+    },
+    {
+      "uid": "omc:chat-flywheel:observation:hoh-answer",
+      "type": "SourceObservation",
+      "label": "모델 answer와 실제 실행을 구분한다",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "scope": "STATIC_SOURCE_ONLY",
+      "excerpt": "execution: \"NONE\""
+    },
+    {
+      "uid": "omc:chat-flywheel:observation:hoh-hswm",
+      "type": "SourceObservation",
+      "label": "소유 문서는 연결 상태를 NOT_CONNECTED로 기록한다",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "scope": "STATIC_SOURCE_ONLY",
+      "excerpt": "현재 참조 구현 상태는 `NOT_CONNECTED`"
+    },
+    {
+      "uid": "omc:chat-flywheel:observation:learning-gap",
+      "type": "SourceObservation",
+      "label": "선택기는 아직 학습된 policy revision을 읽지 않는 결손이 기록돼 있다",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "scope": "STATIC_SOURCE_ONLY",
+      "excerpt": "context selector는 아직\n   학습된 policy revision을 읽지 않는다."
+    }
+  ],
+  "edges": [
+    {
+      "uid": "omc:chat-flywheel:edge:1",
+      "source": "omc:chat-flywheel:requirement:future",
+      "type": "DERIVED_FROM",
+      "target": "omc:chat-flywheel:source:user-direction",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:2",
+      "source": "omc:chat-flywheel:requirement:first",
+      "type": "DERIVED_FROM",
+      "target": "omc:chat-flywheel:source:user-request",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:3",
+      "source": "omc:chat-flywheel:requirement:chat",
+      "type": "DERIVED_FROM",
+      "target": "omc:chat-flywheel:source:user-request",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:4",
+      "source": "omc:chat-flywheel:requirement:graph",
+      "type": "DERIVED_FROM",
+      "target": "omc:chat-flywheel:source:user-request",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:5",
+      "source": "omc:chat-flywheel:contract:turn",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:KG_CREATIVE:hoh",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:6",
+      "source": "omc:chat-flywheel:contract:context",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "omc:flywheel:subject:chu",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:7",
+      "source": "omc:chat-flywheel:contract:selection",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Concept:hswm",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:8",
+      "source": "omc:chat-flywheel:contract:intent",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Character:입체운행구름",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:9",
+      "source": "omc:chat-flywheel:contract:receipt",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Character:입체운행구름",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:10",
+      "source": "omc:chat-flywheel:contract:assessment",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:KG_CREATIVE:hoh",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:11",
+      "source": "omc:chat-flywheel:contract:proposal",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Concept:hswm",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:12",
+      "source": "omc:chat-flywheel:contract:application",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Concept:hswm",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:13",
+      "source": "omc:chat-flywheel:contract:next",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:KG_CREATIVE:hoh",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:14",
+      "source": "omc:chat-flywheel:contract:contribution",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "omc:chat-flywheel:component:foundation",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:15",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:KG_CREATIVE:hoh",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:16",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:turn",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:17",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:assessment",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:18",
+      "source": "omc:chat-flywheel:work:F0",
+      "type": "TESTED_BY",
+      "target": "omc:chat-flywheel:evaluation:F0",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:19",
+      "source": "omc:chat-flywheel:work:F1",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "omc:flywheel:subject:chu",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:20",
+      "source": "omc:chat-flywheel:work:F1",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F0",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:21",
+      "source": "omc:chat-flywheel:work:F1",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:context",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:22",
+      "source": "omc:chat-flywheel:work:F1",
+      "type": "TESTED_BY",
+      "target": "omc:chat-flywheel:evaluation:F1",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:23",
+      "source": "omc:chat-flywheel:work:F2",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Concept:hswm",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:24",
+      "source": "omc:chat-flywheel:work:F2",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F1",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:25",
+      "source": "omc:chat-flywheel:work:F2",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:selection",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:26",
+      "source": "omc:chat-flywheel:work:F2",
+      "type": "TESTED_BY",
+      "target": "omc:chat-flywheel:evaluation:F2",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:27",
+      "source": "omc:chat-flywheel:work:F3",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Character:입체운행구름",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:28",
+      "source": "omc:chat-flywheel:work:F3",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F0",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:29",
+      "source": "omc:chat-flywheel:work:F3",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:intent",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:30",
+      "source": "omc:chat-flywheel:work:F3",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:receipt",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:31",
+      "source": "omc:chat-flywheel:work:F3",
+      "type": "TESTED_BY",
+      "target": "omc:chat-flywheel:evaluation:F3",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:32",
+      "source": "omc:chat-flywheel:work:F4",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Concept:hswm",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:33",
+      "source": "omc:chat-flywheel:work:F4",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F2",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:34",
+      "source": "omc:chat-flywheel:work:F4",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F3",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:35",
+      "source": "omc:chat-flywheel:work:F4",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:assessment",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:36",
+      "source": "omc:chat-flywheel:work:F4",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:proposal",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:37",
+      "source": "omc:chat-flywheel:work:F4",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:application",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:38",
+      "source": "omc:chat-flywheel:work:F4",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:next",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:39",
+      "source": "omc:chat-flywheel:work:F4",
+      "type": "TESTED_BY",
+      "target": "omc:chat-flywheel:evaluation:F4",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:40",
+      "source": "omc:chat-flywheel:work:F5",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Character:입체운행구름",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:41",
+      "source": "omc:chat-flywheel:work:F5",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F4",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:42",
+      "source": "omc:chat-flywheel:work:F5",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:selection",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:43",
+      "source": "omc:chat-flywheel:work:F5",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:receipt",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:44",
+      "source": "omc:chat-flywheel:work:F5",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:assessment",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:45",
+      "source": "omc:chat-flywheel:work:F5",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:next",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:46",
+      "source": "omc:chat-flywheel:work:F5",
+      "type": "TESTED_BY",
+      "target": "omc:chat-flywheel:evaluation:F5",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:47",
+      "source": "omc:chat-flywheel:work:F6",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "sym:Character:입체운행구름",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:48",
+      "source": "omc:chat-flywheel:work:F6",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F3",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:49",
+      "source": "omc:chat-flywheel:work:F6",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F5",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:50",
+      "source": "omc:chat-flywheel:work:F6",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:intent",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:51",
+      "source": "omc:chat-flywheel:work:F6",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:receipt",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:52",
+      "source": "omc:chat-flywheel:work:F6",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:contribution",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:53",
+      "source": "omc:chat-flywheel:work:F6",
+      "type": "TESTED_BY",
+      "target": "omc:chat-flywheel:evaluation:F6",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:54",
+      "source": "omc:chat-flywheel:work:F7",
+      "type": "RESPONSIBLE_OWNER",
+      "target": "omc:chat-flywheel:component:foundation",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:55",
+      "source": "omc:chat-flywheel:work:F7",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F5",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:56",
+      "source": "omc:chat-flywheel:work:F7",
+      "type": "REQUIRES",
+      "target": "omc:chat-flywheel:work:F6",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:57",
+      "source": "omc:chat-flywheel:work:F7",
+      "type": "USES_CONTRACT",
+      "target": "omc:chat-flywheel:contract:contribution",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:58",
+      "source": "omc:chat-flywheel:work:F7",
+      "type": "TESTED_BY",
+      "target": "omc:chat-flywheel:evaluation:F7",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:59",
+      "source": "omc:chat-flywheel:requirement:first",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F0",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:60",
+      "source": "omc:chat-flywheel:requirement:first",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F1",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:61",
+      "source": "omc:chat-flywheel:requirement:first",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F2",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:62",
+      "source": "omc:chat-flywheel:requirement:first",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F3",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:63",
+      "source": "omc:chat-flywheel:requirement:first",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F4",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:64",
+      "source": "omc:chat-flywheel:requirement:first",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F5",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:65",
+      "source": "omc:chat-flywheel:requirement:chat",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F0",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:66",
+      "source": "omc:chat-flywheel:requirement:chat",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F1",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:67",
+      "source": "omc:chat-flywheel:requirement:chat",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F2",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:68",
+      "source": "omc:chat-flywheel:requirement:chat",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F3",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:69",
+      "source": "omc:chat-flywheel:requirement:chat",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F4",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:70",
+      "source": "omc:chat-flywheel:requirement:future",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F6",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:71",
+      "source": "omc:chat-flywheel:requirement:future",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F7",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:72",
+      "source": "omc:chat-flywheel:requirement:graph",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F0",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:73",
+      "source": "omc:chat-flywheel:requirement:graph",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F1",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:74",
+      "source": "omc:chat-flywheel:requirement:graph",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F2",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:75",
+      "source": "omc:chat-flywheel:requirement:graph",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F3",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:76",
+      "source": "omc:chat-flywheel:requirement:graph",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F4",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:77",
+      "source": "omc:chat-flywheel:requirement:graph",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F5",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:78",
+      "source": "omc:chat-flywheel:requirement:graph",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F6",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:79",
+      "source": "omc:chat-flywheel:requirement:graph",
+      "type": "REALIZED_BY",
+      "target": "omc:chat-flywheel:work:F7",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:80",
+      "source": "omc:chat-flywheel:stage:turn",
+      "type": "MAY_ENABLE",
+      "target": "omc:flywheel:stage:organization",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "허용된 CHU 상태·역할·출처를 읽을 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F1"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:81",
+      "source": "omc:flywheel:stage:organization",
+      "type": "MAY_ENABLE",
+      "target": "omc:chat-flywheel:stage:execution",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "HSWM 사전 선택·작업 계약과 자원 조건을 충족할 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F3"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:82",
+      "source": "omc:chat-flywheel:stage:execution",
+      "type": "MAY_ENABLE",
+      "target": "omc:chat-flywheel:stage:outcome",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "호스트 receipt·UNKNOWN·비용을 보존할 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F3"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:83",
+      "source": "omc:chat-flywheel:stage:outcome",
+      "type": "MAY_ENABLE",
+      "target": "omc:flywheel:stage:experience",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "독립 평가나 귀속된 사용자 평가가 있을 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F4"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:84",
+      "source": "omc:flywheel:stage:experience",
+      "type": "MAY_ENABLE",
+      "target": "omc:chat-flywheel:stage:revision",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "평가한 수정 후보를 책임 owner가 적용했을 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F4"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:85",
+      "source": "omc:chat-flywheel:stage:revision",
+      "type": "MAY_ENABLE",
+      "target": "omc:chat-flywheel:stage:turn",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "다음 선택이 정확한 새 판본을 소비할 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F4"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:86",
+      "source": "omc:flywheel:stage:utility",
+      "type": "MAY_ENABLE",
+      "target": "omc:flywheel:stage:demand",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "품질·가격·지연이 재이용할 가치를 줄 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F7"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:87",
+      "source": "omc:flywheel:stage:demand",
+      "type": "MAY_ENABLE",
+      "target": "omc:flywheel:stage:contribution",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "참여 가치가 기여 비용보다 유용할 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F7"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:88",
+      "source": "omc:flywheel:stage:contribution",
+      "type": "MAY_ENABLE",
+      "target": "omc:flywheel:stage:pool",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "실제로 사용할 수 있는 기여를 검증했을 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F6"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:89",
+      "source": "omc:flywheel:stage:pool",
+      "type": "MAY_ENABLE",
+      "target": "omc:flywheel:stage:organization",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "공급을 유용한 작업과 기억으로 조직할 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F6"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:90",
+      "source": "omc:flywheel:stage:organization",
+      "type": "MAY_ENABLE",
+      "target": "omc:flywheel:stage:utility",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "동일 모델·총예산·과업에서 효용을 검증할 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F5"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:91",
+      "source": "omc:flywheel:stage:contribution",
+      "type": "MAY_ENABLE",
+      "target": "omc:flywheel:stage:credits",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "소유 규칙에 따라 중복 없는 기여를 정산했을 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F7"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:92",
+      "source": "omc:flywheel:stage:credits",
+      "type": "MAY_ENABLE",
+      "target": "omc:flywheel:stage:demand",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "condition": "얻은 대가로 실제 서비스를 이용할 수 있을 때",
+      "evaluation_uid": "omc:chat-flywheel:evaluation:F7"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:93",
+      "source": "omc:chat-flywheel:turn-relation-template",
+      "type": "PARTICIPANT",
+      "target": "omc:chat-flywheel:contract:turn",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "role": "request",
+      "index": 0,
+      "occurrence_id": "omc:chat-flywheel:turn-role:request"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:94",
+      "source": "omc:chat-flywheel:turn-relation-template",
+      "type": "PARTICIPANT",
+      "target": "omc:chat-flywheel:contract:context",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "role": "context",
+      "index": 1,
+      "occurrence_id": "omc:chat-flywheel:turn-role:context"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:95",
+      "source": "omc:chat-flywheel:turn-relation-template",
+      "type": "PARTICIPANT",
+      "target": "omc:chat-flywheel:contract:selection",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "role": "selection",
+      "index": 2,
+      "occurrence_id": "omc:chat-flywheel:turn-role:selection"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:96",
+      "source": "omc:chat-flywheel:turn-relation-template",
+      "type": "PARTICIPANT",
+      "target": "omc:chat-flywheel:contract:intent",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "role": "execution_intent",
+      "index": 3,
+      "occurrence_id": "omc:chat-flywheel:turn-role:execution_intent"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:97",
+      "source": "omc:chat-flywheel:turn-relation-template",
+      "type": "PARTICIPANT",
+      "target": "omc:chat-flywheel:contract:receipt",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "role": "execution_receipt",
+      "index": 4,
+      "occurrence_id": "omc:chat-flywheel:turn-role:execution_receipt"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:98",
+      "source": "omc:chat-flywheel:turn-relation-template",
+      "type": "PARTICIPANT",
+      "target": "omc:chat-flywheel:contract:assessment",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "role": "assessment",
+      "index": 5,
+      "occurrence_id": "omc:chat-flywheel:turn-role:assessment"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:99",
+      "source": "omc:chat-flywheel:turn-relation-template",
+      "type": "PARTICIPANT",
+      "target": "omc:chat-flywheel:contract:proposal",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "role": "revision_proposal",
+      "index": 6,
+      "occurrence_id": "omc:chat-flywheel:turn-role:revision_proposal"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:100",
+      "source": "omc:chat-flywheel:turn-relation-template",
+      "type": "PARTICIPANT",
+      "target": "omc:chat-flywheel:contract:application",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "role": "revision_application",
+      "index": 7,
+      "occurrence_id": "omc:chat-flywheel:turn-role:revision_application"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:101",
+      "source": "omc:chat-flywheel:turn-relation-template",
+      "type": "PARTICIPANT",
+      "target": "omc:chat-flywheel:contract:next",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED",
+      "role": "next_turn",
+      "index": 8,
+      "occurrence_id": "omc:chat-flywheel:turn-role:next_turn"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:102",
+      "source": "omc:chat-flywheel:observation:hoh-port",
+      "type": "DERIVED_FROM",
+      "target": "omc:chat-flywheel:source:hoh:Planner",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:103",
+      "source": "omc:chat-flywheel:observation:hoh-answer",
+      "type": "DERIVED_FROM",
+      "target": "omc:chat-flywheel:source:hoh:Chat",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:104",
+      "source": "omc:chat-flywheel:observation:hoh-hswm",
+      "type": "DERIVED_FROM",
+      "target": "omc:chat-flywheel:source:hoh:HSWM_CONTENT_PROFILE",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    },
+    {
+      "uid": "omc:chat-flywheel:edge:105",
+      "source": "omc:chat-flywheel:observation:learning-gap",
+      "type": "DERIVED_FROM",
+      "target": "omc:chat-flywheel:source:hswm:HSWM_CORE_SELECTION_LEARNING_BRIDGE_2026-10-10",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED"
+    }
+  ],
+  "cycles": [
+    {
+      "id": "turn-learning",
+      "stages": [
+        "omc:chat-flywheel:stage:turn",
+        "omc:flywheel:stage:organization",
+        "omc:chat-flywheel:stage:execution",
+        "omc:chat-flywheel:stage:outcome",
+        "omc:flywheel:stage:experience",
+        "omc:chat-flywheel:stage:revision",
+        "omc:chat-flywheel:stage:turn"
+      ]
+    },
+    {
+      "id": "participation-economy",
+      "stages": [
+        "omc:flywheel:stage:utility",
+        "omc:flywheel:stage:demand",
+        "omc:flywheel:stage:contribution",
+        "omc:flywheel:stage:pool",
+        "omc:flywheel:stage:organization",
+        "omc:flywheel:stage:utility"
+      ]
+    },
+    {
+      "id": "credit-use",
+      "stages": [
+        "omc:flywheel:stage:demand",
+        "omc:flywheel:stage:contribution",
+        "omc:flywheel:stage:credits",
+        "omc:flywheel:stage:demand"
+      ]
+    }
+  ],
+  "competency_questions": [
+    {
+      "id": "chat-implementation",
+      "question": "채팅 자체의 기반 요구가 어느 작업에 연결되는가?",
+      "start": "omc:chat-flywheel:requirement:chat",
+      "via": [
+        "REALIZED_BY"
+      ],
+      "expected": [
+        "omc:chat-flywheel:work:F0",
+        "omc:chat-flywheel:work:F1",
+        "omc:chat-flywheel:work:F2",
+        "omc:chat-flywheel:work:F3",
+        "omc:chat-flywheel:work:F4"
+      ]
+    },
+    {
+      "id": "long-term-device",
+      "question": "장기 기기 참여는 어느 후속 작업인가?",
+      "start": "omc:chat-flywheel:requirement:future",
+      "via": [
+        "REALIZED_BY"
+      ],
+      "expected": [
+        "omc:chat-flywheel:work:F6",
+        "omc:chat-flywheel:work:F7"
+      ]
+    },
+    {
+      "id": "feedback-gates",
+      "question": "결과→다음 선택을 연결하기 전에 필요한 두 구현은?",
+      "start": "omc:chat-flywheel:work:F4",
+      "via": [
+        "REQUIRES"
+      ],
+      "expected": [
+        "omc:chat-flywheel:work:F2",
+        "omc:chat-flywheel:work:F3"
+      ]
+    },
+    {
+      "id": "source-attribution",
+      "question": "플라이휠 우선순위의 실제 사용자 원문은?",
+      "start": "omc:chat-flywheel:requirement:first",
+      "via": [
+        "DERIVED_FROM"
+      ],
+      "expected": [
+        "omc:chat-flywheel:source:user-request"
+      ]
+    },
+    {
+      "id": "placement-owner",
+      "question": "계산 작업의 배치·실행 계약은 누가 맡는가?",
+      "start": "omc:chat-flywheel:contract:intent",
+      "via": [
+        "RESPONSIBLE_OWNER"
+      ],
+      "expected": [
+        "sym:Character:입체운행구름"
+      ]
+    },
+    {
+      "id": "turn-participants",
+      "question": "대화 n항 관계가 보존해야 할 계약은?",
+      "start": "omc:chat-flywheel:turn-relation-template",
+      "via": [
+        "PARTICIPANT"
+      ],
+      "expected": [
+        "omc:chat-flywheel:contract:turn",
+        "omc:chat-flywheel:contract:context",
+        "omc:chat-flywheel:contract:selection",
+        "omc:chat-flywheel:contract:intent",
+        "omc:chat-flywheel:contract:receipt",
+        "omc:chat-flywheel:contract:assessment",
+        "omc:chat-flywheel:contract:proposal",
+        "omc:chat-flywheel:contract:application",
+        "omc:chat-flywheel:contract:next"
+      ]
+    },
+    {
+      "id": "first-loop-evaluations",
+      "question": "첫 플라이휠이 완료되려면 어떤 평가가 필요한가?",
+      "start": "omc:chat-flywheel:requirement:first",
+      "via": [
+        "REALIZED_BY",
+        "TESTED_BY"
+      ],
+      "expected": [
+        "omc:chat-flywheel:evaluation:F0",
+        "omc:chat-flywheel:evaluation:F1",
+        "omc:chat-flywheel:evaluation:F2",
+        "omc:chat-flywheel:evaluation:F3",
+        "omc:chat-flywheel:evaluation:F4",
+        "omc:chat-flywheel:evaluation:F5"
+      ]
+    }
+  ]
+}

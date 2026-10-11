@@ -189,7 +189,7 @@
   "guides": [
     {
       "repository_path": "README.md",
-      "sha256": "88fa98ec070e3101c9696e46a00b963c9aae782bd2eb0e5e91dad16988d32288",
+      "sha256": "2db6c5046b488f35347df7db0fd3703628627f60b26f017841bb45296c84377e",
       "authority": "SECONDARY_AI"
     },
     {
@@ -261,6 +261,16 @@
       "repository_path": "docs/research/K01_WORKLOAD_CONTRACT.md",
       "authority": "SECONDARY_AI",
       "sha256": "284caf60905182c63ed143be3011117bf4db45a8c75bb79356d24da2a95c7d17"
+    },
+    {
+      "repository_path": "docs/HOH_CHAT_FLYWHEEL_PLAN.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "c319e9d4c558fd7132c7e63bf27e10ea61d0e25023b82dce730cb2ac492302b1"
+    },
+    {
+      "repository_path": "docs/HOH_CHAT_FLYWHEEL_SOURCE_REVIEW.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "825c47864dc42ed416bf11dcef2af0516ee3729837235d628d07b00c2aa6049d"
     }
   ]
 }
