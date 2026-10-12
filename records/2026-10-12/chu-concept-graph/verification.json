@@ -1,0 +1,110 @@
+{
+  "schema": "omc-chu-concept-graph-verification/1",
+  "authority": "SECONDARY_AI",
+  "recorded_at": "2026-10-12T05:18:14.369684+00:00",
+  "owner": {
+    "repository": "https://github.com/gj3447/CHU",
+    "revision": "512e0c207eb3b68e2d16d1f667c7040b4521d862",
+    "graph_path": "philosophy/graph/claims.ttl",
+    "entry_path": "philosophy/graph/README.md",
+    "verified_commit_sha256": {
+      ".github/workflows/check.yml": "61f561ab7bf2c468eedf6b3d1544b7564c01b7a6e3d3ebc2b87be5e61cd8ed97",
+      "dev/catalog.ttl": "6c3f5693b7c7174129ed38c71f4b03eeae1932ce44072489d63d2e6dac509ea1",
+      "engineering/catalog.json": "765354a7318ac369de4462bfb1b29486cc1ecf80260accfb215a99fc837efe16",
+      "philosophy/README.md": "62839dfcbc021ea6d015e4a6d395174e8d155d8e3c29f3ee300d17bf2436f225",
+      "philosophy/graph/README.md": "3f8342ec7244425749a2917f1e2a9070c9224a462f5031939946fbf96a1dde83",
+      "philosophy/graph/claims.ttl": "fa39c28bdd737f5c89f7a3a5cfb2e8db631524504415e40d28ed58084f977b52",
+      "philosophy/graph/ontology.ttl": "a1ccd34409b2dd75ed9b0c52230aea3f4b2965ec8d6aab8645cf3f95d41da3ff",
+      "philosophy/graph/queries/distinction.rq": "e7d1dfb71a7fcf9d00a65dd0d1948532c57276e33234b6adbfb0228dc4ac2422",
+      "philosophy/graph/queries/separation.rq": "ecf7d47ebc000fb2b81aa6996e8d9bcb414938cd09f112d1c71b537ab5ee0d5e",
+      "philosophy/graph/queries/sources.rq": "bdc1d1cbf56ad9421ae4aee416dc445323abd7357a813c172677e221b97d1948",
+      "philosophy/graph/queries/viewpoint.rq": "9d12c4054b501d1adf44007dbcf64d24c4f815e282644436730d4dad1af25e7a",
+      "philosophy/graph/shapes.ttl": "19abb667be9106f1fa3c99762a64a93f6075099975b25f8cd93325a2047bea3e",
+      "scripts/check_concept_graph.py": "5e9f65a05098eda3fbe4fbae14408260c2e17ea5413cb11f118a3798fda197f0",
+      "scripts/chu_dev.py": "aa92d3b337f7e648d7ac9176cb03f61015dc1800db27b5a1cac35d4e07064121",
+      "tests/test_concept_graph.py": "f0b2beaffdb3e2d64c76ec2fc8d73c3f79a61bc3f1008150f865e35d298eba9d",
+      "tests/test_repo_graph.py": "635a6501364b4bd40a29bcfb84648ad3b50dc8f565cfd38f914bfa7896411498"
+    }
+  },
+  "user_sources": [
+    {
+      "path": "user-request.txt",
+      "authority": "USER_PRIMARY",
+      "sha256": "f15e25136cded5a41ce6e228bd8a11c9b6c19a8892433b296869540d5f93e035"
+    },
+    {
+      "path": "user-continue.txt",
+      "authority": "USER_PRIMARY",
+      "sha256": "7ab7f472f1c69d40d2574f5a62337dc013d7d34143b897b7eeda69c7c53c5b16"
+    }
+  ],
+  "validation": {
+    "run_id": "7e58c28f-7d41-46b2-a922-a844eab8d844",
+    "started_at": "2026-10-12T05:16:17.949815+00:00",
+    "ended_at": "2026-10-12T05:16:22.989379+00:00",
+    "source_git_base": "806258fe9a7974cf9bb237d6578d2c61094eabe0",
+    "sources_unchanged": true,
+    "checks": [
+      {
+        "id": "ci-lint",
+        "status": "PASS",
+        "exit_code": 0,
+        "duration_s": 0.095
+      },
+      {
+        "id": "concept-claims",
+        "status": "PASS",
+        "exit_code": 0,
+        "duration_s": 0.937,
+        "result": {
+          "ok": true,
+          "claims": 7,
+          "pinned_sources": 3,
+          "queries": [
+            "distinction",
+            "separation",
+            "sources",
+            "viewpoint"
+          ],
+          "engines": [
+            "RDFLib",
+            "Oxigraph"
+          ],
+          "jsonld_roundtrip": true,
+          "scope": "Attributed concept graph and pinned handoff report; not HSWM runtime state, shared KG publication, new OS execution or empirical cognition proof"
+        }
+      },
+      {
+        "id": "repo-graph",
+        "status": "PASS",
+        "exit_code": 0,
+        "duration_s": 3.992
+      }
+    ],
+    "full_local_report_sha256": "1d3c4ff914e2a7cc990474e0ff5c48f363385a38d6e50cf9dfa867051aa08b99",
+    "answers": {
+      "path": "answers.json",
+      "sha256": "26c42e47fbca53b7b57f01ffaad22c93052d91f8cd4b403f1a633a14c9715077"
+    }
+  },
+  "pytest_observation": {
+    "argv": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_concept_graph.py",
+      "tests/test_repo_graph.py",
+      "tests/test_dev.py"
+    ],
+    "passed": 70,
+    "new_negative_controls": 20,
+    "duration_seconds": 37.26,
+    "exit_code": 0,
+    "scope": "Observed command result on unchanged implementation/test bytes. Final CI history configuration and graph README were then updated; final registered graph checks and ci-lint passed on the committed bytes."
+  },
+  "lint": "PASS",
+  "repository_graph": "PASS",
+  "remote_ci_status": "NOT_CHECKED",
+  "scope": "Concept/claim/provenance graph and source-reported handoff; not HSWM runtime graph, shared KG publication or consumer execution migration."
+}

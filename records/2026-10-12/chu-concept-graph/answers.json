@@ -1,0 +1,521 @@
+{
+  "distinction": {
+    "head": {
+      "vars": [
+        "claim",
+        "implementation",
+        "concept",
+        "kind",
+        "authority",
+        "source",
+        "content"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#C01"
+          },
+          "implementation": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#CHU_OS"
+          },
+          "concept": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#CHU"
+          },
+          "kind": {
+            "type": "literal",
+            "value": "USER_NAMING"
+          },
+          "authority": {
+            "type": "literal",
+            "value": "SECONDARY_AI"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-naming-20261012"
+          },
+          "content": {
+            "type": "uri",
+            "value": "urn:sha256:e1434cc8b558bb46725bd47b97034a9fccda52334eec4a7d799d4d99698ddd51"
+          }
+        }
+      ]
+    }
+  },
+  "separation": {
+    "head": {
+      "vars": [
+        "claim",
+        "subject",
+        "relation",
+        "object",
+        "kind",
+        "epistemicStatus",
+        "source",
+        "revision"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#C02"
+          },
+          "subject": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU_OS"
+          },
+          "relation": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#separateRepositoryFrom"
+          },
+          "object": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU"
+          },
+          "kind": {
+            "type": "literal",
+            "value": "USER_DIRECTION"
+          },
+          "epistemicStatus": {
+            "type": "literal",
+            "value": "SOURCE_SUPPORTED"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-direction-20261012"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#owner-os-20261012"
+          },
+          "subject": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU_OS"
+          },
+          "relation": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#ownsScope"
+          },
+          "object": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#OSImplementation"
+          },
+          "kind": {
+            "type": "literal",
+            "value": "OWNER_REPORTED_OBSERVATION"
+          },
+          "epistemicStatus": {
+            "type": "literal",
+            "value": "SOURCE_REPORTED"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-handoff-20261012"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#owner-chu-20261012"
+          },
+          "subject": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU"
+          },
+          "relation": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#ownsScope"
+          },
+          "object": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#ConceptTheoryCanon"
+          },
+          "kind": {
+            "type": "literal",
+            "value": "OWNER_REPORTED_OBSERVATION"
+          },
+          "epistemicStatus": {
+            "type": "literal",
+            "value": "SOURCE_REPORTED"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-handoff-20261012"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#handoff-20261012"
+          },
+          "subject": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU_OS"
+          },
+          "relation": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#handoffStatus"
+          },
+          "object": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#InitialHandoffRecorded"
+          },
+          "kind": {
+            "type": "literal",
+            "value": "OWNER_REPORTED_OBSERVATION"
+          },
+          "epistemicStatus": {
+            "type": "literal",
+            "value": "SOURCE_REPORTED"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-handoff-20261012"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#consumer-switch-20261012"
+          },
+          "subject": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#ConsumerMigration"
+          },
+          "relation": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#workStatus"
+          },
+          "object": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#PendingConsumerSwitch"
+          },
+          "kind": {
+            "type": "literal",
+            "value": "OWNER_REPORTED_OBSERVATION"
+          },
+          "epistemicStatus": {
+            "type": "literal",
+            "value": "SOURCE_REPORTED"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-handoff-20261012"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          }
+        }
+      ]
+    }
+  },
+  "sources": {
+    "head": {
+      "vars": [
+        "claim",
+        "source",
+        "path",
+        "revision",
+        "content",
+        "sourceAuthority",
+        "excerpt"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#C03"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-naming-20261012"
+          },
+          "path": {
+            "type": "literal",
+            "value": "canon/sources/USER_PRIMARY_CHU_CHU_OS_2026-10-12.txt"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          },
+          "content": {
+            "type": "uri",
+            "value": "urn:sha256:e1434cc8b558bb46725bd47b97034a9fccda52334eec4a7d799d4d99698ddd51"
+          },
+          "sourceAuthority": {
+            "type": "literal",
+            "value": "USER_PRIMARY"
+          },
+          "excerpt": {
+            "type": "literal",
+            "value": "내생각에는 그냥 우리 우주 자체도 월드모델 CHU 임"
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#owner-os-20261012"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-handoff-20261012"
+          },
+          "path": {
+            "type": "literal",
+            "value": "docs/CHU_CHU_OS_REPOSITORY_SPLIT.md"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          },
+          "content": {
+            "type": "uri",
+            "value": "urn:sha256:5fee0c1c7fcb536fd81eda5681a9bb502d8ccb8d93a54a48e34ab95dcfd63f50"
+          },
+          "sourceAuthority": {
+            "type": "literal",
+            "value": "SECONDARY_AI"
+          },
+          "excerpt": {
+            "type": "literal",
+            "value": "CHU는 개념·철학·사용자 원문·Lean의 정본이고,\n새 OS 구현 개발의 정본은 CHU_OS다."
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#C02"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-direction-20261012"
+          },
+          "path": {
+            "type": "literal",
+            "value": "canon/sources/USER_PRIMARY_CHU_PHILOSOPHY_FIRST_2026-10-12.txt"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          },
+          "content": {
+            "type": "uri",
+            "value": "urn:sha256:575ccd910eb351983be21378e47c66ddf7cb99280574a6cfc2afc381767225b2"
+          },
+          "sourceAuthority": {
+            "type": "literal",
+            "value": "USER_PRIMARY"
+          },
+          "excerpt": {
+            "type": "literal",
+            "value": "철학적 chu 를 일단 정리하고 그 os chy 는 CHU_OS 로 레포한게 따로파서 하는게 맞는거같은데 ㅇㅇ; 일단 CHU_OS 레포는 별개로 파는걸로 일다ㅣㄴ 알고있어주고 순서대로 쭉쭉 진행해줘볼래 ㅇㅇ?"
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#handoff-20261012"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-handoff-20261012"
+          },
+          "path": {
+            "type": "literal",
+            "value": "docs/CHU_CHU_OS_REPOSITORY_SPLIT.md"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          },
+          "content": {
+            "type": "uri",
+            "value": "urn:sha256:5fee0c1c7fcb536fd81eda5681a9bb502d8ccb8d93a54a48e34ab95dcfd63f50"
+          },
+          "sourceAuthority": {
+            "type": "literal",
+            "value": "SECONDARY_AI"
+          },
+          "excerpt": {
+            "type": "literal",
+            "value": "초기 이관 commit **`dab627045382330f5b1bdd91a6497ea8fea88585`**를 `main`에 push했다."
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#owner-chu-20261012"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-handoff-20261012"
+          },
+          "path": {
+            "type": "literal",
+            "value": "docs/CHU_CHU_OS_REPOSITORY_SPLIT.md"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          },
+          "content": {
+            "type": "uri",
+            "value": "urn:sha256:5fee0c1c7fcb536fd81eda5681a9bb502d8ccb8d93a54a48e34ab95dcfd63f50"
+          },
+          "sourceAuthority": {
+            "type": "literal",
+            "value": "SECONDARY_AI"
+          },
+          "excerpt": {
+            "type": "literal",
+            "value": "CHU는 개념·철학·사용자 원문·Lean의 정본이고,\n새 OS 구현 개발의 정본은 CHU_OS다."
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#consumer-switch-20261012"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-handoff-20261012"
+          },
+          "path": {
+            "type": "literal",
+            "value": "docs/CHU_CHU_OS_REPOSITORY_SPLIT.md"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          },
+          "content": {
+            "type": "uri",
+            "value": "urn:sha256:5fee0c1c7fcb536fd81eda5681a9bb502d8ccb8d93a54a48e34ab95dcfd63f50"
+          },
+          "sourceAuthority": {
+            "type": "literal",
+            "value": "SECONDARY_AI"
+          },
+          "excerpt": {
+            "type": "literal",
+            "value": "| HOH · OMC · HSWM · USL 소비자 참조 전환 | 아직 수행하지 않음 |"
+          }
+        },
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#C01"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-naming-20261012"
+          },
+          "path": {
+            "type": "literal",
+            "value": "canon/sources/USER_PRIMARY_CHU_CHU_OS_2026-10-12.txt"
+          },
+          "revision": {
+            "type": "literal",
+            "value": "806258fe9a7974cf9bb237d6578d2c61094eabe0"
+          },
+          "content": {
+            "type": "uri",
+            "value": "urn:sha256:e1434cc8b558bb46725bd47b97034a9fccda52334eec4a7d799d4d99698ddd51"
+          },
+          "sourceAuthority": {
+            "type": "literal",
+            "value": "USER_PRIMARY"
+          },
+          "excerpt": {
+            "type": "literal",
+            "value": "CHU_OS 랑 CHU 랑 분리해야함 cHU 는 그냥 그 인지능력체 그자체를 cHU 라고 부르는거같음 컴퓨터 기반으로 구현체가 CHU_OS 이고 ㅇㅇ 레포 분리도 해야할듯 내생각에는 그냥 우리 우주 자체도 월드모델 CHU 임"
+          }
+        }
+      ]
+    }
+  },
+  "viewpoint": {
+    "head": {
+      "vars": [
+        "claim",
+        "subject",
+        "object",
+        "context",
+        "kind",
+        "epistemicStatus",
+        "speaker",
+        "source",
+        "content"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "claim": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#C03"
+          },
+          "subject": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#Universe"
+          },
+          "object": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#CHU"
+          },
+          "context": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#WorldModel"
+          },
+          "kind": {
+            "type": "literal",
+            "value": "USER_VIEWPOINT"
+          },
+          "epistemicStatus": {
+            "type": "literal",
+            "value": "NOT_EMPIRICALLY_VALIDATED"
+          },
+          "speaker": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#User"
+          },
+          "source": {
+            "type": "uri",
+            "value": "https://github.com/gj3447/CHU/philosophy#source-naming-20261012"
+          },
+          "content": {
+            "type": "uri",
+            "value": "urn:sha256:e1434cc8b558bb46725bd47b97034a9fccda52334eec4a7d799d4d99698ddd51"
+          }
+        }
+      ]
+    }
+  }
+}
