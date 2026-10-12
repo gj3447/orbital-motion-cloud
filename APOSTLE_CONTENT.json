@@ -189,7 +189,7 @@
   "guides": [
     {
       "repository_path": "README.md",
-      "sha256": "2a76558b705deeaf44bc20791d8d39854e6604b157c01ce6820a93846f93526f",
+      "sha256": "752c94314c7024a82525da5cbd4298b14d53f373119eb6c8e859fe345bb1956f",
       "authority": "SECONDARY_AI"
     },
     {
@@ -275,7 +275,7 @@
     {
       "repository_path": "docs/HSWM_GRAPH_CHU_OS_BOUNDARY.md",
       "authority": "SECONDARY_AI",
-      "sha256": "c72c75944010d2c8c25c50ff70de4089cba8513870c5478a125251bb31f0c7dc"
+      "sha256": "06f0e1ceb48e943c7a51015eef548a939453829a7f3e94025f332badfb46eafc"
     }
   ]
 }

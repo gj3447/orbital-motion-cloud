@@ -1,0 +1,53 @@
+{
+  "schema": "omc-chu-chu-os-naming-correction/1",
+  "authority": "SECONDARY_AI",
+  "recorded_at": "2026-10-12T01:36:45.062920+00:00",
+  "user_source": {
+    "path": "user-verbatim.txt",
+    "authority": "USER_PRIMARY",
+    "sha256": "e1434cc8b558bb46725bd47b97034a9fccda52334eec4a7d799d4d99698ddd51"
+  },
+  "current_terms": {
+    "CHU": "COGNITIVE_ENTITY_CONCEPT",
+    "CHU_OS": "COMPUTER_BASED_OPERATING_SYSTEM_IMPLEMENTATION"
+  },
+  "universe_as_world_model_chu": {
+    "attribution": "USER_VIEWPOINT",
+    "source": "user-verbatim.txt",
+    "empirical_validation": "NOT_CLAIMED"
+  },
+  "supersedes": {
+    "path": "records/2026-10-11/hswm-graph-chu-os-correction/correction.json",
+    "scope": "CURRENT_NAMING_ONLY; preserve historical user source and observations"
+  },
+  "sources": [
+    {
+      "repository": "https://github.com/gj3447/CHU",
+      "revision": "77e56048bb4b5965eb84dc8466abc66aca6c2ef9",
+      "path": "canon/CHU_AND_CHU_OS.md",
+      "sha256": "38ae91cc0750fc4cfd305b38991869b6a8a3d7b7028f01a2fa951fbc19cec861",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "repository": "https://github.com/gj3447/CHU",
+      "revision": "77e56048bb4b5965eb84dc8466abc66aca6c2ef9",
+      "path": "canon/sources/USER_PRIMARY_CHU_CHU_OS_2026-10-12.txt",
+      "sha256": "e1434cc8b558bb46725bd47b97034a9fccda52334eec4a7d799d4d99698ddd51",
+      "verification": "COMMIT_BYTES_MATCH"
+    },
+    {
+      "repository": "https://github.com/gj3447/CHU",
+      "revision": "77e56048bb4b5965eb84dc8466abc66aca6c2ef9",
+      "path": "docs/CHU_CHU_OS_REPOSITORY_SPLIT.md",
+      "sha256": "f38eb08395146e5ca35d3f53245e7634d01ee0ea64b80673381b3c3a588cb515",
+      "verification": "COMMIT_BYTES_MATCH"
+    }
+  ],
+  "repository_separation": {
+    "status": "PROPOSAL_RECORDED",
+    "migration_executed": false,
+    "remote_created_or_renamed": false
+  },
+  "hswm_graph_work": "REMAINS_OPEN; NOT_PERFORMED_BY_THIS_CORRECTION",
+  "shared_kg_publication": "NOT_PERFORMED"
+}
