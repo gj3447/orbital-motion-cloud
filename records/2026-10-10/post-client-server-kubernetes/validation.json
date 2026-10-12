@@ -1,6 +1,12 @@
 {
   "status": "PASS",
   "scope": "EVIDENCE_AND_GRAPH_INTEGRITY_ONLY",
+  "source_bytes": {
+    "status": "VERIFIED",
+    "verified": 27,
+    "total": 27,
+    "missing": []
+  },
   "competency_answers": {
     "CQ1": [
       "omc:post-client-server:K01",

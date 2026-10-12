@@ -2,9 +2,9 @@
 
 쿠버네티스의 핵심은 **원하는 상태를 API 객체로 저장하고, 여러 제어기가 관측한 상태와 비교하여 작업을 나누어 수행하는 구조**다. 스케줄러는 실행할 노드를 선택하고 배정을 확정하는 경로를 담당하며, 노드의 kubelet과 container runtime이 실제 실행을 맡는다. 요청 접수·배정 성공·프로그램 실행·애플리케이션 준비 완료는 서로 다른 사실이다.
 
-분석 대상은 공식 `kubernetes/kubernetes`의 [`841d8db7236e660f53ee9df91133b58a780c8e7f`](https://github.com/kubernetes/kubernetes/commit/841d8db7236e660f53ee9df91133b58a780c8e7f)다. 2026-10-07에 확보한 master snapshot을 재사용했으며 최신 안정판 선정이 아니다. 이번에는 선택한 27개 파일 약 1.31 MB를 [로컬 소스 사본](../records/2026-10-10/post-client-server-kubernetes/upstream)에 가져와 Git blob과 대조했고, 그중 3개 파일은 공식 원격의 같은 commit에서 다시 받아 바이트까지 대조했다. 기존 전체 소스 archive의 SHA-256도 다시 확인했다. [확보 기록](../records/2026-10-10/post-client-server-kubernetes/acquisition.json).
+분석 대상은 공식 `kubernetes/kubernetes`의 [`841d8db7236e660f53ee9df91133b58a780c8e7f`](https://github.com/kubernetes/kubernetes/commit/841d8db7236e660f53ee9df91133b58a780c8e7f)다. 2026-10-07에 확보한 master snapshot을 재사용했으며 최신 안정판 선정이 아니다. 이번에는 선택한 27개 파일 약 1.31 MB를 [로컬 소스 사본](https://github.com/kubernetes/kubernetes/tree/841d8db7236e660f53ee9df91133b58a780c8e7f)에 가져와 Git blob과 대조했고, 그중 3개 파일은 공식 원격의 같은 commit에서 다시 받아 바이트까지 대조했다. 기존 전체 소스 archive의 SHA-256도 다시 확인했다. [확보 기록](../records/2026-10-10/post-client-server-kubernetes/acquisition.json). 사본 바이트는 git에 넣지 않고 확보 기록을 해시 잠금으로 삼아 `hydrate.py`로 복원한다.
 
-아래는 선택 구간의 정적 코드 분석이다. 전체 소스 정독, 쿠버네티스 빌드·테스트·클러스터 실행·성능 실험은 수행하지 않았다. 코드 저작권과 Apache 2.0 [LICENSE](../records/2026-10-10/post-client-server-kubernetes/upstream/LICENSE)를 사본에 보존했다. 기존 WHAT_IS_KUBERNETES의 Deployment 중심 연구에서 API·스케줄러·노드 실행·장비 제약으로 분석 범위를 확장했다.
+아래는 선택 구간의 정적 코드 분석이다. 전체 소스 정독, 쿠버네티스 빌드·테스트·클러스터 실행·성능 실험은 수행하지 않았다. 코드 저작권과 Apache 2.0 [LICENSE](https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/LICENSE)를 사본에 보존했다. 기존 WHAT_IS_KUBERNETES의 Deployment 중심 연구에서 API·스케줄러·노드 실행·장비 제약으로 분석 범위를 확장했다.
 
 ## 한 작업이 실행되는 경로
 

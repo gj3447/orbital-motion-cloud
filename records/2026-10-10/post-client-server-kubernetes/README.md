@@ -5,7 +5,7 @@
 - [Kubernetes analysis](../../../docs/KUBERNETES_SOURCE_ANALYSIS.md): WHAT_IS, SECONDARY_AI / STATIC_CODE_ANALYSIS.
 - [Acquisition](acquisition.json): official source pin, file bytes, SHA-256 and Git blob IDs. Reuses the existing 2026-10-07 master snapshot; three files independently fetched again at the same pin. The entire archive digest was rechecked, not all archive contents revalidated.
 - [Code evidence](evidence.json): 15 bounded claims and 30 read spans. Acquisition of a full file does not mean its entire contents were read.
-- [Upstream files](upstream): 27 files, 1,306,761 bytes, with original source headers and [Apache 2.0 license](upstream/LICENSE). This is a selected source corpus, not a standalone build tree.
+- [Upstream files](https://github.com/kubernetes/kubernetes/tree/841d8db7236e660f53ee9df91133b58a780c8e7f): 27 files, 1,306,761 bytes, with original source headers and [Apache 2.0 license](https://github.com/kubernetes/kubernetes/blob/841d8db7236e660f53ee9df91133b58a780c8e7f/LICENSE). This is a selected source corpus, not a standalone build tree. Since 2026-10-12 the bytes are not committed: `acquisition.json` is the hash lock and the local `upstream/` directory is git-ignored hydration. Restore it with `python3 records/2026-10-10/post-client-server-kubernetes/hydrate.py` (pinned raw GitHub URLs) or add `--git-dir <kubernetes clone>`; each file is verified by size, SHA-256 and Git blob before it is written.
 - [Knowledge graph](../../../graph/post-client-server-knowledge.json): proposed dependencies, artifacts, invariants and source-backed code claims. Existing OMC identity is referenced, not re-ratified. This local property graph does not claim RDF/SHACL compliance or shared KG publication.
 - [Validation](validation.json): source/digest/claim/graph integrity, five exact-answer queries and four negative probes. Not a Kubernetes or OMC runtime test result.
 - [Owner research receipt](research-workflow.json): both existing research modules accepted their respective contribution; workflow state COMPLETE is record completion, not a runtime result.
@@ -14,7 +14,7 @@
 Run the read-only checks from the OMC checkout:
 
 ```sh
-python3 records/2026-10-10/post-client-server-kubernetes/validate.py
+python3 records/2026-10-10/post-client-server-kubernetes/validate.py   # NOT_HYDRATED (exit 0) without upstream/; --require-hydrated exits 2; byte mismatch fails
 python3 cli.py check
 ```
 

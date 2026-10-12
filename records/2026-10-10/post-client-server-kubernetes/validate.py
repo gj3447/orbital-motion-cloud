@@ -26,6 +26,14 @@ def read_local(path):
     return p.read_bytes()
 
 
+def read_hydrated(path):
+    """Upstream bytes live in a git-ignored hydration dir; None means NOT_HYDRATED."""
+    p = ROOT / path
+    if not p.exists() and not p.is_symlink():
+        return None
+    return read_local(path)
+
+
 def validate(graph, evidence, acquisition):
     require(graph['schema'] == 'omc-post-client-server-knowledge/1', 'graph schema')
     require(graph['authority'] == 'SECONDARY_AI' and graph['state'] == 'PROPOSED', 'proposal authority')
@@ -36,18 +44,26 @@ def validate(graph, evidence, acquisition):
         require(all(obj[k] == 'NOT_RUN' for k in ('upstream_build', 'upstream_tests', 'cluster_execution')), 'unexecuted work promoted')
     files = {f['path']: f for f in acquisition['files']}
     require(len(files) == len(acquisition['files']) == 27, 'acquisition set')
+    hydrated, missing = {}, []
     for path, item in files.items():
-        data = read_local(item['local_path'])
+        require(item['url'] == f'https://github.com/kubernetes/kubernetes/blob/{PIN}/{path}', 'lock URL: ' + path)
+        data = read_hydrated(item['local_path'])
+        if data is None:
+            missing.append(path)
+            continue
         require(len(data) == item['bytes'] and digest(data) == item['sha256'], 'source bytes: ' + path)
         require(hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest() == item['git_blob_oid'], 'Git blob: ' + path)
+        hydrated[path] = data
     spans = {s['uid']: s for s in evidence['read_spans']}
     require(len(spans) == len(evidence['read_spans']), 'duplicate span')
     for span in spans.values():
         require(span['path'] in files and span['commit'] == PIN, 'span source')
-        lines = read_local(files[span['path']]['local_path']).splitlines(keepends=True)
         start, end = span['start_line'], span['end_line']
-        require(1 <= start <= end <= len(lines), 'span bounds')
-        require(digest(b''.join(lines[start-1:end])) == span['sha256'], 'span digest')
+        require(1 <= start <= end, 'span bounds')
+        if span['path'] in hydrated:
+            lines = hydrated[span['path']].splitlines(keepends=True)
+            require(end <= len(lines), 'span bounds')
+            require(digest(b''.join(lines[start-1:end])) == span['sha256'], 'span digest')
         require(span['state'] == 'READ_STATIC' and span['authority'] == 'SOURCE_DOCUMENT', 'span state')
     claims = {c['id']: c for c in evidence['claims']}
     require(set(claims) == {f'C{i:02}' for i in range(1, 16)}, 'claim set')
@@ -126,14 +142,16 @@ def validate(graph, evidence, acquisition):
     text = (ROOT/'docs/KUBERNETES_SOURCE_ANALYSIS.md').read_text()
     for path, start, end in re.findall(r'/blob/'+PIN+r'/([^\s)]+?)#L(\d+)-L(\d+)', text):
         require(any(s['path'] == path and s['start_line'] == int(start) and s['end_line'] == int(end) for s in spans.values()), 'unrecorded code anchor')
-    return answers
+    return answers, sorted(missing)
 
 
 if __name__ == '__main__':
+    import sys
+    require_hydrated = '--require-hydrated' in sys.argv[1:]
     graph = json.loads((ROOT/'graph/post-client-server-knowledge.json').read_text())
     evidence = json.loads((RECORD/'evidence.json').read_text())
     acquisition = json.loads((RECORD/'acquisition.json').read_text())
-    answers = validate(graph, evidence, acquisition)
+    answers, missing = validate(graph, evidence, acquisition)
     rejected = []
     for probe in ['dangling_edge', 'altered_span', 'invented_execution', 'authority_promotion']:
         g, e = copy.deepcopy(graph), copy.deepcopy(evidence)
@@ -147,6 +165,14 @@ if __name__ == '__main__':
             rejected.append(probe)
         else:
             raise ValueError('negative probe accepted: '+probe)
-    print(json.dumps({'status':'PASS','scope':'EVIDENCE_AND_GRAPH_INTEGRITY_ONLY',
+    # Missing hydration is an explicit skip, never a silent pass; mismatched bytes raise above.
+    total = len(acquisition['files'])
+    source_bytes = {'status': 'NOT_HYDRATED' if missing else 'VERIFIED', 'verified': total - len(missing),
+                    'total': total, 'missing': missing}
+    if missing:
+        source_bytes['hydrate'] = 'python3 records/2026-10-10/post-client-server-kubernetes/hydrate.py'
+    print(json.dumps({'status':'NOT_HYDRATED' if missing else 'PASS','scope':'EVIDENCE_AND_GRAPH_INTEGRITY_ONLY',
+                      'source_bytes':source_bytes,
                       'competency_answers':answers,'rejected_negative_probes':rejected,
                       'upstream_tests':'NOT_RUN','cluster_execution':'NOT_RUN'}, ensure_ascii=False, indent=2))
+    raise SystemExit(2 if missing and require_hydrated else 0)

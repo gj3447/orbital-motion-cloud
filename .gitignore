@@ -1,3 +1,8 @@
 __pycache__/
 *.py[cod]
 .local/
+
+# Hydrated third-party source bytes (HSWM pattern). Path, size, SHA-256, Git blob,
+# upstream repository, exact commit and license are locked in the sibling
+# acquisition.json; restore with that record's hydrate.py. Never commit the bytes.
+/records/2026-10-10/post-client-server-kubernetes/upstream/

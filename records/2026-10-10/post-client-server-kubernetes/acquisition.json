@@ -4,6 +4,8 @@
   "recorded_at": "2026-10-10T17:58:59.845952+00:00",
   "upstream": "https://github.com/kubernetes/kubernetes",
   "commit": "841d8db7236e660f53ee9df91133b58a780c8e7f",
+  "license": "Apache-2.0 (upstream LICENSE, locked below)",
+  "hydration": "Bytes are git-ignored since 2026-10-12; this file is the lock. Restore with hydrate.py; validate.py reports NOT_HYDRATED when absent and fails on mismatch.",
   "revision_scope": "2026-10-07 master snapshot; not stable release selection",
   "acquisition": "REUSE_EXISTING_OFFICIAL_SOURCE; copy selected files and independently refetch three pinned files",
   "existing_checkout": "/home/lagyeongjun/.cache/chu-os-systems-source/20261007/kubernetes",
