@@ -1,0 +1,73 @@
+{
+  "schema": "omc-chu-computable-scope-correction/1",
+  "authority": "SECONDARY_AI",
+  "recorded_at": "2026-10-12T05:25:36.148294+00:00",
+  "user_source": {
+    "path": "user-verbatim.txt",
+    "authority": "USER_PRIMARY",
+    "sha256": "1994cf5c255c6c82c06e5ad179bb51cdfcfb77b047c07d819e300ca899b5976f"
+  },
+  "current_terms": {
+    "CHU": {
+      "name": "Computable Hyper Universe",
+      "scope": "ALL_COMPUTABLE_THINGS_UNDER_USER_HYPERGRAPH_VIEW",
+      "cognition_required": false,
+      "formal_computability_criterion": "NOT_SPECIFIED_IN_SOURCE"
+    },
+    "CHU_OS": "COMPUTER_BASED_OPERATING_SYSTEM_IMPLEMENTATION_WITHIN_CHU_SCOPE"
+  },
+  "source_support": [
+    {
+      "interpretation": "계산가능한 것은 모두 CHU이며 인지는 필수조건이 아니다.",
+      "excerpt": "좀 CHU 라는게 인지능력체? computable hyper universe 면 싹다 chu",
+      "kind": "USER_DEFINITION_INTERPRETATION"
+    },
+    {
+      "interpretation": "모든 것이 하이퍼그래프로 이루어져 있다는 사용자 관점.",
+      "excerpt": "사실 하이퍼그래프로 안 이뤄진게 없다고 생각해서",
+      "kind": "USER_VIEWPOINT",
+      "empirical_validation": "NOT_CLAIMED"
+    },
+    {
+      "interpretation": "계산가능성에 따른 CHU 범위.",
+      "excerpt": "그 computable 하면 싹다 chu 라고 보는거야",
+      "kind": "USER_DEFINITION_INTERPRETATION"
+    }
+  ],
+  "supersedes": [
+    {
+      "path": "records/2026-10-12/chu-chu-os-separation/correction.json",
+      "scope": "ONLY_THE_COGNITIVE_ENTITY_LIMIT_ON_CHU; preserve source, OS distinction and historical observations"
+    },
+    {
+      "path": "records/2026-10-12/chu-concept-graph/README.md",
+      "scope": "CURRENT_INTERPRETATION_OF_CHU_SCOPE; preserve historical source pins, query answers and checks"
+    }
+  ],
+  "owner_graph": {
+    "repository": "https://github.com/gj3447/CHU",
+    "observed_revision": "512e0c207eb3b68e2d16d1f667c7040b4521d862",
+    "path": "philosophy/graph/claims.ttl",
+    "sha256": "fa39c28bdd737f5c89f7a3a5cfb2e8db631524504415e40d28ed58084f977b52",
+    "verification": "COMMIT_BYTES_MATCH",
+    "concept_iri": "https://github.com/gj3447/CHU/philosophy#CHU",
+    "implementation_iri": "https://github.com/gj3447/CHU/philosophy#CHU_OS",
+    "implementation_claim_iri": "https://github.com/gj3447/CHU/philosophy#C01",
+    "update_status": "NOT_PERFORMED_BY_THIS_RECORD",
+    "reason": "Concurrent uncommitted CHU universal-scope source/catalog work was observed and preserved.",
+    "required_semantic_update": [
+      "Reuse CHU and CHU_OS identifiers and implementation distinction.",
+      "Remove cognition as a CHU membership requirement; represent the computable scope with this source.",
+      "Attribute the universal-hypergraph statement as a user viewpoint.",
+      "Keep historical sources and observations; do not reinterpret old checks as validation of the new scope."
+    ]
+  },
+  "shared_kg_lookup": {
+    "uid": "sym:Concept:computable_hyper_universe_(chu)",
+    "authority": "UNSPECIFIED",
+    "lifecycle": "UNKNOWN",
+    "result": "Legacy database description has no source references; not authority for latest user definition."
+  },
+  "shared_kg_publication": "NOT_PERFORMED",
+  "hswm_runtime_change": "NOT_PERFORMED"
+}
