@@ -1,0 +1,8 @@
+{
+  "schema": "omc-monitor-host/1",
+  "host_uid": "host:dgx",
+  "services": [
+    {"uid": "omc:service:dgx-main", "container": "vllm", "port": 8000},
+    {"uid": "omc:service:dgx-receiver", "container": "vllm-receiver", "port": 8001}
+  ]
+}

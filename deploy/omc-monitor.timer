@@ -1,0 +1,11 @@
+[Unit]
+Description=Observe DGX hardware and models every 30 seconds
+
+[Timer]
+OnBootSec=30
+OnUnitInactiveSec=30
+AccuracySec=1
+Unit=omc-monitor.service
+
+[Install]
+WantedBy=timers.target

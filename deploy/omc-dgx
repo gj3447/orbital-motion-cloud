@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+"""Read the DGX OMC monitor through the existing SSH alias; defaults to status."""
+import shlex
+import subprocess
+import sys
+
+arguments = sys.argv[1:] or ["status"]
+if arguments[0] not in {"status", "once", "history", "watch", "--help"}:
+    raise SystemExit("usage: omc-dgx [status|once|history|watch] [options]")
+terminal = ["-tt"] if arguments[0] == "watch" and sys.stdout.isatty() and "--json" not in arguments else []
+try:
+    raise SystemExit(subprocess.call([
+        "ssh", *terminal, "-o", "BatchMode=yes", "-o", "ConnectTimeout=6",
+        "-o", "ConnectionAttempts=1", "-o", "StrictHostKeyChecking=yes",
+        "-o", "ServerAliveInterval=15", "-o", "ServerAliveCountMax=2",
+        "dgx", shlex.join([".local/bin/omc-monitor", *arguments]),
+    ]))
+except KeyboardInterrupt:
+    raise SystemExit(130)
