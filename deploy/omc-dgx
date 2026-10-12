@@ -13,7 +13,7 @@ try:
         "ssh", *terminal, "-o", "BatchMode=yes", "-o", "ConnectTimeout=6",
         "-o", "ConnectionAttempts=1", "-o", "StrictHostKeyChecking=yes",
         "-o", "ServerAliveInterval=15", "-o", "ServerAliveCountMax=2",
-        "dgx", shlex.join([".local/bin/omc-monitor", *arguments]),
+        "dgx", shlex.join(["env", "PYTHONUNBUFFERED=1", ".local/bin/omc-monitor", *arguments]),
     ]))
 except KeyboardInterrupt:
     raise SystemExit(130)
