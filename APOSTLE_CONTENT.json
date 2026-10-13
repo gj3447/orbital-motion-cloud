@@ -189,7 +189,7 @@
   "guides": [
     {
       "repository_path": "README.md",
-      "sha256": "2e1c07d98c341c85376b587a2a454a95f0d9a53b05f23022af8a3895a638edc4",
+      "sha256": "5da84fbe563ffdf62842204715158983dc4b22dd5c7996f58a920b4351f0c3eb",
       "authority": "SECONDARY_AI"
     },
     {
@@ -276,6 +276,11 @@
       "repository_path": "docs/HSWM_GRAPH_CHU_OS_BOUNDARY.md",
       "authority": "SECONDARY_AI",
       "sha256": "59cb1f28b1d8a9b89cf8480acc9f5e4b0abadd896c74753307b0b2a01400e8bd"
+    },
+    {
+      "repository_path": "docs/ORBITAL_MOTION_CLOUD_ARCHITECTURE.md",
+      "authority": "SECONDARY_AI",
+      "sha256": "df6132921139815aef198a9ccb13787daed60927a06b7024630fa5308f93bb20"
     }
   ]
 }

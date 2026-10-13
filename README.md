@@ -12,6 +12,8 @@ python3 cli.py check
 
 Start with [WHAT_IS](docs/WHAT_IS.md) for the conceptual map, then [RESEARCH_MAP](docs/RESEARCH_MAP.md) for source-to-claim relationships and current limits. [HOW_TO](docs/HOW_TO.md) gives a reproducible reading and evidence procedure.
 
+[입체운행구름 아키텍쳐](docs/ORBITAL_MOTION_CLOUD_ARCHITECTURE.md) explains the hardware-native direction: AI composes software variants, data placement and execution around each machine's actual capabilities, while preserving meaning and linking resource contribution to shared intelligence.
+
 [Hardware-adaptive placement](docs/HARDWARE_ADAPTIVE_PLACEMENT.md) observes storage and memory, checks an AI-selected batch, uses the existing owner transfer CLI, and verifies that USL resource IDs, meanings, roles and provenance survive location changes. Run `python3 scripts/placement_graph.py check` and `python3 scripts/placement.py --help`. Private host registrations stay under ignored `.local/`; the CLI preserves source files.
 
 The [hardware and software fit plan](docs/HARDWARE_SOFTWARE_FIT_PLAN.md) extends that direction toward hardware-specific native program variants, execution settings and data placement under CHU OS. The [verbatim user statement](records/2026-10-10/hardware-software-fit/user-verbatim.txt) is separate from the [proposed graph and runtime contracts](graph/hardware-software-fit.proposal.json). This is a HOW_TO design, with phased acceptance criteria; it does not claim a deployed autonomous runtime. Validate the design with `python3 records/2026-10-10/hardware-software-fit/validate.py`.
