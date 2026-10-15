@@ -2,7 +2,7 @@
 
 Position 8 apostle module. This repository preserves the source-attested identity and English label. The user's 2026-10-10 assignment adds hardware-adaptive data placement as one OMC function; the local implementation is a bounded CLI, with the original identity and source archive preserved.
 
-Identity and source pins are in `APOSTLE_MODULE.json`. The dashboard owner is [METAHUMOTONIC_DASHBOARD](https://github.com/gj3447/METAHUMOTONIC_DASHBOARD); its `graph/apostles.json` records the roster selection.
+**입운구 / OMC / 입체운행구름 / Orbital Motion Cloud** resolve to this module. Identity and source pins are in `APOSTLE_MODULE.json`. The research hub owner is [인역강 / THE GREAT FLOW](https://github.com/gj3447/the-great-flow); its `graph/apostles.json` records the aliases and roster selection. Historical Dashboard source pins retain their original owner URLs.
 
 ```sh
 python3 cli.py identity
