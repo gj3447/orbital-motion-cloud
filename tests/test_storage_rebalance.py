@@ -8,6 +8,7 @@ import sys
 import tempfile
 import time
 import unittest
+import stat
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import storage_rebalance as rebalance
@@ -102,6 +103,20 @@ class StorageRebalanceTests(unittest.TestCase):
         self.assertEqual(sum(row['meaning'] == 'owner-manages-storage-dataset' for row in value['graph']['links']), 2)
         broken = native_storage_graph(); broken['edges'].pop()
         with self.assertRaises(rebalance.Refused): rebalance.adaptive_registry_usl_graph(broken)
+
+    def test_registry_graph_cli_private_output_is_new_and_not_overwritten(self):
+        with tempfile.TemporaryDirectory() as root:
+            source, output = Path(root) / 'native.json', Path(root) / 'private.json'
+            source.write_text(json.dumps(native_storage_graph()))
+            command = [sys.executable, str(Path(__file__).resolve().parents[1] / 'scripts' / 'storage_rebalance.py'),
+                       'usl-adaptive', '--storage-graph', str(source), '--out', str(output), 'registry-graph']
+            subprocess.run(command, check=True, capture_output=True, text=True)
+            self.assertEqual(stat.S_IMODE(output.stat().st_mode), 0o600)
+            self.assertEqual(json.loads(output.read_text())['status'], 'OBSERVED_NO_EXECUTION')
+            output.write_text('unrelated-owner-content')
+            rejected = subprocess.run(command, capture_output=True, text=True)
+            self.assertEqual(rejected.returncode, 2)
+            self.assertEqual(output.read_text(), 'unrelated-owner-content')
     def test_below_trigger_does_not_mean_pressure_released(self):
         value = observation()
         value['pool']['data_percent'] = 84.55

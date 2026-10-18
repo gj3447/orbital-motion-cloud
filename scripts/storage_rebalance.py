@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -546,8 +547,11 @@ def adaptive_main(argv):
             args.defer_resource, args.actor, args.model, args.rationale, args.expires_epoch)
             else: result = adaptive_lease(context, bindings, current, args.resource, args.pin_seconds)
         if args.out:
-            args.out.parent.mkdir(parents=True, exist_ok=True)
-            args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
+            args.out.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+            require(not args.out.exists() and not args.out.is_symlink(), 'Refuse to overwrite an existing owner-local output')
+            fd = os.open(args.out, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+            with os.fdopen(fd, 'w', encoding='utf-8') as stream:
+                stream.write(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
         print(json.dumps(result, ensure_ascii=False, indent=2)); return 0
     except (Refused, KeyError, TypeError, ValueError, OSError) as exc:
         parser.exit(2, str(exc) + '\n')
