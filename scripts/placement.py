@@ -27,6 +27,7 @@ JSON_LIMIT = 2 * 1024 * 1024
 FILE_LIMIT = 64 * 1024 * 1024
 BATCH_LIMIT = 256 * 1024 * 1024
 SAFE_CLASSES = {'closed_artifact', 'research_snapshot', 'memory_snapshot'}
+DIGEST = re.compile(r'sha256:[a-f0-9]{64}')
 
 
 class Refused(ValueError):
@@ -166,6 +167,16 @@ def host_config(path):
     require(required_tools <= {x['path'] for x in host['tool_pins']}, 'Missing invoked CLI source pins')
     for key in ('state_dir', 'usl_repository', 'owner_repository'):
         require(Path(host[key]).is_absolute() and Path(host[key]).resolve() == Path(host[key]), 'Invalid registered local root')
+    # A registered closed artifact may be stored beside an owner checkout, but it
+    # must never be one of the files which keeps this placement control plane
+    # executable or recoverable.  In particular, rebinding a planner, transport,
+    # registry, state record, or USL implementation would create a bootstrap loop.
+    control = {Path(path).resolve(), Path(host['state_dir']) / 'state.json', Path(__file__).resolve()}
+    control |= {Path(item['path']).resolve() for item in host['tool_pins']}
+    for asset in host['assets']:
+        source = safe_path(host['workspaces'][asset['workspace']], asset['path'])
+        require(source.resolve() not in control and not source.resolve().is_relative_to(Path(host['state_dir']).resolve()),
+                'Registered asset overlaps placement control plane')
     return host
 
 
@@ -235,6 +246,67 @@ def semantic(graph):
     for resource in result['resources']:
         resource.pop('locator', None)
     return digest(result)
+
+
+def current_placement(host, state):
+    """Return the committed OMC->USL locator input; this never invokes USL.
+
+    The caller may keep this local because workspace/path values are owner
+    mappings.  Its hashes make a consumer pin the registry and current state
+    without treating a binding as an access grant.
+    """
+    require(state.get('schema') == 'omc-placement-state/1', 'Unknown placement state')
+    generation = state.get('generation')
+    require(type(generation) is int and generation >= 0, 'Invalid placement generation')
+    graph, bindings = state.get('graph'), state.get('bindings')
+    require(isinstance(graph, dict) and graph.get('schema') == 'usl-resource-graph/v1', 'Native USL graph required')
+    require(isinstance(bindings, dict) and bindings.get('schema') == 'usl-resource-bindings/v1', 'Native USL bindings required')
+    require(state.get('semantic_digest') == semantic(graph) and DIGEST.fullmatch(state['semantic_digest']) is not None,
+            'Placement semantic digest mismatch')
+    graph_resources = graph.get('resources')
+    require(isinstance(graph_resources, list) and all(isinstance(row, dict) and isinstance(row.get('id'), str) for row in graph_resources),
+            'Invalid native graph resources')
+    graph_ids = [row['id'] for row in graph_resources]
+    require(len(graph_ids) == len(set(graph_ids)), 'Duplicate native graph resource')
+    assets = {row['resource']: row for row in host['assets']}
+    rows = bindings.get('resources')
+    require(isinstance(rows, list) and len(rows) == len(assets), 'Incomplete current bindings')
+    current = []
+    for binding in rows:
+        require(isinstance(binding, dict) and set(binding) == {'id', 'representations'}, 'Invalid binding row')
+        resource = binding.get('id')
+        require(resource in assets and resource in graph_ids, 'Binding resource is unregistered')
+        reps = binding.get('representations')
+        require(isinstance(reps, list) and len(reps) == 1 and isinstance(reps[0], dict), 'Current binding must select one representation')
+        rep, asset = reps[0], assets[resource]
+        require(set(rep) == {'id', 'relation', 'kind', 'workspace', 'path', 'digest'}, 'Invalid current representation')
+        require(rep['id'] == asset['representation'] and rep['relation'] == 'working-copy' and rep['kind'] == 'workspace',
+                'Current representation identity changed')
+        require(rep['workspace'] in {**host['workspaces'], **host['volumes']} and isinstance(rep['path'], str),
+                'Current representation workspace/path is unregistered')
+        require(rep['digest'] == 'sha256:' + asset['sha256'] and DIGEST.fullmatch(rep['digest']) is not None,
+                'Current representation content pin mismatch')
+        current.append({'resource': resource, 'representation': rep['id'], 'relation': rep['relation'],
+                        'workspace': rep['workspace'], 'path': rep['path'], 'contentDigest': rep['digest'],
+                        'contentBytes': asset['bytes']})
+    require(len({row['resource'] for row in current}) == len(current), 'Duplicate current binding resource')
+    operation, operation_digest = state.get('last_operation'), None
+    if generation == 0:
+        require(operation is None, 'Bootstrap placement has an operation')
+    else:
+        require(isinstance(operation, str) and re.fullmatch('[a-z0-9][a-z0-9-]{0,62}', operation) is not None,
+                'Committed placement operation missing')
+        result = load(Path(host['state_dir']) / 'operations' / operation / 'result.json')
+        require(result.get('schema') == 'omc-placement-result/1' and result.get('status') == 'COMPLETE' and
+                result.get('operation') == operation and result.get('state_digest') == digest(state) and
+                result.get('semantic_digest_after') == state['semantic_digest'], 'Placement operation is not committed')
+        operation_digest = digest(result)
+    current.sort(key=lambda row: (row['resource'], row['representation']))
+    return {'schema': 'omc-usl-placement-current/v1', 'status': 'CURRENT', 'stateGeneration': generation,
+            'stateDigest': digest(state), 'semanticDigest': state['semantic_digest'], 'registrationDigest': digest(host),
+            'lastOperation': operation, 'operationDigest': operation_digest, 'resources': current,
+            'provenance': {'stateSchema': state['schema'], 'graphSchema': graph['schema'], 'bindingsSchema': bindings['schema'],
+                           'ownerImplementationDigest': implementation_digest()}}
 
 
 def invariant(before, after, selected):
@@ -528,6 +600,7 @@ def main(argv=None):
         run = sub.add_parser(name); run.add_argument('--plan', required=True); run.add_argument('--operation', required=True)
         if name == 'recover': run.add_argument('--reviewed-implementation', help='Exact new code digest after an explicitly reviewed recovery fix')
     sub.add_parser('status')
+    sub.add_parser('export-current', help='Read the committed OMC placement input for a pinned USL consumer')
     parser.add_argument('--out', help='Save result JSON atomically')
     args = parser.parse_args(argv)
     try:
@@ -540,10 +613,12 @@ def main(argv=None):
             result = make_plan(host, load(Path(host['state_dir']) / 'state.json'), load(args.observation), load(args.request))
         elif args.command in ('apply', 'recover'):
             result = apply(host, load(args.plan), args.operation, args.command == 'recover', getattr(args, 'reviewed_implementation', None))
-        else:
+        elif args.command == 'status':
             state = load(Path(host['state_dir']) / 'state.json')
             result = {'generation': state['generation'], 'state_digest': digest(state),
                       'semantic_digest': semantic(state['graph']), 'last_operation': state['last_operation']}
+        else:
+            result = current_placement(host, load(Path(host['state_dir']) / 'state.json'))
         if args.out:
             atomic(args.out, result)
         else:

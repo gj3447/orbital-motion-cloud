@@ -33,7 +33,45 @@ def fixture():
     return host, state, obs, request
 
 
+def current_state(host, state, generation=0, operation=None):
+    host['workspaces'] = {'source': '/registered/source'}
+    bindings = {'schema': 'usl-resource-bindings/v1', 'resources': [
+        {'id': asset['resource'], 'representations': [{'id': asset['representation'], 'relation': 'working-copy',
+         'kind': 'workspace', 'workspace': 'source', 'path': asset['resource'] + '.bin',
+         'digest': 'sha256:' + asset['sha256']}]} for asset in host['assets']
+    ]}
+    return {'schema': 'omc-placement-state/1', 'generation': generation, 'graph': state['graph'], 'bindings': bindings,
+            'semantic_digest': p.semantic(state['graph']), 'last_operation': operation}
+
+
 class PlacementTests(unittest.TestCase):
+    def test_current_export_is_stable_committed_locator_contract(self):
+        host, state, _, _ = fixture()
+        exported = p.current_placement(host, current_state(host, state))
+        self.assertEqual(exported['schema'], 'omc-usl-placement-current/v1')
+        self.assertEqual(exported['status'], 'CURRENT')
+        self.assertEqual(exported['stateGeneration'], 0)
+        self.assertEqual(exported['lastOperation'], None)
+        self.assertIsNone(exported['operationDigest'])
+        self.assertEqual(exported['registrationDigest'], p.digest(host))
+        self.assertEqual([row['resource'] for row in exported['resources']], ['data:a', 'data:b'])
+        self.assertEqual(exported['resources'][0]['contentDigest'], 'sha256:' + 'a' * 64)
+        self.assertEqual(exported['resources'][0]['contentBytes'], 40)
+        self.assertRegex(exported['provenance']['ownerImplementationDigest'], r'^sha256:[a-f0-9]{64}$')
+
+    def test_current_export_rejects_semantic_or_binding_mutation(self):
+        host, state, _, _ = fixture()
+        for mutate in [
+            lambda value: value.__setitem__('semantic_digest', 'sha256:' + '0' * 64),
+            lambda value: value['bindings']['resources'][0]['representations'][0].__setitem__('workspace', 'unknown'),
+            lambda value: value.__setitem__('generation', -1),
+        ]:
+            with self.subTest(mutate=mutate):
+                broken = current_state(host, state)
+                mutate(broken)
+                with self.assertRaises(p.Refused):
+                    p.current_placement(host, broken)
+
     def test_feasible_batch_preserves_identity_and_source(self):
         h, s, o, r = fixture()
         result = p.make_plan(h, s, o, r, 1005)
@@ -183,6 +221,23 @@ class PlacementFilesystemTests(unittest.TestCase):
         p.atomic(path, {'generation': 1, 'graph': {'id': 'stable'}})
         p.atomic(path, {'generation': 2, 'graph': {'id': 'stable'}})
         self.assertEqual(p.load(path), {'generation': 2, 'graph': {'id': 'stable'}})
+
+    def test_current_export_nonbootstrap_requires_matching_complete_receipt(self):
+        host, raw, _, _ = fixture(); host['state_dir'] = str(self.root)
+        state = current_state(host, raw, generation=1, operation='export-one')
+        p.atomic(self.root / 'state.json', state)
+        with self.assertRaises(p.Refused):
+            p.current_placement(host, state)
+        receipt = {'schema': 'omc-placement-result/1', 'status': 'COMPLETE', 'operation': 'export-one',
+                   'state_digest': p.digest(state), 'semantic_digest_after': state['semantic_digest']}
+        p.atomic(self.root / 'operations/export-one/result.json', receipt)
+        exported = p.current_placement(host, state)
+        self.assertEqual(exported['lastOperation'], 'export-one')
+        self.assertEqual(exported['operationDigest'], p.digest(receipt))
+        receipt['state_digest'] = 'sha256:' + '0' * 64
+        p.atomic(self.root / 'operations/export-one/result.json', receipt)
+        with self.assertRaises(p.Refused):
+            p.current_placement(host, state)
 
     def test_completed_operation_never_calls_transport_again(self):
         h, state, obs, request = fixture()
