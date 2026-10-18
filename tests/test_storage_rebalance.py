@@ -45,16 +45,30 @@ def adaptive_inputs(now=1000):
                 {'id': 'storage:archive-b', 'action': 'KEEP', 'reason': 'ALREADY_ON_BULK'},
             ]}
     context = {'schema': 'storage-agent-context/v1', 'plan': plan, 'expires_epoch': now + 100,
-               'allowed_actions': ['RANK_ADMITTED_COLD_IDS', 'DEFER']}
+               'allowed_actions': ['RANK_ADMITTED_COLD_IDS', 'DEFER'], 'actor_authority': 'SECONDARY_AI'}
     context['digest'] = rebalance.adaptive_hash(context)
     current = {'schema': 'omc-usl-placement-current/v1', 'status': 'CURRENT', 'stateGeneration': 3,
                'stateDigest': 'sha256:' + '1' * 64, 'semanticDigest': 'sha256:' + '2' * 64,
-               'registrationDigest': 'sha256:' + '3' * 64, 'resources': [
-                   {'resource': 'data:a', 'representation': 'rep-a', 'relation': 'working-copy'},
-                   {'resource': 'data:b', 'representation': 'rep-b', 'relation': 'working-copy'},
-               ]}
+               'registrationDigest': 'sha256:' + '3' * 64, 'lastOperation': 'placement-fixture',
+               'operationDigest': 'sha256:' + '4' * 64, 'resources': [
+                   {'resource': 'data:a', 'representation': 'rep-a', 'relation': 'working-copy',
+                    'workspace': 'fixture-workspace', 'path': 'archive/a',
+                    'contentDigest': 'sha256:' + 'a' * 64, 'contentBytes': 1},
+                   {'resource': 'data:b', 'representation': 'rep-b', 'relation': 'working-copy',
+                    'workspace': 'fixture-workspace', 'path': 'archive/b',
+                    'contentDigest': 'sha256:' + 'b' * 64, 'contentBytes': 2},
+               ], 'provenance': {'stateSchema': 'omc-placement-state/1', 'graphSchema': 'usl-resource-graph/v1',
+                                  'bindingsSchema': 'usl-resource-bindings/v1',
+                                  'ownerImplementationDigest': 'sha256:' + '5' * 64}}
     bindings = {'schema': 'omc-usl-storage-bindings/v1', 'authority': 'EXPLICIT_OWNER_MAPPING',
                 'expectedRegistryDigest': plan['registry_digest'], 'expectedSemanticDigest': plan['semantic_digest'],
+                'placementExpectation': {'exportDigest': rebalance.digest(current),
+                                         'stateGeneration': current['stateGeneration'],
+                                         'stateDigest': current['stateDigest'], 'semanticDigest': current['semanticDigest'],
+                                         'registrationDigest': current['registrationDigest'],
+                                         'ownerImplementationDigest': current['provenance']['ownerImplementationDigest'],
+                                         'operationDigest': current['operationDigest'],
+                                         'priorCheckpoint': {'stateGeneration': 2, 'stateDigest': 'sha256:' + '6' * 64}},
                 'bindings': [
                     {'storageId': 'storage:archive-a', 'uslResourceId': 'data:a', 'uslRepresentationId': 'rep-a'},
                     {'storageId': 'storage:archive-b', 'uslResourceId': 'data:b', 'uslRepresentationId': 'rep-b'},
@@ -139,7 +153,10 @@ class StorageRebalanceTests(unittest.TestCase):
         self.assertEqual(tasks['storage:archive-a']['nativeId'], 'storage:archive-a')
         self.assertEqual(tasks['storage:archive-a']['status'], 'READY_FOR_OWNER_SUBMIT')
         self.assertEqual(tasks['storage:archive-b']['status'], 'NOT_READY')
-        self.assertIsNone(tasks['storage:archive-b']['reclaimableBytes'])
+        self.assertEqual(tasks['storage:archive-a']['estimatedReclaimableBytes'], 4096)
+        self.assertEqual(tasks['storage:archive-a']['reclaimEstimateBasis'],
+                         'storage-tier adaptive plan estimate; physical reclaim is not observed')
+        self.assertIsNone(tasks['storage:archive-b']['estimatedReclaimableBytes'])
         self.assertTrue(all(row['execution'] == 'NOT_REQUESTED' for row in value['tasks']))
 
     def test_adaptive_submit_and_lease_are_only_existing_owner_protocol_payloads(self):
@@ -150,6 +167,11 @@ class StorageRebalanceTests(unittest.TestCase):
         lease = rebalance.adaptive_lease(context, bindings, current, 'data:b', 60, now=1000)
         self.assertEqual(lease['execution'], 'NOT_REQUESTED')
         self.assertEqual(lease['argv'], ['storage-tier', 'adaptive', 'use', 'storage:archive-b', '--pin-seconds', '60'])
+        self.assertIn('protective use lease', lease['scope'])
+        # storage-tier adaptive use leases any registered dataset. KEEP is a
+        # protective pin and does not become a DEMOTE/reclaim admission.
+        with self.assertRaises(rebalance.Refused):
+            rebalance.adaptive_submit(context, bindings, current, ['data:b'], [], 'omc', 'fixture', 'reason', 1050, now=1000)
 
     def test_adaptive_bridge_rejects_stale_or_unregistered_identity_and_authority_expansion(self):
         context, bindings, current = adaptive_inputs()
@@ -161,6 +183,9 @@ class StorageRebalanceTests(unittest.TestCase):
             lambda c, b, p: b['bindings'][0].__setitem__('storageId', 'storage:unknown'),
             lambda c, b, p: b['bindings'][1].__setitem__('uslResourceId', 'data:a'),
             lambda c, b, p: p['resources'].pop(),
+            lambda c, b, p: p['resources'][0].__setitem__('path', 'tampered-without-envelope-change'),
+            lambda c, b, p: b['placementExpectation'].__setitem__('stateDigest', 'sha256:' + '0' * 64),
+            lambda c, b, p: b['placementExpectation']['priorCheckpoint'].__setitem__('stateGeneration', 3),
         ]
         for mutate in cases:
             c, b, p = copy.deepcopy(context), copy.deepcopy(bindings), copy.deepcopy(current)
@@ -170,6 +195,22 @@ class StorageRebalanceTests(unittest.TestCase):
                 rebalance.adaptive_usl_graph(c, b, p, now=1000)
         with self.assertRaises(rebalance.Refused):
             rebalance.adaptive_submit(context, bindings, current, ['data:unknown'], [], 'omc', 'fixture', 'reason', 1050, now=1000)
+        c, b, p = copy.deepcopy(context), copy.deepcopy(bindings), copy.deepcopy(current)
+        c['allowed_actions'] = ['DEFER']
+        c['digest'] = rebalance.adaptive_hash({key: value for key, value in c.items() if key != 'digest'})
+        with self.assertRaises(rebalance.Refused):
+            rebalance.adaptive_submit(c, b, p, ['data:a'], [], 'omc', 'fixture', 'reason', 1050, now=1000)
+
+    def test_adaptive_bridge_refuses_unsealed_demote_and_unsafe_exporter_numbers(self):
+        context, bindings, current = adaptive_inputs()
+        context['plan']['decisions'][0]['seal_digest'] = 'not-a-seal'
+        context['digest'] = rebalance.adaptive_hash({key: value for key, value in context.items() if key != 'digest'})
+        with self.assertRaises(rebalance.Refused):
+            rebalance.adaptive_usl_graph(context, bindings, current, now=1000)
+        context, bindings, current = adaptive_inputs()
+        current['resources'][0]['contentBytes'] = 9007199254740992
+        with self.assertRaises(rebalance.Refused):
+            rebalance.adaptive_usl_graph(context, bindings, current, now=1000)
 
     def test_adaptive_cli_reads_explicit_files_and_emits_only_a_graph_observation(self):
         context, bindings, current = adaptive_inputs(now=time.time())

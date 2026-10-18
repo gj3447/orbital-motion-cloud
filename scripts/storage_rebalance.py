@@ -213,6 +213,19 @@ def _text(value, label):
     return value
 
 
+def _safe_integer(value, label):
+    # JSON integers outside this range cannot be represented exactly by a JS
+    # USL consumer, so accepting them would weaken a cross-runtime pin.
+    require(type(value) is int and 0 <= value <= 9007199254740991, 'Invalid safe integer ' + label)
+    return value
+
+
+def _sha256(value, label):
+    require(isinstance(value, str) and re.fullmatch(r'sha256:[a-f0-9]{64}', value) is not None,
+            'Invalid OMC placement ' + label)
+    return value
+
+
 def _adaptive_context(value, now):
     require(isinstance(value, dict) and value.get('schema') == ADAPTIVE_CONTEXT_SCHEMA,
             'Unknown adaptive context')
@@ -236,37 +249,86 @@ def _adaptive_context(value, now):
         require(storage_id.startswith('storage:'), 'Unregistered storage decision ID')
         require(storage_id not in by_id and isinstance(decision.get('action'), str) and
                 isinstance(decision.get('reason'), str), 'Duplicate or incomplete adaptive decision')
+        if decision['action'] == 'DEMOTE':
+            require(re.fullmatch(r'[a-f0-9]{64}', decision.get('seal_digest', '')) is not None,
+                    'Admitted DEMOTE lacks a valid storage-tier seal_digest')
         by_id[storage_id] = decision
     return plan, by_id
 
 
 def _placement_current(value):
-    require(isinstance(value, dict) and value.get('schema') == PLACEMENT_CURRENT_SCHEMA and
-            value.get('status') == 'CURRENT', 'OMC placement current export required')
+    expected = {'schema', 'status', 'stateGeneration', 'stateDigest', 'semanticDigest',
+                'registrationDigest', 'lastOperation', 'operationDigest', 'resources', 'provenance'}
+    require(isinstance(value, dict) and set(value) == expected and value.get('schema') == PLACEMENT_CURRENT_SCHEMA and
+            value.get('status') == 'CURRENT', 'OMC placement current export must have the frozen owner schema')
+    _safe_integer(value.get('stateGeneration'), 'generation')
     for key in ('stateDigest', 'semanticDigest', 'registrationDigest'):
-        require(re.fullmatch(r'sha256:[a-f0-9]{64}', value.get(key, '')) is not None,
-                'Invalid OMC placement ' + key)
-    require(isinstance(value.get('stateGeneration'), int) and value['stateGeneration'] >= 0,
-            'Invalid OMC placement generation')
+        _sha256(value.get(key), key)
+    generation = value['stateGeneration']
+    if generation == 0:
+        require(value['lastOperation'] is None and value['operationDigest'] is None,
+                'Bootstrap placement operation fields are invalid')
+    else:
+        require(isinstance(value['lastOperation'], str) and
+                re.fullmatch(r'[a-z0-9][a-z0-9-]{0,62}', value['lastOperation']) is not None,
+                'Committed placement operation is invalid')
+        _sha256(value['operationDigest'], 'operationDigest')
+    provenance = value.get('provenance')
+    require(isinstance(provenance, dict) and set(provenance) == {'stateSchema', 'graphSchema', 'bindingsSchema',
+            'ownerImplementationDigest'} and provenance['stateSchema'] == 'omc-placement-state/1' and
+            provenance['graphSchema'] == 'usl-resource-graph/v1' and provenance['bindingsSchema'] == 'usl-resource-bindings/v1',
+            'OMC placement provenance is invalid')
+    _sha256(provenance['ownerImplementationDigest'], 'ownerImplementationDigest')
     rows = value.get('resources')
     require(isinstance(rows, list), 'OMC placement resources missing')
     current = {}
     for row in rows:
-        require(isinstance(row, dict) and row.get('relation') == 'working-copy',
+        require(isinstance(row, dict) and set(row) == {'resource', 'representation', 'relation', 'workspace', 'path',
+                'contentDigest', 'contentBytes'} and row.get('relation') == 'working-copy',
                 'Invalid OMC placement resource')
         resource, representation = _text(row.get('resource'), 'OMC resource'), _text(row.get('representation'), 'OMC representation')
+        _text(row.get('workspace'), 'OMC workspace')
+        _text(row.get('path'), 'OMC path')
+        _sha256(row.get('contentDigest'), 'contentDigest')
+        _safe_integer(row.get('contentBytes'), 'contentBytes')
         require((resource, representation) not in current, 'Duplicate OMC placement resource')
         current[resource, representation] = row
-    return current
+    return current, value
 
 
-def _bindings(value, plan, decisions, current):
+def _bindings(value, plan, decisions, current, exported):
     require(isinstance(value, dict) and set(value) == {'schema', 'authority', 'expectedRegistryDigest',
-            'expectedSemanticDigest', 'bindings'} and value['schema'] == ADAPTIVE_BINDINGS_SCHEMA,
+            'expectedSemanticDigest', 'placementExpectation', 'bindings'} and value['schema'] == ADAPTIVE_BINDINGS_SCHEMA,
             'Unknown or widened storage binding input')
     require(value['authority'] == 'EXPLICIT_OWNER_MAPPING', 'Storage binding source authority is not owner mapping')
     require(value['expectedRegistryDigest'] == plan['registry_digest'] and
             value['expectedSemanticDigest'] == plan['semantic_digest'], 'Storage binding pin differs from adaptive plan')
+    expectation = value['placementExpectation']
+    core = {'exportDigest', 'stateGeneration', 'stateDigest', 'semanticDigest', 'registrationDigest',
+            'ownerImplementationDigest', 'operationDigest'}
+    require(isinstance(expectation, dict) and set(expectation) in (core, core | {'priorCheckpoint'}),
+            'Storage binding lacks an exact caller-owned placement expectation')
+    _safe_integer(expectation['stateGeneration'], 'expected placement generation')
+    for key in ('stateDigest', 'semanticDigest', 'registrationDigest', 'ownerImplementationDigest', 'exportDigest'):
+        _sha256(expectation[key], 'expected ' + key)
+    if expectation['stateGeneration'] == 0:
+        require(expectation['operationDigest'] is None, 'Bootstrap expected operation digest is invalid')
+    else:
+        _sha256(expectation['operationDigest'], 'expected operationDigest')
+    actual = {'stateGeneration': exported['stateGeneration'], 'stateDigest': exported['stateDigest'],
+              'semanticDigest': exported['semanticDigest'], 'registrationDigest': exported['registrationDigest'],
+              'ownerImplementationDigest': exported['provenance']['ownerImplementationDigest'],
+              'operationDigest': exported['operationDigest'], 'exportDigest': digest(exported)}
+    require(all(expectation[key] == actual[key] for key in core),
+            'Caller placement expectation does not match the trusted exporter document')
+    if 'priorCheckpoint' in expectation:
+        prior = expectation['priorCheckpoint']
+        require(isinstance(prior, dict) and set(prior) == {'stateGeneration', 'stateDigest'},
+                'Prior placement checkpoint is invalid')
+        _safe_integer(prior['stateGeneration'], 'prior placement generation')
+        _sha256(prior['stateDigest'], 'prior stateDigest')
+        require(actual['stateGeneration'] > prior['stateGeneration'] and actual['stateDigest'] != prior['stateDigest'],
+                'Placement exporter rollback or fork is not accepted')
     require(isinstance(value['bindings'], list) and value['bindings'], 'Storage bindings missing')
     result = {}
     used_resources, used_representations = set(), set()
@@ -288,8 +350,8 @@ def _bindings(value, plan, decisions, current):
 def load_adaptive_inputs(context, bindings, placement_current, now=None):
     now = time.time() if now is None else now
     plan, decisions = _adaptive_context(context, now)
-    current = _placement_current(placement_current)
-    return plan, decisions, _bindings(bindings, plan, decisions, current), current
+    current, exported = _placement_current(placement_current)
+    return plan, decisions, _bindings(bindings, plan, decisions, current, exported), current
 
 
 def adaptive_usl_graph(context, bindings, placement_current, now=None):
@@ -301,7 +363,9 @@ def adaptive_usl_graph(context, bindings, placement_current, now=None):
         state = 'READY_FOR_OWNER_SUBMIT' if admitted else 'NOT_READY'
         task = {**mapping, 'nativeId': storage_id, 'status': state, 'action': decision['action'],
                 'reason': decision['reason'], 'execution': 'NOT_REQUESTED',
-                'reclaimableBytes': decision.get('reclaimable_bytes') if admitted else None}
+                'estimatedReclaimableBytes': decision.get('reclaimable_bytes') if admitted else None,
+                'reclaimEstimateBasis': ('storage-tier adaptive plan estimate; physical reclaim is not observed'
+                                         if admitted else None)}
         resources.append({'id': storage_id, 'types': ['urn:omc:StorageTierDataset'],
                           'locator': 'urn:storage-tier:' + quote(storage_id, safe=''),
                           'metadata': {'uslResourceId': mapping['uslResourceId'],
@@ -326,6 +390,9 @@ def adaptive_submit(context, bindings, placement_current, ranked_resources, defe
                     actor, model, rationale, expires_epoch, now=None):
     now = time.time() if now is None else now
     _, decisions, mapped, _ = load_adaptive_inputs(context, bindings, placement_current, now)
+    require(context.get('actor_authority') == 'SECONDARY_AI' and
+            context.get('allowed_actions') == ['RANK_ADMITTED_COLD_IDS', 'DEFER'],
+            'Adaptive context does not grant the existing ranked/deferred proposal capability')
     require(all(isinstance(items, list) for items in (ranked_resources, deferred_resources)), 'Selected resources must be arrays')
     selected = ranked_resources + deferred_resources
     require(all(isinstance(item, str) for item in selected) and len(selected) == len(set(selected)),
@@ -355,6 +422,7 @@ def adaptive_lease(context, bindings, placement_current, selected_resource, pin_
     return {'schema': 'omc-storage-rebalance-lease-proposal/v1', 'status': 'NOT_REQUESTED',
             'execution': 'NOT_REQUESTED', 'storageId': row['storageId'], 'uslResourceId': selected_resource,
             'uslRepresentationId': row['uslRepresentationId'],
+            'scope': 'REGISTERED_MAPPED_RESOURCE_ONLY; protective use lease, not relocation admission or reclaim proof',
             'argv': ['storage-tier', 'adaptive', 'use', row['storageId'], '--pin-seconds', str(pin_seconds)]}
 
 
