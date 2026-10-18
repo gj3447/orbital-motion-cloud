@@ -45,6 +45,12 @@ def current_state(host, state, generation=0, operation=None):
 
 
 class PlacementTests(unittest.TestCase):
+    def test_required_tool_pins_include_running_placement_publisher(self):
+        paths = p.required_tool_paths({'owner_repository': '/owner', 'usl_repository': '/usl'})
+        self.assertIn(str(Path(p.__file__).resolve()), paths)
+        self.assertIn('/owner/scripts/fleet.py', paths)
+        self.assertIn('/usl/src/cli.ts', paths)
+
     def test_current_export_is_stable_committed_locator_contract(self):
         host, state, _, _ = fixture()
         with patch.object(p, 'pin', side_effect=AssertionError('export must not read content')):

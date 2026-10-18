@@ -162,8 +162,7 @@ def host_config(path):
         require(re.fullmatch('[A-Za-z_][A-Za-z0-9_.-]*', asset['representation']) is not None, 'Invalid representation ID')
     for item in host['tool_pins']:
         require(pin(item['path'], JSON_LIMIT)['sha256'] == item['sha256'], 'Owner CLI changed; refresh reviewed registration')
-    required_tools = {str(Path(host['owner_repository']) / 'scripts' / name) for name in ('shared_storage.py', 'fleet.py')}
-    required_tools |= {str(Path(host['usl_repository']) / 'src' / name) for name in ('cli.ts', 'resource-bindings.ts')}
+    required_tools = required_tool_paths(host)
     require(required_tools <= {x['path'] for x in host['tool_pins']}, 'Missing invoked CLI source pins')
     for key in ('state_dir', 'usl_repository', 'owner_repository'):
         require(Path(host[key]).is_absolute() and Path(host[key]).resolve() == Path(host[key]), 'Invalid registered local root')
@@ -194,6 +193,14 @@ def control_plane_assets(host, registry_path):
         same_control_file = stat.S_ISREG(entry.st_mode) and (entry.st_dev, entry.st_ino) in identities
         require(source.resolve() not in control and not source.resolve().is_relative_to(state_root) and not same_control_file,
                 'Registered asset overlaps placement control plane')
+
+
+def required_tool_paths(host):
+    """Every invoked or publishing source must have an owner registration pin."""
+    required = {str(Path(host['owner_repository']) / 'scripts' / name) for name in ('shared_storage.py', 'fleet.py')}
+    required |= {str(Path(host['usl_repository']) / 'src' / name) for name in ('cli.ts', 'resource-bindings.ts')}
+    required.add(str(Path(__file__).resolve()))
+    return required
 
 
 def mount(host, alias):
