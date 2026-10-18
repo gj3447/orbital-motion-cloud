@@ -447,34 +447,55 @@ def adaptive_usl_graph(context, bindings, placement_current, now=None):
                       'links': links}, 'tasks': tasks}
 
 
-def adaptive_registry_usl_graph(value):
+def adaptive_registry_usl_graph(value, expected_native_graph_digest):
     """Project only the storage owner's proven management edges; no mover call."""
     require(isinstance(value, dict) and value.get('schema') == ADAPTIVE_GRAPH_SCHEMA and
             value.get('logical_identity_mutation') is False and value.get('shared_kg_published') is False and
             value.get('hswm_execution') is False, 'Native storage graph is not a read-only identity-preserving export')
+    require(re.fullmatch(r'sha256:[a-f0-9]{64}', expected_native_graph_digest or '') is not None and
+            digest(value) == expected_native_graph_digest, 'Native storage graph digest is not independently pinned')
     nodes, edges, sources = value.get('nodes'), value.get('edges'), value.get('sources')
     require(all(isinstance(x, list) for x in (nodes, edges, sources)), 'Native storage graph fields missing')
-    by_uid = {node.get('uid'): node for node in nodes if isinstance(node, dict) and isinstance(node.get('uid'), str)}
+    source_ids = set()
+    for source in sources:
+        require(isinstance(source, dict) and set(source) == {'uid', 'uri', 'sha256', 'authority'} and
+                _text(source['uid'], 'native source UID') not in source_ids and _text(source['uri'], 'native source URI') and
+                re.fullmatch(r'[a-f0-9]{64}', source['sha256'] or '') and source['authority'] in {'SOURCE_DECLARED', 'USER_PRIMARY', 'SECONDARY_AI', 'OBSERVED'}, 'Invalid native source pin')
+        source_ids.add(source['uid'])
+    def owned(row, label, requires_authority=True):
+        require(isinstance(row, dict) and isinstance(row.get('sources'), list) and row['sources'] and
+                (not requires_authority or row.get('authority') == 'SOURCE_DECLARED') and all(ref in source_ids and next(source['authority'] for source in sources if source['uid'] == ref) == 'SOURCE_DECLARED' for ref in row['sources']), 'Unverified owner ' + label)
+    by_uid = {node.get('uid'): node for node in nodes if isinstance(node, dict) and isinstance(node.get('uid'), str) and node['uid']}
     require(len(by_uid) == len(nodes), 'Native storage graph duplicate node')
+    seen_edges = set()
+    for edge in edges:
+        require(isinstance(edge, dict) and set(edge) == {'type', 'source', 'target', 'sources'} and edge['source'] in by_uid and edge['target'] in by_uid, 'Invalid native edge')
+        key = (edge['type'], edge['source'], edge['target'])
+        require(key not in seen_edges, 'Duplicate native edge'); seen_edges.add(key)
     capability = by_uid.get('omc:placement:capability')
     require(isinstance(capability, dict) and capability.get('type') == 'CapabilityReference', 'OMC capability missing')
     policies = {edge.get('source') for edge in edges if isinstance(edge, dict) and edge.get('type') == 'HOST_ADAPTER_FOR' and edge.get('target') == capability['uid']}
     require(len(policies) == 1 and by_uid.get(next(iter(policies)), {}).get('type') == 'PlacementPolicy', 'Storage policy lacks OMC owner adapter')
     policy = next(iter(policies))
     datasets = sorted(node['uid'] for node in nodes if node.get('type') == 'Dataset' and node.get('authority') == 'SOURCE_DECLARED')
+    owned(by_uid[policy], 'policy'); owned(capability, 'capability')
+    for storage_id in datasets: owned(by_uid[storage_id], 'dataset')
     managed = {edge.get('target') for edge in edges if isinstance(edge, dict) and edge.get('type') == 'MANAGES' and edge.get('source') == policy}
     require(datasets and set(datasets) == managed, 'Storage datasets are not exactly owner-managed by the OMC adapter policy')
-    source_digest = digest(value)
+    for edge in edges:
+        if edge['type'] == 'HOST_ADAPTER_FOR' and edge['source'] == policy and edge['target'] == capability['uid'] or edge['type'] == 'MANAGES' and edge['source'] == policy:
+            owned(edge, 'selected edge', False)
+    source_digest = expected_native_graph_digest
     symbolic = 'DECLARED_SYMBOLIC_UNRESOLVED'
     resources = [
         {'id': policy, 'types': ['urn:omc:StoragePolicy'], 'locator': 'kg://storage-tier-policy/' + quote(policy, safe=''), 'metadata': {'locatorStatus': symbolic, 'authority': 'SOURCE_DECLARED'}},
         {'id': capability['uid'], 'types': ['urn:omc:PlacementCapability'], 'locator': 'kg://omc-placement/capability', 'metadata': {'locatorStatus': symbolic, 'authority': 'SOURCE_DECLARED'}},
     ]
-    links = [{'id': 'storage-policy-omc-capability', 'meaning': 'owner-provides-omc-placement-capability', 'participants': [{'role': 'policy', 'resource': policy}, {'role': 'capability', 'resource': capability['uid']}], 'metadata': {'authority': 'SOURCE_DECLARED', 'execution': 'NOT_REQUESTED'}}]
+    links = [{'id': 'storage-policy-omc-capability', 'meaning': 'storage-policy-is-adapter-for-omc', 'participants': [{'role': 'policy', 'resource': policy}, {'role': 'capability', 'resource': capability['uid']}], 'metadata': {'authority': 'SOURCE_DECLARED', 'execution': 'NOT_REQUESTED'}}]
     for storage_id in datasets:
         resources.append({'id': storage_id, 'types': ['urn:omc:StorageTierDataset'], 'locator': 'kg://storage-tier/' + quote(storage_id, safe=''), 'metadata': {'locatorStatus': symbolic, 'authority': 'SOURCE_DECLARED', 'nativeId': storage_id}})
         links.append({'id': 'storage-managed-' + hashlib.sha256(storage_id.encode()).hexdigest()[:24], 'meaning': 'owner-manages-storage-dataset', 'participants': [{'role': 'policy', 'resource': policy}, {'role': 'dataset', 'resource': storage_id}], 'metadata': {'authority': 'SOURCE_DECLARED', 'execution': 'NOT_REQUESTED'}})
-    return {'schema': 'omc-storage-registry-usl/v1', 'status': 'OBSERVED_NO_EXECUTION', 'execution': 'NOT_REQUESTED', 'sourceDigest': source_digest, 'hohRelation': 'UNRESOLVED_NO_NATIVE_STORAGE_RELATION', 'graph': {'schema': 'usl-resource-graph/v1', 'resources': resources, 'meanings': [{'id': 'owner-provides-omc-placement-capability', 'description': 'Owner storage policy provides the declared OMC placement capability'}, {'id': 'owner-manages-storage-dataset', 'description': 'Owner storage policy manages the declared storage dataset'}], 'links': links}}
+    return {'schema': 'omc-storage-registry-usl/v1', 'status': 'OBSERVED_NO_EXECUTION', 'execution': 'NOT_REQUESTED', 'nativeGraphDigest': source_digest, 'hohRelation': 'UNRESOLVED_NO_NATIVE_STORAGE_RELATION', 'graph': {'schema': 'usl-resource-graph/v1', 'resources': resources, 'meanings': [{'id': 'storage-policy-is-adapter-for-omc', 'description': 'Native HOST_ADAPTER_FOR relation from storage policy to declared OMC capability'}, {'id': 'owner-manages-storage-dataset', 'description': 'Owner storage policy manages the declared storage dataset'}], 'links': links}}
 
 
 def adaptive_submit(context, bindings, placement_current, ranked_resources, deferred_resources,
@@ -523,6 +544,7 @@ def adaptive_main(argv):
     parser.add_argument('--bindings', type=Path)
     parser.add_argument('--placement-current', type=Path)
     parser.add_argument('--storage-graph', type=Path)
+    parser.add_argument('--expected-native-graph-digest')
     parser.add_argument('--out', type=Path)
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('graph')
@@ -537,8 +559,8 @@ def adaptive_main(argv):
     args = parser.parse_args(argv)
     try:
         if args.command == 'registry-graph':
-            require(args.storage_graph is not None, '--storage-graph is required for registry-graph')
-            result = adaptive_registry_usl_graph(load(args.storage_graph))
+            require(args.storage_graph is not None and args.expected_native_graph_digest is not None, '--storage-graph and --expected-native-graph-digest are required for registry-graph')
+            result = adaptive_registry_usl_graph(load(args.storage_graph), args.expected_native_graph_digest)
         else:
             require(all(item is not None for item in (args.context, args.bindings, args.placement_current)), 'context, bindings and placement-current are required')
             context, bindings, current = load(args.context), load(args.bindings), load(args.placement_current)
