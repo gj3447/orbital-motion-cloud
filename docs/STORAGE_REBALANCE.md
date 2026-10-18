@@ -40,6 +40,18 @@ owner 입력의 검사를 재현하며 새 현장 관측이 아니다. 300초 �
 100GiB reserve 침범, 다른 containerd namespace를 거절한다. 98% emergency는 그대로다.
 정지 승인이 있어도 복사·복원·guard·실행기 조건 없이 실행 가능한 계획으로 승격하지 않는다.
 
+`--maintenance-policy FILE`은 기존 사용자 결정을 다시 묻지 않고 계획에 결속한다.
+private JSON은 `schema: omc-storage-maintenance-policy/1`, `registration_digest`(선택한
+host JSON의 canonical SHA-256), `decision: AUTHORIZED_WITHOUT_SERVICE_INTERRUPTION`,
+`source_ref`(결정 원문 참조)만 받는다. 다른 host 등록이나 추가 권한 필드는 거절한다.
+실행 서비스가 있으면 `HOLD_SERVICE_CONTINUITY`를 내며, Docker live-restore 설정도
+containerd root의 무중단 이전이나 검증된 failover를 증명하지 않는다. 이 기록은 실행 권한,
+복구 검증, 저장소 admission을 대체하지 않는다.
+
+pool 계산 목표는 storage owner 기본 정책의 **80% 미만**이다. **85%는 평가 시작점**이므로
+그 아래가 됐다고 회수 필요량을 0으로 만들지 않는다. 실제 압력 해제는 owner의 root 여유
+검사도 필요하며 이 계획은 pool 조건만 추정한다. 원격 쓰기·공유 블록의 효과는 미측정이다.
+
 ## USL과 HSWM 보존
 
 선택한 기존 placement state와 runtime state **전체 JSON**의 digest를 비교한다.
@@ -84,7 +96,22 @@ Docker의 공식 문서는 containerd image store에서 이미지·snapshot과 D
 [containerd 운영 문서](https://github.com/containerd/containerd/blob/main/docs/ops.md).
 bind mount 선택은 경로를 보존하려는 이 환경의 운영 설계이며 upstream의 무중단 이전 보장이 아니다.
 
-## 2026-10-18 준비 결과
+## 2026-10-18 HSWM 연결 유지 조건 반영
+
+사용자는 작업 진행을 승인하면서 HSWM 연결 유지를 요구했다. 전체 containerd 이전은
+canonical Neo4j를 포함한 15개 실행 서비스의 정지가 필요하므로 현재 조건에서는 보류한다.
+기존 승인을 재요청하지 않으며, 유지보수 결정과 최신 관측은 ignored
+`.local/storage-rebalance/maintenance-policy.json`, `plan-continuity.json`에 보존한다.
+
+13:30 UTC 관측은 pool 84.55%, 후보 21.07GB다. 그사이 다른 저장소 작업이 회수한 양을
+본 작업의 성과로 합산하지 않는다. 80% 미만까지 약 17.75GB가 더 필요하다.
+13:38 UTC 재관측은 84.57%, 필요량 약 17.83GB이며, 등록된 56개 자료는 모두 이미 bulk에 있다.
+HSWM 정본 read-set 3개는 `VERIFIED_READ_ONLY`, KG 조회와 연구 fabric doctor는 통과했다.
+HOH 운영 응답은 chat `READY`, native HSWM `CONNECTED_EXPERIMENTAL`이다.
+이는 연결 상태 관측이며 새 모델 실행·학습이나 추천 품질 검증이 아니다.
+서비스 정지·이전·추가 회수는 하지 않았다. 아래 수치는 승인 전 당시 관측이다.
+
+## 2026-10-18 앞선 준비 결과
 
 실제 검사에서 containerd 약 34.06GB, 실행 컨테이너 15개/전체 18개를 확인했다.
 pool 97.49%에서 모든 후보 블록이 반환된다는 가정이면 약 88.76%이며 85%까지는
@@ -94,4 +121,4 @@ pool 97.49%에서 모든 후보 블록이 반환된다는 가정이면 약 88.76
 8개 반례 검사와 native USL 구조 검사가 통과했다. 선택한 USL graph는 자원 두 개이며
 그중 파일 자원 하나의 원문 449 bytes/SHA-256도 일치했다. 전체 KG의 모든 자원을 검사한 것은 아니다.
 **이번 준비 작업의 추가 회수는 0이며 서비스 정지·이전은 미실행이다.**
-다음 결정은 private 유지보수안의 서비스 중단 허용 여부다.
+당시 다음 결정은 private 유지보수안의 서비스 중단 허용 여부였으며, 후속 결정은 위에 기록했다.

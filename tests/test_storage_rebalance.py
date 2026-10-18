@@ -79,6 +79,42 @@ def adaptive_inputs(now=1000):
 
 
 class StorageRebalanceTests(unittest.TestCase):
+    def test_below_trigger_does_not_mean_pressure_released(self):
+        value = observation()
+        value['pool']['data_percent'] = 84.55
+        plan = rebalance.make_plan(value, {}, registration(), now=1000)
+        self.assertEqual(plan['pressure_start_pool_percent'], 85)
+        self.assertEqual(plan['target_pool_percent'], 80)
+        self.assertEqual(plan['target_comparison'], 'STRICTLY_BELOW')
+        self.assertGreater(plan['bytes_needed_for_target'], 17_000_000_000)
+        self.assertLess(plan['bytes_needed_for_target'], 18_000_000_000)
+        for percent, needed in ((80, 1), (79.99, 0)):
+            value['pool']['data_percent'] = percent
+            self.assertEqual(rebalance.make_plan(value, {}, registration(), now=1000)
+                             ['bytes_needed_for_target'], needed)
+
+    def test_continuity_consent_does_not_permit_quiescing_running_dependencies(self):
+        policy = {'schema': 'omc-storage-maintenance-policy/1',
+                  'registration_digest': rebalance.digest(registration()),
+                  'decision': 'AUTHORIZED_WITHOUT_SERVICE_INTERRUPTION',
+                  'source_ref': 'local:operator-decision'}
+        for live_restore in (False, True):
+            value = observation()
+            value['live_restore_enabled'] = live_restore
+            value['pool']['data_percent'] = 98.01
+            plan = rebalance.make_plan(value, {}, registration(), now=1000, maintenance_policy=policy)
+            self.assertEqual(plan['relocation_decision'], 'HOLD_SERVICE_CONTINUITY')
+            self.assertEqual(plan['status'], 'NOT_EXECUTABLE')
+            self.assertFalse(plan['execution_performed'])
+            self.assertIn('SERVICE_CONTINUITY_REQUIRED_NO_FAILOVER_VERIFIED', plan['reasons'])
+            self.assertIn('STORAGE_GUARD_EMERGENCY_NO_LARGE_WRITER', plan['reasons'])
+            self.assertNotIn('RUNNING_SERVICES_REQUIRE_MAINTENANCE_DECISION', plan['reasons'])
+        for change in ({'registration_digest': 'sha256:wrong'}, {'decision': 'AUTHORIZED_STOP'},
+                       {'failover_verified': True}, {'source_ref': ''}):
+            with self.subTest(change=change), self.assertRaises(rebalance.Refused):
+                rebalance.make_plan(value, {}, registration(), now=1000,
+                                    maintenance_policy={**policy, **change})
+
     def test_large_candidate_is_estimate_and_still_requires_maintenance(self):
         plan = rebalance.make_plan(observation(), {}, registration(), now=1000)
         self.assertAlmostEqual(plan['estimated_pool_percent_if_all_blocks_reclaimed'], 88.7487, places=3)

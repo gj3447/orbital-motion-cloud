@@ -20,6 +20,10 @@ from placement import Refused, digest, load, require
 
 GIB = 1024 ** 3
 SOURCE = '/var/lib/containerd'
+# ORCA_SETTING storage_adaptive.DEFAULT_POLICY: start and release differ.
+# This estimate does not replace the owner's root-headroom/hysteresis checks.
+POOL_START_PERCENT = 85
+POOL_RELEASE_PERCENT = 80
 
 # Fixed owner transport and paths, not commands supplied by a graph or model.
 # Inspect only identity and state fields; never collect container environments.
@@ -110,8 +114,27 @@ def protected_states(placement_path, runtime_path):
     return result
 
 
-def make_plan(observation, protected, registration, now=None):
+def maintenance_decision(policy, registration):
+    if policy is None:
+        return {'status': 'NOT_RECORDED', 'no_service_interruption': None}
+    require(isinstance(policy, dict) and set(policy) == {
+        'schema', 'registration_digest', 'decision', 'source_ref'}, 'Invalid maintenance policy fields')
+    require(policy['schema'] == 'omc-storage-maintenance-policy/1' and
+            policy['decision'] == 'AUTHORIZED_WITHOUT_SERVICE_INTERRUPTION',
+            'Unsupported maintenance decision')
+    require(policy['registration_digest'] == digest(registration),
+            'Maintenance decision belongs to another host registration')
+    require(isinstance(policy['source_ref'], str) and 0 < len(policy['source_ref']) <= 512,
+            'Missing bounded maintenance decision source')
+    # A local record preserves the user's constraint; it grants no executor,
+    # failover, storage admission or canonical HSWM authority.
+    return {'status': policy['decision'], 'no_service_interruption': True,
+            'policy_digest': digest(policy), 'source_ref': policy['source_ref']}
+
+
+def make_plan(observation, protected, registration, now=None, maintenance_policy=None):
     check_registration(registration)
+    maintenance = maintenance_decision(maintenance_policy, registration)
     now = time.time() if now is None else now
     require(observation.get('schema') == 'omc-storage-owner-observation/1', 'Unknown observation')
     epoch = observation['epoch']
@@ -158,11 +181,14 @@ def make_plan(observation, protected, registration, now=None):
     reasons = ['OWNER_MAINTENANCE_EXECUTION_NOT_PERFORMED', 'COPY_AND_RECOVERY_VERIFICATION_PENDING',
                'REMOTE_GROWTH_ACCOUNTING_NOT_REGISTERED', 'THIN_POOL_RECLAIM_NOT_MEASURED']
     if running:
-        reasons.insert(0, 'RUNNING_SERVICES_REQUIRE_MAINTENANCE_DECISION')
+        reasons.insert(0, 'SERVICE_CONTINUITY_REQUIRED_NO_FAILOVER_VERIFIED'
+                       if maintenance['no_service_interruption'] else
+                       'RUNNING_SERVICES_REQUIRE_MAINTENANCE_DECISION')
     if percent >= 98:
         reasons.insert(0, 'STORAGE_GUARD_EMERGENCY_NO_LARGE_WRITER')
     used = size * percent / 100
-    needed = math.ceil(max(0, used - size * .85))
+    # Release requires strictly below 80%, not merely below the 85% trigger.
+    needed = max(0, math.floor(used - size * POOL_RELEASE_PERCENT / 100) + 1)
     estimate = max(0, used - allocated) * 100 / size
     result = {
         'schema': 'omc-storage-rebalance-plan/1', 'status': 'NOT_EXECUTABLE',
@@ -175,9 +201,15 @@ def make_plan(observation, protected, registration, now=None):
                      'container IDs and image IDs', 'all images including rollback versions',
                      'volume and application bind paths', 'UID/GID, mode, ACL, xattr, hardlinks, sparse files'],
         'running_services': running, 'container_count': len(containers),
+        'maintenance': maintenance,
+        'relocation_decision': ('HOLD_SERVICE_CONTINUITY'
+                                if running and maintenance['no_service_interruption'] else
+                                'OWNER_PREFLIGHT_REQUIRED'),
         'container_identity_digest': digest(sorted(containers, key=lambda row: row['id'])),
         'image_identity_digest': digest(sorted(observation['image_ids'])),
-        'observed_pool_percent': percent, 'target_pool_percent': 85,
+        'observed_pool_percent': percent, 'pressure_start_pool_percent': POOL_START_PERCENT,
+        'target_pool_percent': POOL_RELEASE_PERCENT, 'target_comparison': 'STRICTLY_BELOW',
+        'target_scope': 'pool only; adaptive release also requires owner root-headroom checks',
         'bytes_needed_for_target': needed, 'candidate_allocated_bytes': allocated,
         'estimated_pool_percent_if_all_blocks_reclaimed': estimate,
         'estimated_remaining_bytes': max(0, needed - allocated),
@@ -465,6 +497,8 @@ def main():
     parser.add_argument('--runtime-state', type=Path, required=True)
     parser.add_argument('--verify-before', type=Path,
                         help='Refuse if either selected owner state changed since this plan')
+    parser.add_argument('--maintenance-policy', type=Path,
+                        help='Private recorded user constraint; never an execution or failover permit')
     args = parser.parse_args()
     try:
         protected = protected_states(args.placement_state, args.runtime_state)
@@ -472,7 +506,8 @@ def main():
         observation = collect_observation(registration) if args.collect else load(args.observation)
         require(protected == protected_states(args.placement_state, args.runtime_state),
                 'Owner state changed during observation')
-        result = make_plan(observation, protected, registration)
+        policy = load(args.maintenance_policy) if args.maintenance_policy else None
+        result = make_plan(observation, protected, registration, maintenance_policy=policy)
         if args.collect:
             # One private plan carries its reproducible owner input. This does
             # not publish private hosts or registrations in a portable graph.
