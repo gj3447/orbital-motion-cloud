@@ -78,7 +78,30 @@ def adaptive_inputs(now=1000):
     return context, bindings, current
 
 
+def native_storage_graph():
+    source = {'uid': 'source:fixture', 'sha256': 'a' * 64, 'authority': 'SOURCE_DECLARED'}
+    return {'schema': 'storage-adaptive-graph/v1', 'logical_identity_mutation': False,
+            'shared_kg_published': False, 'hswm_execution': False, 'sources': [source],
+            'nodes': [{'uid': 'storage-policy:fixture', 'type': 'PlacementPolicy', 'authority': 'SOURCE_DECLARED'},
+                      {'uid': 'omc:placement:capability', 'type': 'CapabilityReference', 'authority': 'SOURCE_DECLARED'},
+                      {'uid': 'storage:fixture:a', 'type': 'Dataset', 'authority': 'SOURCE_DECLARED'},
+                      {'uid': 'storage:fixture:b', 'type': 'Dataset', 'authority': 'SOURCE_DECLARED'}],
+            'edges': [{'type': 'HOST_ADAPTER_FOR', 'source': 'storage-policy:fixture', 'target': 'omc:placement:capability'},
+                      {'type': 'MANAGES', 'source': 'storage-policy:fixture', 'target': 'storage:fixture:a'},
+                      {'type': 'MANAGES', 'source': 'storage-policy:fixture', 'target': 'storage:fixture:b'}]}
+
+
 class StorageRebalanceTests(unittest.TestCase):
+    def test_native_registry_projects_real_management_without_placement_or_hoh_identity(self):
+        value = rebalance.adaptive_registry_usl_graph(native_storage_graph())
+        self.assertEqual(value['status'], 'OBSERVED_NO_EXECUTION')
+        self.assertEqual(value['hohRelation'], 'UNRESOLVED_NO_NATIVE_STORAGE_RELATION')
+        self.assertEqual(value['execution'], 'NOT_REQUESTED')
+        ids = {row['id'] for row in value['graph']['resources']}
+        self.assertTrue({'storage:fixture:a', 'storage:fixture:b', 'storage-policy:fixture', 'omc:placement:capability'} <= ids)
+        self.assertEqual(sum(row['meaning'] == 'owner-manages-storage-dataset' for row in value['graph']['links']), 2)
+        broken = native_storage_graph(); broken['edges'].pop()
+        with self.assertRaises(rebalance.Refused): rebalance.adaptive_registry_usl_graph(broken)
     def test_below_trigger_does_not_mean_pressure_released(self):
         value = observation()
         value['pool']['data_percent'] = 84.55
