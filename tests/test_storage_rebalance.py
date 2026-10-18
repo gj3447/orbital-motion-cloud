@@ -70,7 +70,7 @@ def adaptive_inputs(now=1000):
                                          'registrationDigest': current['registrationDigest'],
                                          'ownerImplementationDigest': current['provenance']['ownerImplementationDigest'],
                                          'operationDigest': current['operationDigest'],
-                                         'priorCheckpoint': {'stateGeneration': 2, 'stateDigest': 'sha256:' + '6' * 64}},
+                                         'previous': {'stateGeneration': 3, 'stateDigest': current['stateDigest']}},
                 'bindings': [
                     {'storageId': 'storage:archive-a', 'uslResourceId': 'data:a', 'uslRepresentationId': 'rep-a'},
                     {'storageId': 'storage:archive-b', 'uslResourceId': 'data:b', 'uslRepresentationId': 'rep-b'},
@@ -186,7 +186,16 @@ class StorageRebalanceTests(unittest.TestCase):
         value = rebalance.adaptive_usl_graph(context, bindings, current, now=1000)
         self.assertEqual(value['schema'], 'omc-storage-rebalance-usl/v1')
         self.assertEqual(value['status'], 'READY_FOR_OWNER_SUBMIT')
-        self.assertEqual([row['id'] for row in value['graph']['resources']], ['storage:archive-a', 'storage:archive-b'])
+        resources = {row['id']: row for row in value['graph']['resources']}
+        self.assertEqual({row for row in resources if row.startswith('storage:')}, {'storage:archive-a', 'storage:archive-b'})
+        mappings = [row for row in resources.values() if 'urn:omc:ExplicitOwnerMapping' in row['types']]
+        self.assertEqual(len(mappings), 2)
+        self.assertEqual({row['metadata']['nativeOmcResourceId'] for row in mappings}, {'data:a', 'data:b'})
+        self.assertTrue(all(row['metadata']['storageNativeId'] in {'storage:archive-a', 'storage:archive-b'} for row in mappings))
+        mapping_links = [row for row in value['graph']['links'] if row['meaning'] == 'explicit-owner-storage-mapping']
+        self.assertEqual(len(mapping_links), 2)
+        self.assertTrue(all({item['role'] for item in row['participants']} == {'storage_dataset', 'omc_logical_mapping'}
+                            for row in mapping_links))
         tasks = {row['storageId']: row for row in value['tasks']}
         self.assertEqual(tasks['storage:archive-a']['nativeId'], 'storage:archive-a')
         self.assertEqual(tasks['storage:archive-a']['status'], 'READY_FOR_OWNER_SUBMIT')
@@ -233,7 +242,8 @@ class StorageRebalanceTests(unittest.TestCase):
             lambda c, b, p: p['resources'].pop(),
             lambda c, b, p: p['resources'][0].__setitem__('path', 'tampered-without-envelope-change'),
             lambda c, b, p: b['placementExpectation'].__setitem__('stateDigest', 'sha256:' + '0' * 64),
-            lambda c, b, p: b['placementExpectation']['priorCheckpoint'].__setitem__('stateGeneration', 3),
+            lambda c, b, p: b['placementExpectation']['previous'].__setitem__('stateDigest', 'sha256:' + '6' * 64),
+            lambda c, b, p: b['placementExpectation']['previous'].__setitem__('stateGeneration', 4),
         ]
         for mutate in cases:
             c, b, p = copy.deepcopy(context), copy.deepcopy(bindings), copy.deepcopy(current)
@@ -288,14 +298,19 @@ import { Either } from "effect";
 import { adaptResourceGraph } from "./src/integrations/resource-graph.ts";
 const graph = readFileSync(0, "utf8");
 const adapted = Either.getOrThrow(adaptResourceGraph(graph, { namespace: "omc.storage.adapter.fixture" }));
-console.log(JSON.stringify({ adapter: adapted.source.adapter, nativeIds: Object.keys(adapted.identities.resources).sort() }));'''
+const nativeIds = Object.keys(adapted.identities.resources).sort();
+const mappings = nativeIds.filter(id => id.startsWith("omc-owner-map-"));
+console.log(JSON.stringify({ adapter: adapted.source.adapter, nativeIds, mappingCount: mappings.length }));'''
         result = subprocess.run([node, '--max-old-space-size=64', '--import', 'tsx', '--input-type=module', '-e', program],
                                 input=json.dumps(graph), text=True, capture_output=True, cwd=root, timeout=15,
                                 env={'PATH': str(Path(node).parent) + ':/usr/bin:/bin', 'TSX_DISABLE_CACHE': '1'})
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertLessEqual(len(result.stdout.encode()), 4096)
-        self.assertEqual(json.loads(result.stdout), {'adapter': 'resource-graph/v1',
-                                                     'nativeIds': ['storage:archive-a', 'storage:archive-b']})
+        output = json.loads(result.stdout)
+        self.assertEqual(output['adapter'], 'resource-graph/v1')
+        self.assertEqual({item for item in output['nativeIds'] if item.startswith('storage:')},
+                         {'storage:archive-a', 'storage:archive-b'})
+        self.assertEqual(output['mappingCount'], 2)
 
 
 if __name__ == '__main__':

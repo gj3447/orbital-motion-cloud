@@ -338,7 +338,7 @@ def _bindings(value, plan, decisions, current, exported):
     expectation = value['placementExpectation']
     core = {'exportDigest', 'stateGeneration', 'stateDigest', 'semanticDigest', 'registrationDigest',
             'ownerImplementationDigest', 'operationDigest'}
-    require(isinstance(expectation, dict) and set(expectation) in (core, core | {'priorCheckpoint'}),
+    require(isinstance(expectation, dict) and set(expectation) in (core, core | {'previous'}),
             'Storage binding lacks an exact caller-owned placement expectation')
     _safe_integer(expectation['stateGeneration'], 'expected placement generation')
     for key in ('stateDigest', 'semanticDigest', 'registrationDigest', 'ownerImplementationDigest', 'exportDigest'):
@@ -353,13 +353,14 @@ def _bindings(value, plan, decisions, current, exported):
               'operationDigest': exported['operationDigest'], 'exportDigest': digest(exported)}
     require(all(expectation[key] == actual[key] for key in core),
             'Caller placement expectation does not match the trusted exporter document')
-    if 'priorCheckpoint' in expectation:
-        prior = expectation['priorCheckpoint']
+    if 'previous' in expectation:
+        prior = expectation['previous']
         require(isinstance(prior, dict) and set(prior) == {'stateGeneration', 'stateDigest'},
                 'Prior placement checkpoint is invalid')
         _safe_integer(prior['stateGeneration'], 'prior placement generation')
         _sha256(prior['stateDigest'], 'prior stateDigest')
-        require(actual['stateGeneration'] > prior['stateGeneration'] and actual['stateDigest'] != prior['stateDigest'],
+        require(actual['stateGeneration'] >= prior['stateGeneration'] and
+                (actual['stateGeneration'] != prior['stateGeneration'] or actual['stateDigest'] == prior['stateDigest']),
                 'Placement exporter rollback or fork is not accepted')
     require(isinstance(value['bindings'], list) and value['bindings'], 'Storage bindings missing')
     result = {}
@@ -398,6 +399,9 @@ def adaptive_usl_graph(context, bindings, placement_current, now=None):
                 'estimatedReclaimableBytes': decision.get('reclaimable_bytes') if admitted else None,
                 'reclaimEstimateBasis': ('storage-tier adaptive plan estimate; physical reclaim is not observed'
                                          if admitted else None)}
+        mapping_id = 'omc-owner-map-' + hashlib.sha256(
+            json.dumps([storage_id, mapping['uslResourceId'], mapping['uslRepresentationId']],
+                       ensure_ascii=False, separators=(',', ':')).encode()).hexdigest()[:24]
         resources.append({'id': storage_id, 'types': ['urn:omc:StorageTierDataset'],
                           # The native storage ID stays the resource ID.  This is
                           # a scoped storage-tier locator, not a claim that an
@@ -408,16 +412,34 @@ def adaptive_usl_graph(context, bindings, placement_current, now=None):
                                        'registryDigest': plan['registry_digest'],
                                        'semanticDigest': plan['semantic_digest'],
                                        'status': state, 'action': decision['action'], 'reason': decision['reason']}})
+        # This node names the owner-declared logical OMC mapping.  It is
+        # deliberately distinct from the storage native ID and never asserts
+        # same-as, a shared registration, or a physical path.
+        resources.append({'id': mapping_id, 'types': ['urn:omc:ExplicitOwnerMapping'],
+                          'locator': 'file://omc-owner/explicit-storage-bindings/' + mapping_id,
+                          'metadata': {'authority': 'EXPLICIT_OWNER_MAPPING',
+                                       'nativeOmcResourceId': mapping['uslResourceId'],
+                                       'nativeOmcRepresentationId': mapping['uslRepresentationId'],
+                                       'storageNativeId': storage_id}})
         links.append({'id': 'storage-task-' + hashlib.sha256(storage_id.encode()).hexdigest()[:24],
                       'meaning': 'storage-tier-candidate', 'participants': [{'role': 'dataset', 'resource': storage_id}],
                       'metadata': {'status': state, 'action': decision['action'], 'reason': decision['reason']}})
+        links.append({'id': 'owner-storage-map-' + hashlib.sha256(mapping_id.encode()).hexdigest()[:24],
+                      'meaning': 'explicit-owner-storage-mapping', 'participants': [
+                          {'role': 'storage_dataset', 'resource': storage_id},
+                          {'role': 'omc_logical_mapping', 'resource': mapping_id},
+                      ], 'metadata': {'authority': 'EXPLICIT_OWNER_MAPPING', 'execution': 'NOT_REQUESTED'}})
         tasks.append(task)
     overall = 'READY_FOR_OWNER_SUBMIT' if any(task['status'] == 'READY_FOR_OWNER_SUBMIT' for task in tasks) else 'NOT_READY'
     return {'schema': 'omc-storage-rebalance-usl/v1', 'status': overall, 'execution': 'NOT_REQUESTED',
             'contextDigest': context['digest'], 'expiresEpoch': context['expires_epoch'],
             'registryDigest': plan['registry_digest'], 'semanticDigest': plan['semantic_digest'],
             'graph': {'schema': 'usl-resource-graph/v1', 'resources': resources,
-                      'meanings': [{'id': 'storage-tier-candidate', 'description': 'Owner storage-tier candidate observation'}],
+                      'meanings': [
+                          {'id': 'storage-tier-candidate', 'description': 'Owner storage-tier candidate observation'},
+                          {'id': 'explicit-owner-storage-mapping',
+                           'description': 'Explicit owner mapping between separate storage and OMC logical identities'},
+                      ],
                       'links': links}, 'tasks': tasks}
 
 
