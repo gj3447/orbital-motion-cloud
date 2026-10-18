@@ -6,12 +6,15 @@ this plan before a maintenance decision. It is not an execution permit, a
 canonical HSWM export, or proof of reclaimed thin-pool blocks.
 """
 import argparse
+import hashlib
 import json
 import math
 from pathlib import Path
 import re
 import subprocess
+import sys
 import time
+from urllib.parse import quote
 
 from placement import Refused, digest, load, require
 
@@ -192,6 +195,195 @@ def compare_protected(before, current):
             'canonical_hswm_store_verified': False, 'relocation_verified': False}
 
 
+# This adapter deliberately translates only owner-local storage-tier observations.
+# It does not open the storage registry, create a placement, or invoke its CLI.
+ADAPTIVE_CONTEXT_SCHEMA = 'storage-agent-context/v1'
+ADAPTIVE_PLAN_SCHEMA = 'storage-adaptive-plan/v1'
+ADAPTIVE_BINDINGS_SCHEMA = 'omc-usl-storage-bindings/v1'
+PLACEMENT_CURRENT_SCHEMA = 'omc-usl-placement-current/v1'
+
+
+def adaptive_hash(value):
+    return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True,
+                                     separators=(',', ':')).encode()).hexdigest()
+
+
+def _text(value, label):
+    require(isinstance(value, str) and value, 'Invalid ' + label)
+    return value
+
+
+def _adaptive_context(value, now):
+    require(isinstance(value, dict) and value.get('schema') == ADAPTIVE_CONTEXT_SCHEMA,
+            'Unknown adaptive context')
+    require(isinstance(value.get('plan'), dict) and value['plan'].get('schema') == ADAPTIVE_PLAN_SCHEMA,
+            'Adaptive context lacks a storage-tier plan')
+    require(isinstance(value.get('expires_epoch'), (int, float)) and math.isfinite(value['expires_epoch']) and
+            now <= value['expires_epoch'], 'Adaptive context expired')
+    supplied = value.get('digest')
+    require(isinstance(supplied, str) and supplied == adaptive_hash({k: v for k, v in value.items() if k != 'digest'}),
+            'Adaptive context digest mismatch')
+    plan = value['plan']
+    for key in ('registry_digest', 'semantic_digest'):
+        require(re.fullmatch(r'[a-f0-9]{64}', plan.get(key, '')) is not None,
+                'Adaptive plan has invalid ' + key)
+    decisions = plan.get('decisions')
+    require(isinstance(decisions, list), 'Adaptive plan decisions missing')
+    by_id = {}
+    for decision in decisions:
+        require(isinstance(decision, dict), 'Invalid adaptive decision')
+        storage_id = _text(decision.get('id'), 'storage decision ID')
+        require(storage_id.startswith('storage:'), 'Unregistered storage decision ID')
+        require(storage_id not in by_id and isinstance(decision.get('action'), str) and
+                isinstance(decision.get('reason'), str), 'Duplicate or incomplete adaptive decision')
+        by_id[storage_id] = decision
+    return plan, by_id
+
+
+def _placement_current(value):
+    require(isinstance(value, dict) and value.get('schema') == PLACEMENT_CURRENT_SCHEMA and
+            value.get('status') == 'CURRENT', 'OMC placement current export required')
+    for key in ('stateDigest', 'semanticDigest', 'registrationDigest'):
+        require(re.fullmatch(r'sha256:[a-f0-9]{64}', value.get(key, '')) is not None,
+                'Invalid OMC placement ' + key)
+    require(isinstance(value.get('stateGeneration'), int) and value['stateGeneration'] >= 0,
+            'Invalid OMC placement generation')
+    rows = value.get('resources')
+    require(isinstance(rows, list), 'OMC placement resources missing')
+    current = {}
+    for row in rows:
+        require(isinstance(row, dict) and row.get('relation') == 'working-copy',
+                'Invalid OMC placement resource')
+        resource, representation = _text(row.get('resource'), 'OMC resource'), _text(row.get('representation'), 'OMC representation')
+        require((resource, representation) not in current, 'Duplicate OMC placement resource')
+        current[resource, representation] = row
+    return current
+
+
+def _bindings(value, plan, decisions, current):
+    require(isinstance(value, dict) and set(value) == {'schema', 'authority', 'expectedRegistryDigest',
+            'expectedSemanticDigest', 'bindings'} and value['schema'] == ADAPTIVE_BINDINGS_SCHEMA,
+            'Unknown or widened storage binding input')
+    require(value['authority'] == 'EXPLICIT_OWNER_MAPPING', 'Storage binding source authority is not owner mapping')
+    require(value['expectedRegistryDigest'] == plan['registry_digest'] and
+            value['expectedSemanticDigest'] == plan['semantic_digest'], 'Storage binding pin differs from adaptive plan')
+    require(isinstance(value['bindings'], list) and value['bindings'], 'Storage bindings missing')
+    result = {}
+    used_resources, used_representations = set(), set()
+    for row in value['bindings']:
+        require(isinstance(row, dict) and set(row) == {'storageId', 'uslResourceId', 'uslRepresentationId'},
+                'Invalid storage binding row')
+        storage_id = _text(row['storageId'], 'storage binding ID')
+        resource = _text(row['uslResourceId'], 'USL resource ID')
+        representation = _text(row['uslRepresentationId'], 'USL representation ID')
+        require(storage_id in decisions, 'Storage binding is not registered in adaptive context')
+        require(storage_id not in result and resource not in used_resources and representation not in used_representations,
+                'Storage binding would merge independent identities')
+        require((resource, representation) in current, 'Storage binding is not registered in current OMC placement')
+        result[storage_id] = dict(storageId=storage_id, uslResourceId=resource, uslRepresentationId=representation)
+        used_resources.add(resource); used_representations.add(representation)
+    return result
+
+
+def load_adaptive_inputs(context, bindings, placement_current, now=None):
+    now = time.time() if now is None else now
+    plan, decisions = _adaptive_context(context, now)
+    current = _placement_current(placement_current)
+    return plan, decisions, _bindings(bindings, plan, decisions, current), current
+
+
+def adaptive_usl_graph(context, bindings, placement_current, now=None):
+    plan, decisions, mapped, _ = load_adaptive_inputs(context, bindings, placement_current, now)
+    resources, links, tasks = [], [], []
+    for storage_id, mapping in sorted(mapped.items()):
+        decision = decisions[storage_id]
+        admitted = decision['action'] == 'DEMOTE'
+        state = 'READY_FOR_OWNER_SUBMIT' if admitted else 'NOT_READY'
+        task = {**mapping, 'nativeId': storage_id, 'status': state, 'action': decision['action'],
+                'reason': decision['reason'], 'execution': 'NOT_REQUESTED',
+                'reclaimableBytes': decision.get('reclaimable_bytes') if admitted else None}
+        resources.append({'id': storage_id, 'types': ['urn:omc:StorageTierDataset'],
+                          'locator': 'urn:storage-tier:' + quote(storage_id, safe=''),
+                          'metadata': {'uslResourceId': mapping['uslResourceId'],
+                                       'uslRepresentationId': mapping['uslRepresentationId'],
+                                       'registryDigest': plan['registry_digest'],
+                                       'semanticDigest': plan['semantic_digest'],
+                                       'status': state, 'action': decision['action'], 'reason': decision['reason']}})
+        links.append({'id': 'storage-task-' + hashlib.sha256(storage_id.encode()).hexdigest()[:24],
+                      'meaning': 'storage-tier-candidate', 'participants': [{'role': 'dataset', 'resource': storage_id}],
+                      'metadata': {'status': state, 'action': decision['action'], 'reason': decision['reason']}})
+        tasks.append(task)
+    overall = 'READY_FOR_OWNER_SUBMIT' if any(task['status'] == 'READY_FOR_OWNER_SUBMIT' for task in tasks) else 'NOT_READY'
+    return {'schema': 'omc-storage-rebalance-usl/v1', 'status': overall, 'execution': 'NOT_REQUESTED',
+            'contextDigest': context['digest'], 'expiresEpoch': context['expires_epoch'],
+            'registryDigest': plan['registry_digest'], 'semanticDigest': plan['semantic_digest'],
+            'graph': {'schema': 'usl-resource-graph/v1', 'resources': resources,
+                      'meanings': [{'id': 'storage-tier-candidate', 'description': 'Owner storage-tier candidate observation'}],
+                      'links': links}, 'tasks': tasks}
+
+
+def adaptive_submit(context, bindings, placement_current, ranked_resources, deferred_resources,
+                    actor, model, rationale, expires_epoch, now=None):
+    now = time.time() if now is None else now
+    _, decisions, mapped, _ = load_adaptive_inputs(context, bindings, placement_current, now)
+    require(all(isinstance(items, list) for items in (ranked_resources, deferred_resources)), 'Selected resources must be arrays')
+    selected = ranked_resources + deferred_resources
+    require(all(isinstance(item, str) for item in selected) and len(selected) == len(set(selected)),
+            'Duplicate or invalid selected USL resource')
+    by_resource = {row['uslResourceId']: storage_id for storage_id, row in mapped.items()}
+    require(set(selected) <= set(by_resource), 'USL selected resource is not explicitly mapped')
+    storage_ranked = [by_resource[item] for item in ranked_resources]
+    storage_deferred = [by_resource[item] for item in deferred_resources]
+    admitted = {storage_id for storage_id, decision in decisions.items() if decision['action'] == 'DEMOTE'}
+    require(set(storage_ranked + storage_deferred) <= admitted, 'Selected resource is not an admitted adaptive candidate')
+    for label, value in [('actor', actor), ('model', model), ('rationale', rationale)]:
+        require(isinstance(value, str) and 0 < len(value) <= 4000, 'Invalid ' + label)
+    require(isinstance(expires_epoch, (int, float)) and math.isfinite(expires_epoch) and
+            now <= expires_epoch <= context['expires_epoch'], 'Submit expiry is outside adaptive context')
+    return {'schema': 'storage-agent-proposal/v1', 'context_digest': context['digest'], 'actor': actor,
+            'model': model, 'rationale': rationale, 'expires_epoch': expires_epoch,
+            'ranked_ids': storage_ranked, 'defer_ids': storage_deferred}
+
+
+def adaptive_lease(context, bindings, placement_current, selected_resource, pin_seconds, now=None):
+    _, _, mapped, _ = load_adaptive_inputs(context, bindings, placement_current, now)
+    require(isinstance(selected_resource, str), 'Invalid selected USL resource')
+    matches = [row for row in mapped.values() if row['uslResourceId'] == selected_resource]
+    require(len(matches) == 1, 'USL selected resource is not explicitly mapped')
+    require(isinstance(pin_seconds, int) and 1 <= pin_seconds <= 86400, 'Lease must be 1..86400 seconds')
+    row = matches[0]
+    return {'schema': 'omc-storage-rebalance-lease-proposal/v1', 'status': 'NOT_REQUESTED',
+            'execution': 'NOT_REQUESTED', 'storageId': row['storageId'], 'uslResourceId': selected_resource,
+            'uslRepresentationId': row['uslRepresentationId'],
+            'argv': ['storage-tier', 'adaptive', 'use', row['storageId'], '--pin-seconds', str(pin_seconds)]}
+
+
+def adaptive_main(argv):
+    parser = argparse.ArgumentParser(description='Translate pinned owner storage-tier observations without moving data.')
+    parser.add_argument('--context', type=Path, required=True)
+    parser.add_argument('--bindings', type=Path, required=True)
+    parser.add_argument('--placement-current', type=Path, required=True)
+    sub = parser.add_subparsers(dest='command', required=True)
+    sub.add_parser('graph')
+    submit = sub.add_parser('submit')
+    submit.add_argument('--ranked-resource', action='append', default=[])
+    submit.add_argument('--defer-resource', action='append', default=[])
+    submit.add_argument('--actor', required=True); submit.add_argument('--model', required=True)
+    submit.add_argument('--rationale', required=True); submit.add_argument('--expires-epoch', type=float, required=True)
+    lease = sub.add_parser('lease')
+    lease.add_argument('--resource', required=True); lease.add_argument('--pin-seconds', type=int, default=3600)
+    args = parser.parse_args(argv)
+    try:
+        context, bindings, current = load(args.context), load(args.bindings), load(args.placement_current)
+        if args.command == 'graph': result = adaptive_usl_graph(context, bindings, current)
+        elif args.command == 'submit': result = adaptive_submit(context, bindings, current, args.ranked_resource,
+            args.defer_resource, args.actor, args.model, args.rationale, args.expires_epoch)
+        else: result = adaptive_lease(context, bindings, current, args.resource, args.pin_seconds)
+        print(json.dumps(result, ensure_ascii=False, indent=2)); return 0
+    except (Refused, KeyError, TypeError, ValueError, OSError) as exc:
+        parser.exit(2, str(exc) + '\n')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--host', type=Path, required=True, help='Explicit private owner transport and volume mapping')
@@ -224,4 +416,6 @@ def main():
 
 
 if __name__ == '__main__':
+    if len(sys.argv) > 1 and sys.argv[1] == 'usl-adaptive':
+        raise SystemExit(adaptive_main(sys.argv[2:]))
     main()

@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
+import copy
+import subprocess
 import sys
 import tempfile
+import time
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
@@ -32,6 +35,31 @@ def observation():
         'containers': [{'id': 'container:fixture', 'name': 'database', 'image_id': 'sha256:fixture',
                         'running': True}],
     }
+
+
+def adaptive_inputs(now=1000):
+    plan = {'schema': 'storage-adaptive-plan/v1', 'registry_digest': 'a' * 64,
+            'semantic_digest': 'b' * 64, 'decisions': [
+                {'id': 'storage:archive-a', 'action': 'DEMOTE', 'reason': 'COLD_SEALED_WITH_MEASURED_CAPACITY_BENEFIT',
+                 'reclaimable_bytes': 4096, 'seal_digest': 'c' * 64},
+                {'id': 'storage:archive-b', 'action': 'KEEP', 'reason': 'ALREADY_ON_BULK'},
+            ]}
+    context = {'schema': 'storage-agent-context/v1', 'plan': plan, 'expires_epoch': now + 100,
+               'allowed_actions': ['RANK_ADMITTED_COLD_IDS', 'DEFER']}
+    context['digest'] = rebalance.adaptive_hash(context)
+    current = {'schema': 'omc-usl-placement-current/v1', 'status': 'CURRENT', 'stateGeneration': 3,
+               'stateDigest': 'sha256:' + '1' * 64, 'semanticDigest': 'sha256:' + '2' * 64,
+               'registrationDigest': 'sha256:' + '3' * 64, 'resources': [
+                   {'resource': 'data:a', 'representation': 'rep-a', 'relation': 'working-copy'},
+                   {'resource': 'data:b', 'representation': 'rep-b', 'relation': 'working-copy'},
+               ]}
+    bindings = {'schema': 'omc-usl-storage-bindings/v1', 'authority': 'EXPLICIT_OWNER_MAPPING',
+                'expectedRegistryDigest': plan['registry_digest'], 'expectedSemanticDigest': plan['semantic_digest'],
+                'bindings': [
+                    {'storageId': 'storage:archive-a', 'uslResourceId': 'data:a', 'uslRepresentationId': 'rep-a'},
+                    {'storageId': 'storage:archive-b', 'uslResourceId': 'data:b', 'uslRepresentationId': 'rep-b'},
+                ]}
+    return context, bindings, current
 
 
 class StorageRebalanceTests(unittest.TestCase):
@@ -100,6 +128,61 @@ class StorageRebalanceTests(unittest.TestCase):
             value = observation(); value['pool']['data_percent'] = percent
             with self.subTest(percent=percent), self.assertRaises(rebalance.Refused):
                 rebalance.make_plan(value, {}, registration(), now=1000)
+
+    def test_adaptive_context_projects_native_storage_ids_without_a_move(self):
+        context, bindings, current = adaptive_inputs()
+        value = rebalance.adaptive_usl_graph(context, bindings, current, now=1000)
+        self.assertEqual(value['schema'], 'omc-storage-rebalance-usl/v1')
+        self.assertEqual(value['status'], 'READY_FOR_OWNER_SUBMIT')
+        self.assertEqual([row['id'] for row in value['graph']['resources']], ['storage:archive-a', 'storage:archive-b'])
+        tasks = {row['storageId']: row for row in value['tasks']}
+        self.assertEqual(tasks['storage:archive-a']['nativeId'], 'storage:archive-a')
+        self.assertEqual(tasks['storage:archive-a']['status'], 'READY_FOR_OWNER_SUBMIT')
+        self.assertEqual(tasks['storage:archive-b']['status'], 'NOT_READY')
+        self.assertIsNone(tasks['storage:archive-b']['reclaimableBytes'])
+        self.assertTrue(all(row['execution'] == 'NOT_REQUESTED' for row in value['tasks']))
+
+    def test_adaptive_submit_and_lease_are_only_existing_owner_protocol_payloads(self):
+        context, bindings, current = adaptive_inputs()
+        proposal = rebalance.adaptive_submit(context, bindings, current, ['data:a'], [], 'omc', 'fixture', 'cold sealed archive', 1050, now=1000)
+        self.assertEqual(set(proposal), {'schema', 'context_digest', 'actor', 'model', 'rationale', 'expires_epoch', 'ranked_ids', 'defer_ids'})
+        self.assertEqual(proposal['ranked_ids'], ['storage:archive-a'])
+        lease = rebalance.adaptive_lease(context, bindings, current, 'data:b', 60, now=1000)
+        self.assertEqual(lease['execution'], 'NOT_REQUESTED')
+        self.assertEqual(lease['argv'], ['storage-tier', 'adaptive', 'use', 'storage:archive-b', '--pin-seconds', '60'])
+
+    def test_adaptive_bridge_rejects_stale_or_unregistered_identity_and_authority_expansion(self):
+        context, bindings, current = adaptive_inputs()
+        cases = [
+            lambda c, b, p: c.__setitem__('expires_epoch', 999),
+            lambda c, b, p: b.__setitem__('expectedRegistryDigest', '0' * 64),
+            lambda c, b, p: b.__setitem__('authority', 'CALLER_GRANTED'),
+            lambda c, b, p: b.__setitem__('grant', {'write': True}),
+            lambda c, b, p: b['bindings'][0].__setitem__('storageId', 'storage:unknown'),
+            lambda c, b, p: b['bindings'][1].__setitem__('uslResourceId', 'data:a'),
+            lambda c, b, p: p['resources'].pop(),
+        ]
+        for mutate in cases:
+            c, b, p = copy.deepcopy(context), copy.deepcopy(bindings), copy.deepcopy(current)
+            mutate(c, b, p)
+            if 'digest' in c: c['digest'] = rebalance.adaptive_hash({key: value for key, value in c.items() if key != 'digest'})
+            with self.subTest(mutate=mutate), self.assertRaises(rebalance.Refused):
+                rebalance.adaptive_usl_graph(c, b, p, now=1000)
+        with self.assertRaises(rebalance.Refused):
+            rebalance.adaptive_submit(context, bindings, current, ['data:unknown'], [], 'omc', 'fixture', 'reason', 1050, now=1000)
+
+    def test_adaptive_cli_reads_explicit_files_and_emits_only_a_graph_observation(self):
+        context, bindings, current = adaptive_inputs(now=time.time())
+        with tempfile.TemporaryDirectory() as root:
+            paths = [Path(root) / name for name in ('context.json', 'bindings.json', 'current.json')]
+            for path, value in zip(paths, (context, bindings, current)):
+                path.write_text(json.dumps(value))
+            result = subprocess.run([sys.executable, str(Path(__file__).resolve().parents[1] / 'scripts' / 'storage_rebalance.py'),
+                                     'usl-adaptive', '--context', str(paths[0]), '--bindings', str(paths[1]),
+                                     '--placement-current', str(paths[2]), 'graph'], text=True, capture_output=True, check=True)
+            value = json.loads(result.stdout)
+            self.assertEqual(value['execution'], 'NOT_REQUESTED')
+            self.assertEqual(value['graph']['schema'], 'usl-resource-graph/v1')
 
 
 if __name__ == '__main__':
