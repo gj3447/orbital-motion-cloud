@@ -167,17 +167,33 @@ def host_config(path):
     require(required_tools <= {x['path'] for x in host['tool_pins']}, 'Missing invoked CLI source pins')
     for key in ('state_dir', 'usl_repository', 'owner_repository'):
         require(Path(host[key]).is_absolute() and Path(host[key]).resolve() == Path(host[key]), 'Invalid registered local root')
+    control_plane_assets(host, path)
+    return host
+
+
+def control_plane_assets(host, registry_path):
+    """Reject direct and hard-link aliases of files that keep placement runnable."""
     # A registered closed artifact may be stored beside an owner checkout, but it
     # must never be one of the files which keeps this placement control plane
     # executable or recoverable.  In particular, rebinding a planner, transport,
     # registry, state record, or USL implementation would create a bootstrap loop.
-    control = {Path(path).resolve(), Path(host['state_dir']) / 'state.json', Path(__file__).resolve()}
+    control = {Path(registry_path).resolve(), Path(host['state_dir']) / 'state.json', Path(__file__).resolve()}
     control |= {Path(item['path']).resolve() for item in host['tool_pins']}
+    identities = set()
+    for item in control:
+        try:
+            entry = os.stat(item, follow_symlinks=False)
+        except FileNotFoundError:
+            continue
+        if stat.S_ISREG(entry.st_mode):
+            identities.add((entry.st_dev, entry.st_ino))
+    state_root = Path(host['state_dir']).resolve()
     for asset in host['assets']:
         source = safe_path(host['workspaces'][asset['workspace']], asset['path'])
-        require(source.resolve() not in control and not source.resolve().is_relative_to(Path(host['state_dir']).resolve()),
+        entry = os.stat(source, follow_symlinks=False)
+        same_control_file = stat.S_ISREG(entry.st_mode) and (entry.st_dev, entry.st_ino) in identities
+        require(source.resolve() not in control and not source.resolve().is_relative_to(state_root) and not same_control_file,
                 'Registered asset overlaps placement control plane')
-    return host
 
 
 def mount(host, alias):
@@ -252,8 +268,11 @@ def current_placement(host, state):
     """Return the committed OMC->USL locator input; this never invokes USL.
 
     The caller may keep this local because workspace/path values are owner
-    mappings.  Its hashes make a consumer pin the registry and current state
-    without treating a binding as an access grant.
+    mappings.  ``contentDigest``/``contentBytes`` are registered metadata only:
+    this export does not read content or prove bytes current.  ``CURRENT`` names
+    committed placement state, not a fresh content observation.  Its hashes make
+    a consumer pin the registry and current state without treating a binding as
+    an access grant.
     """
     require(state.get('schema') == 'omc-placement-state/1', 'Unknown placement state')
     generation = state.get('generation')
@@ -600,7 +619,7 @@ def main(argv=None):
         run = sub.add_parser(name); run.add_argument('--plan', required=True); run.add_argument('--operation', required=True)
         if name == 'recover': run.add_argument('--reviewed-implementation', help='Exact new code digest after an explicitly reviewed recovery fix')
     sub.add_parser('status')
-    sub.add_parser('export-current', help='Read the committed OMC placement input for a pinned USL consumer')
+    sub.add_parser('export-current', help='Read committed placement metadata for a pinned USL consumer; does not read content')
     parser.add_argument('--out', help='Save result JSON atomically')
     args = parser.parse_args(argv)
     try:

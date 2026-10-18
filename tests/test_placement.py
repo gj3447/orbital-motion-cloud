@@ -47,7 +47,8 @@ def current_state(host, state, generation=0, operation=None):
 class PlacementTests(unittest.TestCase):
     def test_current_export_is_stable_committed_locator_contract(self):
         host, state, _, _ = fixture()
-        exported = p.current_placement(host, current_state(host, state))
+        with patch.object(p, 'pin', side_effect=AssertionError('export must not read content')):
+            exported = p.current_placement(host, current_state(host, state))
         self.assertEqual(exported['schema'], 'omc-usl-placement-current/v1')
         self.assertEqual(exported['status'], 'CURRENT')
         self.assertEqual(exported['stateGeneration'], 0)
@@ -221,6 +222,20 @@ class PlacementFilesystemTests(unittest.TestCase):
         p.atomic(path, {'generation': 1, 'graph': {'id': 'stable'}})
         p.atomic(path, {'generation': 2, 'graph': {'id': 'stable'}})
         self.assertEqual(p.load(path), {'generation': 2, 'graph': {'id': 'stable'}})
+
+    def test_control_plane_hardlink_alias_is_refused(self):
+        import os
+        workspace, state = self.root / 'workspace', self.root / 'state'
+        workspace.mkdir(); state.mkdir()
+        registry, control, alias = self.root / 'host.json', self.root / 'placement.py', workspace / 'artifact'
+        registry.write_text('{}'); control.write_text('control'); os.link(control, alias)
+        host = {'state_dir': str(state), 'workspaces': {'source': str(workspace)},
+                'tool_pins': [{'path': str(control)}],
+                'assets': [{'workspace': 'source', 'path': 'artifact'}]}
+        with self.assertRaises(p.Refused):
+            p.control_plane_assets(host, registry)
+        alias.unlink(); alias.write_text('independent artifact')
+        p.control_plane_assets(host, registry)
 
     def test_current_export_nonbootstrap_requires_matching_complete_receipt(self):
         host, raw, _, _ = fixture(); host['state_dir'] = str(self.root)
