@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 import copy
+import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -159,6 +161,16 @@ class StorageRebalanceTests(unittest.TestCase):
         self.assertIsNone(tasks['storage:archive-b']['estimatedReclaimableBytes'])
         self.assertTrue(all(row['execution'] == 'NOT_REQUESTED' for row in value['tasks']))
 
+    def test_adaptive_all_keep_context_is_not_ready_and_does_not_claim_reclaim(self):
+        context, bindings, current = adaptive_inputs()
+        context['plan']['decisions'][0].update(action='KEEP', reason='ALREADY_ON_BULK')
+        context['digest'] = rebalance.adaptive_hash({key: value for key, value in context.items() if key != 'digest'})
+        value = rebalance.adaptive_usl_graph(context, bindings, current, now=1000)
+        self.assertEqual(value['status'], 'NOT_READY')
+        self.assertTrue(all(task['status'] == 'NOT_READY' for task in value['tasks']))
+        self.assertTrue(all(task['estimatedReclaimableBytes'] is None for task in value['tasks']))
+        self.assertTrue(all(task['execution'] == 'NOT_REQUESTED' for task in value['tasks']))
+
     def test_adaptive_submit_and_lease_are_only_existing_owner_protocol_payloads(self):
         context, bindings, current = adaptive_inputs()
         proposal = rebalance.adaptive_submit(context, bindings, current, ['data:a'], [], 'omc', 'fixture', 'cold sealed archive', 1050, now=1000)
@@ -224,6 +236,30 @@ class StorageRebalanceTests(unittest.TestCase):
             value = json.loads(result.stdout)
             self.assertEqual(value['execution'], 'NOT_REQUESTED')
             self.assertEqual(value['graph']['schema'], 'usl-resource-graph/v1')
+
+    @unittest.skipUnless(os.environ.get('OMC_USL_RESOURCE_GRAPH_TEST') == '1',
+                         'set OMC_USL_RESOURCE_GRAPH_TEST=1 with OMC_USL_ROOT for the opt-in USL adapter check')
+    def test_opt_in_usl_resource_graph_adapter_preserves_storage_native_ids(self):
+        root = Path(os.environ['OMC_USL_ROOT'])
+        self.assertTrue(root.is_absolute() and root.is_dir() and not root.is_symlink() and root.resolve() == root)
+        self.assertTrue((root / 'src' / 'integrations' / 'resource-graph.ts').is_file())
+        node = shutil.which('node')
+        self.assertIsNotNone(node)
+        context, bindings, current = adaptive_inputs()
+        graph = rebalance.adaptive_usl_graph(context, bindings, current, now=1000)['graph']
+        program = '''import { readFileSync } from "node:fs";
+import { Either } from "effect";
+import { adaptResourceGraph } from "./src/integrations/resource-graph.ts";
+const graph = readFileSync(0, "utf8");
+const adapted = Either.getOrThrow(adaptResourceGraph(graph, { namespace: "omc.storage.adapter.fixture" }));
+console.log(JSON.stringify({ adapter: adapted.source.adapter, nativeIds: Object.keys(adapted.identities.resources).sort() }));'''
+        result = subprocess.run([node, '--max-old-space-size=64', '--import', 'tsx', '--input-type=module', '-e', program],
+                                input=json.dumps(graph), text=True, capture_output=True, cwd=root, timeout=15,
+                                env={'PATH': str(Path(node).parent) + ':/usr/bin:/bin', 'TSX_DISABLE_CACHE': '1'})
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertLessEqual(len(result.stdout.encode()), 4096)
+        self.assertEqual(json.loads(result.stdout), {'adapter': 'resource-graph/v1',
+                                                     'nativeIds': ['storage:archive-a', 'storage:archive-b']})
 
 
 if __name__ == '__main__':

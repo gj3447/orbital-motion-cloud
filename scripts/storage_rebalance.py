@@ -367,7 +367,10 @@ def adaptive_usl_graph(context, bindings, placement_current, now=None):
                 'reclaimEstimateBasis': ('storage-tier adaptive plan estimate; physical reclaim is not observed'
                                          if admitted else None)}
         resources.append({'id': storage_id, 'types': ['urn:omc:StorageTierDataset'],
-                          'locator': 'urn:storage-tier:' + quote(storage_id, safe=''),
+                          # The native storage ID stays the resource ID.  This is
+                          # a scoped storage-tier locator, not a claim that an
+                          # OMC asset and a storage dataset share an identity.
+                          'locator': 'kg://storage-tier/' + quote(storage_id, safe=''),
                           'metadata': {'uslResourceId': mapping['uslResourceId'],
                                        'uslRepresentationId': mapping['uslRepresentationId'],
                                        'registryDigest': plan['registry_digest'],
