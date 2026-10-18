@@ -192,6 +192,11 @@ class StorageRebalanceTests(unittest.TestCase):
         self.assertEqual(len(mappings), 2)
         self.assertEqual({row['metadata']['nativeOmcResourceId'] for row in mappings}, {'data:a', 'data:b'})
         self.assertTrue(all(row['metadata']['storageNativeId'] in {'storage:archive-a', 'storage:archive-b'} for row in mappings))
+        self.assertTrue(all(row['locator'].startswith('kg://omc-placement-mapping/') and
+                            row['metadata']['locatorStatus'] == 'DECLARED_SYMBOLIC_UNRESOLVED'
+                            for row in mappings))
+        self.assertTrue(all(row['metadata']['locatorStatus'] == 'DECLARED_SYMBOLIC_UNRESOLVED'
+                            for key, row in resources.items() if key.startswith('storage:')))
         mapping_links = [row for row in value['graph']['links'] if row['meaning'] == 'explicit-owner-storage-mapping']
         self.assertEqual(len(mapping_links), 2)
         self.assertTrue(all({item['role'] for item in row['participants']} == {'storage_dataset', 'omc_logical_mapping'}

@@ -411,16 +411,18 @@ def adaptive_usl_graph(context, bindings, placement_current, now=None):
                                        'uslRepresentationId': mapping['uslRepresentationId'],
                                        'registryDigest': plan['registry_digest'],
                                        'semanticDigest': plan['semantic_digest'],
-                                       'status': state, 'action': decision['action'], 'reason': decision['reason']}})
+                                       'status': state, 'action': decision['action'], 'reason': decision['reason'],
+                                       'locatorStatus': 'DECLARED_SYMBOLIC_UNRESOLVED'}})
         # This node names the owner-declared logical OMC mapping.  It is
         # deliberately distinct from the storage native ID and never asserts
         # same-as, a shared registration, or a physical path.
         resources.append({'id': mapping_id, 'types': ['urn:omc:ExplicitOwnerMapping'],
-                          'locator': 'file://omc-owner/explicit-storage-bindings/' + mapping_id,
+                          'locator': 'kg://omc-placement-mapping/' + quote(mapping_id, safe=''),
                           'metadata': {'authority': 'EXPLICIT_OWNER_MAPPING',
                                        'nativeOmcResourceId': mapping['uslResourceId'],
                                        'nativeOmcRepresentationId': mapping['uslRepresentationId'],
-                                       'storageNativeId': storage_id}})
+                                       'storageNativeId': storage_id,
+                                       'locatorStatus': 'DECLARED_SYMBOLIC_UNRESOLVED'}})
         links.append({'id': 'storage-task-' + hashlib.sha256(storage_id.encode()).hexdigest()[:24],
                       'meaning': 'storage-tier-candidate', 'participants': [{'role': 'dataset', 'resource': storage_id}],
                       'metadata': {'status': state, 'action': decision['action'], 'reason': decision['reason']}})
