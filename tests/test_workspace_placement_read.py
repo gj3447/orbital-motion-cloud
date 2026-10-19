@@ -20,6 +20,14 @@ def sha(path):
     return "sha256:" + hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def runtime_digest():
+    result = subprocess.run([NODE, str(ROOT / "scripts" / "workspace_placement_read.mjs"), "--runtime-digest",
+                             "--usl-repository", str(USL)], text=True, capture_output=True, timeout=15)
+    if result.returncode:
+        raise RuntimeError(result.stderr)
+    return result.stdout.strip()
+
+
 @unittest.skipUnless(NODE and (USL / "node_modules" / "tsx").is_dir(), "USL tsx runtime unavailable")
 class WorkspacePlacementReadTests(unittest.TestCase):
     def setUp(self):
@@ -68,14 +76,15 @@ class WorkspacePlacementReadTests(unittest.TestCase):
         write(self.registration, document)
 
     def write_config(self):
-        module = USL / "src" / "integrations" / "omc-workspace.ts"
         config = {"schema": "omc-usl-workspace-host/v1", "stateDir": str(self.state),
                   "currentPointer": str(self.pointer_path), "outboxRoot": str(self.outbox),
                   "workspace": self.workspace, "resourceId": self.owner_resource,
                   "physicalRootBase": str(self.base), "expectedOrcaImplementationDigest": self.owner,
                   "expectedSemanticContractDigest": self.semantic,
                   "read": {"registration": str(self.registration), "registrationDigest": sha(self.registration),
-                           "uslRepository": str(USL), "uslModuleDigest": sha(module),
+                           "uslRepository": str(USL), "uslRuntimeDigest": runtime_digest(),
+                           "adapterDigest": sha(ROOT / "scripts" / "workspace_placement_read.mjs"),
+                           "nodeRuntime": subprocess.run([NODE, "--version"], text=True, capture_output=True, check=True).stdout.strip(),
                            "ownerResourceId": self.owner_resource}}
         write(self.config_path, config)
 
@@ -85,6 +94,8 @@ class WorkspacePlacementReadTests(unittest.TestCase):
                               env={"PATH": "/usr/bin:/bin", "PYTHONDONTWRITEBYTECODE": "1"}, timeout=30)
 
     def test_per_read_refreshes_two_generations_and_refuses_tamper_or_rollback(self):
+        registered_config = self.config_path.read_bytes()
+        registered_bindings = self.registration.read_bytes()
         first = self.read()
         self.assertEqual(first.returncode, 0, first.stderr)
         first_value = json.loads(first.stdout)
@@ -101,6 +112,8 @@ class WorkspacePlacementReadTests(unittest.TestCase):
         second_value = json.loads(second.stdout)
         self.assertEqual((second_value["status"], second_value["contentBytes"], second_value["checkpoint"]["stateGeneration"]),
                          ("PASS", len(self.payload_b), 2))
+        self.assertEqual(self.config_path.read_bytes(), registered_config)
+        self.assertEqual(self.registration.read_bytes(), registered_bindings)
 
         self.registration.write_text("{}\n")
         tampered = self.read()

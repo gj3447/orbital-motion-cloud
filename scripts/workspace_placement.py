@@ -157,16 +157,15 @@ def config(path):
     require(pointer.is_file(), "currentPointer must be a regular file")
     if "read" in value:
         read = value["read"]
-        require(isinstance(read, dict) and set(read) == {"registration", "registrationDigest", "uslRepository", "uslModuleDigest", "ownerResourceId"},
+        require(isinstance(read, dict) and set(read) == {"registration", "registrationDigest", "uslRepository", "uslRuntimeDigest", "adapterDigest", "nodeRuntime", "ownerResourceId"},
                 "Invalid registered read configuration")
-        for key in ("registrationDigest", "uslModuleDigest"): sha(read[key], key)
+        for key in ("registrationDigest", "uslRuntimeDigest", "adapterDigest"): sha(read[key], key)
         require(read["ownerResourceId"] == value["resourceId"], "Read owner resource registration mismatch")
+        require(isinstance(read["nodeRuntime"], str) and re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+", read["nodeRuntime"]) is not None,
+                "Invalid registered Node runtime")
         registration = absolute_direct(read["registration"], "read registration")
         require(registration.is_file(), "Read registration must be a regular file")
         repository = absolute_direct(read["uslRepository"], "USL repository", True)
-        module = repository / "src" / "integrations" / "omc-workspace.ts"
-        module = absolute_direct(module, "USL workspace consumer")
-        require(module.is_file(), "USL workspace consumer must be a regular file")
     return value
 
 
