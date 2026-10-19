@@ -121,8 +121,8 @@ def read_outbox_event(root, transaction_id):
     finally: os.close(base)
 
 
-def load_regular(path):
-    raw = read_regular(path)
+def load_regular(path, limit=2 * 1024 * 1024):
+    raw = read_regular(path, limit)
     try:
         value = json.loads(raw)
     except json.JSONDecodeError as exc:
@@ -141,7 +141,7 @@ def sha(value, label):
 
 
 def config(path):
-    value, _ = load_regular(path)
+    value, _ = load_regular(path, 1024 * 1024)
     expected = {"schema", "stateDir", "currentPointer", "outboxRoot", "workspace", "resourceId",
                 "physicalRootBase", "expectedOrcaImplementationDigest", "expectedSemanticContractDigest"}
     require(isinstance(value, dict) and set(value) in (expected, expected | {"read"}) and value.get("schema") == CONFIG_SCHEMA,
@@ -157,9 +157,9 @@ def config(path):
     require(pointer.is_file(), "currentPointer must be a regular file")
     if "read" in value:
         read = value["read"]
-        require(isinstance(read, dict) and set(read) == {"registration", "registrationDigest", "uslRepository", "uslRuntimeDigest", "adapterDigest", "nodeRuntime", "ownerResourceId"},
+        require(isinstance(read, dict) and set(read) == {"registration", "registrationDigest", "uslRepository", "uslRuntimeDigest", "adapterDigest", "ownerModuleDigest", "nodeRuntime", "ownerResourceId"},
                 "Invalid registered read configuration")
-        for key in ("registrationDigest", "uslRuntimeDigest", "adapterDigest"): sha(read[key], key)
+        for key in ("registrationDigest", "uslRuntimeDigest", "adapterDigest", "ownerModuleDigest"): sha(read[key], key)
         require(read["ownerResourceId"] == value["resourceId"], "Read owner resource registration mismatch")
         require(isinstance(read["nodeRuntime"], str) and re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+", read["nodeRuntime"]) is not None,
                 "Invalid registered Node runtime")

@@ -27,11 +27,21 @@ const directPath = async (input, kind) => {
   return absolute
 }
 
+/** Read a bounded regular file and reject replacement during the read. */
+const boundedRead = async (path, limit) => {
+  const before = await lstat(path)
+  if (!before.isFile() || before.isSymbolicLink() || before.size > limit) throw new Error("registered source exceeds byte limit")
+  const bytes = await readFile(path)
+  const after = await lstat(path)
+  if (bytes.byteLength > limit || before.dev !== after.dev || before.ino !== after.ino || before.size !== after.size || before.mtimeMs !== after.mtimeMs || before.ctimeMs !== after.ctimeMs) throw new Error("registered source changed while read")
+  return bytes
+}
+
 /** Pin direct runtime sources plus the dependency lock, with unambiguous byte framing. */
 const runtimeDigest = async repository => {
   const root = await directPath(repository, "directory"), hash = createHash("sha256")
   for (const relative of runtimeFiles) {
-    const file = await directPath(resolve(root, relative), "file"), bytes = await readFile(file)
+    const file = await directPath(resolve(root, relative), "file"), bytes = await boundedRead(file, 2 * 1024 * 1024)
     hash.update(relative); hash.update("\0"); hash.update(String(bytes.byteLength)); hash.update("\0"); hash.update(bytes)
   }
   return `sha256:${hash.digest("hex")}`
@@ -44,17 +54,17 @@ if (args.includes("--runtime-digest")) {
 
 const configPath = value("--config")
 await directPath(configPath, "file")
-const config = JSON.parse(await readFile(configPath, "utf8"))
+const config = JSON.parse(await boundedRead(configPath, 1024 * 1024))
 const read = config.read
 if (!read || typeof read !== "object") throw new Error("registered read configuration missing")
-for (const key of ["registration", "registrationDigest", "uslRepository", "uslRuntimeDigest", "adapterDigest", "nodeRuntime", "ownerResourceId"]) {
+for (const key of ["registration", "registrationDigest", "uslRepository", "uslRuntimeDigest", "adapterDigest", "ownerModuleDigest", "nodeRuntime", "ownerResourceId"]) {
   if (typeof read[key] !== "string") throw new Error("invalid registered read configuration")
 }
 if (read.ownerResourceId !== config.resourceId) throw new Error("registered owner resource mismatch")
 if (read.nodeRuntime !== process.version) throw new Error("Node runtime pin mismatch")
 if (!isAbsolute(read.registration) || !isAbsolute(read.uslRepository)) throw new Error("registered paths must be absolute")
 await directPath(read.registration, "file"); await directPath(read.uslRepository, "directory")
-const registrationBytes = await readFile(read.registration)
+const registrationBytes = await boundedRead(read.registration, 1024 * 1024)
 if (digest(registrationBytes) !== read.registrationDigest) throw new Error("read registration pin mismatch")
 const reg = JSON.parse(registrationBytes)
 if (!reg || typeof reg !== "object" || Array.isArray(reg) || Object.keys(reg).sort().join(",") !== "allowedRoots,bindings,maxBytes,schema,selection" || reg.schema !== "omc-usl-workspace-read-registration/v1") throw new Error("invalid read registration")
@@ -63,12 +73,14 @@ if (!Number.isSafeInteger(reg.maxBytes) || reg.maxBytes < 1 || reg.maxBytes > 16
 if (!reg.selection || typeof reg.selection !== "object" || Array.isArray(reg.selection)) throw new Error("invalid registered selection")
 const adapterPath = new URL(import.meta.url).pathname
 await directPath(adapterPath, "file")
-if (digest(await readFile(adapterPath)) !== read.adapterDigest) throw new Error("OMC read adapter source pin mismatch")
+if (digest(await boundedRead(adapterPath, 2 * 1024 * 1024)) !== read.adapterDigest) throw new Error("OMC read adapter source pin mismatch")
 if (await runtimeDigest(read.uslRepository) !== read.uslRuntimeDigest) throw new Error("USL consumer runtime pin mismatch")
 const modulePath = resolve(read.uslRepository, "src/integrations/omc-workspace.ts")
 const py = resolve(new URL(".", import.meta.url).pathname, "workspace_placement.py")
+await directPath(py, "file")
 const fetchCurrent = async signal => {
   if (signal.aborted) throw new Error("aborted")
+  if (digest(await boundedRead(py, 2 * 1024 * 1024)) !== read.ownerModuleDigest) throw new Error("OMC owner source pin mismatch")
   const { stdout } = await run("python3", [py, "--config", configPath, "resolve-for-read"], {
     timeout: 12_000, maxBuffer: 1024 * 1024, signal,
     env: { PATH: "/usr/bin:/bin", PYTHONDONTWRITEBYTECODE: "1" },

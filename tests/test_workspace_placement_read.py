@@ -84,6 +84,7 @@ class WorkspacePlacementReadTests(unittest.TestCase):
                   "read": {"registration": str(self.registration), "registrationDigest": sha(self.registration),
                            "uslRepository": str(USL), "uslRuntimeDigest": runtime_digest(),
                            "adapterDigest": sha(ROOT / "scripts" / "workspace_placement_read.mjs"),
+                           "ownerModuleDigest": sha(ROOT / "scripts" / "workspace_placement.py"),
                            "nodeRuntime": subprocess.run([NODE, "--version"], text=True, capture_output=True, check=True).stdout.strip(),
                            "ownerResourceId": self.owner_resource}}
         write(self.config_path, config)
