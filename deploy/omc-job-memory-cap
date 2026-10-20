@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+"""OMC job memory cap: box agent-launched jobs before they exhaust host RAM.
+
+Every INTERVAL seconds it scans the caller's processes inside Orca terminal daemon
+scopes. A job root is the first process below a claude/codex agent that is not a
+shell or launcher wrapper; its tree is the root plus all descendants. When a tree's
+anonymous RSS reaches TRIGGER_GIB, the whole tree is moved into a new transient
+scope with MemoryMax, no swap and OOMPolicy=continue, so an overrun kills only inside
+that box. MemoryHigh is off by default: without swap it throttles a runaway to a crawl
+that never finishes (measured on Dell), holding RAM instead of releasing it. Children forked later are attached to the same box.
+Nothing is signalled; agents, shells, language servers and PROTECT_REGEX matches
+are never moved; processes already in another scope are left alone.
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+
+GIB = 1024 ** 3
+AGENTS = {'claude', 'codex'}
+WRAPPERS = {'bash', 'sh', 'dash', 'zsh', 'fish', 'timeout', 'env', 'nice', 'nohup', 'stdbuf',
+            'time', 'xargs', 'uv', 'make', 'flock', 'setsid', 'script'}
+SOURCE_SCOPE = re.compile(r'/orca-daemon-[0-9a-f-]+\.scope$')
+BOX_SCOPE = re.compile(r'/(omc-jobcap-[0-9]+-[0-9]+\.scope)$')
+MANAGER = ['busctl', '--user', 'call', 'org.freedesktop.systemd1', '/org/freedesktop/systemd1',
+           'org.freedesktop.systemd1.Manager']
+
+
+def setting(name, default):
+    return type(default)(os.environ.get(name, default))
+
+
+def read_procs(root='/proc', uid=None):
+    uid = os.getuid() if uid is None else uid
+    procs = {}
+    for name in os.listdir(root):
+        if not name.isdigit():
+            continue
+        base = os.path.join(root, name)
+        try:
+            with open(base + '/status') as f:
+                status = dict(line.split(':', 1) for line in f if ':' in line)
+            if int(status['Uid'].split()[0]) != uid:
+                continue
+            with open(base + '/cgroup') as f:
+                cgroup = f.read().strip().split('::', 1)[-1]
+            with open(base + '/cmdline', 'rb') as f:
+                cmdline = f.read().replace(b'\0', b' ').decode(errors='replace').strip()
+            with open(base + '/stat') as f:
+                start = int(f.read().rsplit(')', 1)[1].split()[19])
+        except (OSError, KeyError, ValueError, IndexError):
+            continue  # exited or unreadable while scanning
+        procs[int(name)] = {'pid': int(name), 'ppid': int(status['PPid']), 'comm': status['Name'].strip(),
+                            'anon_kib': int(status.get('RssAnon', '0 kB').split()[0]),
+                            'cgroup': cgroup, 'cmdline': cmdline, 'start': start}
+    return procs
+
+
+def plan(procs, trigger_kib, protect):
+    """Return (new boxes, stragglers): [(root, [pids], anon_kib)], [(box unit, [pids])]."""
+    children = {}
+    for p in procs.values():
+        children.setdefault(p['ppid'], []).append(p['pid'])
+
+    def tree(pid):
+        out, stack = [], [pid]
+        while stack:
+            cur = stack.pop()
+            out.append(cur)
+            stack.extend(children.get(cur, []))
+        return out
+
+    def is_agent(p):
+        return p['comm'] in AGENTS or '/.codex/packages/' in p['cmdline']
+
+    def protected(p):
+        return is_agent(p) or p['comm'] in WRAPPERS or bool(protect.search(p['comm'] + ' ' + p['cmdline']))
+
+    def job_root(p):
+        """True when every ancestor up to the nearest agent is a wrapper."""
+        cur = procs.get(p['ppid'])
+        while cur:
+            if is_agent(cur):
+                return True
+            if cur['comm'] not in WRAPPERS:
+                return False
+            cur = procs.get(cur['ppid'])
+        return False
+
+    boxes, stragglers = [], {}
+    for p in procs.values():
+        if SOURCE_SCOPE.search(p['cgroup']):
+            # A process left behind under a boxed ancestor joins that box.
+            cur = procs.get(p['ppid'])
+            while cur and SOURCE_SCOPE.search(cur['cgroup']):
+                cur = procs.get(cur['ppid'])
+            box = BOX_SCOPE.search(cur['cgroup']) if cur else None
+            if box:
+                stragglers.setdefault(box.group(1), []).append(p['pid'])
+                continue
+            if protected(p) or not job_root(p):
+                continue
+            pids = [q for q in tree(p['pid']) if SOURCE_SCOPE.search(procs[q]['cgroup'])
+                    and not is_agent(procs[q]) and not protect.search(procs[q]['comm'] + ' ' + procs[q]['cmdline'])]
+            anon = sum(procs[q]['anon_kib'] for q in pids)
+            if anon >= trigger_kib:
+                boxes.append((p['pid'], sorted(pids), anon))
+    return boxes, sorted(stragglers.items())
+
+
+def box(root, pids, start, high, max_bytes):
+    unit = 'omc-jobcap-%d-%d.scope' % (root, start)
+    props = [('PIDs', 'au', [str(len(pids))] + [str(p) for p in pids])]
+    if high:
+        props.append(('MemoryHigh', 't', [str(high)]))
+    props += [('MemoryMax', 't', [str(max_bytes)]),
+             ('MemorySwapMax', 't', ['0']), ('OOMPolicy', 's', ['continue']), ('Delegate', 'b', ['true']),
+             ('Description', 's', ['OMC memory box for agent job %d' % root])]
+    args = [unit, 'fail', str(len(props))]
+    for name, sig, values in props:
+        args += [name, sig] + values
+    run(MANAGER + ['StartTransientUnit', 'ssa(sv)a(sa(sv))'] + args + ['0'])
+    return unit
+
+
+def attach(unit, pids):
+    run(MANAGER + ['AttachProcessesToUnit', 'ssau', unit, '', str(len(pids))] + [str(p) for p in pids])
+
+
+def run(command):
+    subprocess.run(command, check=True, capture_output=True, text=True, timeout=20)
+
+
+def log(**event):
+    print(json.dumps(event, sort_keys=True), flush=True)
+
+
+def cycle(trigger_kib, protect, high, max_bytes, dry_run):
+    procs = read_procs()
+    boxes, stragglers = plan(procs, trigger_kib, protect)
+    for root, pids, anon in boxes:
+        p = procs[root]
+        event = dict(action='box', root=root, pids=len(pids), anon_gib=round(anon / 1048576, 1),
+                     cmd=p['cmdline'][:160], high_gib=high // GIB, max_gib=max_bytes // GIB)
+        if dry_run:
+            log(dry_run=True, **event)
+            continue
+        try:
+            log(unit=box(root, pids, p['start'], high, max_bytes), **event)
+        except (subprocess.SubprocessError, OSError) as e:  # process exited or bus refused; retry next cycle
+            log(error=str(getattr(e, 'stderr', '') or e).strip()[:200], **event)
+    for unit, pids in stragglers:
+        if dry_run:
+            log(action='attach', unit=unit, pids=pids, dry_run=True)
+            continue
+        try:
+            attach(unit, pids)
+            log(action='attach', unit=unit, pids=pids)
+        except (subprocess.SubprocessError, OSError) as e:
+            log(action='attach', unit=unit, pids=pids, error=str(getattr(e, 'stderr', '') or e).strip()[:200])
+
+
+def main():
+    trigger_kib = int(setting('TRIGGER_GIB', 8.0) * 1048576)
+    high = int(setting('HIGH_GIB', 0.0) * GIB)  # 0 = unset
+    max_bytes = int(setting('MAX_GIB', 40.0) * GIB)
+    interval = setting('INTERVAL', 15.0)
+    protect = re.compile(setting('PROTECT_REGEX', r'pyright|language-?server|langserver|mcp|isaacsim|/kit/|orca-ide'))
+    dry_run = setting('DRY_RUN', 0) == 1
+    once = setting('ONCE', 0) == 1
+    log(action='start', trigger_gib=trigger_kib / 1048576, high_gib=high / GIB, max_gib=max_bytes / GIB,
+        interval_s=interval, dry_run=dry_run)
+    while True:
+        cycle(trigger_kib, protect, high, max_bytes, dry_run)
+        if once:
+            return 0
+        time.sleep(interval)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

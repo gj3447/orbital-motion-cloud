@@ -143,6 +143,14 @@ pool 97.49%에서 모든 후보 블록이 반환된다는 가정이면 약 88.76
   이 경우 `find` 실패로 guard가 매번 중단됐다). 목록 비교는 `LC_ALL=C`로 하고 삭제 직전 보존 목록과
   다시 정확히 대조한다(10-20 첫 수정본은 ko_KR 정렬로 `comm` 경고를 냈다).
   scratch 밖, `/srv/sim`, DGX의 k8s 볼륨·모델 캐시는 관측만 한다.
+- **작업 메모리 상자:** `deploy/omc-job-memory-cap`이 Dell kjra 사용자 서비스로 15초마다 Orca 터미널
+  daemon scope 안을 본다. claude/codex 아래 shell·wrapper 다음의 첫 프로세스를 작업 root로 보고,
+  그 트리의 anon RSS 합이 `TRIGGER_GIB`(8)에 이르면 트리 전체를 새 `omc-jobcap-<pid>-<start>.scope`
+  (`MemoryMax` 40G, swap 0, `OOMPolicy=continue`)로 옮긴다. 넘치면 그 상자 안에서만 OOM이 난다.
+  나중에 fork된 자식은 같은 상자에 붙인다. 신호를 보내지 않으며 agent·shell·언어서버·Isaac·Orca와
+  이미 다른 scope(`systemd-run --user --scope`)에 있는 작업은 옮기지 않는다. 40G를 넘게 쓸 작업은
+  직접 scope를 만들어 실행한다. `MemoryHigh`는 기본 해제다. swap이 없을 때 Dell 실측에서 작업을 죽이지도
+  끝내지도 않고 기어가게 만들었다. 2026-10-19 사건(agent 작업 34G로 RAM·swap 소진)의 예방 조치다.
 
 ```sh
 python3 -m unittest tests.test_scratch_guard tests.test_fleet_memory -v
@@ -154,4 +162,10 @@ omc-fleet-memory show --state ~/.local/state/omc/fleet-memory.json
 scp deploy/omc-scratch-guard delltower:.local/bin/
 scp deploy/omc-scratch-guard.{service,timer} delltower:.config/systemd/user/
 ssh delltower 'systemctl --user daemon-reload && systemctl --user enable --now omc-scratch-guard.timer'
+
+python3 -m unittest tests.test_job_memory_cap -v
+ssh delltower 'DRY_RUN=1 ONCE=1 python3 -' < deploy/omc-job-memory-cap   # 옮길 대상만 출력
+scp deploy/omc-job-memory-cap delltower:.local/bin/
+scp deploy/omc-job-memory-cap.service delltower:.config/systemd/user/
+ssh delltower 'systemctl --user daemon-reload && systemctl --user enable --now omc-job-memory-cap.service'
 ```

@@ -1,0 +1,14 @@
+[Unit]
+Description=OMC job memory cap: box large agent-launched jobs before they exhaust RAM
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/omc-job-memory-cap
+Restart=always
+RestartSec=10
+Nice=5
+MemoryMax=128M
+CPUQuota=20%
+
+[Install]
+WantedBy=default.target
