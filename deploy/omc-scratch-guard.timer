@@ -1,0 +1,10 @@
+[Unit]
+Description=Check agent scratch free space every 10 minutes
+
+[Timer]
+OnBootSec=5min
+OnUnitInactiveSec=10min
+Unit=omc-scratch-guard.service
+
+[Install]
+WantedBy=timers.target

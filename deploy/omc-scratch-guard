@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+# OMC scratch guard: keep the filesystem that holds agent scratch from filling.
+# At or above HIGH_PCT used it removes only idle scratch units: no non-directory
+# entry modified within IDLE_MIN minutes, not held open (fd/cwd) by any readable
+# process, and not matching PROTECT_REGEX. Nothing outside SCRATCH_ROOT is touched.
+set -euo pipefail
+export LC_ALL=C  # sort and comm must share byte order; locale collation broke comm on Dell
+
+root="${SCRATCH_ROOT:-/var/tmp/kjra-scratch}"
+high_pct="${HIGH_PCT:-85}"
+crit_pct="${CRIT_PCT:-95}"
+idle_min="${IDLE_MIN:-4320}"
+protect="${PROTECT_REGEX:-env}"
+lock="${GUARD_LOCK:-${XDG_RUNTIME_DIR:-/tmp}/omc-scratch-guard.lock}"
+
+log() { printf '%s\n' "$*"; }
+used_pct() {
+  if [[ -n "${FAKE_USED_PCT:-}" ]]; then echo "$FAKE_USED_PCT"; return; fi
+  df -P "$root" | awk 'NR == 2 { gsub(/%/, ""); print $5 }'
+}
+
+[[ -d "$root" && ! -L "$root" ]] || { log "scratch_root_missing root=$root"; exit 0; }
+exec 9>"$lock"
+flock -n 9 || { log "already_running"; exit 0; }
+
+before="$(used_pct)"
+if (( before < high_pct )); then
+  log "ok used_pct=$before high_pct=$high_pct"
+  exit 0
+fi
+
+# A unit is a top-level entry; per-user agent dirs (claude-<uid>) split one level deeper.
+unit() { awk -F/ '{ print ($1 ~ /^claude-[0-9]+$/ && NF > 1) ? $1 "/" $2 : $1 }'; }
+
+cd "$root"
+keep="$(mktemp)"; all="$(mktemp)"
+trap 'rm -f "$keep" "$all"' EXIT
+# find exits 1 on an unreadable subtree; such a unit cannot prove idleness, so it is kept.
+{
+  { find . -xdev -mindepth 1 ! -type d -mmin "-$idle_min" -printf '%P\n' 2>/dev/null || true; } | unit
+  { find . -xdev -mindepth 1 -type d \( ! -readable -o ! -executable \) -prune -printf '%P\n' 2>/dev/null || true; } | unit
+  for p in /proc/[0-9]*; do
+    { readlink "$p/cwd"; for f in "$p"/fd/*; do readlink "$f"; done; } 2>/dev/null || true
+  done | { grep "^$root/" || true; } | sed "s#^$root/##" | unit
+  find . -mindepth 1 -maxdepth 1 -regextype posix-extended -regex '\./claude-[0-9]+' -printf '%P\n'
+} | sort -u > "$keep"
+{
+  find . -mindepth 1 -maxdepth 1 -regextype posix-extended ! -regex '\./claude-[0-9]+' -printf '%P\n'
+  find . -mindepth 2 -maxdepth 2 -regextype posix-extended -regex '\./claude-[0-9]+/.*' -printf '%P\n' 2>/dev/null || true
+} | { grep -Ev -- "$protect" || true; } | sort -u > "$all"
+
+removed=0; left=0
+while IFS= read -r e; do
+  [[ -n "$e" && -e "$root/$e" ]] || continue
+  grep -qxF -- "$e" "$keep" && continue  # exact recheck: never trust set difference alone
+  chmod -R u+w -- "$root/$e" 2>/dev/null || true
+  if rm -rf --one-file-system -- "$root/$e" 2>/dev/null; then
+    removed=$((removed + 1))
+  else
+    left=$((left + 1))
+  fi
+done < <(comm -23 "$all" "$keep")
+
+after="$(used_pct)"
+log "cleaned before_pct=$before after_pct=$after removed=$removed left=$left kept=$(wc -l < "$keep") idle_min=$idle_min"
+if (( after >= crit_pct )); then
+  log "critical used_pct=$after crit_pct=$crit_pct action=inspect_active_writers"
+  exit 3
+fi

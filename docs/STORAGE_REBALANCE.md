@@ -122,3 +122,36 @@ pool 97.49%에서 모든 후보 블록이 반환된다는 가정이면 약 88.76
 그중 파일 자원 하나의 원문 449 bytes/SHA-256도 일치했다. 전체 KG의 모든 자원을 검사한 것은 아니다.
 **이번 준비 작업의 추가 회수는 0이며 서비스 정지·이전은 미실행이다.**
 당시 다음 결정은 private 유지보수안의 서비스 중단 허용 여부였으며, 후속 결정은 위에 기록했다.
+
+## 내부 장비 관측과 Dell scratch guard
+
+2026-10-18에 Dell 루트 디스크가 `/var/tmp/kjra-scratch`(421G)로 가득 차 Orca main이 `ENOSPC`로
+응답을 멈췄다(10-11 사건과 같은 원인). 사용자 요청에 따라 1단계로 관측과 자동 정리만 설치했다.
+자료 이전·서비스 재시작은 하지 않으며 실행 중 세션을 건드리지 않는다.
+
+- **관측:** `scripts/fleet_memory.py`가 dev-01 사용자 timer(15분)로 등록 장비의 로컬 filesystem,
+  RAM, swap, LVM thin pool과 guard 상태를 읽기 전용 sh probe로 읽는다. 85% 이상 warning,
+  95% 이상 critical(종료 코드 3), RAM 여유 10% 미만 warning이다. 장비 목록은 private
+  `~/.config/omc/fleet-hosts.json`(원본 `.local/fleet-memory/hosts.json`), 최신 결과는
+  `~/.local/state/omc/fleet-memory.json`이다.
+- **정리:** `deploy/omc-scratch-guard`가 Dell kjra 사용자 timer(10분)로 scratch filesystem 사용률을
+  본다. `HIGH_PCT`(85) 미만이면 아무것도 하지 않는다. 그 이상이면 scratch 최상위 항목
+  (`claude-<uid>/` 아래는 한 단계 더 깊은 항목) 중 `IDLE_MIN`(3일) 안에 수정된 파일이 없고,
+  읽을 수 있는 프로세스가 fd/cwd로 잡고 있지 않으며, 이름이 `PROTECT_REGEX`(`env`)와 맞지 않는
+  것만 지운다. 정리 후에도 `CRIT_PCT`(95) 이상이면 종료 코드 3으로 실패한다.
+  읽을 수 없는 하위 디렉터리가 있는 항목은 유휴를 증명할 수 없으므로 보존한다(10-19 19:16부터
+  이 경우 `find` 실패로 guard가 매번 중단됐다). 목록 비교는 `LC_ALL=C`로 하고 삭제 직전 보존 목록과
+  다시 정확히 대조한다(10-20 첫 수정본은 ko_KR 정렬로 `comm` 경고를 냈다).
+  scratch 밖, `/srv/sim`, DGX의 k8s 볼륨·모델 캐시는 관측만 한다.
+
+```sh
+python3 -m unittest tests.test_scratch_guard tests.test_fleet_memory -v
+install -m 755 scripts/fleet_memory.py ~/.local/bin/omc-fleet-memory
+cp deploy/omc-fleet-memory.{service,timer} ~/.config/systemd/user/
+systemctl --user daemon-reload && systemctl --user enable --now omc-fleet-memory.timer
+omc-fleet-memory show --state ~/.local/state/omc/fleet-memory.json
+
+scp deploy/omc-scratch-guard delltower:.local/bin/
+scp deploy/omc-scratch-guard.{service,timer} delltower:.config/systemd/user/
+ssh delltower 'systemctl --user daemon-reload && systemctl --user enable --now omc-scratch-guard.timer'
+```

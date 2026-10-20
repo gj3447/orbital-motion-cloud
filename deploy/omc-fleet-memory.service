@@ -1,0 +1,12 @@
+[Unit]
+Description=OMC read-only disk, RAM and thin-pool observation across registered hosts
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/omc-fleet-memory collect --hosts %h/.config/omc/fleet-hosts.json --state %h/.local/state/omc/fleet-memory.json
+TimeoutStartSec=300
+Nice=10
+MemoryMax=128M
+UMask=0077
+NoNewPrivileges=true
+SyslogIdentifier=omc-fleet-memory

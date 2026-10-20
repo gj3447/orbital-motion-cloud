@@ -1,0 +1,14 @@
+[Unit]
+Description=OMC scratch guard: remove idle agent scratch when free space is low
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/omc-scratch-guard
+TimeoutStartSec=1800
+Nice=15
+IOSchedulingClass=idle
+MemoryMax=512M
+CPUQuota=50%
+UMask=0077
+NoNewPrivileges=true
+SyslogIdentifier=omc-scratch-guard

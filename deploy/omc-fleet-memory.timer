@@ -1,0 +1,10 @@
+[Unit]
+Description=Observe registered OMC hosts every 15 minutes
+
+[Timer]
+OnBootSec=3min
+OnUnitInactiveSec=15min
+Unit=omc-fleet-memory.service
+
+[Install]
+WantedBy=timers.target
