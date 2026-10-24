@@ -113,7 +113,7 @@ class BrowserContribution:
                         job = json.loads(raw)
                         job.update(state='CANCELLED', remoteTermination='BROWSER_REPORTED' if body.get('workerTerminated') is True else 'UNKNOWN')
                         self._job(con, job)
-            task = None
+            task, verified_at, cooling_down = None, 0, False
             if action == 'result':
                 require(set(body) == {'jobId', 'result', 'elapsedMs'}, 'Unexpected result fields')
                 require(isinstance(body['jobId'], str) and len(body['jobId']) <= 64, 'Invalid job')
@@ -136,13 +136,15 @@ class BrowserContribution:
                     p['accepted'] += 1
                     p['verifiedBytes'] += doc['expected']['bytes']
                     self._save(con, p)
+                verified_at = job['completedAt']
             if action == 'next':
                 require(body == {}, 'Unexpected next fields')
                 p['expiresAt'] = now + LIMITS['leaseMs']
                 self._save(con, p)
                 row = con.execute("SELECT payload FROM browser_audits WHERE principal=? AND state='ASSIGNED'", (principal,)).fetchone()
                 job = json.loads(row[0]) if row else None
-                if not job and now - p['lastAssigned'] >= LIMITS['minimumIntervalMs']:
+                cooling_down = not job and now - p['lastAssigned'] < LIMITS['minimumIntervalMs']
+                if not job and not cooling_down:
                     require(con.execute('SELECT COUNT(*) FROM browser_audits').fetchone()[0] < 20000, 'Audit retention capacity')
                     for key, doc in self.docs.items():
                         rows = con.execute("SELECT principal FROM browser_audits WHERE input_key=? AND state IN ('ASSIGNED','ACCEPTED')", (key,)).fetchall()
@@ -165,7 +167,8 @@ class BrowserContribution:
             return {'schema': 'omc-browser-participation/1', 'policy': POLICY, 'active': active,
                     'expiresAt': p['expiresAt'] if active else 0, 'limits': LIMITS, 'task': task,
                     'accepted': p['accepted'] if p else 0, 'verifiedBytes': p['verifiedBytes'] if p else 0,
-                    'corpusRevision': self.revision, 'state': 'WORK_ASSIGNED' if active and outstanding else 'AVAILABLE' if active else 'STOPPED',
+                    'corpusRevision': self.revision, 'verifiedAt': verified_at,
+                    'state': 'WORK_ASSIGNED' if active and outstanding else 'COOLDOWN' if active and cooling_down else 'AVAILABLE' if active else 'STOPPED',
                     'resultAuthority': 'OWNER_VERIFIED' if action == 'result' else 'OWNER_REPORTED'}
 
 

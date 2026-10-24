@@ -47,8 +47,11 @@ class BrowserTests(unittest.TestCase):
         task = self.service.call('next', self.p, {})['task']
         self.assertEqual(task, self.service.call('next', self.p, {})['task'])
         body = {'jobId': task['jobId'], 'result': api.audit(self.doc['text']), 'elapsedMs': 0.3}
+        first_time = int(self.time * 1000)
         for _ in range(2):
             result = self.service.call('result', self.p, body)
+            self.assertEqual(result['verifiedAt'], first_time)
+            self.time += 1
             self.assertEqual(result['accepted'], 1)
             self.assertEqual(result['resultAuthority'], 'OWNER_VERIFIED')
         self.time += 11
@@ -109,6 +112,14 @@ class BrowserTests(unittest.TestCase):
         self.assertIsNotNone(service.call('next', self.p, {})['task'])
         self.assertEqual(service.call('result', self.p, body)['state'], 'WORK_ASSIGNED')
         self.assertEqual(service.call('status', self.p, {})['state'], 'WORK_ASSIGNED')
+
+    def test_cancellation_cooldown_is_not_an_empty_queue(self):
+        self.join(); self.service.call('next', self.p, {})
+        self.service.call('stop', self.p, {})
+        self.join()
+        self.assertEqual(self.service.call('next', self.p, {})['state'], 'COOLDOWN')
+        self.time += 11
+        self.assertIsNotNone(self.service.call('next', self.p, {})['task'])
 
     def test_private_oversize_and_executable_fields_rejected(self):
         for doc in [{**self.doc, 'publicationScope': 'PRIVATE'}, {**self.doc, 'text': 'x' * 65537}, {**self.doc, 'code': 'bad'}]:
