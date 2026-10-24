@@ -89,6 +89,15 @@ class BrowserTests(unittest.TestCase):
         new = api.BrowserContribution(self.ledger, changed, lambda: self.time)
         self.assertIsNotNone(new.call('next', 'c' * 64, {})['task'])
 
+    def test_boolean_is_not_an_integer_audit_count(self):
+        corpus = {**self.corpus, 'documents': [{**self.doc, 'text': 'one'}]}
+        service = api.BrowserContribution(self.ledger, corpus, lambda: self.time)
+        service.call('join', self.p, {'policy': api.POLICY, 'accepted': True})
+        task = service.call('next', self.p, {})['task']
+        with self.assertRaises(ValueError):
+            service.call('result', self.p, {'jobId': task['jobId'], 'elapsedMs': 1,
+                'result': {**api.audit('one'), 'lines': True}})
+
     def test_private_oversize_and_executable_fields_rejected(self):
         for doc in [{**self.doc, 'publicationScope': 'PRIVATE'}, {**self.doc, 'text': 'x' * 65537}, {**self.doc, 'code': 'bad'}]:
             with self.assertRaises(ValueError): api.BrowserContribution(self.ledger, {**self.corpus, 'documents': [doc]})

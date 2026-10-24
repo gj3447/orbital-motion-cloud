@@ -124,6 +124,9 @@ class BrowserContribution:
                 doc = self.docs.get(job['inputKey'])
                 require(doc and job['corpusRevision'] == self.revision, 'Input revision changed')
                 require(job['state'] in ('ASSIGNED', 'ACCEPTED'), 'Assignment ended')
+                result = body['result']
+                require(isinstance(result, dict) and set(result) == {'sha256', 'bytes', 'characters', 'lines'}, 'Invalid result shape')
+                require(isinstance(result['sha256'], str) and all(type(result[k]) is int for k in ('bytes', 'characters', 'lines')), 'Invalid result types')
                 require(body['result'] == doc['expected'], 'Incorrect audit result')
                 if job['state'] != 'ACCEPTED':
                     job.update(state='ACCEPTED', completedAt=now, result=body['result'],
