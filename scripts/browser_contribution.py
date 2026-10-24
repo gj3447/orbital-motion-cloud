@@ -161,10 +161,11 @@ class BrowserContribution:
                         task = {'jobId': job['id'], 'inputKey': doc['key'], 'corpusRevision': self.revision,
                                 'title': doc['title'], 'text': doc['text'], 'template': job['template'], 'expiresAt': job['expiresAt']}
             active = bool(p and p.get('active') and p['expiresAt'] > now)
+            outstanding = con.execute("SELECT 1 FROM browser_audits WHERE principal=? AND state='ASSIGNED' LIMIT 1", (principal,)).fetchone() is not None
             return {'schema': 'omc-browser-participation/1', 'policy': POLICY, 'active': active,
                     'expiresAt': p['expiresAt'] if active else 0, 'limits': LIMITS, 'task': task,
                     'accepted': p['accepted'] if p else 0, 'verifiedBytes': p['verifiedBytes'] if p else 0,
-                    'corpusRevision': self.revision, 'state': 'WORK_ASSIGNED' if task else 'AVAILABLE' if active else 'STOPPED',
+                    'corpusRevision': self.revision, 'state': 'WORK_ASSIGNED' if active and outstanding else 'AVAILABLE' if active else 'STOPPED',
                     'resultAuthority': 'OWNER_VERIFIED' if action == 'result' else 'OWNER_REPORTED'}
 
 

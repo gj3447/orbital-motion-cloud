@@ -98,6 +98,18 @@ class BrowserTests(unittest.TestCase):
             service.call('result', self.p, {'jobId': task['jobId'], 'elapsedMs': 1,
                 'result': {**api.audit('one'), 'lines': True}})
 
+    def test_replayed_receipt_cannot_hide_outstanding_work(self):
+        corpus = {**self.corpus, 'documents': [self.doc, {**self.doc, 'id': 'second', 'text': 'second document'}]}
+        service = api.BrowserContribution(self.ledger, corpus, lambda: self.time)
+        service.call('join', self.p, {'policy': api.POLICY, 'accepted': True})
+        first = service.call('next', self.p, {})['task']
+        body = {'jobId': first['jobId'], 'result': api.audit(first['text']), 'elapsedMs': 1}
+        self.assertEqual(service.call('result', self.p, body)['state'], 'AVAILABLE')
+        self.time += 11
+        self.assertIsNotNone(service.call('next', self.p, {})['task'])
+        self.assertEqual(service.call('result', self.p, body)['state'], 'WORK_ASSIGNED')
+        self.assertEqual(service.call('status', self.p, {})['state'], 'WORK_ASSIGNED')
+
     def test_private_oversize_and_executable_fields_rejected(self):
         for doc in [{**self.doc, 'publicationScope': 'PRIVATE'}, {**self.doc, 'text': 'x' * 65537}, {**self.doc, 'code': 'bad'}]:
             with self.assertRaises(ValueError): api.BrowserContribution(self.ledger, {**self.corpus, 'documents': [doc]})
