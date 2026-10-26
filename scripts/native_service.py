@@ -105,7 +105,11 @@ def verify_bundle(value):
     require(platform.machine() == value['architecture'], 'Hardware architecture mismatch')
     for path in value['environmentFiles']:
         regular(path, secret=True)
-    for path in value['writePaths'] + [b['source'] for b in value['binds']]:
+    # Bind destinations are created in the service's mount namespace. They
+    # must not require creating matching writable directories on the host.
+    targets = [Path(b['target']) for b in value['binds'] if not b['readOnly']]
+    direct_writes = [p for p in value['writePaths'] if not any(Path(p).is_relative_to(t) for t in targets)]
+    for path in direct_writes + [b['source'] for b in value['binds']]:
         require(Path(path).exists() and Path(path).resolve() == Path(path), 'Missing or indirect registered data path')
     return root
 
@@ -184,10 +188,17 @@ def main():
                 require(command('systemctl', 'show', unit, '--property=ActiveState', '--value') not in ('active', 'activating', 'deactivating'), 'Stop old owner workload before replacing its registration')
             temporary = target.with_suffix('.new.service')
             require(not temporary.exists(), 'Unresolved unit installation')
-            temporary.write_text(text); temporary.chmod(0o644)
+            with temporary.open('x') as stream:
+                os.fchmod(stream.fileno(), 0o644)
+                stream.write(text); stream.flush(); os.fsync(stream.fileno())
             try:
                 command('systemd-analyze', 'verify', str(temporary))
                 temporary.replace(target)
+                fd = os.open(target.parent, os.O_RDONLY | os.O_DIRECTORY)
+                try:
+                    os.fsync(fd)
+                finally:
+                    os.close(fd)
                 command('systemctl', 'daemon-reload')
             finally:
                 temporary.unlink(missing_ok=True)
