@@ -35,3 +35,13 @@
 공개 변경은 기존 `gh repo edit gj3447/orbital-motion-cloud --visibility public --accept-visibility-change-consequences`를 사용하고,
 이후 GitHub API의 repository ID·visibility와 원격 main의 LICENSE 바이트를 다시 확인한다.
 공개 명령의 실행·확인 결과는 다음 절에 기록한다.
+
+## 완료 확인
+
+2026-10-26 06:20:41 UTC: 라이선스·고지·USL 운영 기준을 `6e63f2d`로 커밋해 원격 main에 게시한 뒤 공개 변경 명령이 exit 0으로 끝났다.
+GitHub 연결 도구에서 두 repository ID의 visibility가 모두 `public`임을 확인했고, 인증 헤더 없는 GitHub REST 조회도 각각 HTTP 200·`private: false`를 반환했다.
+OMC 원격 LICENSE의 전체 텍스트는 로컬 원문과 일치하며 Git blob SHA는 `6a4d209452c371bb5e9eac73683a71869ea12af4`다.
+비행기맨은 기존 Public·MHL 1.1·Foundation 표시를 확인한 것으로, 이번 작업에서 공개 설정이나 라이선스 판본을 변경하지 않았다.
+
+검증은 두 라이선스의 고정 원천 bytes 일치, 새 고지·기록의 로컬 링크/anchor 5개, staged diff 검사와 원격 되읽기다.
+README는 이번 삽입분만 커밋했고 다른 작업자의 미커밋 파일을 포함하지 않았다. 공유 KG·연구 원장·실제 리밸런싱 runtime은 변경하지 않았다.
