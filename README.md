@@ -1,5 +1,7 @@
 # Orbital Motion Cloud
 
+**우리의 권한은 Dimension Walker, 회사의 권한은 METAHUMO다.** [사용자 원문](records/2026-10-26/omc-authority-operating-model/README.md#user-source)을 보존하고 [OMC 운영 헌법](docs/OMC_CONSTITUTION.md)과 [기술 운영 기준](docs/OMC_OPERATING_MODEL.md)에 적용했다. 회사의 기존 실행·관측 경로를 재사용하면서 목적·원천·결과를 연결하며, 이 문서 적용과 실제 상시 서비스 배포를 구분한다.
+
 Position 8 apostle module. This repository preserves the source-attested identity and English label. The user's 2026-10-10 assignment adds hardware-adaptive data placement as one OMC function; the local implementation is a bounded CLI, with the original identity and source archive preserved.
 
 **입운구 / OMC / 입체운행구름 / Orbital Motion Cloud** resolve to this module. Identity and source pins are in `APOSTLE_MODULE.json`. The research hub owner is [인역강 / THE GREAT FLOW](https://github.com/gj3447/the-great-flow); its `graph/apostles.json` records the aliases and roster selection. Historical Dashboard source pins retain their original owner URLs.
