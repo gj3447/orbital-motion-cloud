@@ -1,5 +1,7 @@
 # Orbital Motion Cloud
 
+Copyright (c) 2026 **MetaHumotonic Open Source Foundation Initiative contributors**. [MetaHumotonic License 1.2](LICENSE)를 적용하는 소스 공개형 프로젝트다. 본체와 외부 원문의 적용 범위는 [LICENSE-NOTICE.md](LICENSE-NOTICE.md)를 따른다. [USL 기반 리밸런싱 기준](docs/OMC_OPERATING_MODEL.md#usl-rebalancing)은 의미·주소 연결 보존과 실제 자원 실행을 연결한다.
+
 [LFM 아키텍처](docs/LFM_ARCHITECTURE.md)는 HOH의 경험·피드백·학습과 AI 생산·기여 정산·생활 지원을 연결하는 설계다. 기존 owner별 구현 경로, 데이터·그래프 계약, 단계별 수용 기준을 포함하며 구현·운영 완료와 구분한다.
 
 **우리의 권한은 Dimension Walker, 회사의 권한은 METAHUMO다.** [사용자 원문](records/2026-10-26/omc-authority-operating-model/README.md#user-source)을 보존하고 [OMC 운영 헌법](docs/OMC_CONSTITUTION.md)과 [기술 운영 기준](docs/OMC_OPERATING_MODEL.md)에 적용했다. 회사의 기존 실행·관측 경로를 재사용하면서 목적·원천·결과를 연결하며, 이 문서 적용과 실제 상시 서비스 배포를 구분한다.
