@@ -1,5 +1,7 @@
 # Orbital Motion Cloud
 
+[LFM 아키텍처](docs/LFM_ARCHITECTURE.md)는 HOH의 경험·피드백·학습과 AI 생산·기여 정산·생활 지원을 연결하는 설계다. 기존 owner별 구현 경로, 데이터·그래프 계약, 단계별 수용 기준을 포함하며 구현·운영 완료와 구분한다.
+
 **우리의 권한은 Dimension Walker, 회사의 권한은 METAHUMO다.** [사용자 원문](records/2026-10-26/omc-authority-operating-model/README.md#user-source)을 보존하고 [OMC 운영 헌법](docs/OMC_CONSTITUTION.md)과 [기술 운영 기준](docs/OMC_OPERATING_MODEL.md)에 적용했다. 회사의 기존 실행·관측 경로를 재사용하면서 목적·원천·결과를 연결하며, 이 문서 적용과 실제 상시 서비스 배포를 구분한다.
 
 Position 8 apostle module. This repository preserves the source-attested identity and English label. The user's 2026-10-10 assignment adds hardware-adaptive data placement as one OMC function; the local implementation is a bounded CLI, with the original identity and source archive preserved.
