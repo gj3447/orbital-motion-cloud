@@ -66,3 +66,5 @@ MM `MINI_APPS.md` 전체 blob의 SHA-256은 `d8436380a3b8925af2c6a083083fd9f2d6f
 사용자 권한 발화 자체를 AI 연구 결론으로 분류하지 않는다. 원문은 위 절, HOW_TO에는 AI의 적용 설계만 귀속한다.
 
 후속 작업은 기술 운영 기준 7절의 DW 관측 지속성부터 현재 owner 조건을 확인하고 진행한다. 연구 등록·구조 검사와 서비스 운영 수용은 서로 다른 완료 기준이다.
+
+2026-10-26 02:05 UTC: OMC 문서·진입점은 로컬 commit `303f676ba824970127f789e407267c71b00e44da`에 반영했다. TGF의 `data/research-organization/omc-governance-20261026/{HOW_TO.md,request.json}`와 기존 개발 모듈 경로 연결은 준비했으나, 관리형 `research_workflow.py apply`가 실행 전에 `Thin pool is critical`로 거절됐다(exit 125). 당시 pool 사용률은 98.09%, 빈 작업 슬롯은 4개였다. 연구 원장 등록·분류·render/check는 미완료이며 COMPLETE로 보고하지 않는다. 저장소 owner가 용량 문제를 해결한 뒤 같은 요청을 관리형 runner로 재개한다. 보호기 우회·다른 작업 삭제·임의 정책 완화는 하지 않았다.
