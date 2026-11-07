@@ -245,9 +245,16 @@ def memory():
             if (directory / 'memory.max').exists():
                 limit = (directory / 'memory.max').read_text().strip()
                 current = int((directory / 'memory.current').read_text())
+                # A delegated cgroup can expose memory without enabling the CPU
+                # controller. Missing CPU telemetry must not erase known memory
+                # limits; preserve it as unknown instead of assuming unlimited.
+                try:
+                    cpu_max = (directory / 'cpu.max').read_text().strip()
+                except FileNotFoundError:
+                    cpu_max = None
                 rows.append({'path': str(directory), 'max_bytes': None if limit == 'max' else int(limit),
                              'current_bytes': current,
-                             'cpu_max': (directory / 'cpu.max').read_text().strip()})
+                             'cpu_max': cpu_max})
     headrooms = [values['MemAvailable']] + [max(0, r['max_bytes'] - r['current_bytes']) for r in rows if r['max_bytes'] is not None]
     return {'os_visible': values, 'visible_cgroups': rows, 'available_bound_bytes': min(headrooms),
             'outside_namespace_constraints': 'UNKNOWN', 'basis': 'OS_VISIBLE_AND_VISIBLE_LIMITS_ONLY'}

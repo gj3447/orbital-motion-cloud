@@ -45,6 +45,27 @@ def current_state(host, state, generation=0, operation=None):
 
 
 class PlacementTests(unittest.TestCase):
+    def test_memory_only_delegation_keeps_leaf_and_parent_memory_limits(self):
+        with tempfile.TemporaryDirectory() as work:
+            root = Path(work)
+            files = {'/proc/meminfo': 'MemTotal: 16384 kB\nMemAvailable: 8192 kB\n',
+                     '/proc/self/cgroup': '0::/parent/leaf\n',
+                     '/sys/fs/cgroup/parent/leaf/memory.max': 'max',
+                     '/sys/fs/cgroup/parent/leaf/memory.current': '100',
+                     '/sys/fs/cgroup/parent/memory.max': '4096',
+                     '/sys/fs/cgroup/parent/memory.current': '1024',
+                     '/sys/fs/cgroup/parent/cpu.max': '100000 100000'}
+            for name, content in files.items():
+                target = root/name.lstrip('/'); target.parent.mkdir(parents=True, exist_ok=True); target.write_text(content)
+            with patch.object(p, 'Path', side_effect=lambda name: root/str(name).lstrip('/')):
+                value = p.memory()
+                self.assertEqual(value['available_bound_bytes'], 3072)
+                self.assertIsNone(value['visible_cgroups'][0]['cpu_max'])
+                self.assertEqual(value['visible_cgroups'][1]['cpu_max'], '100000 100000')
+                self.assertEqual(value['outside_namespace_constraints'], 'UNKNOWN')
+                (root/'sys/fs/cgroup/parent/leaf/memory.current').unlink()
+                with self.assertRaises(FileNotFoundError): p.memory()
+
     def test_required_tool_pins_include_running_placement_publisher(self):
         paths = p.required_tool_paths({'owner_repository': '/owner', 'usl_repository': '/usl'})
         self.assertIn(str(Path(p.__file__).resolve()), paths)
