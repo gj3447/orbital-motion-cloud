@@ -63,6 +63,42 @@
     "license": {
       "@type": "@id"
     },
+    "inStream": {
+      "@type": "@id"
+    },
+    "milestone": {
+      "@type": "@id"
+    },
+    "forStream": {
+      "@type": "@id"
+    },
+    "requiredWorks": {
+      "@type": "@id"
+    },
+    "parentWork": {
+      "@type": "@id"
+    },
+    "afterStep": {
+      "@type": "@id"
+    },
+    "expectsOutput": {
+      "@type": "@id"
+    },
+    "requiresOutput": {
+      "@type": "@id"
+    },
+    "expectedProducer": {
+      "@type": "@id"
+    },
+    "resumeAt": {
+      "@type": "@id"
+    },
+    "dependentStep": {
+      "@type": "@id"
+    },
+    "prerequisiteStep": {
+      "@type": "@id"
+    },
     "derivedFrom": {
       "@id": "prov:wasDerivedFrom",
       "@type": "@id"
@@ -908,17 +944,19 @@
       "authority": "SECONDARY_AI",
       "scope": "OWNER_LOCAL_PLAN",
       "executionStatus": "NOT_STARTED",
-      "version": "1.0.1",
+      "version": "2.0.0",
       "status": "PROPOSED",
-      "recordedAt": "2026-11-07T10:23:26.453Z",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
       "attributedTo": "urn:omc:agent:codex",
       "relatedResource": "omc:knowledge:resource:memory",
       "derivedFrom": [
         "urn:omc:memory-plan:source:user-7adedab4627f",
         "research:work:omc-memory-admission-20261107:WHAT_IS",
-        "research:work:omc-memory-admission-20261107:HOW_TO"
+        "research:work:omc-memory-admission-20261107:HOW_TO",
+        "urn:omc:memory-plan:source:breakdown-user-24afc357d3c0"
       ],
-      "description": "Source-grounded implementation order, owner boundaries, acceptance and rollback. Graph validity and hydrated papers do not authorize or prove runtime execution."
+      "description": "6 workstreams, 15 owner work items, 45 bounded steps with explicit output handoffs. Research remains design evidence. No runtime effect or completion is inferred.",
+      "previousGraphCommit": "81a931391566ddb97a377221bdb36c500eb6b589"
     },
     {
       "id": "urn:omc:memory-plan:problem:flap",
@@ -1337,7 +1375,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s01"
     },
     {
       "id": "urn:omc:memory-plan:use:w01-audit",
@@ -1473,7 +1512,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s01"
     },
     {
       "id": "urn:omc:memory-plan:use:w02-audit",
@@ -1613,7 +1653,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s02"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w03-w01",
@@ -1787,7 +1828,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s02"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w04-w01",
@@ -1977,7 +2019,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s02"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w05-w02",
@@ -2154,7 +2197,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s03"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w06-w03",
@@ -2333,7 +2377,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s03"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w07-w06",
@@ -2497,7 +2542,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s03"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w08-w07",
@@ -2658,7 +2704,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s04"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w09-w08",
@@ -2821,7 +2868,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s04"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w10-w09",
@@ -2965,7 +3013,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s04"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w11-w10",
@@ -3103,7 +3152,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s05"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w12-w11",
@@ -3249,7 +3299,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s06"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w13-w03",
@@ -3425,7 +3476,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s06"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w14-w11",
@@ -3583,7 +3635,8 @@
       "attributedTo": "urn:omc:agent:codex",
       "derivedFrom": [
         "research:work:omc-memory-admission-20261107:HOW_TO"
-      ]
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s06"
     },
     {
       "id": "urn:omc:memory-plan:dependency:w15-w13",
@@ -3801,6 +3854,4343 @@
       "sparql": "SELECT ?id WHERE { ?id a mp:WorkItem ; mp:status \"VERIFIED\" . } ORDER BY ?id",
       "expectedIds": [],
       "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:breakdown-user-24afc357d3c0",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "작업 분해 요청 원문",
+      "authority": "USER_PRIMARY",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "artifactKind": "USER_MESSAGE",
+      "sourceStatus": "PINNED_BYTES",
+      "path": "records/2026-11-08/memory-plan-breakdown/user-request.txt",
+      "bytes": 90,
+      "sha256": "24afc357d3c0bd3e127b4a758f4dc4682c41469b2698339fea9040f3bc6c3542",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "OWNER_LOCAL",
+      "quote": "큰 작업 표준그래프 엔지니어링으로 작업 계획 쭉쭉 세워줘봐 ㅇㅇ",
+      "locator": "사용자 메시지 전체",
+      "observedAt": "2026-11-08T00:12:31.119Z"
+    },
+    {
+      "id": "urn:omc:memory-plan:stream:s01",
+      "type": [
+        "Workstream",
+        "prov:Entity"
+      ],
+      "label": "관측과 대상 기준선",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "ordinal": 1,
+      "status": "PLANNED",
+      "objective": "입장 판단과 중단 상태를 동일한 원천 시각·대상 신원으로 설명한다.",
+      "entryCondition": "현재 owner 코드·정책·관측을 읽을 수 있다.",
+      "exitCondition": "원천 freshness와 target expiry 반례를 설명하는 두 기준선이 검증된다.",
+      "selectionMode": "CORE",
+      "milestone": "urn:omc:memory-plan:milestone:s01",
+      "stopWhen": [
+        "입력 판본·원천 시각·owner 경계가 달라진 경우 재기준선",
+        "선행 결과가 불명확하거나 현재 자원 admission이 거절된 경우 중지"
+      ],
+      "rationale": "계획을 읽고 인수인계하기 위한 묶음이다. 묶음의 나열 순서는 새 의존성이나 실행 위임을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:milestone:s01",
+      "type": [
+        "Milestone",
+        "prov:Entity"
+      ],
+      "label": "관측과 대상 기준선 완료 판정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "NOT_EVALUATED",
+      "forStream": "urn:omc:memory-plan:stream:s01",
+      "requiredWorks": [
+        "urn:omc:memory-plan:w01",
+        "urn:omc:memory-plan:w02"
+      ],
+      "coverageMode": "ALL_MEMBERS",
+      "successCondition": "원천 freshness와 target expiry 반례를 설명하는 두 기준선이 검증된다.",
+      "evidenceRequired": [
+        "검토한 work/step revision과 실제 산출물 SHA",
+        "각 검사 결과와 실패·미측정 항목",
+        "조건부 분기는 선택/보류 이유와 재검토 조건"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:stream:s02",
+      "type": [
+        "Workstream",
+        "prov:Entity"
+      ],
+      "label": "예약·회수·복구 핵심",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "ordinal": 2,
+      "status": "PLANNED",
+      "objective": "과다 입장과 회복 실패를 원자 예약·회수 수학·지속 상태 전이로 다룬다.",
+      "entryCondition": "각 부모의 W01/W02 입력 계약을 충족한다.",
+      "exitCondition": "예약 동시성, 회수 오차, 복구 예산 연속성의 국소 검증이 모두 통과한다.",
+      "selectionMode": "CORE",
+      "milestone": "urn:omc:memory-plan:milestone:s02",
+      "stopWhen": [
+        "입력 판본·원천 시각·owner 경계가 달라진 경우 재기준선",
+        "선행 결과가 불명확하거나 현재 자원 admission이 거절된 경우 중지"
+      ],
+      "rationale": "계획을 읽고 인수인계하기 위한 묶음이다. 묶음의 나열 순서는 새 의존성이나 실행 위임을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:milestone:s02",
+      "type": [
+        "Milestone",
+        "prov:Entity"
+      ],
+      "label": "예약·회수·복구 핵심 완료 판정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "NOT_EVALUATED",
+      "forStream": "urn:omc:memory-plan:stream:s02",
+      "requiredWorks": [
+        "urn:omc:memory-plan:w03",
+        "urn:omc:memory-plan:w04",
+        "urn:omc:memory-plan:w05"
+      ],
+      "coverageMode": "ALL_MEMBERS",
+      "successCondition": "예약 동시성, 회수 오차, 복구 예산 연속성의 국소 검증이 모두 통과한다.",
+      "evidenceRequired": [
+        "검토한 work/step revision과 실제 산출물 SHA",
+        "각 검사 결과와 실패·미측정 항목",
+        "조건부 분기는 선택/보류 이유와 재검토 조건"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:stream:s03",
+      "type": [
+        "Workstream",
+        "prov:Entity"
+      ],
+      "label": "통합 검증과 제한 적용",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "ordinal": 3,
+      "status": "PLANNED",
+      "objective": "호환성 재생과 shadow를 통과한 판본만 유한한 canary로 평가한다.",
+      "entryCondition": "W03·W05의 동일 판본 결과를 확보한다.",
+      "exitCondition": "오프라인·shadow·canary 근거가 같은 판본에 묶이고 rollback 가능하다.",
+      "selectionMode": "CORE",
+      "milestone": "urn:omc:memory-plan:milestone:s03",
+      "stopWhen": [
+        "입력 판본·원천 시각·owner 경계가 달라진 경우 재기준선",
+        "선행 결과가 불명확하거나 현재 자원 admission이 거절된 경우 중지"
+      ],
+      "rationale": "계획을 읽고 인수인계하기 위한 묶음이다. 묶음의 나열 순서는 새 의존성이나 실행 위임을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:milestone:s03",
+      "type": [
+        "Milestone",
+        "prov:Entity"
+      ],
+      "label": "통합 검증과 제한 적용 완료 판정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "NOT_EVALUATED",
+      "forStream": "urn:omc:memory-plan:stream:s03",
+      "requiredWorks": [
+        "urn:omc:memory-plan:w06",
+        "urn:omc:memory-plan:w07",
+        "urn:omc:memory-plan:w08"
+      ],
+      "coverageMode": "ALL_MEMBERS",
+      "successCondition": "오프라인·shadow·canary 근거가 같은 판본에 묶이고 rollback 가능하다.",
+      "evidenceRequired": [
+        "검토한 work/step revision과 실제 산출물 SHA",
+        "각 검사 결과와 실패·미측정 항목",
+        "조건부 분기는 선택/보류 이유와 재검토 조건"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:stream:s04",
+      "type": [
+        "Workstream",
+        "prov:Entity"
+      ],
+      "label": "소유자별 전환과 HOH 효과",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "ordinal": 4,
+      "status": "PLANNED",
+      "objective": "ORCA와 OMC를 순서대로 전환하고 실제 HOH workload에서 효과를 측정한다.",
+      "entryCondition": "W08의 판본·범위·관측 결과를 확보한다.",
+      "exitCondition": "새 판본 readback, 기존 세션 보존, HOH 전후 비교가 확인된다.",
+      "selectionMode": "CORE",
+      "milestone": "urn:omc:memory-plan:milestone:s04",
+      "stopWhen": [
+        "입력 판본·원천 시각·owner 경계가 달라진 경우 재기준선",
+        "선행 결과가 불명확하거나 현재 자원 admission이 거절된 경우 중지"
+      ],
+      "rationale": "계획을 읽고 인수인계하기 위한 묶음이다. 묶음의 나열 순서는 새 의존성이나 실행 위임을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:milestone:s04",
+      "type": [
+        "Milestone",
+        "prov:Entity"
+      ],
+      "label": "소유자별 전환과 HOH 효과 완료 판정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "NOT_EVALUATED",
+      "forStream": "urn:omc:memory-plan:stream:s04",
+      "requiredWorks": [
+        "urn:omc:memory-plan:w09",
+        "urn:omc:memory-plan:w10",
+        "urn:omc:memory-plan:w11"
+      ],
+      "coverageMode": "ALL_MEMBERS",
+      "successCondition": "새 판본 readback, 기존 세션 보존, HOH 전후 비교가 확인된다.",
+      "evidenceRequired": [
+        "검토한 work/step revision과 실제 산출물 SHA",
+        "각 검사 결과와 실패·미측정 항목",
+        "조건부 분기는 선택/보류 이유와 재검토 조건"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:stream:s05",
+      "type": [
+        "Workstream",
+        "prov:Entity"
+      ],
+      "label": "판본별 수요 예산",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "ordinal": 5,
+      "status": "PLANNED",
+      "objective": "검열된 표본을 보존해 다음 작업의 보수적 수요를 추정한다.",
+      "entryCondition": "W11의 출처가 있는 workload 표본을 확보한다.",
+      "exitCondition": "학습·평가 분리와 OOM 표본 처리를 검증하고 채택 여부를 결정한다.",
+      "selectionMode": "CORE",
+      "milestone": "urn:omc:memory-plan:milestone:s05",
+      "stopWhen": [
+        "입력 판본·원천 시각·owner 경계가 달라진 경우 재기준선",
+        "선행 결과가 불명확하거나 현재 자원 admission이 거절된 경우 중지"
+      ],
+      "rationale": "계획을 읽고 인수인계하기 위한 묶음이다. 묶음의 나열 순서는 새 의존성이나 실행 위임을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:milestone:s05",
+      "type": [
+        "Milestone",
+        "prov:Entity"
+      ],
+      "label": "판본별 수요 예산 완료 판정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "NOT_EVALUATED",
+      "forStream": "urn:omc:memory-plan:stream:s05",
+      "requiredWorks": [
+        "urn:omc:memory-plan:w12"
+      ],
+      "coverageMode": "ALL_MEMBERS",
+      "successCondition": "학습·평가 분리와 OOM 표본 처리를 검증하고 채택 여부를 결정한다.",
+      "evidenceRequired": [
+        "검토한 work/step revision과 실제 산출물 SHA",
+        "각 검사 결과와 실패·미측정 항목",
+        "조건부 분기는 선택/보류 이유와 재검토 조건"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:stream:s06",
+      "type": [
+        "Workstream",
+        "prov:Entity"
+      ],
+      "label": "조건부 확장 연구",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "ordinal": 6,
+      "status": "PLANNED",
+      "objective": "다른 worker·DAMON·원격 memory를 각각의 적용 조건으로 평가한다.",
+      "entryCondition": "선택한 분기의 선행·호환성·현재 owner 조건을 충족한다.",
+      "exitCondition": "선택한 분기별 채택/보류와 근거를 기록한다. 세 분기 모두 채택할 의무는 없다.",
+      "selectionMode": "OPTIONAL",
+      "milestone": "urn:omc:memory-plan:milestone:s06",
+      "stopWhen": [
+        "입력 판본·원천 시각·owner 경계가 달라진 경우 재기준선",
+        "선행 결과가 불명확하거나 현재 자원 admission이 거절된 경우 중지"
+      ],
+      "rationale": "계획을 읽고 인수인계하기 위한 묶음이다. 묶음의 나열 순서는 새 의존성이나 실행 위임을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:milestone:s06",
+      "type": [
+        "Milestone",
+        "prov:Entity"
+      ],
+      "label": "조건부 확장 연구 완료 판정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "NOT_EVALUATED",
+      "forStream": "urn:omc:memory-plan:stream:s06",
+      "requiredWorks": [
+        "urn:omc:memory-plan:w13",
+        "urn:omc:memory-plan:w14",
+        "urn:omc:memory-plan:w15"
+      ],
+      "coverageMode": "SELECTED_BRANCHES",
+      "successCondition": "선택한 분기별 채택/보류와 근거를 기록한다. 세 분기 모두 채택할 의무는 없다.",
+      "evidenceRequired": [
+        "검토한 work/step revision과 실제 산출물 SHA",
+        "각 검사 결과와 실패·미측정 항목",
+        "조건부 분기는 선택/보류 이유와 재검토 조건"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w01-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "원천 관측과 입장 경로 목록화",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w01",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "INSPECT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "targets": [
+        "urn:omc:memory-plan:path:guard",
+        "urn:omc:memory-plan:path:credit"
+      ],
+      "afterStep": [],
+      "expectsOutput": "urn:omc:memory-plan:output:w01-s01",
+      "requiresOutput": [],
+      "inputContract": "ORCA guard·credit의 현 판본과 host/cgroup 관측",
+      "doneWhen": "각 판단 값의 원천·단위·시각·domain이 연결된다.",
+      "checks": [
+        "오래된 host 값에 새 wrapper 시각을 붙인 사례를 분리한다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w01-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w01-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "관측 경로 목록",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w01-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "source_path",
+        "source_timestamp",
+        "wrapper_timestamp",
+        "scope",
+        "policy_digest"
+      ],
+      "consumerIntent": "W01-S02 정규화 계약 작성",
+      "verificationRule": "각 판단 값의 원천·단위·시각·domain이 연결된다. 오래된 host 값에 새 wrapper 시각을 붙인 사례를 분리한다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w01-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "판본 있는 freshness·headroom 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w01",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "targets": [
+        "urn:omc:memory-plan:path:guard",
+        "urn:omc:memory-plan:path:credit"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w01-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w01-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w01-s01"
+      ],
+      "inputContract": "관측 경로 목록과 현재 credit/floor 정책",
+      "doneWhen": "raw 여유·credit·예약·유효 여유를 중복 계산 없이 구분한다.",
+      "checks": [
+        "host free와 LXC headroom을 같은 capacity로 합치지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w01-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w01-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "입장 관측 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w01-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "schema_version",
+        "domain",
+        "capacity_bytes",
+        "effective_headroom_bytes",
+        "credit_bytes",
+        "reserved_bytes",
+        "source_age_ms"
+      ],
+      "consumerIntent": "W01-S03 fixture와 W03/W04 입력",
+      "verificationRule": "raw 여유·credit·예약·유효 여유를 중복 계산 없이 구분한다. host free와 LXC headroom을 같은 capacity로 합치지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w01-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "판본 있는 freshness·headroom 계약의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w01-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w01-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w01-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "시간·scope 경계 fixture 고정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w01",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "targets": [
+        "urn:omc:memory-plan:path:guard",
+        "urn:omc:memory-plan:path:credit"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w01-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w01-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w01-s02"
+      ],
+      "inputContract": "정규화 계약과 실제 read-only 표본",
+      "doneWhen": "stale/future/다른 domain/누락 값이 명시적 거절로 귀결된다.",
+      "checks": [
+        "150초 원천과 TTL180의 정책상 허용을 freshness 개선과 혼동하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w01-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w01-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "관측 회귀 결과",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w01-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "contract_digest",
+        "fixture_id",
+        "expected_decision",
+        "actual_decision",
+        "reason"
+      ],
+      "consumerIntent": "W03-S01·W04-S01 설계 입력",
+      "verificationRule": "stale/future/다른 domain/누락 값이 명시적 거절로 귀결된다. 150초 원천과 TTL180의 정책상 허용을 freshness 개선과 혼동하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w01-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "시간·scope 경계 fixture 고정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w01-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w01-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w02-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "대상 신원·만료·intent 목록화",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w02",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "INSPECT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [],
+      "expectsOutput": "urn:omc:memory-plan:output:w02-s01",
+      "requiresOutput": [],
+      "inputContract": "OMC target registry와 STOPPED 상태 기록",
+      "doneWhen": "실행 중·만료·사라진 대상을 읽기만 하여 구분한다.",
+      "checks": [
+        "같은 PID 재사용과 동일 경로 inode 교체를 다른 대상으로 처리한다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w02-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w02-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "대상 신원 목록",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w02-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "target_id",
+        "boot_id",
+        "inode",
+        "pid_incarnation",
+        "intent_expiry",
+        "observation_time"
+      ],
+      "consumerIntent": "W02-S02 중단 사유 분류",
+      "verificationRule": "실행 중·만료·사라진 대상을 읽기만 하여 구분한다. 같은 PID 재사용과 동일 경로 inode 교체를 다른 대상으로 처리한다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w02-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "중단 사유와 누적 예산 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w02",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w02-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w02-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w02-s01"
+      ],
+      "inputContract": "대상 신원 목록과 기존 episode 기록",
+      "doneWhen": "일시 대기·권한 만료·효과 없음·실행 불확실을 별도 사유로 둔다.",
+      "checks": [
+        "프로세스 재시작을 예산 초기화나 intent 갱신 근거로 쓰지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w02-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w02-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "복구 가능성 기준선",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w02-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "reason_code",
+        "recoverability",
+        "episode_id",
+        "spent_budget",
+        "remaining_budget",
+        "resume_condition"
+      ],
+      "consumerIntent": "W02-S03 fixture와 W05 상태 설계",
+      "verificationRule": "일시 대기·권한 만료·효과 없음·실행 불확실을 별도 사유로 둔다. 프로세스 재시작을 예산 초기화나 intent 갱신 근거로 쓰지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w02-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "중단 사유와 누적 예산 계약의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w02-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w02-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w02-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "무쓰기 신원·만료 반례 재생",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w02",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w02-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w02-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w02-s02"
+      ],
+      "inputContract": "대상·사유 계약의 복제 fixture",
+      "doneWhen": "만료·교체·불확실 사례를 차단하고 외부 상태 쓰기가 0이다.",
+      "checks": [
+        "STOPPED_NO_PROGRESS 관측만으로 controller를 자동 재개하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w02-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w02-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "대상 검증 결과",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w02-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "fixture_id",
+        "target_identity",
+        "expected_stop",
+        "writes_observed",
+        "result"
+      ],
+      "consumerIntent": "W04-S01·W05-S01 owner 기준선",
+      "verificationRule": "만료·교체·불확실 사례를 차단하고 외부 상태 쓰기가 0이다. STOPPED_NO_PROGRESS 관측만으로 controller를 자동 재개하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w02-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "무쓰기 신원·만료 반례 재생의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w02-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w02-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w03-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "RAM 예약 lease와 이행 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w03",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "targets": [
+        "urn:omc:memory-plan:path:guard"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w01-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w03-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w01-s03"
+      ],
+      "inputContract": "W01 관측 계약·기존 native lease 형식",
+      "doneWhen": "신규·기존 lease 호환과 예약/실제 charge 전환을 정의한다.",
+      "checks": [
+        "실제 메모리 사용과 예약을 동시에 전액 차감하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w03-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w03-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "예약 lease 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w03-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "attempt_id",
+        "domain",
+        "requested_bytes",
+        "charged_bytes",
+        "lease_expiry",
+        "schema_version"
+      ],
+      "consumerIntent": "W03-S02 원자 예약 구현",
+      "verificationRule": "신규·기존 lease 호환과 예약/실제 charge 전환을 정의한다. 실제 메모리 사용과 예약을 동시에 전액 차감하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w03-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "RAM 예약 lease와 이행 계약의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w03-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w01-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w03-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "원자 reserve·release 구현",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w03",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "IMPLEMENT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "targets": [
+        "urn:omc:memory-plan:path:guard"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w03-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w03-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w03-s01"
+      ],
+      "inputContract": "예약 계약과 owner native 테스트 저장소",
+      "doneWhen": "같은 domain의 검사와 예약이 하나의 원자 경계에 들어간다.",
+      "checks": [
+        "같은 snapshot의 4개 동시 입장을 단순 순차 검사로 통과시키지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w03-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w03-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "예약 구현 판본",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w03-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "source_revision",
+        "lock_scope",
+        "reserve_result",
+        "release_idempotency",
+        "compatibility_mode"
+      ],
+      "consumerIntent": "W03-S03 경쟁·재시작 검증",
+      "verificationRule": "같은 domain의 검사와 예약이 하나의 원자 경계에 들어간다. 같은 snapshot의 4개 동시 입장을 단순 순차 검사로 통과시키지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w03-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "원자 reserve·release 구현의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w03-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w03-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w03-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "경쟁·재시작·멱등 반환 검증",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w03",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "targets": [
+        "urn:omc:memory-plan:path:guard"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w03-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w03-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w03-s02"
+      ],
+      "inputContract": "원자 예약 판본과 결정적 병행 fixture",
+      "doneWhen": "예약 총량 상한·중복 release·만료·재시작 보존이 모두 통과한다.",
+      "checks": [
+        "검사 후 쓰기 전에 다른 예약이 끼어드는 interleaving을 강제한다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w03-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w03-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "예약 검증 묶음",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w03-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "source_revision",
+        "interleaving",
+        "total_reserved",
+        "capacity",
+        "release_count",
+        "result"
+      ],
+      "consumerIntent": "W06-S01 통합 호환과 W13-S01 배치 계약",
+      "verificationRule": "예약 총량 상한·중복 release·만료·재시작 보존이 모두 통과한다. 검사 후 쓰기 전에 다른 예약이 끼어드는 interleaving을 강제한다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w03-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "경쟁·재시작·멱등 반환 검증의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w03-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w03-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w04-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "credit를 반영한 회수 수학 고정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w04",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w01-s03",
+        "urn:omc:memory-plan:step:w02-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w04-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w01-s03",
+        "urn:omc:memory-plan:output:w02-s03"
+      ],
+      "inputContract": "W01 headroom·W02 보호량과 기존 감사 수치",
+      "doneWhen": "credit 구간과 high 경계를 포함한 회수 후 여유를 계산한다.",
+      "checks": [
+        "256MiB 회수가 effective 여유를 128MiB만 늘리는 사례와 high 도달 1byte의 credit 단절을 재현한다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w04-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w04-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "회수 목표 모델",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w04-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "current_bytes",
+        "inactive_clean_bytes",
+        "credit_cap",
+        "high_bytes",
+        "floor_bytes",
+        "recovery_margin_bytes"
+      ],
+      "consumerIntent": "W04-S02 유한 planner",
+      "verificationRule": "credit 구간과 high 경계를 포함한 회수 후 여유를 계산한다. 256MiB 회수가 effective 여유를 128MiB만 늘리는 사례와 high 도달 1byte의 credit 단절을 재현한다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w04-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "credit를 반영한 회수 수학 고정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w04-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w01-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w04-s01-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "credit를 반영한 회수 수학 고정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w04-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w02-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w04-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "유한 회복 목표 planner 구현",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w04",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "IMPLEMENT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w04-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w04-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w04-s01"
+      ],
+      "inputContract": "회수 수학·보호량·요청 크기와 episode 상한",
+      "doneWhen": "미소 부족분을 보존하면서 보호량·요청/회차/총량 상한을 지킨다.",
+      "checks": [
+        "128MiB 부족의 13회 후 32KiB 잔여를 성공으로 반올림하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w04-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w04-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "회수 planner 판본",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w04-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "source_revision",
+        "target_headroom",
+        "request_bytes",
+        "cumulative_budget",
+        "stop_reason"
+      ],
+      "consumerIntent": "W04-S03 부분 성공·부작용 검증",
+      "verificationRule": "미소 부족분을 보존하면서 보호량·요청/회차/총량 상한을 지킨다. 128MiB 부족의 13회 후 32KiB 잔여를 성공으로 반올림하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w04-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "유한 회복 목표 planner 구현의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w04-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w04-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w04-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "부분 회수·EAGAIN·refault 경계 검증",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w04",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w04-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w04-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w04-s02"
+      ],
+      "inputContract": "planner 판본과 kernel 응답 replay",
+      "doneWhen": "요청량과 관측 회수량을 구분하고 악화·무진전·불확실에 정지한다.",
+      "checks": [
+        "5×64MiB와 32MiB margin의 모델 성공을 실측 성공으로 승격하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w04-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w04-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "회수 계산 검증 묶음",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w04-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "fixture_id",
+        "requested_bytes",
+        "observed_reclaimed_bytes",
+        "effective_delta",
+        "psi",
+        "refault",
+        "result"
+      ],
+      "consumerIntent": "W05-S01 복구 전이 입력",
+      "verificationRule": "요청량과 관측 회수량을 구분하고 악화·무진전·불확실에 정지한다. 5×64MiB와 32MiB margin의 모델 성공을 실측 성공으로 승격하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w04-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "부분 회수·EAGAIN·refault 경계 검증의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w04-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w04-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w05-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "복구 episode 전이표 확정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w05",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w02-s03",
+        "urn:omc:memory-plan:step:w04-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w05-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w02-s03",
+        "urn:omc:memory-plan:output:w04-s03"
+      ],
+      "inputContract": "W02 사유와 W04 planner 결과 계약",
+      "doneWhen": "복구 가능 대기와 terminal·uncertain 상태를 구분한다.",
+      "checks": [
+        "새 관측이 들어와도 만료된 권한은 살아나지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w05-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w05-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "복구 상태 전이 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w05-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "from_state",
+        "event",
+        "guard",
+        "to_state",
+        "budget_effect",
+        "resume_rule"
+      ],
+      "consumerIntent": "W05-S02 지속 상태 구현",
+      "verificationRule": "복구 가능 대기와 terminal·uncertain 상태를 구분한다. 새 관측이 들어와도 만료된 권한은 살아나지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w05-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "복구 episode 전이표 확정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w05-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w02-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w05-s01-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "복구 episode 전이표 확정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w05-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w04-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w05-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "episode·예산 지속 저장 구현",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w05",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "IMPLEMENT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w05-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w05-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w05-s01"
+      ],
+      "inputContract": "전이표와 owner single-controller 수명 규칙",
+      "doneWhen": "상태·시도 ID·누적 비용을 내구성 경계로 보존한다.",
+      "checks": [
+        "actor 재시작과 새 intent가 기존 side effect를 중복 실행하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w05-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w05-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "복구 상태 구현 판본",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w05-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "source_revision",
+        "episode_id",
+        "generation",
+        "checkpoint",
+        "spent_budget",
+        "writer_identity"
+      ],
+      "consumerIntent": "W05-S03 crash·중복 writer 검증",
+      "verificationRule": "상태·시도 ID·누적 비용을 내구성 경계로 보존한다. actor 재시작과 새 intent가 기존 side effect를 중복 실행하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w05-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "episode·예산 지속 저장 구현의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w05-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w05-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w05-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "crash·만료·중복 coordinator 검증",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w05",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w05-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w05-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w05-s02"
+      ],
+      "inputContract": "지속 구현과 fault injection fixture",
+      "doneWhen": "불확실 실행을 자동 retry하지 않고 single writer와 예산 단조성을 지킨다.",
+      "checks": [
+        "actuation 직후 checkpoint 전 crash를 별도 케이스로 검사한다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w05-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w05-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "복구 연속성 결과",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w05-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "crash_point",
+        "restart_state",
+        "writer_count",
+        "spent_before",
+        "spent_after",
+        "result"
+      ],
+      "consumerIntent": "W06-S01 통합 재생",
+      "verificationRule": "불확실 실행을 자동 retry하지 않고 single writer와 예산 단조성을 지킨다. actuation 직후 checkpoint 전 crash를 별도 케이스로 검사한다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w05-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "crash·만료·중복 coordinator 검증의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w05-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w05-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w06-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "producer-consumer 호환 행렬 고정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w06",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w03-s03",
+        "urn:omc:memory-plan:step:w05-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w06-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w03-s03",
+        "urn:omc:memory-plan:output:w05-s03"
+      ],
+      "inputContract": "W03·W05의 정확한 검증 판본",
+      "doneWhen": "구/신 native와 controller 조합별 허용·거절을 명시한다.",
+      "checks": [
+        "알 수 없는 schema를 성공으로 기본 처리하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w06-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w06-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "교차 판본 시험 행렬",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w06-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "producer_revision",
+        "consumer_revision",
+        "lease_schema",
+        "observation_schema",
+        "expected_behavior"
+      ],
+      "consumerIntent": "W06-S02 통합 replay",
+      "verificationRule": "구/신 native와 controller 조합별 허용·거절을 명시한다. 알 수 없는 schema를 성공으로 기본 처리하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w06-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "producer-consumer 호환 행렬 고정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w06-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w03-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w06-s01-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "producer-consumer 호환 행렬 고정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w06-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w05-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w06-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "적대적 통합 trace 재생",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w06",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w06-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w06-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w06-s01"
+      ],
+      "inputContract": "호환 행렬·W04 계산 fixture·bounded local runner",
+      "doneWhen": "동시 예약·target 종료·stale·부분 회수·rollback trace를 통과한다.",
+      "checks": [
+        "한쪽 성공 후 통신/응답 유실에서 이중 예약·이중 actuation을 탐지한다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w06-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w06-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "통합 trace 결과",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w06-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "trace_id",
+        "input_digest",
+        "decision",
+        "side_effect_count",
+        "reservation_balance",
+        "result"
+      ],
+      "consumerIntent": "W06-S03 비교 근거 확정",
+      "verificationRule": "동시 예약·target 종료·stale·부분 회수·rollback trace를 통과한다. 한쪽 성공 후 통신/응답 유실에서 이중 예약·이중 actuation을 탐지한다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w06-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "적대적 통합 trace 재생의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w06-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w06-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w06-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "판본별 호환 근거 묶음 확정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w06",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w06-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w06-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w06-s02"
+      ],
+      "inputContract": "통합 trace와 실패·제외 목록",
+      "doneWhen": "실제 통과와 미측정을 분리한 고정 digest 묶음을 만든다.",
+      "checks": [
+        "미실행 환경을 PASS로 집계하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w06-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w06-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "통합 인수인계 묶음",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w06-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "source_revisions",
+        "passing_cases",
+        "excluded_cases",
+        "known_limits",
+        "rollback_digest"
+      ],
+      "consumerIntent": "W07-S01 shadow 사전 등록",
+      "verificationRule": "실제 통과와 미측정을 분리한 고정 digest 묶음을 만든다. 미실행 환경을 PASS로 집계하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w06-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "판본별 호환 근거 묶음 확정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w06-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w06-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w07-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "shadow 입력·판정 기준 사전 등록",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w07",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w06-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w07-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w06-s03"
+      ],
+      "inputContract": "W06 묶음과 현재 읽기 경로",
+      "doneWhen": "같은 관측에서 기존/후보 판단을 비교할 수 있다.",
+      "checks": [
+        "미래 결과를 보고 pass 기준을 사후 완화하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w07-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w07-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "shadow 비교 계획",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w07-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "source_revisions",
+        "sample_window",
+        "input_fields",
+        "comparison_metrics",
+        "stop_limits"
+      ],
+      "consumerIntent": "W07-S02 bounded shadow",
+      "verificationRule": "같은 관측에서 기존/후보 판단을 비교할 수 있다. 미래 결과를 보고 pass 기준을 사후 완화하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w07-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "shadow 입력·판정 기준 사전 등록의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w07-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w06-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w07-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "유한 shadow 표본 관측",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w07",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "OBSERVE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w07-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w07-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w07-s01"
+      ],
+      "inputContract": "등록된 비교 계획과 fresh read-only 입력",
+      "doneWhen": "kernel·lease·정책 쓰기 없이 등록된 표본 범위만 수집한다.",
+      "checks": [
+        "stale·대상 교체·수집 비용 상한 초과 시 중지한다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w07-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w07-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "shadow 관측 표본",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w07-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "sample_id",
+        "source_timestamp",
+        "baseline_decision",
+        "candidate_decision",
+        "write_count"
+      ],
+      "consumerIntent": "W07-S03 차이 분석",
+      "verificationRule": "kernel·lease·정책 쓰기 없이 등록된 표본 범위만 수집한다. stale·대상 교체·수집 비용 상한 초과 시 중지한다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w07-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "유한 shadow 표본 관측의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w07-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w07-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w07-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "판단 차이와 canary 가능성 평가",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w07",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "DECIDE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w07-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w07-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w07-s02"
+      ],
+      "inputContract": "동일 입력 shadow 결과와 사전 기준",
+      "doneWhen": "차이의 원인과 미측정을 설명하고 후보/보류를 결정한다.",
+      "checks": [
+        "예측 입장 성공을 실제 OOM 감소 증거로 쓰지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w07-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w07-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "shadow 채택 판단",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w07-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "matched_samples",
+        "decision_differences",
+        "regressions",
+        "unknowns",
+        "canary_recommendation"
+      ],
+      "consumerIntent": "W08-S01 exact-scope 준비",
+      "verificationRule": "차이의 원인과 미측정을 설명하고 후보/보류를 결정한다. 예측 입장 성공을 실제 OOM 감소 증거로 쓰지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w07-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "판단 차이와 canary 가능성 평가의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w07-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w07-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w08-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "canary 범위·예산·복구점 확인",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w08",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "INSPECT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w07-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w08-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w07-s03"
+      ],
+      "inputContract": "W07 결과와 현재 owner intent·native admission",
+      "doneWhen": "fresh identity·유효 위임·자원·복구 근거가 모두 같은 대상에 묶인다.",
+      "checks": [
+        "만료·판본 drift·rollback 부재 중 하나라도 있으면 실행하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w08-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w08-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "canary 실행 명세",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w08-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "target_identity",
+        "owner_intent",
+        "expiry",
+        "max_attempts",
+        "max_bytes",
+        "rollback_snapshot"
+      ],
+      "consumerIntent": "W08-S02 제한 actuator",
+      "verificationRule": "fresh identity·유효 위임·자원·복구 근거가 모두 같은 대상에 묶인다. 만료·판본 drift·rollback 부재 중 하나라도 있으면 실행하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w08-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "canary 범위·예산·복구점 확인의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w08-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w07-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w08-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "허용된 작은 canary 실행",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w08",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "ACTUATE",
+      "runtimeEffect": "OWNER_SCOPED",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w08-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w08-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w08-s01"
+      ],
+      "inputContract": "검증된 실행 명세와 현재 single writer",
+      "doneWhen": "허용된 단일 범위와 누적 상한 안에서 실제 결과를 남긴다.",
+      "checks": [
+        "EAGAIN·시간초과·효과 불명확은 성공이나 무조건 retry로 처리하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "위임 만료·예산 소진·효과 불명확·등록한 부작용 한도 초과 시 즉시 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w08-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w08-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "canary 원시 실행 기록",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w08-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "attempt_id",
+        "target_identity",
+        "requested_bytes",
+        "kernel_result",
+        "observed_delta",
+        "spent_budget"
+      ],
+      "consumerIntent": "W08-S03 지연 효과 관측",
+      "verificationRule": "허용된 단일 범위와 누적 상한 안에서 실제 결과를 남긴다. EAGAIN·시간초과·효과 불명확은 성공이나 무조건 retry로 처리하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w08-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "허용된 작은 canary 실행의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w08-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w08-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w08-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "지연 refault·PSI·상태 readback",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w08",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "OBSERVE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w08-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w08-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w08-s02"
+      ],
+      "inputContract": "canary 원시 기록과 등록한 관측 구간",
+      "doneWhen": "즉시 여유와 지연 비용을 함께 보고 채택/되돌림을 결정한다.",
+      "checks": [
+        "파일 cache 재유입으로 수초 뒤 악화되는 경우를 누락하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w08-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w08-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "canary 효과 판단",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w08-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "observation_window",
+        "psi_delta",
+        "refault_delta",
+        "latency_delta",
+        "state_readback",
+        "rollback_decision"
+      ],
+      "consumerIntent": "W09-S01 owner 배포 준비",
+      "verificationRule": "즉시 여유와 지연 비용을 함께 보고 채택/되돌림을 결정한다. 파일 cache 재유입으로 수초 뒤 악화되는 경우를 누락하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w08-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "지연 refault·PSI·상태 readback의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w08-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w08-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w09-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "native 릴리스와 lease 보존 준비",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w09",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "INSPECT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "targets": [
+        "urn:omc:memory-plan:path:guard",
+        "urn:omc:memory-plan:path:credit"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w08-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w09-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w08-s03"
+      ],
+      "inputContract": "W08 결과·ORCA 배포 절차·정확한 artifact",
+      "doneWhen": "동작 중 lease를 보존할 호환·백업·되돌림 절차가 고정된다.",
+      "checks": [
+        "이전 worker가 남은 상황에서 강제 lease 초기화를 허용하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w09-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w09-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "ORCA 전환 명세",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w09-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "artifact_digest",
+        "compatibility_results",
+        "lease_snapshot",
+        "rollback_version",
+        "owner_scope"
+      ],
+      "consumerIntent": "W09-S02 native 전환",
+      "verificationRule": "동작 중 lease를 보존할 호환·백업·되돌림 절차가 고정된다. 이전 worker가 남은 상황에서 강제 lease 초기화를 허용하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w09-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "native 릴리스와 lease 보존 준비의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w09-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w08-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w09-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "ORCA owner 절차로 native 전환",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w09",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "DEPLOY",
+      "runtimeEffect": "OWNER_SCOPED",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "targets": [
+        "urn:omc:memory-plan:path:guard",
+        "urn:omc:memory-plan:path:credit"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w09-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w09-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w09-s01"
+      ],
+      "inputContract": "승인 범위의 릴리스 명세와 현재 admission",
+      "doneWhen": "owner 절차로 정확한 artifact를 반영하고 기존 세션을 보존한다.",
+      "checks": [
+        "다른 프로젝트 전체 service 재시작을 암묵적으로 포함하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "위임 만료·예산 소진·효과 불명확·등록한 부작용 한도 초과 시 즉시 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w09-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w09-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "ORCA 전환 기록",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w09-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "deployed_digest",
+        "owner_action",
+        "start_time",
+        "end_time",
+        "lease_preservation"
+      ],
+      "consumerIntent": "W09-S03 실행 판본 확인",
+      "verificationRule": "owner 절차로 정확한 artifact를 반영하고 기존 세션을 보존한다. 다른 프로젝트 전체 service 재시작을 암묵적으로 포함하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w09-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "ORCA owner 절차로 native 전환의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w09-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w09-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w09-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "새 실행 판본·lease readback",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w09",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "OBSERVE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "targets": [
+        "urn:omc:memory-plan:path:guard",
+        "urn:omc:memory-plan:path:credit"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w09-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w09-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w09-s02"
+      ],
+      "inputContract": "전환 기록과 native 상태 조회",
+      "doneWhen": "새 작업의 실제 판본과 기존 예약 연속성이 확인된다.",
+      "checks": [
+        "파일 교체만으로 새 worker가 그 판본을 읽었다고 판정하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w09-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w09-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "ORCA 전환 검증",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w09-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "runtime_digest",
+        "new_attempt_revision",
+        "existing_lease_count",
+        "compatibility_result"
+      ],
+      "consumerIntent": "W10-S01 controller 배포 준비",
+      "verificationRule": "새 작업의 실제 판본과 기존 예약 연속성이 확인된다. 파일 교체만으로 새 worker가 그 판본을 읽었다고 판정하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w09-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "새 실행 판본·lease readback의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w09-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w09-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w10-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "controller 단일 writer·checkpoint 준비",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w10",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "INSPECT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w09-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w10-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w09-s03"
+      ],
+      "inputContract": "W09 readback·OMC state와 owner 절차",
+      "doneWhen": "writer 중복 방지와 episode·예산 보존 경계가 확인된다.",
+      "checks": [
+        "서비스 수명 연장을 target 위임 만료 연장으로 취급하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w10-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w10-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "OMC 전환 명세",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w10-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "controller_digest",
+        "writer_identity",
+        "checkpoint_digest",
+        "intent_expiry",
+        "rollback_version"
+      ],
+      "consumerIntent": "W10-S02 controller 전환",
+      "verificationRule": "writer 중복 방지와 episode·예산 보존 경계가 확인된다. 서비스 수명 연장을 target 위임 만료 연장으로 취급하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w10-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "controller 단일 writer·checkpoint 준비의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w10-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w09-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w10-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "OMC owner 절차로 controller 전환",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w10",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "DEPLOY",
+      "runtimeEffect": "OWNER_SCOPED",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w10-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w10-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w10-s01"
+      ],
+      "inputContract": "현재 전환 명세·intent·admission",
+      "doneWhen": "정확한 controller 판본 하나가 기존 상태를 이어받는다.",
+      "checks": [
+        "기존 stopped episode를 초기화하여 무한 복구를 재개하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "위임 만료·예산 소진·효과 불명확·등록한 부작용 한도 초과 시 즉시 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w10-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w10-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "OMC 전환 기록",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w10-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "deployed_digest",
+        "writer_identity",
+        "checkpoint_loaded",
+        "spent_budget",
+        "owner_action"
+      ],
+      "consumerIntent": "W10-S03 운영 readback",
+      "verificationRule": "정확한 controller 판본 하나가 기존 상태를 이어받는다. 기존 stopped episode를 초기화하여 무한 복구를 재개하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w10-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "OMC owner 절차로 controller 전환의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w10-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w10-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w10-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "판본·만료·예산 연속성 readback",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w10",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "OBSERVE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w10-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w10-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w10-s02"
+      ],
+      "inputContract": "controller 전환 기록과 상태 관측",
+      "doneWhen": "single writer·만료 준수·예산 단조성을 실제 상태로 확인한다.",
+      "checks": [
+        "서비스 healthy 응답만으로 위임·효과 검증을 대체하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w10-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w10-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "OMC 전환 검증",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w10-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "runtime_digest",
+        "writer_count",
+        "expiry_enforced",
+        "budget_before",
+        "budget_after"
+      ],
+      "consumerIntent": "W11-S01 HOH matched workload",
+      "verificationRule": "single writer·만료 준수·예산 단조성을 실제 상태로 확인한다. 서비스 healthy 응답만으로 위임·효과 검증을 대체하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w10-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "판본·만료·예산 연속성 readback의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w10-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w10-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w11-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "HOH 동일 workload 비교 설계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w11",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:hoh",
+      "targets": [
+        "urn:omc:memory-plan:path:hoh-check",
+        "urn:omc:memory-plan:path:hoh-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w10-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w11-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w10-s03"
+      ],
+      "inputContract": "W10 readback·보존된 HOH source와 도구 판본",
+      "doneWhen": "같은 소스·기기 조건·작업 정의의 전후 비교가 가능하다.",
+      "checks": [
+        "대시보드 드래그 수정과 메모리 정책 변화를 동시에 바꿔 효과를 섞지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w11-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w11-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "HOH 비교 명세",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w11-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:hoh",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "source_digest",
+        "tool_versions",
+        "device_profile",
+        "workload",
+        "admission_budget",
+        "metrics"
+      ],
+      "consumerIntent": "W11-S02 browser/build 측정",
+      "verificationRule": "같은 소스·기기 조건·작업 정의의 전후 비교가 가능하다. 대시보드 드래그 수정과 메모리 정책 변화를 동시에 바꿔 효과를 섞지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w11-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "HOH 동일 workload 비교 설계의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w11-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w10-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w11-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "HOH browser·build 제한 비교",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w11",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:hoh",
+      "targets": [
+        "urn:omc:memory-plan:path:hoh-check",
+        "urn:omc:memory-plan:path:hoh-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w11-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w11-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w11-s01"
+      ],
+      "inputContract": "비교 명세와 owner admission",
+      "doneWhen": "작업별 입장 지연·완료·peak·PSI·P95·OOM을 유한 실행으로 기록한다.",
+      "checks": [
+        "입장 거절이나 중단된 실행을 완료 표본에서 삭제하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w11-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w11-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "HOH 측정 결과",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w11-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:hoh",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "run_id",
+        "admission_delay",
+        "completion",
+        "peak_bytes",
+        "psi",
+        "p95_ms",
+        "oom_events"
+      ],
+      "consumerIntent": "W11-S03 효과 판정과 W12 표본",
+      "verificationRule": "작업별 입장 지연·완료·peak·PSI·P95·OOM을 유한 실행으로 기록한다. 입장 거절이나 중단된 실행을 완료 표본에서 삭제하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w11-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "HOH browser·build 제한 비교의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w11-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w11-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w11-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "메모리 효과·회귀 판정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w11",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "DECIDE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:hoh",
+      "targets": [
+        "urn:omc:memory-plan:path:hoh-check",
+        "urn:omc:memory-plan:path:hoh-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w11-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w11-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w11-s02"
+      ],
+      "inputContract": "같은 조건의 HOH 결과와 사전 기준",
+      "doneWhen": "표본 크기·미측정·변동을 보존해 유지/되돌림을 결정한다.",
+      "checks": [
+        "단 한 번 통과를 반복 메모리 문제 해결 보증으로 보고하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w11-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w11-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "HOH 효과 보고",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w11-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:hoh",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "matched_runs",
+        "metric_deltas",
+        "uncertainty",
+        "regressions",
+        "adopt_or_rollback"
+      ],
+      "consumerIntent": "W12-S01 peak 이력·W14-S01 선택 평가",
+      "verificationRule": "표본 크기·미측정·변동을 보존해 유지/되돌림을 결정한다. 단 한 번 통과를 반복 메모리 문제 해결 보증으로 보고하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w11-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "메모리 효과·회귀 판정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w11-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w11-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w12-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "peak·검열 표본 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w12",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:memory"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w11-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w12-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w11-s03"
+      ],
+      "inputContract": "W11 실행 기록과 workload 판본 식별",
+      "doneWhen": "OOM·취소·입장 거절을 서로 다른 표본 상태로 보존한다.",
+      "checks": [
+        "OOM 직전 peak를 완료된 작업의 전체 수요로 단정하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w12-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w12-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "수요 표본 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w12-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "workload_version",
+        "domain",
+        "peak_bytes",
+        "censored",
+        "termination_reason",
+        "source_digest"
+      ],
+      "consumerIntent": "W12-S02 보수적 예산 추정",
+      "verificationRule": "OOM·취소·입장 거절을 서로 다른 표본 상태로 보존한다. OOM 직전 peak를 완료된 작업의 전체 수요로 단정하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w12-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "peak·검열 표본 계약의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w12-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w11-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w12-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "판본별 보수적 수요 추정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w12",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "IMPLEMENT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:memory"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w12-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w12-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w12-s01"
+      ],
+      "inputContract": "표본 계약·기존 owner 예산 정책",
+      "doneWhen": "판본/domain을 분리하고 희소 표본에는 현재 owner fallback을 쓴다.",
+      "checks": [
+        "잘못된 큰 peak 하나가 무제한 예산 증폭을 만들지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w12-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w12-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "예산 추정 구현",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w12-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "source_revision",
+        "training_window",
+        "estimator",
+        "minimum_samples",
+        "fallback_budget"
+      ],
+      "consumerIntent": "W12-S03 holdout 평가",
+      "verificationRule": "판본/domain을 분리하고 희소 표본에는 현재 owner fallback을 쓴다. 잘못된 큰 peak 하나가 무제한 예산 증폭을 만들지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w12-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "판본별 보수적 수요 추정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w12-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w12-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w12-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "시간 분리·검열·이상 표본 평가",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w12",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:memory"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w12-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w12-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w12-s02"
+      ],
+      "inputContract": "추정 판본과 시간 분리 holdout",
+      "doneWhen": "미래 누출 없이 부족 추정과 과다 예약 tradeoff를 평가한다.",
+      "checks": [
+        "학습한 실행을 다시 평가 표본으로 쓰거나 censored 표본을 0으로 넣지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w12-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w12-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "예산 추정 검증",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w12-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "holdout_window",
+        "coverage",
+        "underestimate_rate",
+        "censored_handling",
+        "fallback_rate"
+      ],
+      "consumerIntent": "W13-S01 다자원 배치 후보",
+      "verificationRule": "미래 누출 없이 부족 추정과 과다 예약 tradeoff를 평가한다. 학습한 실행을 다시 평가 표본으로 쓰거나 censored 표본을 0으로 넣지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w12-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "시간 분리·검열·이상 표본 평가의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w12-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w12-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w13-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "등록 worker·데이터 이동 조건 확인",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w13",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "INSPECT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:planner",
+        "urn:omc:memory-plan:path:rebalance-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w03-s03",
+        "urn:omc:memory-plan:step:w12-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w13-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w03-s03",
+        "urn:omc:memory-plan:output:w12-s03"
+      ],
+      "inputContract": "W03 예약·W12 수요와 기존 worker registry",
+      "doneWhen": "등록 owner·호환성·데이터 이동권을 확인한다.",
+      "checks": [
+        "다른 서버 free RAM을 현재 LXC 여유에 더하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w13-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w13-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "배치 가능 조건 목록",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w13-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "worker_identity",
+        "owner",
+        "architecture",
+        "data_scope",
+        "transfer_permission",
+        "resource_vector"
+      ],
+      "consumerIntent": "W13-S02 비용 포함 배치안",
+      "verificationRule": "등록 owner·호환성·데이터 이동권을 확인한다. 다른 서버 free RAM을 현재 LXC 여유에 더하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w13-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "등록 worker·데이터 이동 조건 확인의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w13-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w03-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w13-s01-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "등록 worker·데이터 이동 조건 확인의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w13-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w12-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w13-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "다자원·전송비용 배치안 작성",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w13",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:planner",
+        "urn:omc:memory-plan:path:rebalance-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w13-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w13-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w13-s01"
+      ],
+      "inputContract": "worker 조건과 실제 작업 수요",
+      "doneWhen": "DRF 관점의 병목과 이동 비용을 명시한 후보를 만든다.",
+      "checks": [
+        "RAM 하나만 보고 GPU·툴체인·전송 시간을 누락하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w13-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w13-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "배치 후보 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w13-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "cpu",
+        "ram",
+        "gpu",
+        "network_cost",
+        "data_locality",
+        "owner_reservation",
+        "score_rationale"
+      ],
+      "consumerIntent": "W13-S03 shadow 선택",
+      "verificationRule": "DRF 관점의 병목과 이동 비용을 명시한 후보를 만든다. RAM 하나만 보고 GPU·툴체인·전송 시간을 누락하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w13-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "다자원·전송비용 배치안 작성의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w13-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w13-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w13-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "배치 shadow로 채택·보류 판단",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w13",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "DECIDE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:planner",
+        "urn:omc:memory-plan:path:rebalance-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w13-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w13-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w13-s02"
+      ],
+      "inputContract": "배치 후보와 기존 local 선택 결과",
+      "doneWhen": "원격 실행 없이 후보 타당성과 남은 owner 조건을 결정한다.",
+      "checks": [
+        "계획 배치만으로 원격 작업이나 전송을 시작하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w13-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w13-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "배치 분기 판단",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w13-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "candidate",
+        "predicted_cost",
+        "compatibility",
+        "reservation_requirement",
+        "adopt_or_defer"
+      ],
+      "consumerIntent": "W15-S01 원격 memory 타당성",
+      "verificationRule": "원격 실행 없이 후보 타당성과 남은 owner 조건을 결정한다. 계획 배치만으로 원격 작업이나 전송을 시작하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w13-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "배치 shadow로 채택·보류 판단의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w13-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w13-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w14-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "DAMON 커널·제어권 조건 확인",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w14",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "INSPECT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w11-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w14-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w11-s03"
+      ],
+      "inputContract": "W11 효과 결과·kernel capability와 현재 controller",
+      "doneWhen": "지원 기능과 기존 controller 충돌 여부를 읽어서 확인한다.",
+      "checks": [
+        "문서상 지원을 현재 커널의 enable 상태로 간주하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w14-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w14-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "DAMON 조건 목록",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w14-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "kernel_version",
+        "config",
+        "address_space",
+        "controller_owner",
+        "observability_budget"
+      ],
+      "consumerIntent": "W14-S02 격리 평가",
+      "verificationRule": "지원 기능과 기존 controller 충돌 여부를 읽어서 확인한다. 문서상 지원을 현재 커널의 enable 상태로 간주하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w14-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "DAMON 커널·제어권 조건 확인의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w14-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w11-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w14-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "허용된 격리 DAMON 관측 평가",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w14",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "ACTUATE",
+      "runtimeEffect": "OWNER_SCOPED",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w14-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w14-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w14-s01"
+      ],
+      "inputContract": "owner 허용 범위·수명·관측 quota와 격리 대상",
+      "doneWhen": "정확한 격리 범위에서 비용과 cleanup을 유한 측정한다.",
+      "checks": [
+        "관측 실험에 운영 reclaim 정책 변경을 포함하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "위임 만료·예산 소진·효과 불명확·등록한 부작용 한도 초과 시 즉시 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w14-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w14-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "DAMON 비용 관측",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w14-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "target_identity",
+        "configuration",
+        "duration",
+        "cpu_overhead",
+        "memory_overhead",
+        "psi",
+        "cleanup"
+      ],
+      "consumerIntent": "W14-S03 분기 판단",
+      "verificationRule": "정확한 격리 범위에서 비용과 cleanup을 유한 측정한다. 관측 실험에 운영 reclaim 정책 변경을 포함하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w14-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "허용된 격리 DAMON 관측 평가의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w14-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w14-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w14-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "DAMON 채택·보류와 철거 판정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w14",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "DECIDE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w14-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w14-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w14-s02"
+      ],
+      "inputContract": "기능·비용·cleanup 관측과 W11 baseline",
+      "doneWhen": "이득·비용·미지원 조건을 설명하고 보류 또는 다음 실험을 제안한다.",
+      "checks": [
+        "W15의 필수 선행으로 DAMON 성공을 추가하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w14-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w14-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "DAMON 분기 판단",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w14-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "benefit",
+        "overhead",
+        "unsupported_features",
+        "cleanup_verified",
+        "adopt_or_defer"
+      ],
+      "consumerIntent": "별도 owner 구현 요청 또는 보류 기록",
+      "verificationRule": "이득·비용·미지원 조건을 설명하고 보류 또는 다음 실험을 제안한다. W15의 필수 선행으로 DAMON 성공을 추가하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w14-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "DAMON 채택·보류와 철거 판정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w14-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w14-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w15-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "원격 memory 실패·API 가정 정의",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w15",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:rebalance-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w13-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w15-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w13-s03"
+      ],
+      "inputContract": "W13 결과·Infiniswap/AIFM 원문과 실제 네트워크",
+      "doneWhen": "RDMA 방식과 앱 API 방식의 적용 조건을 구분한다.",
+      "checks": [
+        "원격 메모리가 로컬 malloc capacity로 자동 합쳐진다고 가정하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w15-s01",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w15-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "원격 memory 가정 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w15-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "network",
+        "rdma_support",
+        "application_api_change",
+        "failure_model",
+        "data_lifetime",
+        "fallback"
+      ],
+      "consumerIntent": "W15-S02 격리 prototype",
+      "verificationRule": "RDMA 방식과 앱 API 방식의 적용 조건을 구분한다. 원격 메모리가 로컬 malloc capacity로 자동 합쳐진다고 가정하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w15-s01-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "원격 memory 실패·API 가정 정의의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w15-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w13-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 부모 dependsOn의 마지막 단계 결과를 인수한다. 작업군 순서는 별도 의존성을 만들지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w15-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "허용된 격리 prototype 계측",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w15",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "ACTUATE",
+      "runtimeEffect": "OWNER_SCOPED",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:rebalance-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w15-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w15-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w15-s01"
+      ],
+      "inputContract": "확인한 owner·네트워크·데이터·실험 budget",
+      "doneWhen": "유한한 격리 prototype에서 장애·비용·정리 결과를 기록한다.",
+      "checks": [
+        "운영 앱에 라이브러리/API를 자동 삽입하거나 원격 서비스를 무단 띄우지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "위임 만료·예산 소진·효과 불명확·등록한 부작용 한도 초과 시 즉시 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w15-s02",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w15-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "원격 memory 실험 결과",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w15-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "prototype_revision",
+        "local_limit",
+        "remote_limit",
+        "latency",
+        "failure_injection",
+        "cleanup"
+      ],
+      "consumerIntent": "W15-S03 장기 도입 판단",
+      "verificationRule": "유한한 격리 prototype에서 장애·비용·정리 결과를 기록한다. 운영 앱에 라이브러리/API를 자동 삽입하거나 원격 서비스를 무단 띄우지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w15-s02-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "허용된 격리 prototype 계측의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w15-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w15-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w15-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "장애 복구·성능·도입비 판정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w15",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "DECIDE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:rebalance-guide"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w15-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w15-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w15-s02"
+      ],
+      "inputContract": "prototype 결과·가정 계약·실제 workload 요구",
+      "doneWhen": "성능과 통합/운영 비용을 근거로 후속 구현 또는 보류를 결정한다.",
+      "checks": [
+        "논문 benchmark를 이 HOH 환경에서 측정한 개선으로 제시하지 않는다.",
+        "실제 결과를 source/step revision과 묶고 실패·미측정 상태를 보존한다."
+      ],
+      "stopWhen": [
+        "선행 결과·대상 신원·판본이 바뀌면 중지하고 기준선을 갱신한다.",
+        "현재 owner 자원 정책이 거절하거나 정해 둔 자료/시험 범위를 넘으면 중지한다."
+      ],
+      "onFailure": "산출물과 실패 입력을 보존한다. 부모 rollback을 검토하고 자동 무한 재시도 없이 이 단계의 입력부터 다시 확인한다.",
+      "resumeAt": "urn:omc:memory-plan:step:w15-s03",
+      "budget": "한 입력 계약·한 산출물·한 검증 묶음으로 한정한다. 실행 시간·표본·메모리 상한은 착수 시 fresh owner admission과 부모 budget으로 고정한다. Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "requiresGate": []
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w15-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "원격 memory 분기 판단",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w15-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Owner-local versioned JSON manifest with source revision, SHA-256 references and optional human-readable report",
+      "requiredFields": [
+        "schema_version",
+        "step_id",
+        "step_revision",
+        "producer_revision",
+        "latency_tail",
+        "failure_recovery",
+        "integration_cost",
+        "security_boundary",
+        "adopt_or_defer"
+      ],
+      "consumerIntent": "별도 owner 구현 계획 또는 보류 기록",
+      "verificationRule": "성능과 통합/운영 비용을 근거로 후속 구현 또는 보류를 결정한다. 논문 benchmark를 이 HOH 환경에서 측정한 개선으로 제시하지 않는다. 선언된 계약이며 실제 산출물은 아직 없다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w15-s03-0",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "장애 복구·성능·도입비 판정의 선행 인수인계",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "dependentStep": "urn:omc:memory-plan:step:w15-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w15-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "동일 부모의 이전 단계 산출물을 검증한 뒤 입력으로 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:question:streams",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "작업군과 완료 관문은 무엇인가?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?label ?milestone WHERE { ?id a mp:Workstream ; rdfs:label ?label ; mp:milestone ?milestone . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:stream:s01",
+        "urn:omc:memory-plan:stream:s02",
+        "urn:omc:memory-plan:stream:s03",
+        "urn:omc:memory-plan:stream:s04",
+        "urn:omc:memory-plan:stream:s05",
+        "urn:omc:memory-plan:stream:s06"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:next-steps",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "선행 검증을 기다리지 않는 P0 세부 단계는?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?label ?owner WHERE { ?id a mp:WorkStep ; mp:status \"PLANNED\" ; mp:parentWork ?w ; rdfs:label ?label ; mp:assignedTo ?owner . ?w mp:status \"PLANNED\" ; mp:priority \"P0\" . FILTER NOT EXISTS { ?id mp:afterStep ?p . ?p mp:status ?s . FILTER (?s != \"VERIFIED\") } } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:step:w01-s01",
+        "urn:omc:memory-plan:step:w02-s01"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:reservation-steps",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "원자 예약을 어떤 국소 단계로 구현하는가?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?label ?output WHERE { ?id a mp:WorkStep ; mp:parentWork <urn:omc:memory-plan:w03> ; rdfs:label ?label ; mp:expectsOutput ?output . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:step:w03-s01",
+        "urn:omc:memory-plan:step:w03-s02",
+        "urn:omc:memory-plan:step:w03-s03"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:live-steps",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "실제 owner 효과와 추가 조건을 요구하는 단계는?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?label ?parent WHERE { ?id a mp:WorkStep ; mp:runtimeEffect \"OWNER_SCOPED\" ; rdfs:label ?label ; mp:parentWork ?parent . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:step:w08-s02",
+        "urn:omc:memory-plan:step:w09-s02",
+        "urn:omc:memory-plan:step:w10-s02",
+        "urn:omc:memory-plan:step:w14-s02",
+        "urn:omc:memory-plan:step:w15-s02"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:handoff",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "예약 구현에서 경쟁 검증으로 넘길 계약은?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?label WHERE { <urn:omc:memory-plan:step:w03-s02> mp:expectsOutput ?id . <urn:omc:memory-plan:step:w03-s03> mp:requiresOutput ?id . ?id rdfs:label ?label . }",
+      "expectedIds": [
+        "urn:omc:memory-plan:output:w03-s02"
+      ]
     }
   ]
 }

@@ -10,11 +10,11 @@
 # additionally checked by the existing source-owning CLI, not claimed as SHACL-SPARQL.
 mp:WorkItem a rdfs:Class ; rdfs:subClassOf prov:Entity .
 mp:SourceArtifact a rdfs:Class ; rdfs:subClassOf prov:Entity .
-mp:dependsOn a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:WorkItem ; rdfs:comment "Dependent work points to its prerequisite. Only this relation is required to be acyclic." .
-mp:assignedTo a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:Owner .
+mp:dependsOn a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:WorkItem ; rdfs:comment "Dependent work points to its prerequisite. dependsOn and afterStep are checked as separate DAGs; the entire meaning graph need not be acyclic." .
+mp:assignedTo a rdf:Property ; rdfs:range mp:Owner .
 mp:acceptance a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:AcceptanceCriterion .
 mp:rollback a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:RollbackPlan .
-mp:requiresGate a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:Gate .
+mp:requiresGate a rdf:Property ; rdfs:range mp:Gate .
 mp:evidence a rdf:Property ; rdfs:range mp:SourceArtifact ; rdfs:comment "A bounded design basis, never runtime authorization or evidence of implementation completion." .
 mp:dependent a rdf:Property ; rdfs:domain mp:Dependency ; rdfs:range mp:WorkItem .
 mp:prerequisite a rdf:Property ; rdfs:domain mp:Dependency ; rdfs:range mp:WorkItem .
@@ -40,6 +40,7 @@ mp:SourceShape a sh:NodeShape ; sh:targetClass mp:SourceArtifact ;
  sh:property [ sh:path mp:locator ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
  sh:property [ sh:path mp:observedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] .
 mp:WorkShape a sh:NodeShape ; sh:targetClass mp:WorkItem ;
+ sh:property [ sh:path mp:inStream ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Workstream ] ;
  sh:property [ sh:path mp:authority ; sh:hasValue "SECONDARY_AI" ] ;
  sh:property [ sh:path mp:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("PLANNED" "CONDITIONAL" "VERIFIED") ] ;
  sh:property [ sh:path mp:assignedTo ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Owner ] ;
@@ -86,3 +87,70 @@ mp:PathShape a sh:NodeShape ; sh:targetClass mp:RuntimePath ;
  sh:property [ sh:path mp:status ; sh:hasValue "SOURCE_PRESENT_NOT_RUNTIME_PROOF" ] .
 mp:QuestionShape a sh:NodeShape ; sh:targetClass mp:CompetencyQuestion ;
  sh:property [ sh:path mp:sparql ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
+
+mp:Workstream a rdfs:Class ; rdfs:subClassOf prov:Entity .
+mp:WorkStep a rdfs:Class ; rdfs:subClassOf prov:Entity .
+mp:OutputContract a rdfs:Class ; rdfs:subClassOf prov:Entity ; rdfs:comment "Expected output schema, not an acquired artifact or evidence that work ran." .
+mp:Milestone a rdfs:Class ; rdfs:subClassOf prov:Entity .
+mp:StepDependency a rdfs:Class ; rdfs:subClassOf prov:Entity .
+mp:inStream a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:Workstream .
+mp:parentWork a rdf:Property ; rdfs:domain mp:WorkStep ; rdfs:range mp:WorkItem .
+mp:afterStep a rdf:Property ; rdfs:domain mp:WorkStep ; rdfs:range mp:WorkStep ; rdfs:comment "Dependent step points to prerequisite; qualified by StepDependency with an exact matching pair." .
+mp:expectsOutput a rdf:Property ; rdfs:domain mp:WorkStep ; rdfs:range mp:OutputContract .
+mp:requiresOutput a rdf:Property ; rdfs:domain mp:WorkStep ; rdfs:range mp:OutputContract .
+mp:expectedProducer a rdf:Property ; rdfs:domain mp:OutputContract ; rdfs:range mp:WorkStep .
+mp:resumeAt a rdf:Property ; rdfs:domain mp:WorkStep ; rdfs:range mp:WorkStep ; rdfs:comment "Failure recovery reference, not a dependency. Cycles including self references are valid." .
+
+mp:StreamShape a sh:NodeShape ; sh:targetClass mp:Workstream ;
+ sh:property [ sh:path mp:ordinal ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 1 ] ;
+ sh:property [ sh:path mp:selectionMode ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("CORE" "OPTIONAL") ] ;
+ sh:property [ sh:path mp:status ; sh:hasValue "PLANNED" ] ;
+ sh:property [ sh:path mp:milestone ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Milestone ] ;
+ sh:property [ sh:path mp:objective ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:entryCondition ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:exitCondition ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:stopWhen ; sh:minCount 1 ; sh:datatype xsd:string ] .
+mp:MilestoneShape a sh:NodeShape ; sh:targetClass mp:Milestone ;
+ sh:property [ sh:path mp:forStream ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Workstream ] ;
+ sh:property [ sh:path mp:requiredWorks ; sh:minCount 1 ; sh:class mp:WorkItem ] ;
+ sh:property [ sh:path mp:coverageMode ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("ALL_MEMBERS" "SELECTED_BRANCHES") ] ;
+ sh:property [ sh:path mp:status ; sh:hasValue "NOT_EVALUATED" ] ;
+ sh:property [ sh:path mp:successCondition ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:evidenceRequired ; sh:minCount 1 ; sh:datatype xsd:string ] .
+mp:StepShape a sh:NodeShape ; sh:targetClass mp:WorkStep ;
+ sh:property [ sh:path mp:parentWork ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkItem ] ;
+ sh:property [ sh:path mp:assignedTo ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Owner ] ;
+ sh:property [ sh:path mp:ordinal ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 1 ] ;
+ sh:property [ sh:path mp:stepRevision ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 1 ] ;
+ sh:property [ sh:path mp:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("PLANNED" "VERIFIED") ] ;
+ sh:property [ sh:path mp:stepKind ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("INSPECT" "DEFINE" "IMPLEMENT" "TEST" "OBSERVE" "ACTUATE" "DEPLOY" "DECIDE") ] ;
+ sh:property [ sh:path mp:runtimeEffect ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("NONE" "OWNER_SCOPED") ] ;
+ sh:property [ sh:path mp:targets ; sh:minCount 1 ; sh:class mp:RuntimePath ] ;
+ sh:property [ sh:path mp:afterStep ; sh:class mp:WorkStep ] ;
+ sh:property [ sh:path mp:requiresOutput ; sh:class mp:OutputContract ] ;
+ sh:property [ sh:path mp:expectsOutput ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:OutputContract ] ;
+ sh:property [ sh:path mp:requiresGate ; sh:class mp:Gate ] ;
+ sh:property [ sh:path mp:resumeAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkStep ] ;
+ sh:property [ sh:path mp:inputContract ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:doneWhen ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:checks ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path mp:stopWhen ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path mp:onFailure ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:budget ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:or (
+  [ sh:property [ sh:path mp:stepKind ; sh:in ("ACTUATE" "DEPLOY") ] ; sh:property [ sh:path mp:runtimeEffect ; sh:hasValue "OWNER_SCOPED" ] ]
+  [ sh:property [ sh:path mp:stepKind ; sh:in ("INSPECT" "DEFINE" "IMPLEMENT" "TEST" "OBSERVE" "DECIDE") ] ; sh:property [ sh:path mp:runtimeEffect ; sh:hasValue "NONE" ] ]
+ ) .
+mp:OutputShape a sh:NodeShape ; sh:targetClass mp:OutputContract ;
+ sh:property [ sh:path mp:expectedProducer ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkStep ] ;
+ sh:property [ sh:path mp:assignedTo ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Owner ] ;
+ sh:property [ sh:path mp:status ; sh:hasValue "EXPECTED" ] ;
+ sh:property [ sh:path mp:format ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:requiredFields ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path mp:consumerIntent ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:verificationRule ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
+mp:StepDependencyShape a sh:NodeShape ; sh:targetClass mp:StepDependency ;
+ sh:property [ sh:path mp:dependentStep ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkStep ] ;
+ sh:property [ sh:path mp:prerequisiteStep ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkStep ] ;
+ sh:property [ sh:path mp:relationshipStatus ; sh:hasValue "PROPOSED" ] ;
+ sh:property [ sh:path mp:rationale ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
