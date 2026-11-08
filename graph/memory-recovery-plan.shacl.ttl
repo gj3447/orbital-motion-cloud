@@ -1,0 +1,88 @@
+@prefix mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# This vocabulary describes one owner-local plan. PROV links preserve attribution;
+# SHACL Core validates shape constraints. Dependency acyclicity and byte pins are
+# additionally checked by the existing source-owning CLI, not claimed as SHACL-SPARQL.
+mp:WorkItem a rdfs:Class ; rdfs:subClassOf prov:Entity .
+mp:SourceArtifact a rdfs:Class ; rdfs:subClassOf prov:Entity .
+mp:dependsOn a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:WorkItem ; rdfs:comment "Dependent work points to its prerequisite. Only this relation is required to be acyclic." .
+mp:assignedTo a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:Owner .
+mp:acceptance a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:AcceptanceCriterion .
+mp:rollback a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:RollbackPlan .
+mp:requiresGate a rdf:Property ; rdfs:domain mp:WorkItem ; rdfs:range mp:Gate .
+mp:evidence a rdf:Property ; rdfs:range mp:SourceArtifact ; rdfs:comment "A bounded design basis, never runtime authorization or evidence of implementation completion." .
+mp:dependent a rdf:Property ; rdfs:domain mp:Dependency ; rdfs:range mp:WorkItem .
+mp:prerequisite a rdf:Property ; rdfs:domain mp:Dependency ; rdfs:range mp:WorkItem .
+mp:workItem a rdf:Property ; rdfs:domain mp:EvidenceUse ; rdfs:range mp:WorkItem .
+mp:source a rdf:Property ; rdfs:domain mp:EvidenceUse ; rdfs:range mp:SourceArtifact .
+
+mp:CommonShape a sh:NodeShape ; sh:targetSubjectsOf mp:authority ;
+ sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("SECONDARY_AI" "SOURCE_DOCUMENT" "USER_PRIMARY") ] .
+mp:PlanShape a sh:NodeShape ; sh:targetClass mp:Plan ;
+ sh:property [ sh:path mp:authority ; sh:hasValue "SECONDARY_AI" ] ;
+ sh:property [ sh:path mp:scope ; sh:hasValue "OWNER_LOCAL_PLAN" ] ;
+ sh:property [ sh:path mp:executionStatus ; sh:hasValue "NOT_STARTED" ] ;
+ sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 2 ; sh:class mp:SourceArtifact ] ;
+ sh:property [ sh:path mp:relatedResource ; sh:minCount 1 ; sh:class mp:Resource ] .
+mp:SourceShape a sh:NodeShape ; sh:targetClass mp:SourceArtifact ;
+ sh:property [ sh:path mp:artifactKind ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("PAPER" "CODE" "DOCUMENT" "LICENSE" "RESEARCH" "USER_MESSAGE" "OBSERVATION" "EXECUTION_RECORD") ] ;
+ sh:property [ sh:path mp:sourceStatus ; sh:hasValue "PINNED_BYTES" ] ;
+ sh:property [ sh:path mp:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^[a-f0-9]{64}$" ] ;
+ sh:property [ sh:path mp:bytes ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 1 ; sh:maxInclusive 16777216 ] ;
+ sh:property [ sh:path mp:path ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:storedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Owner ] ;
+ sh:property [ sh:path mp:locator ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:observedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] .
+mp:WorkShape a sh:NodeShape ; sh:targetClass mp:WorkItem ;
+ sh:property [ sh:path mp:authority ; sh:hasValue "SECONDARY_AI" ] ;
+ sh:property [ sh:path mp:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("PLANNED" "CONDITIONAL" "VERIFIED") ] ;
+ sh:property [ sh:path mp:assignedTo ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Owner ] ;
+ sh:property [ sh:path mp:dependsOn ; sh:class mp:WorkItem ] ;
+ sh:property [ sh:path mp:acceptance ; sh:minCount 1 ; sh:class mp:AcceptanceCriterion ] ;
+ sh:property [ sh:path mp:rollback ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:RollbackPlan ] ;
+ sh:property [ sh:path mp:evidence ; sh:minCount 1 ; sh:class mp:SourceArtifact ] ;
+ sh:property [ sh:path mp:targets ; sh:minCount 1 ; sh:class mp:RuntimePath ] ;
+ sh:property [ sh:path mp:requiresGate ; sh:class mp:Gate ] ;
+ sh:property [ sh:path mp:addresses ; sh:minCount 1 ; sh:class mp:Problem ] ;
+ sh:property [ sh:path mp:inputContract ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:outputContract ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:budget ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:workRevision ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 1 ] .
+mp:AcceptanceShape a sh:NodeShape ; sh:targetClass mp:AcceptanceCriterion ;
+ sh:property [ sh:path mp:successCondition ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:negativeCases ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path mp:verificationMethod ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:metric ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:status ; sh:hasValue "NOT_EVALUATED" ] .
+mp:RollbackShape a sh:NodeShape ; sh:targetClass mp:RollbackPlan ;
+ sh:property [ sh:path mp:procedure ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:preserve ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:precondition ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
+mp:GateShape a sh:NodeShape ; sh:targetClass mp:Gate ;
+ sh:property [ sh:path mp:gateKind ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("AUTHORIZATION" "RESOURCE" "IDENTITY" "EVIDENCE" "COMPATIBILITY") ] ;
+ sh:property [ sh:path mp:condition ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:status ; sh:hasValue "UNVERIFIED" ] .
+mp:DependencyShape a sh:NodeShape ; sh:targetClass mp:Dependency ;
+ sh:property [ sh:path mp:dependent ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkItem ] ;
+ sh:property [ sh:path mp:prerequisite ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkItem ] ;
+ sh:property [ sh:path mp:relationshipStatus ; sh:hasValue "PROPOSED" ] ;
+ sh:property [ sh:path mp:rationale ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
+mp:EvidenceUseShape a sh:NodeShape ; sh:targetClass mp:EvidenceUse ;
+ sh:property [ sh:path mp:workItem ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkItem ] ;
+ sh:property [ sh:path mp:source ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:SourceArtifact ] ;
+ sh:property [ sh:path mp:relationshipStatus ; sh:hasValue "PROPOSED" ] ;
+ sh:property [ sh:path mp:rationale ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:locator ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
+mp:PathShape a sh:NodeShape ; sh:targetClass mp:RuntimePath ;
+ sh:property [ sh:path mp:maintainedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Owner ] ;
+ sh:property [ sh:path mp:path ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path mp:baselineSha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^[a-f0-9]{64}$" ] ;
+ sh:property [ sh:path mp:status ; sh:hasValue "SOURCE_PRESENT_NOT_RUNTIME_PROOF" ] .
+mp:QuestionShape a sh:NodeShape ; sh:targetClass mp:CompetencyQuestion ;
+ sh:property [ sh:path mp:sparql ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .

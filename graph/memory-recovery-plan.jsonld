@@ -1,0 +1,3806 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/",
+    "mp": "https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "id": "@id",
+    "type": "@type",
+    "label": "rdfs:label",
+    "assignedTo": {
+      "@type": "@id"
+    },
+    "storedBy": {
+      "@type": "@id"
+    },
+    "maintainedBy": {
+      "@type": "@id"
+    },
+    "collaborator": {
+      "@type": "@id"
+    },
+    "dependsOn": {
+      "@type": "@id"
+    },
+    "acceptance": {
+      "@type": "@id"
+    },
+    "rollback": {
+      "@type": "@id"
+    },
+    "requiresGate": {
+      "@type": "@id"
+    },
+    "addresses": {
+      "@type": "@id"
+    },
+    "targets": {
+      "@type": "@id"
+    },
+    "evidence": {
+      "@type": "@id"
+    },
+    "workItem": {
+      "@type": "@id"
+    },
+    "source": {
+      "@type": "@id"
+    },
+    "dependent": {
+      "@type": "@id"
+    },
+    "prerequisite": {
+      "@type": "@id"
+    },
+    "relatedResource": {
+      "@type": "@id"
+    },
+    "completionEvidence": {
+      "@type": "@id"
+    },
+    "license": {
+      "@type": "@id"
+    },
+    "derivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "attributedTo": {
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "primarySource": {
+      "@id": "prov:hadPrimarySource",
+      "@type": "@id"
+    },
+    "observedAt": {
+      "@type": "xsd:dateTime"
+    },
+    "recordedAt": {
+      "@type": "xsd:dateTime"
+    },
+    "bytes": {
+      "@type": "xsd:integer"
+    },
+    "ordinal": {
+      "@type": "xsd:integer"
+    },
+    "workRevision": {
+      "@type": "xsd:integer"
+    }
+  },
+  "@graph": [
+    {
+      "id": "urn:omc:memory-plan:owner:omc",
+      "type": [
+        "Owner",
+        "prov:Entity"
+      ],
+      "label": "OMC writer",
+      "authority": "SECONDARY_AI",
+      "ownerKey": "OMC",
+      "repository": "https://github.com/gj3447/orbital-motion-cloud"
+    },
+    {
+      "id": "urn:omc:memory-plan:owner:orca",
+      "type": [
+        "Owner",
+        "prov:Entity"
+      ],
+      "label": "ORCA_SETTING writer",
+      "authority": "SECONDARY_AI",
+      "ownerKey": "ORCA_SETTING",
+      "repository": "https://github.com/gj3447/ORCA_SETTING"
+    },
+    {
+      "id": "urn:omc:memory-plan:owner:hoh",
+      "type": [
+        "Owner",
+        "prov:Entity"
+      ],
+      "label": "HOH writer",
+      "authority": "SECONDARY_AI",
+      "ownerKey": "HOH",
+      "repository": "https://github.com/gj3447/HOH"
+    },
+    {
+      "id": "urn:omc:memory-plan:owner:research",
+      "type": [
+        "Owner",
+        "prov:Entity"
+      ],
+      "label": "THE_GREAT_FLOW writer",
+      "authority": "SECONDARY_AI",
+      "ownerKey": "THE_GREAT_FLOW",
+      "repository": "https://github.com/gj3447/the-great-flow"
+    },
+    {
+      "id": "urn:omc:agent:codex",
+      "type": [
+        "Agent",
+        "prov:SoftwareAgent"
+      ],
+      "label": "Codex planning interpretation",
+      "authority": "SECONDARY_AI",
+      "role": "Plan author; not a runtime authorizer"
+    },
+    {
+      "id": "urn:omc:agent:user",
+      "type": [
+        "Agent",
+        "prov:Entity"
+      ],
+      "label": "Workspace user",
+      "authority": "SECONDARY_AI",
+      "role": "Source speaker; label is not a user utterance"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:aifm-paper-2020",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "AIFM: High-Performance, Application-Integrated Far Memory",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "PAPER",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://www.usenix.org/system/files/osdi20-ruan.pdf",
+      "path": ".local/memory-plan/sources/aifm-osdi2020.pdf",
+      "bytes": 664635,
+      "sha256": "a3ecc1a1ae9d02decb6ff11516b8e810ffd788d233fb84a9fe856817a7065bc2",
+      "url": "https://www.usenix.org/system/files/osdi20-ruan.pdf",
+      "version": "2020",
+      "locator": "§4",
+      "sourceYear": "2020"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:aifm-readme-fa4f31ce8275",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "AIFM integration requirements",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/AIFM-sys/AIFM/fa4f31ce827501ad52f5a5ca9249ef04ba92b467/README.md",
+      "path": ".local/memory-plan/sources/aifm-readme.md",
+      "bytes": 7329,
+      "sha256": "ab51c79764b0a557513075f6fef4013d059cd001d903adcdf7cf92ab8ca3cfeb",
+      "url": "https://raw.githubusercontent.com/AIFM-sys/AIFM/fa4f31ce827501ad52f5a5ca9249ef04ba92b467/README.md",
+      "version": "fa4f31ce827501ad52f5a5ca9249ef04ba92b467",
+      "locator": "Application integration",
+      "upstreamCommit": "fa4f31ce827501ad52f5a5ca9249ef04ba92b467",
+      "project": "AIFM-sys/AIFM"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:autopilot-2020",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Autopilot: workload autoscaling at Google",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "PAPER",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://john.e-wilkes.com/papers/2020-EuroSys-Autopilot.pdf",
+      "path": ".local/rebalance-research/papers/autopilot-eurosys2020.pdf",
+      "bytes": 1303697,
+      "sha256": "c54739f831453ec277c2d69f90c5d66a98085bffe3e8eab0372adcdea3baa38b",
+      "url": "https://john.e-wilkes.com/papers/2020-EuroSys-Autopilot.pdf",
+      "version": "2020",
+      "locator": "§3.2",
+      "doi": "10.1145/3342195.3387524",
+      "sourceYear": "2020"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:borg-2015",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Large-scale cluster management at Google with Borg",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "PAPER",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://john.e-wilkes.com/papers/2015-EuroSys-Borg.pdf",
+      "path": ".local/rebalance-research/papers/borg-eurosys2015.pdf",
+      "bytes": 856540,
+      "sha256": "2fdacd3b69f8af91477412fc91d1d858a43e764929a4edb646bd517ededdad94",
+      "url": "https://john.e-wilkes.com/papers/2015-EuroSys-Borg.pdf",
+      "version": "2015",
+      "locator": "§2.4–2.5",
+      "doi": "10.1145/2741948.2741964",
+      "sourceYear": "2015"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Linux cgroup v2 memory",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "path": ".local/memory-plan/sources/cgroup-doc.html",
+      "bytes": 175364,
+      "sha256": "9c7ea0827bdc8cf0007b26acac105111c210cea7a34b9b00e7e07ad17805165d",
+      "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "version": "observed-2026-11-07",
+      "locator": "memory.reclaim; memory.high; memory.max"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:controller-code-4fd0ea28e5d6",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "controller-runtime reconcile loop",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "CODE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/kubernetes-sigs/controller-runtime/4fd0ea28e5d664a4b417d917be6da1266d8d3ca7/pkg/internal/controller/controller.go",
+      "path": ".local/memory-plan/sources/controller-code.go",
+      "bytes": 21739,
+      "sha256": "5c29a5a2ce85eb1178d3f692fca5b0f06de7bb7fb760ead21209e90e6c6a7ef2",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/controller-runtime/4fd0ea28e5d664a4b417d917be6da1266d8d3ca7/pkg/internal/controller/controller.go",
+      "version": "4fd0ea28e5d664a4b417d917be6da1266d8d3ca7",
+      "locator": "reconcileHandler",
+      "upstreamCommit": "4fd0ea28e5d664a4b417d917be6da1266d8d3ca7",
+      "project": "kubernetes-sigs/controller-runtime",
+      "license": "urn:omc:memory-plan:source:controller-runtime-license-4fd0ea28e5d6"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:controller-runtime-license-4fd0ea28e5d6",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "controller-runtime license",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "LICENSE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/kubernetes-sigs/controller-runtime/4fd0ea28e5d664a4b417d917be6da1266d8d3ca7/LICENSE",
+      "path": ".local/memory-plan/sources/controller-runtime-LICENSE.txt",
+      "bytes": 11357,
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/controller-runtime/4fd0ea28e5d664a4b417d917be6da1266d8d3ca7/LICENSE",
+      "version": "4fd0ea28e5d664a4b417d917be6da1266d8d3ca7",
+      "locator": "Full license text",
+      "upstreamCommit": "4fd0ea28e5d664a4b417d917be6da1266d8d3ca7",
+      "project": "kubernetes-sigs/controller-runtime"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:damo-code-ffa13f9e5910",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "damo DAMON interface",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "CODE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/awslabs/damo/ffa13f9e59102be0c1275a6a641999b7107d1108/src/_damon.py",
+      "path": ".local/memory-plan/sources/damo-code.py",
+      "bytes": 48933,
+      "sha256": "c7a3db487e4fd5b6e1778bf032388b39182b65dbd353ef307a18305009244d98",
+      "url": "https://raw.githubusercontent.com/awslabs/damo/ffa13f9e59102be0c1275a6a641999b7107d1108/src/_damon.py",
+      "version": "ffa13f9e59102be0c1275a6a641999b7107d1108",
+      "locator": "DamosQuotas; scheme interface",
+      "upstreamCommit": "ffa13f9e59102be0c1275a6a641999b7107d1108",
+      "project": "awslabs/damo",
+      "license": "urn:omc:memory-plan:source:damo-license-ffa13f9e5910"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:damo-license-ffa13f9e5910",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "damo license",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "LICENSE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/awslabs/damo/ffa13f9e59102be0c1275a6a641999b7107d1108/LICENSE",
+      "path": ".local/memory-plan/sources/damo-LICENSE.txt",
+      "bytes": 18092,
+      "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+      "url": "https://raw.githubusercontent.com/awslabs/damo/ffa13f9e59102be0c1275a6a641999b7107d1108/LICENSE",
+      "version": "ffa13f9e59102be0c1275a6a641999b7107d1108",
+      "locator": "Full license text",
+      "upstreamCommit": "ffa13f9e59102be0c1275a6a641999b7107d1108",
+      "project": "awslabs/damo"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:damo-usage-ffa13f9e5910",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "damo usage and kernel prerequisites",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/awslabs/damo/ffa13f9e59102be0c1275a6a641999b7107d1108/USAGE.md",
+      "path": ".local/memory-plan/sources/damo-usage.md",
+      "bytes": 44649,
+      "sha256": "858c698adb18e1a5732947a2e3b9e447e58f31484575de376283d1223f4923a4",
+      "url": "https://raw.githubusercontent.com/awslabs/damo/ffa13f9e59102be0c1275a6a641999b7107d1108/USAGE.md",
+      "version": "ffa13f9e59102be0c1275a6a641999b7107d1108",
+      "locator": "Prerequisites; DAMOS quotas",
+      "upstreamCommit": "ffa13f9e59102be0c1275a6a641999b7107d1108",
+      "project": "awslabs/damo",
+      "license": "urn:omc:memory-plan:source:damo-license-ffa13f9e5910"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:damon-doc-add75541b0aa",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "DAMON_RECLAIM",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://docs.kernel.org/admin-guide/mm/damon/reclaim.html",
+      "path": ".local/memory-plan/sources/damon-doc.html",
+      "bytes": 32436,
+      "sha256": "add75541b0aa6792eb7f4ce8ef4270648e659586b6487497bf0e7b51248ed8be",
+      "url": "https://docs.kernel.org/admin-guide/mm/damon/reclaim.html",
+      "version": "observed-2026-11-07",
+      "locator": "quota_ms; quota_sz; watermarks"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:drf-2011",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Dominant Resource Fairness: Fair Allocation of Multiple Resource Types",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "PAPER",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://static.usenix.org/event/nsdi11/tech/full_papers/Ghodsi.pdf",
+      "path": ".local/rebalance-research/papers/drf-nsdi2011.pdf",
+      "bytes": 634335,
+      "sha256": "902dd5ab638e675220634fc38ff97e0ee8a661d487a01ccfdfd39e9e116280f8",
+      "url": "https://static.usenix.org/event/nsdi11/tech/full_papers/Ghodsi.pdf",
+      "version": "2011",
+      "locator": "§4",
+      "sourceYear": "2011"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:infiniswap-paper-2017",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Efficient Memory Disaggregation with Infiniswap",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "PAPER",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://www.usenix.org/system/files/conference/nsdi17/nsdi17-gu.pdf",
+      "path": ".local/rebalance-research/papers/infiniswap-nsdi2017.pdf",
+      "bytes": 1518861,
+      "sha256": "a48529e5c91c9a4018f1db32229f13cd93fd1034b49fa9f3a72b169721f4dfc4",
+      "url": "https://www.usenix.org/system/files/conference/nsdi17/nsdi17-gu.pdf",
+      "version": "2017",
+      "locator": "§3–5",
+      "sourceYear": "2017"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:infiniswap-readme-da7c14bf749c",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Infiniswap integration requirements",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/SymbioticLab/Infiniswap/da7c14bf749ccadb4ef44953579d55143e8e7182/README.md",
+      "path": ".local/memory-plan/sources/infiniswap-readme.md",
+      "bytes": 11171,
+      "sha256": "7c6b603ab2f9842c7f118dbc867bb40c590f481da212586e40e43400a8ee986c",
+      "url": "https://raw.githubusercontent.com/SymbioticLab/Infiniswap/da7c14bf749ccadb4ef44953579d55143e8e7182/README.md",
+      "version": "da7c14bf749ccadb4ef44953579d55143e8e7182",
+      "locator": "Setup and kernel/network requirements",
+      "upstreamCommit": "da7c14bf749ccadb4ef44953579d55143e8e7182",
+      "project": "SymbioticLab/Infiniswap"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:kube-eviction-793fefb44e7a",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Kubelet eviction manager",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "CODE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/kubernetes/kubernetes/793fefb44e7aa5707481c9973de1f89a8d4ed53c/pkg/kubelet/eviction/eviction_manager.go",
+      "path": ".local/memory-plan/sources/kube-eviction.go",
+      "bytes": 27687,
+      "sha256": "b8249d7f0a0787b7eddf3e62eb93dbe20fab839a6814f6b84644d79174a38d8c",
+      "url": "https://raw.githubusercontent.com/kubernetes/kubernetes/793fefb44e7aa5707481c9973de1f89a8d4ed53c/pkg/kubelet/eviction/eviction_manager.go",
+      "version": "793fefb44e7aa5707481c9973de1f89a8d4ed53c",
+      "locator": "evictionMinimumReclaim; pressure transition",
+      "upstreamCommit": "793fefb44e7aa5707481c9973de1f89a8d4ed53c",
+      "project": "kubernetes/kubernetes",
+      "license": "urn:omc:memory-plan:source:kubernetes-license-793fefb44e7a"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:kube-scheduler-793fefb44e7a",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Kubernetes scheduler",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "CODE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/kubernetes/kubernetes/793fefb44e7aa5707481c9973de1f89a8d4ed53c/pkg/scheduler/schedule_one.go",
+      "path": ".local/memory-plan/sources/kube-scheduler.go",
+      "bytes": 38012,
+      "sha256": "aee5db7e4dc269a194f7b039cfa43684ea9c601bc9eaec70dacbdc2b8f6392a8",
+      "url": "https://raw.githubusercontent.com/kubernetes/kubernetes/793fefb44e7aa5707481c9973de1f89a8d4ed53c/pkg/scheduler/schedule_one.go",
+      "version": "793fefb44e7aa5707481c9973de1f89a8d4ed53c",
+      "locator": "AssumeAndReserveInCache; UnreserveAndForgetFromCache",
+      "upstreamCommit": "793fefb44e7aa5707481c9973de1f89a8d4ed53c",
+      "project": "kubernetes/kubernetes",
+      "license": "urn:omc:memory-plan:source:kubernetes-license-793fefb44e7a"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:kubernetes-license-793fefb44e7a",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "kubernetes license",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "LICENSE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/kubernetes/kubernetes/793fefb44e7aa5707481c9973de1f89a8d4ed53c/LICENSE",
+      "path": ".local/memory-plan/sources/kubernetes-LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://raw.githubusercontent.com/kubernetes/kubernetes/793fefb44e7aa5707481c9973de1f89a8d4ed53c/LICENSE",
+      "version": "793fefb44e7aa5707481c9973de1f89a8d4ed53c",
+      "locator": "Full license text",
+      "upstreamCommit": "793fefb44e7aa5707481c9973de1f89a8d4ed53c",
+      "project": "kubernetes/kubernetes"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:kueue-code-74c0e6bcd5e6",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Kueue scheduler",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "CODE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/kubernetes-sigs/kueue/74c0e6bcd5e6bf91716d4eec43f63d4a74440514/pkg/scheduler/scheduler.go",
+      "path": ".local/memory-plan/sources/kueue-code.go",
+      "bytes": 77076,
+      "sha256": "988caf5c841a89b2656ae5e2888e90ae369cf04e882b4f78920041207f4e8c0d",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/kueue/74c0e6bcd5e6bf91716d4eec43f63d4a74440514/pkg/scheduler/scheduler.go",
+      "version": "74c0e6bcd5e6bf91716d4eec43f63d4a74440514",
+      "locator": "admit; assumeWorkload",
+      "upstreamCommit": "74c0e6bcd5e6bf91716d4eec43f63d4a74440514",
+      "project": "kubernetes-sigs/kueue",
+      "license": "urn:omc:memory-plan:source:kueue-license-74c0e6bcd5e6"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:kueue-doc-a0f9dcd8e72a",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Kueue admission checks",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://kueue.sigs.k8s.io/docs/concepts/admission_check/",
+      "path": ".local/memory-plan/sources/kueue-doc.html",
+      "bytes": 133037,
+      "sha256": "a0f9dcd8e72a58e5be068a995d2a11c53f007113c0ed9f99ad59bd4f1a2beb83",
+      "url": "https://kueue.sigs.k8s.io/docs/concepts/admission_check/",
+      "version": "observed-2026-11-07",
+      "locator": "AdmissionCheckStates"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:kueue-license-74c0e6bcd5e6",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "kueue license",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "LICENSE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/kubernetes-sigs/kueue/74c0e6bcd5e6bf91716d4eec43f63d4a74440514/LICENSE",
+      "path": ".local/memory-plan/sources/kueue-LICENSE.txt",
+      "bytes": 11352,
+      "sha256": "e4fc8a66ee0d461aa3a115980f1e081dcb6d153618fa5415ed79912ecef6efbd",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/kueue/74c0e6bcd5e6bf91716d4eec43f63d4a74440514/LICENSE",
+      "version": "74c0e6bcd5e6bf91716d4eec43f63d4a74440514",
+      "locator": "Full license text",
+      "upstreamCommit": "74c0e6bcd5e6bf91716d4eec43f63d4a74440514",
+      "project": "kubernetes-sigs/kueue"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "oomd Senpai plugin",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "CODE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/facebookincubator/oomd/5692370bea54daf9ae5a5e1e4e50ce1089394c29/src/oomd/plugins/Senpai.cpp",
+      "path": ".local/memory-plan/sources/oomd-code.cpp",
+      "bytes": 25270,
+      "sha256": "736cfb1c4f33c547b44b1fe5252c12a8d75f015128898827fa30e0a866d1eec0",
+      "url": "https://raw.githubusercontent.com/facebookincubator/oomd/5692370bea54daf9ae5a5e1e4e50ce1089394c29/src/oomd/plugins/Senpai.cpp",
+      "version": "5692370bea54daf9ae5a5e1e4e50ce1089394c29",
+      "locator": "Senpai::reclaim; pressure guards",
+      "upstreamCommit": "5692370bea54daf9ae5a5e1e4e50ce1089394c29",
+      "project": "facebookincubator/oomd",
+      "license": "urn:omc:memory-plan:source:oomd-license-5692370bea54"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:oomd-license-5692370bea54",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "oomd license",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "LICENSE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/facebookincubator/oomd/5692370bea54daf9ae5a5e1e4e50ce1089394c29/LICENSE",
+      "path": ".local/memory-plan/sources/oomd-LICENSE.txt",
+      "bytes": 18072,
+      "sha256": "b90ed8150a6d371c84b7dbaa680cd0e9893ef7c2558765e1e00930513efcfe3b",
+      "url": "https://raw.githubusercontent.com/facebookincubator/oomd/5692370bea54daf9ae5a5e1e4e50ce1089394c29/LICENSE",
+      "version": "5692370bea54daf9ae5a5e1e4e50ce1089394c29",
+      "locator": "Full license text",
+      "upstreamCommit": "5692370bea54daf9ae5a5e1e4e50ce1089394c29",
+      "project": "facebookincubator/oomd"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Linux PSI",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://docs.kernel.org/accounting/psi.html",
+      "path": ".local/memory-plan/sources/psi-doc.html",
+      "bytes": 19730,
+      "sha256": "6994ff647f71fd910f4373184ab18cd6e2da780621d4d6b1596b2b5b65462c04",
+      "url": "https://docs.kernel.org/accounting/psi.html",
+      "version": "observed-2026-11-07",
+      "locator": "Pressure interface"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:senpai-code-c51e8e21de5c",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Standalone Senpai Python",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "CODE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/facebookincubator/senpai/c51e8e21de5c459406a015c1860d5f6c5ff6a426/senpai.py",
+      "path": ".local/memory-plan/sources/senpai-code.py",
+      "bytes": 6335,
+      "sha256": "b4acb8f851259f1b84db50cd4372719555b99f285839265dc1235aea91ad92bf",
+      "url": "https://raw.githubusercontent.com/facebookincubator/senpai/c51e8e21de5c459406a015c1860d5f6c5ff6a426/senpai.py",
+      "version": "c51e8e21de5c459406a015c1860d5f6c5ff6a426",
+      "locator": "Cgroup.set_limit",
+      "upstreamCommit": "c51e8e21de5c459406a015c1860d5f6c5ff6a426",
+      "project": "facebookincubator/senpai",
+      "license": "urn:omc:memory-plan:source:senpai-license-c51e8e21de5c"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:senpai-license-c51e8e21de5c",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "senpai license",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "LICENSE",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://raw.githubusercontent.com/facebookincubator/senpai/c51e8e21de5c459406a015c1860d5f6c5ff6a426/LICENSE",
+      "path": ".local/memory-plan/sources/senpai-LICENSE.txt",
+      "bytes": 18072,
+      "sha256": "b90ed8150a6d371c84b7dbaa680cd0e9893ef7c2558765e1e00930513efcfe3b",
+      "url": "https://raw.githubusercontent.com/facebookincubator/senpai/c51e8e21de5c459406a015c1860d5f6c5ff6a426/LICENSE",
+      "version": "c51e8e21de5c459406a015c1860d5f6c5ff6a426",
+      "locator": "Full license text",
+      "upstreamCommit": "c51e8e21de5c459406a015c1860d5f6c5ff6a426",
+      "project": "facebookincubator/senpai"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:slurm-doc-a7037ebb6504",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Slurm consumable resources",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://slurm.schedmd.com/cons_tres.html",
+      "path": ".local/memory-plan/sources/slurm-doc.html",
+      "bytes": 18356,
+      "sha256": "a7037ebb6504310fae4420bbb8a1c93c99a471ad39b00f667389676c936752e9",
+      "url": "https://slurm.schedmd.com/cons_tres.html",
+      "version": "observed-2026-11-07",
+      "locator": "Memory as consumable resource"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:tmo-2022",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "TMO: Transparent Memory Offloading in Datacenters",
+      "authority": "SOURCE_DOCUMENT",
+      "labelAuthority": "SOURCE_DOCUMENT",
+      "artifactKind": "PAPER",
+      "sourceStatus": "PINNED_BYTES",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-07T10:11:31.114442Z",
+      "primarySource": "https://www.cs.cmu.edu/~dskarlat/publications/tmo_asplos22.pdf",
+      "path": ".local/rebalance-research/papers/tmo-asplos2022.pdf",
+      "bytes": 1734583,
+      "sha256": "676e895593b08654f705c0e70c580ff797d9e9420a152294dd5e0c60a39e7c60",
+      "url": "https://www.cs.cmu.edu/~dskarlat/publications/tmo_asplos22.pdf",
+      "version": "2022",
+      "locator": "§3.2–3.3",
+      "doi": "10.1145/3503222.3507731",
+      "sourceYear": "2022"
+    },
+    {
+      "id": "research:work:omc-memory-admission-20261107:WHAT_IS",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "메모리 admission·reclaim·예약의 공개 구현과 논문 비교",
+      "authority": "SECONDARY_AI",
+      "artifactKind": "RESEARCH",
+      "sourceStatus": "PINNED_BYTES",
+      "path": "data/research-organization/omc-memory-admission-20261107/WHAT_IS.md",
+      "bytes": 12671,
+      "sha256": "96d1024557ff00a47f30a6dfcf3432528bf6d2bcec3ec34267102472a0ffa75a",
+      "storedBy": "urn:omc:memory-plan:owner:research",
+      "acquisitionMode": "OWNER_LOCAL",
+      "version": "58f5f8f29eafdf8368ef0e714e01c15e7f6e01a3",
+      "locator": "Complete owner-published research artifact",
+      "ownerWorkId": "omc-memory-admission-20261107",
+      "ownerArtifactKind": "WHAT_IS",
+      "ownerCommit": "58f5f8f29eafdf8368ef0e714e01c15e7f6e01a3",
+      "ownerPublicationState": "COMPLETE",
+      "observedAt": "2026-11-07T10:23:26.453Z"
+    },
+    {
+      "id": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "기존 입운구 owner 경로에 연결하는 회수 목표·RAM 예약·복구 상태 설계",
+      "authority": "SECONDARY_AI",
+      "artifactKind": "RESEARCH",
+      "sourceStatus": "PINNED_BYTES",
+      "path": "data/research-organization/omc-memory-admission-20261107/HOW_TO.md",
+      "bytes": 10743,
+      "sha256": "3bcd7a76a2e43245acf531c4f27d5b115995068be6bff8380fb5874dd683d12f",
+      "storedBy": "urn:omc:memory-plan:owner:research",
+      "acquisitionMode": "OWNER_LOCAL",
+      "version": "5844a9f86e69658aa27ba57afab3fed6d3d57354",
+      "locator": "Complete owner-published research artifact",
+      "ownerWorkId": "omc-memory-admission-20261107",
+      "ownerArtifactKind": "HOW_TO",
+      "ownerCommit": "5844a9f86e69658aa27ba57afab3fed6d3d57354",
+      "ownerPublicationState": "COMPLETE",
+      "observedAt": "2026-11-07T10:23:26.453Z"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:user-7adedab4627f",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "User request for a source-grounded execution plan",
+      "authority": "USER_PRIMARY",
+      "labelAuthority": "SECONDARY_AI",
+      "artifactKind": "USER_MESSAGE",
+      "sourceStatus": "PINNED_BYTES",
+      "path": "records/2026-11-07/memory-plan/user-request.txt",
+      "bytes": 135,
+      "sha256": "7adedab4627fb7fe53b65c69d75133a8f896637c7faa6db571f37d6a40a80a38",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "OWNER_LOCAL",
+      "version": "2026-11-07",
+      "locator": "Verbatim user message",
+      "quote": "ㅇㅇ 해당 논문들 오픈소스들 가져와서 작업 순서 계획 표준그래프 엔지니어링으로 구축좀 해줘봐봐",
+      "attributedTo": "urn:omc:agent:user",
+      "observedAt": "2026-11-07T10:23:26.453Z"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:audit-b703152e965f",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Prior read-only memory audit; not live performance evidence",
+      "authority": "SECONDARY_AI",
+      "artifactKind": "OBSERVATION",
+      "sourceStatus": "PINNED_BYTES",
+      "path": ".runtime/memory-adversarial-20261107/result.json",
+      "bytes": 12952,
+      "sha256": "b703152e965fe161409394a32932187060ce9d6e5c7bd338e835b8abff82bf3a",
+      "storedBy": "urn:omc:memory-plan:owner:orca",
+      "acquisitionMode": "OWNER_LOCAL",
+      "version": "2026-11-07-read-only-audit",
+      "locator": "cases.current_recovery; cases.concurrency; live.feedback",
+      "observedAt": "2026-11-07T10:23:26.453Z"
+    },
+    {
+      "id": "omc:knowledge:resource:memory",
+      "type": [
+        "Resource",
+        "prov:Entity"
+      ],
+      "label": "Memory / RAM / cgroup",
+      "authority": "SECONDARY_AI",
+      "externalGraph": "graph/rebalance-knowledge.json",
+      "externalUid": "omc:knowledge:resource:memory",
+      "status": "RESEARCH_REVIEWED"
+    },
+    {
+      "id": "urn:omc:memory-plan:plan:20261107",
+      "type": [
+        "Plan",
+        "prov:Entity"
+      ],
+      "label": "입운구 메모리 복구 작업 계획",
+      "authority": "SECONDARY_AI",
+      "scope": "OWNER_LOCAL_PLAN",
+      "executionStatus": "NOT_STARTED",
+      "version": "1.0.1",
+      "status": "PROPOSED",
+      "recordedAt": "2026-11-07T10:23:26.453Z",
+      "attributedTo": "urn:omc:agent:codex",
+      "relatedResource": "omc:knowledge:resource:memory",
+      "derivedFrom": [
+        "urn:omc:memory-plan:source:user-7adedab4627f",
+        "research:work:omc-memory-admission-20261107:WHAT_IS",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "description": "Source-grounded implementation order, owner boundaries, acceptance and rollback. Graph validity and hydrated papers do not authorize or prove runtime execution."
+    },
+    {
+      "id": "urn:omc:memory-plan:problem:flap",
+      "type": [
+        "Problem",
+        "prov:Entity"
+      ],
+      "label": "입장 경계 왕복과 source freshness",
+      "authority": "SECONDARY_AI",
+      "status": "OPEN_DESIGN",
+      "detail": "Prior bounded audit: small churn changes admission; wrapper timestamp can hide older host counters.",
+      "evidence": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:problem:credit",
+      "type": [
+        "Problem",
+        "prov:Entity"
+      ],
+      "label": "회수량과 유효 여유의 불일치",
+      "authority": "SECONDARY_AI",
+      "status": "OPEN_DESIGN",
+      "detail": "Prior ideal clean-reclaim model: cache credit falls along with charge, and recovery can stall below the admission threshold.",
+      "evidence": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:problem:reservation",
+      "type": [
+        "Problem",
+        "prov:Entity"
+      ],
+      "label": "시작 전 RAM 약속 누락",
+      "authority": "SECONDARY_AI",
+      "status": "OPEN_DESIGN",
+      "detail": "Prior in-memory admission fixture admits multiple projects against one headroom observation; it did not induce live OOM.",
+      "evidence": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:problem:recovery",
+      "type": [
+        "Problem",
+        "prov:Entity"
+      ],
+      "label": "만료·일시 부재·위험 중단의 구분",
+      "authority": "SECONDARY_AI",
+      "status": "OPEN_DESIGN",
+      "detail": "Prior observation: stopped feedback and expired static targets. A historical state is not a current runtime probe.",
+      "evidence": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:problem:contention",
+      "type": [
+        "Problem",
+        "prov:Entity"
+      ],
+      "label": "CPU·I/O와 메모리 압박의 결합",
+      "authority": "SECONDARY_AI",
+      "status": "OPEN_DESIGN",
+      "detail": "Reclaim can worsen refault or I/O pressure; memory relief alone is not total workload health.",
+      "evidence": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:problem:history",
+      "type": [
+        "Problem",
+        "prov:Entity"
+      ],
+      "label": "작업별 요구량과 실패 표본",
+      "authority": "SECONDARY_AI",
+      "status": "OPEN_DESIGN",
+      "detail": "Future demand estimates must keep workload/revision identity, peak coverage and censored failures.",
+      "evidence": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:problem:placement",
+      "type": [
+        "Problem",
+        "prov:Entity"
+      ],
+      "label": "조건부 원격 배치·memory tier",
+      "authority": "SECONDARY_AI",
+      "status": "OPEN_DESIGN",
+      "detail": "Remote task placement and remote memory paging require different owners, hardware, program and fault contracts.",
+      "evidence": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:gate:authorization",
+      "type": [
+        "Gate",
+        "prov:Entity"
+      ],
+      "label": "정확한 owner 실행 위임",
+      "authority": "SECONDARY_AI",
+      "gateKind": "AUTHORIZATION",
+      "status": "UNVERIFIED",
+      "condition": "Bind the selected operation, target, expiry, budget and revocation to the current owner. This plan is not that grant.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:gate:identity",
+      "type": [
+        "Gate",
+        "prov:Entity"
+      ],
+      "label": "대상 판본·프로세스 신원",
+      "authority": "SECONDARY_AI",
+      "gateKind": "IDENTITY",
+      "status": "UNVERIFIED",
+      "condition": "Recheck boot ID, inode, PID incarnation, code/policy digest and source observation time immediately before any effect.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:gate:capacity",
+      "type": [
+        "Gate",
+        "prov:Entity"
+      ],
+      "label": "현재 native admission",
+      "authority": "SECONDARY_AI",
+      "gateKind": "RESOURCE",
+      "status": "UNVERIFIED",
+      "condition": "Use the existing native admission and registered per-job bounds. A plan or paper creates no RAM reservation.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:gate:evidence",
+      "type": [
+        "Gate",
+        "prov:Entity"
+      ],
+      "label": "선행 검증과 복구 준비",
+      "authority": "SECONDARY_AI",
+      "gateKind": "EVIDENCE",
+      "status": "UNVERIFIED",
+      "condition": "Read exact source-bound fixture/shadow results, preservation snapshot and rollback path; unverified or ambiguous outcomes block rollout.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:gate:worker",
+      "type": [
+        "Gate",
+        "prov:Entity"
+      ],
+      "label": "원격 owner와 workload 호환",
+      "authority": "SECONDARY_AI",
+      "gateKind": "COMPATIBILITY",
+      "status": "UNVERIFIED",
+      "condition": "Verify registered worker, architecture/toolchain/data locality, admission and transfer contract for this exact workload.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:gate:damon",
+      "type": [
+        "Gate",
+        "prov:Entity"
+      ],
+      "label": "DAMON 커널 능력과 제어권",
+      "authority": "SECONDARY_AI",
+      "gateKind": "COMPATIBILITY",
+      "status": "UNVERIFIED",
+      "condition": "Verify kernel CONFIG and target-address-space support, owner permission and single-controller ownership before any DAMON action.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:gate:far-memory",
+      "type": [
+        "Gate",
+        "prov:Entity"
+      ],
+      "label": "원격 memory 실험 조건",
+      "authority": "SECONDARY_AI",
+      "gateKind": "COMPATIBILITY",
+      "status": "UNVERIFIED",
+      "condition": "Verify RDMA/network and failure model for Infiniswap or application API changes for AIFM; capacity elsewhere is not local allocatable RAM.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:guard",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "orca:scripts/storage_guard.py",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:orca",
+      "path": "scripts/storage_guard.py",
+      "baselineSha256": "f3dc5b6c3dd38dee0a36773282a0d6fbbec573f05fbc2f0423ef778239f31299",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:credit",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "orca:scripts/storage_guard_cache_credit.py",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:orca",
+      "path": "scripts/storage_guard_cache_credit.py",
+      "baselineSha256": "b85a173b9b82b448b42b36fd7c1e863b2fc8fa5fe2f82150078389aac3493aea",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:ops",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "omc:scripts/ops.py",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:omc",
+      "path": "scripts/ops.py",
+      "baselineSha256": "2ae94e3521d744da432fb3a5bf7c566615be92002394499c84b44b4519d92466",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:feedback",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "omc:scripts/ops_memory_loop.py",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:omc",
+      "path": "scripts/ops_memory_loop.py",
+      "baselineSha256": "a636cb412df90e40599f7e4a690e3fba969bff942f3ebb3f2520e13a57965314",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:memory",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "omc:scripts/rebalance_memory.py",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:omc",
+      "path": "scripts/rebalance_memory.py",
+      "baselineSha256": "b8b1954ca1f45d921c7409ff171bdde5b2e6d57e64a0d9fb56bf19dbc8ef23e6",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:planner",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "omc:scripts/rebalance.py",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:omc",
+      "path": "scripts/rebalance.py",
+      "baselineSha256": "8e5e46fcc49b1c1ee5538034ffa58fd8c00f7f4c9e82c68fd7741546f30092b3",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:ops-guide",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "omc:docs/AI_OPERATIONS.md",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:omc",
+      "path": "docs/AI_OPERATIONS.md",
+      "baselineSha256": "d27621a228bd7f78e7d4107a5985d80af9262b3bb75377b03e3c1713dabcd876",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:rebalance-guide",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "omc:docs/REBALANCER.md",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:omc",
+      "path": "docs/REBALANCER.md",
+      "baselineSha256": "a0da5c6a1b1735f0da61bf677e36c5b5742999ba69c8437051d1529d06d3d055",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:hoh-check",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "hoh:test/browser-library-drag.mjs",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:hoh",
+      "path": "test/browser-library-drag.mjs",
+      "baselineSha256": "8306ed99cf387f80ccc5f9515fffa2a563761431cb3fab325def187fa19910c9",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:hoh-guide",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "hoh:docs/DASHBOARD.md",
+      "authority": "SECONDARY_AI",
+      "maintainedBy": "urn:omc:memory-plan:owner:hoh",
+      "path": "docs/DASHBOARD.md",
+      "baselineSha256": "35e5a67356dc85a7ba66d343847c4c4582d35d0fe0a87ab67dabb533dbd7da7a",
+      "baselineRevision": "WORKTREE_BYTES_2026-11-07",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w01",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "관측·입장 계약과 기준선 고정 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "All scopes and original timestamps remain visible; stale/future/unknown-domain input is rejected without creating a lease.",
+      "negativeCases": [
+        "fresh wrapper over stale host",
+        "unknown or duplicated RAM/UMA domain",
+        "missing limit or source time"
+      ],
+      "verificationMethod": "Read-only snapshot and deterministic contract fixtures; no stress allocation.",
+      "metric": "Field completeness and rejection reasons; zero writes to admission state.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w01",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "관측·입장 계약과 기준선 고정 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Retain the previous collector/reader version and baseline; roll back any future observer change without deleting active leases.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w01",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "관측·입장 계약과 기준선 고정",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 1,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "READ_ONLY",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "collaborator": [],
+      "dependsOn": [],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w01"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w01",
+      "requiresGate": [],
+      "addresses": [
+        "urn:omc:memory-plan:problem:flap",
+        "urn:omc:memory-plan:problem:reservation"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:guard",
+        "urn:omc:memory-plan:path:credit"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+        "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+        "urn:omc:memory-plan:source:borg-2015"
+      ],
+      "inputContract": "Installed owner implementation/policy pins, raw local/host/LXC counters, original timestamps and existing lease semantics.",
+      "outputContract": "Versioned observation contract distinguishing capacity, pressure, cache credit, pending reservations and source age.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w01-audit",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "관측·입장 계약과 기준선 고정 ← audit",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w01",
+      "source": "urn:omc:memory-plan:source:audit-b703152e965f",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 반례와 관측의 범위를 유지하고 같은 실패 조건을 재생한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "cases.current_recovery; cases.concurrency; live.feedback",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w01-cgroup-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "관측·입장 계약과 기준선 고정 ← cgroup-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w01",
+      "source": "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "회수 요청·현재 charge·보호 한도와 실제 결과를 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "memory.reclaim; memory.high; memory.max",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w01-psi-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "관측·입장 계약과 기준선 고정 ← psi-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w01",
+      "source": "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "용량과 CPU/memory/I/O stall 시간을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Pressure interface",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w01-borg",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "관측·입장 계약과 기준선 고정 ← borg",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w01",
+      "source": "urn:omc:memory-plan:source:borg-2015",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "자원 약속과 실제 사용, admission과 실행을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§2.4–2.5",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w02",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "회수 대상·중단 상태 기준선 고정 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "No expired or replaced target is rebound; observing stopped/uncertain state leaves kernel and episode budget unchanged.",
+      "negativeCases": [
+        "expired target",
+        "boot/inode/PID replacement",
+        "pending APPLYING response"
+      ],
+      "verificationMethod": "Existing OMC status/inspect and pure observer fixtures.",
+      "metric": "Source-bound target inventory, unchanged state hash and zero actuator calls.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w02",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "회수 대상·중단 상태 기준선 고정 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Keep original config/state bytes; an observer failure must not initialize a new recovery episode.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w02",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "회수 대상·중단 상태 기준선 고정",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 2,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "READ_ONLY",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [],
+      "dependsOn": [],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w02"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w02",
+      "requiresGate": [],
+      "addresses": [
+        "urn:omc:memory-plan:problem:recovery",
+        "urn:omc:memory-plan:problem:contention"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+        "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+        "urn:omc:memory-plan:source:controller-code-4fd0ea28e5d6"
+      ],
+      "inputContract": "Existing target registrations, expiry/identity, persisted episode counters and active controller ownership.",
+      "outputContract": "Selected-target baseline and stop-reason classification with preserved intent and cumulative budgets.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w02-audit",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "회수 대상·중단 상태 기준선 고정 ← audit",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w02",
+      "source": "urn:omc:memory-plan:source:audit-b703152e965f",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 반례와 관측의 범위를 유지하고 같은 실패 조건을 재생한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "cases.current_recovery; cases.concurrency; live.feedback",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w02-cgroup-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "회수 대상·중단 상태 기준선 고정 ← cgroup-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w02",
+      "source": "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "회수 요청·현재 charge·보호 한도와 실제 결과를 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "memory.reclaim; memory.high; memory.max",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w02-oomd-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "회수 대상·중단 상태 기준선 고정 ← oomd-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w02",
+      "source": "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "memory.reclaim 지원과 memory/I/O pressure 검사 경로를 비교한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Senpai::reclaim; pressure guards",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w02-controller-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "회수 대상·중단 상태 기준선 고정 ← controller-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w02",
+      "source": "urn:omc:memory-plan:source:controller-code-4fd0ea28e5d6",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "재관측 가능한 결과와 terminal error를 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "reconcileHandler",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w03",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "원자 RAM 예약·반환 구현 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Concurrent fixture starts cannot exceed configured allocatable RAM; failure/cancel/duplicate completion returns a reservation exactly once.",
+      "negativeCases": [
+        "same snapshot across four starters",
+        "response loss after STARTING",
+        "duplicate release",
+        "expired lease with live process",
+        "double subtraction of charged memory"
+      ],
+      "verificationMethod": "Bounded concurrency/transaction fixtures and existing owner tests; no live overcommit experiment.",
+      "metric": "Reservation sum, durable intent, duplicate-effect count and admission reasons.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w03",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "원자 RAM 예약·반환 구현 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Restore the previous immutable reader/writer only through a compatible lease-state path; retain unresolved attempts and prevent duplicate allocation.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w03",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "원자 RAM 예약·반환 구현",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 3,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LOCAL_TEST",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "collaborator": [],
+      "dependsOn": [
+        "urn:omc:memory-plan:w01"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w03"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w03",
+      "requiresGate": [],
+      "addresses": [
+        "urn:omc:memory-plan:problem:reservation",
+        "urn:omc:memory-plan:problem:flap"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:guard"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:borg-2015",
+        "urn:omc:memory-plan:source:kube-scheduler-793fefb44e7a",
+        "urn:omc:memory-plan:source:kueue-code-74c0e6bcd5e6",
+        "urn:omc:memory-plan:source:kueue-doc-a0f9dcd8e72a",
+        "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc"
+      ],
+      "inputContract": "w01 observation/capacity contract and the existing native admission lock, leases and per-job limits.",
+      "outputContract": "A versioned RAM reservation lifecycle bound to job attempt, resource domain and cgroup identity.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w03-w01",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w01 precedes w03",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w03",
+      "prerequisite": "urn:omc:memory-plan:w01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w01 is required before the input contract and acceptance of w03 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w03-borg",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "원자 RAM 예약·반환 구현 ← borg",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w03",
+      "source": "urn:omc:memory-plan:source:borg-2015",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "자원 약속과 실제 사용, admission과 실행을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§2.4–2.5",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w03-kube-scheduler",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "원자 RAM 예약·반환 구현 ← kube-scheduler",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w03",
+      "source": "urn:omc:memory-plan:source:kube-scheduler-793fefb44e7a",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "실행 연결 전 예약 및 실패 시 멱등 반환의 구현을 참고한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "AssumeAndReserveInCache; UnreserveAndForgetFromCache",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w03-kueue-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "원자 RAM 예약·반환 구현 ← kueue-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w03",
+      "source": "urn:omc:memory-plan:source:kueue-code-74c0e6bcd5e6",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "quota를 cache에 먼저 반영하고 실행 admission과 구별하는 흐름을 참고한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "admit; assumeWorkload",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w03-kueue-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "원자 RAM 예약·반환 구현 ← kueue-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w03",
+      "source": "urn:omc:memory-plan:source:kueue-doc-a0f9dcd8e72a",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "Pending/Ready/Retry/Rejected의 의미와 예약 반환을 비교한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "AdmissionCheckStates",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w03-cgroup-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "원자 RAM 예약·반환 구현 ← cgroup-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w03",
+      "source": "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "회수 요청·현재 charge·보호 한도와 실제 결과를 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "memory.reclaim; memory.high; memory.max",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w04",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "cache credit를 반영한 회수 목표 구현 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "The 128MiB-deficit fixture reaches its declared margin without exceeding target/episode limits; high-pressure and healthy cases issue no unsafe request.",
+      "negativeCases": [
+        "credit cap and memory.high crossing",
+        "tiny residual deficit",
+        "dirty/tmpfs pages",
+        "under-reclaim/EAGAIN",
+        "refault and I/O pressure"
+      ],
+      "verificationMethod": "Pure planning fixtures plus replay of the pinned prior counterexample; requested bytes remain distinct from reclaimed bytes.",
+      "metric": "Effective headroom, request count/bytes, protected floor and delayed pressure.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w04",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "cache credit를 반영한 회수 목표 구현 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Revert the planner implementation while preserving prior outcomes, current limits, remaining budget and uncertain intents.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w04",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "cache credit를 반영한 회수 목표 구현",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 4,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LOCAL_TEST",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [],
+      "dependsOn": [
+        "urn:omc:memory-plan:w01",
+        "urn:omc:memory-plan:w02"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w04"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w04",
+      "requiresGate": [],
+      "addresses": [
+        "urn:omc:memory-plan:problem:credit",
+        "urn:omc:memory-plan:problem:flap",
+        "urn:omc:memory-plan:problem:contention"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:tmo-2022",
+        "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+        "urn:omc:memory-plan:source:damon-doc-add75541b0aa",
+        "urn:omc:memory-plan:source:kube-eviction-793fefb44e7a",
+        "urn:omc:memory-plan:source:audit-b703152e965f"
+      ],
+      "inputContract": "w01 effective-headroom formula and w02 eligible target/pressure/budget boundaries.",
+      "outputContract": "Piecewise reclaim planner with a reviewed recovery margin, bounded request quantum and post-reclaim observation.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w04-w01",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w01 precedes w04",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w04",
+      "prerequisite": "urn:omc:memory-plan:w01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w01 is required before the input contract and acceptance of w04 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w04-w02",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w02 precedes w04",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w04",
+      "prerequisite": "urn:omc:memory-plan:w02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w02 is required before the input contract and acceptance of w04 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w04-tmo",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "cache credit를 반영한 회수 목표 구현 ← tmo",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w04",
+      "source": "urn:omc:memory-plan:source:tmo-2022",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "PSI에 따라 작은 회수 요청을 조절하고 지연된 refault 영향을 관측한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§3.2–3.3",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w04-oomd-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "cache credit를 반영한 회수 목표 구현 ← oomd-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w04",
+      "source": "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "memory.reclaim 지원과 memory/I/O pressure 검사 경로를 비교한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Senpai::reclaim; pressure guards",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w04-damon-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "cache credit를 반영한 회수 목표 구현 ← damon-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w04",
+      "source": "urn:omc:memory-plan:source:damon-doc-add75541b0aa",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "시간·바이트 quota와 activation 조건을 분리한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "quota_ms; quota_sz; watermarks",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w04-kube-eviction",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "cache credit를 반영한 회수 목표 구현 ← kube-eviction",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w04",
+      "source": "urn:omc:memory-plan:source:kube-eviction-793fefb44e7a",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "복구 목표량과 상태 전환 완충을 참고하며 eviction 권한은 가져오지 않는다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "evictionMinimumReclaim; pressure transition",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w04-audit",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "cache credit를 반영한 회수 목표 구현 ← audit",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w04",
+      "source": "urn:omc:memory-plan:source:audit-b703152e965f",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 반례와 관측의 범위를 유지하고 같은 실패 조건을 재생한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "cases.current_recovery; cases.concurrency; live.feedback",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w05",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "복구 episode·재관측 상태 구현 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Retryable conditions reobserve only after change/backoff; expiry, guard violations and ambiguous writes never trigger automatic renewal or replay.",
+      "negativeCases": [
+        "three no-target observations",
+        "controller restart after APPLYING",
+        "expired authority",
+        "duplicate coordinators",
+        "budget reset through a new state file"
+      ],
+      "verificationMethod": "Clock-controlled transition/restart fixtures with a fake actuator.",
+      "metric": "Actuator call count, retained action/byte counters and next-observation reason.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w05",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "복구 episode·재관측 상태 구현 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Restore prior controller logic without erasing stop reasons or resetting target authorization and cumulative counters.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w05",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "복구 episode·재관측 상태 구현",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 5,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LOCAL_TEST",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [],
+      "dependsOn": [
+        "urn:omc:memory-plan:w02",
+        "urn:omc:memory-plan:w04"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w05"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w05",
+      "requiresGate": [],
+      "addresses": [
+        "urn:omc:memory-plan:problem:recovery",
+        "urn:omc:memory-plan:problem:contention"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:controller-code-4fd0ea28e5d6",
+        "urn:omc:memory-plan:source:kueue-doc-a0f9dcd8e72a",
+        "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "inputContract": "w02 state/authorization baseline and w04 planner decisions.",
+      "outputContract": "Explicit healthy, retryable-wait, authorization-expired, ineffective-episode and uncertain-effect transitions.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w05-w02",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w02 precedes w05",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w05",
+      "prerequisite": "urn:omc:memory-plan:w02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w02 is required before the input contract and acceptance of w05 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w05-w04",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w04 precedes w05",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w05",
+      "prerequisite": "urn:omc:memory-plan:w04",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w04 is required before the input contract and acceptance of w05 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w05-controller-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "복구 episode·재관측 상태 구현 ← controller-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w05",
+      "source": "urn:omc:memory-plan:source:controller-code-4fd0ea28e5d6",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "재관측 가능한 결과와 terminal error를 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "reconcileHandler",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w05-kueue-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "복구 episode·재관측 상태 구현 ← kueue-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w05",
+      "source": "urn:omc:memory-plan:source:kueue-doc-a0f9dcd8e72a",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "Pending/Ready/Retry/Rejected의 의미와 예약 반환을 비교한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "AdmissionCheckStates",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w05-oomd-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "복구 episode·재관측 상태 구현 ← oomd-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w05",
+      "source": "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "memory.reclaim 지원과 memory/I/O pressure 검사 경로를 비교한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Senpai::reclaim; pressure guards",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w05-how_to",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "복구 episode·재관측 상태 구현 ← HOW_TO",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w05",
+      "source": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "이미 발행한 owner 적용안과 권한·효과 미평가 경계를 이어간다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Complete owner-published research artifact",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w06",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "두 owner 경계 통합·적대적 재생 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Old/new compatible readers preserve reservations and intents; observations, requests and owner effects never collapse into one success flag.",
+      "negativeCases": [
+        "mixed old/new workers",
+        "stale global snapshot during fast growth",
+        "target exits between plan and action",
+        "rollback with a live lease"
+      ],
+      "verificationMethod": "Injected-owner integration tests; no real service restart or host OOM.",
+      "metric": "Compatibility, race rejection, lifecycle trace and false-success count.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w06",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "두 owner 경계 통합·적대적 재생 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Pin back to the last compatible fixture/API pair; preserve failing traces and all foreign work.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w06",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "두 owner 경계 통합·적대적 재생",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 6,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LOCAL_TEST",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [
+        "urn:omc:memory-plan:owner:orca"
+      ],
+      "dependsOn": [
+        "urn:omc:memory-plan:w03",
+        "urn:omc:memory-plan:w05"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w06"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w06",
+      "requiresGate": [],
+      "addresses": [
+        "urn:omc:memory-plan:problem:reservation",
+        "urn:omc:memory-plan:problem:credit",
+        "urn:omc:memory-plan:problem:recovery"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops"
+      ],
+      "evidence": [
+        "research:work:omc-memory-admission-20261107:HOW_TO",
+        "urn:omc:memory-plan:source:kueue-code-74c0e6bcd5e6",
+        "urn:omc:memory-plan:source:controller-code-4fd0ea28e5d6",
+        "urn:omc:memory-plan:source:audit-b703152e965f"
+      ],
+      "inputContract": "Versioned w03 admission API and w05 feedback transitions with exact compatible pins.",
+      "outputContract": "A cross-owner fixture/trace suite and explicit producer-consumer compatibility matrix.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w06-w03",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w03 precedes w06",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w06",
+      "prerequisite": "urn:omc:memory-plan:w03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w03 is required before the input contract and acceptance of w06 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w06-w05",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w05 precedes w06",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w06",
+      "prerequisite": "urn:omc:memory-plan:w05",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w05 is required before the input contract and acceptance of w06 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w06-how_to",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "두 owner 경계 통합·적대적 재생 ← HOW_TO",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w06",
+      "source": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "이미 발행한 owner 적용안과 권한·효과 미평가 경계를 이어간다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Complete owner-published research artifact",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w06-kueue-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "두 owner 경계 통합·적대적 재생 ← kueue-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w06",
+      "source": "urn:omc:memory-plan:source:kueue-code-74c0e6bcd5e6",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "quota를 cache에 먼저 반영하고 실행 admission과 구별하는 흐름을 참고한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "admit; assumeWorkload",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w06-controller-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "두 owner 경계 통합·적대적 재생 ← controller-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w06",
+      "source": "urn:omc:memory-plan:source:controller-code-4fd0ea28e5d6",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "재관측 가능한 결과와 terminal error를 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "reconcileHandler",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w06-audit",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "두 owner 경계 통합·적대적 재생 ← audit",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w06",
+      "source": "urn:omc:memory-plan:source:audit-b703152e965f",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "기존 반례와 관측의 범위를 유지하고 같은 실패 조건을 재생한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "cases.current_recovery; cases.concurrency; live.feedback",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w07",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "현재 입력으로 shadow 비교 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Same inputs produce attributable decision differences; missing data stays unknown and the shadow run changes no live policy, lease or kernel setting.",
+      "negativeCases": [
+        "unavailable PSI",
+        "rapid concurrent usage change",
+        "unknown peak",
+        "expired target"
+      ],
+      "verificationMethod": "Read-only shadow over a bounded observation window using existing owner interfaces.",
+      "metric": "Decision disagreement, observation age, predicted gain and zero effect count.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w07",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "현재 입력으로 shadow 비교 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Stop the shadow reader and retain source-bound comparisons; there is no runtime policy to undo.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w07",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "현재 입력으로 shadow 비교",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 7,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "SHADOW",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [
+        "urn:omc:memory-plan:owner:orca"
+      ],
+      "dependsOn": [
+        "urn:omc:memory-plan:w06"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w07"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w07",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:identity"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:flap",
+        "urn:omc:memory-plan:problem:credit",
+        "urn:omc:memory-plan:problem:contention"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:tmo-2022",
+        "urn:omc:memory-plan:source:autopilot-2020",
+        "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "inputContract": "Validated w06 implementation and fresh, explicitly scoped real observations.",
+      "outputContract": "Matched old/new decisions and predicted outcomes, with zero actuator writes.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w07-w06",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w06 precedes w07",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w07",
+      "prerequisite": "urn:omc:memory-plan:w06",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w06 is required before the input contract and acceptance of w07 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w07-tmo",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "현재 입력으로 shadow 비교 ← tmo",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w07",
+      "source": "urn:omc:memory-plan:source:tmo-2022",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "PSI에 따라 작은 회수 요청을 조절하고 지연된 refault 영향을 관측한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§3.2–3.3",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w07-autopilot",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "현재 입력으로 shadow 비교 ← autopilot",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w07",
+      "source": "urn:omc:memory-plan:source:autopilot-2020",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "작업별 peak, 판본, 빠른 증가·느린 감소와 실패 표본을 보존한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§3.2",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w07-psi-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "현재 입력으로 shadow 비교 ← psi-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w07",
+      "source": "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "용량과 CPU/memory/I/O stall 시간을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Pressure interface",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w07-how_to",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "현재 입력으로 shadow 비교 ← HOW_TO",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w07",
+      "source": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "이미 발행한 owner 적용안과 권한·효과 미평가 경계를 이어간다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Complete owner-published research artifact",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w08",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "허용된 작은 canary와 지연 검사 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Exact target stays within reviewed protections and total budget; unknown/partial results retain the same attempt and block blind replay.",
+      "negativeCases": [
+        "partial EAGAIN",
+        "actual reclaim differs from request",
+        "late refault or I/O spike",
+        "identity changes before effect"
+      ],
+      "verificationMethod": "Existing OMC actuator under a separately verified current owner scope; no host-wide OOM test.",
+      "metric": "Native deltas, latency, PSI/refault, OOM/swap counters and attribution limits.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w08",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "허용된 작은 canary와 지연 검사 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Stop the owned episode, preserve its intent/outcome and budget, and restore only the reviewed prior policy if safe; cache reclamation itself is not bytewise reversible.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w08",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "허용된 작은 canary와 지연 검사",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 8,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LIVE_CHANGE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [
+        "urn:omc:memory-plan:owner:orca"
+      ],
+      "dependsOn": [
+        "urn:omc:memory-plan:w07"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w08"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w08",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:credit",
+        "urn:omc:memory-plan:problem:contention",
+        "urn:omc:memory-plan:problem:recovery"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:tmo-2022",
+        "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+        "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "inputContract": "Reviewed w07 shadow, exact owner target/budget/expiry, and preservation/rollback inputs.",
+      "outputContract": "One bounded owner canary with native outcome and delayed PSI/refault/OOM readback.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w08-w07",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w07 precedes w08",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w08",
+      "prerequisite": "urn:omc:memory-plan:w07",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w07 is required before the input contract and acceptance of w08 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w08-tmo",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "허용된 작은 canary와 지연 검사 ← tmo",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w08",
+      "source": "urn:omc:memory-plan:source:tmo-2022",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "PSI에 따라 작은 회수 요청을 조절하고 지연된 refault 영향을 관측한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§3.2–3.3",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w08-oomd-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "허용된 작은 canary와 지연 검사 ← oomd-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w08",
+      "source": "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "memory.reclaim 지원과 memory/I/O pressure 검사 경로를 비교한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Senpai::reclaim; pressure guards",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w08-cgroup-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "허용된 작은 canary와 지연 검사 ← cgroup-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w08",
+      "source": "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "회수 요청·현재 charge·보호 한도와 실제 결과를 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "memory.reclaim; memory.high; memory.max",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w08-how_to",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "허용된 작은 canary와 지연 검사 ← HOW_TO",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w08",
+      "source": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "이미 발행한 owner 적용안과 권한·효과 미평가 경계를 이어간다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Complete owner-published research artifact",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w09",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "native 예약 판본 단계 전환 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "New work reads the intended revision while existing workers and unresolved leases remain intact; no limit is silently relaxed.",
+      "negativeCases": [
+        "collector/reader version skew",
+        "waiting request on old executable",
+        "startup failure after reservation",
+        "rollback with live consumers"
+      ],
+      "verificationMethod": "Existing immutable-release procedure and native owner canary.",
+      "metric": "Loaded digest, reservation lifecycle, active sessions and unchanged scope limits.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w09",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "native 예약 판본 단계 전환 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Repoint to the preserved compatible wrapper/collector through owner procedure; never remove active leases to force rollback.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w09",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "native 예약 판본 단계 전환",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 9,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LIVE_CHANGE",
+      "assignedTo": "urn:omc:memory-plan:owner:orca",
+      "collaborator": [],
+      "dependsOn": [
+        "urn:omc:memory-plan:w08"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w09"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w09",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:evidence"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:reservation",
+        "urn:omc:memory-plan:problem:flap"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:guard",
+        "urn:omc:memory-plan:path:credit"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:borg-2015",
+        "urn:omc:memory-plan:source:kube-scheduler-793fefb44e7a",
+        "urn:omc:memory-plan:source:kueue-code-74c0e6bcd5e6",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "inputContract": "Canary acceptance plus the exact compatible native runner/collector and lease formats.",
+      "outputContract": "Staged owner release and fresh admission/reservation readback.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w09-w08",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w08 precedes w09",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w09",
+      "prerequisite": "urn:omc:memory-plan:w08",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w08 is required before the input contract and acceptance of w09 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w09-borg",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "native 예약 판본 단계 전환 ← borg",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w09",
+      "source": "urn:omc:memory-plan:source:borg-2015",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "자원 약속과 실제 사용, admission과 실행을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§2.4–2.5",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w09-kube-scheduler",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "native 예약 판본 단계 전환 ← kube-scheduler",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w09",
+      "source": "urn:omc:memory-plan:source:kube-scheduler-793fefb44e7a",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "실행 연결 전 예약 및 실패 시 멱등 반환의 구현을 참고한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "AssumeAndReserveInCache; UnreserveAndForgetFromCache",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w09-kueue-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "native 예약 판본 단계 전환 ← kueue-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w09",
+      "source": "urn:omc:memory-plan:source:kueue-code-74c0e6bcd5e6",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "quota를 cache에 먼저 반영하고 실행 admission과 구별하는 흐름을 참고한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "admit; assumeWorkload",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w09-how_to",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "native 예약 판본 단계 전환 ← HOW_TO",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w09",
+      "source": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "이미 발행한 owner 적용안과 권한·효과 미평가 경계를 이어간다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Complete owner-published research artifact",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w10",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "입운구 controller 판본 단계 전환 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "The deployed controller consumes the intended native version; target expiry remains independent from service lifetime and no second actuator writer appears.",
+      "negativeCases": [
+        "expired target after service restart",
+        "uncertain state at cutover",
+        "duplicate controller",
+        "policy change during episode"
+      ],
+      "verificationMethod": "Existing OMC service ownership/readback and bounded next-episode observation.",
+      "metric": "Controller revision, liveness versus decision state, action counts and target identity.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w10",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "입운구 controller 판본 단계 전환 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Restore the previous compatible controller/state reader and preserve uncertain intent and used budget; do not automatically renew target authority.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w10",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "입운구 controller 판본 단계 전환",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 10,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LIVE_CHANGE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [
+        "urn:omc:memory-plan:owner:orca"
+      ],
+      "dependsOn": [
+        "urn:omc:memory-plan:w09"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w10"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w10",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:recovery",
+        "urn:omc:memory-plan:problem:credit"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback",
+        "urn:omc:memory-plan:path:ops-guide"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:controller-code-4fd0ea28e5d6",
+        "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "inputContract": "Accepted w09 producer and the reviewed OMC episode/state migration with target authorizations.",
+      "outputContract": "One responsible controller with observable waiting/terminal states and retained budgets.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w10-w09",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w09 precedes w10",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w10",
+      "prerequisite": "urn:omc:memory-plan:w09",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w09 is required before the input contract and acceptance of w10 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w10-controller-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "입운구 controller 판본 단계 전환 ← controller-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w10",
+      "source": "urn:omc:memory-plan:source:controller-code-4fd0ea28e5d6",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "재관측 가능한 결과와 terminal error를 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "reconcileHandler",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w10-oomd-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "입운구 controller 판본 단계 전환 ← oomd-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w10",
+      "source": "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "memory.reclaim 지원과 memory/I/O pressure 검사 경로를 비교한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Senpai::reclaim; pressure guards",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w10-how_to",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "입운구 controller 판본 단계 전환 ← HOW_TO",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w10",
+      "source": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "이미 발행한 owner 적용안과 권한·효과 미평가 경계를 이어간다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Complete owner-published research artifact",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w11",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "HOH 실제 작업으로 효과 비교 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Compare admission delay, completion, service latency and pressure under matched inputs; graph correctness or command exit alone never proves improvement.",
+      "negativeCases": [
+        "changed source or device",
+        "missing slow/failed trials",
+        "only successful runs retained",
+        "memory relief with worse I/O latency"
+      ],
+      "verificationMethod": "Bounded representative HOH browser/build workloads through existing owner release checks.",
+      "metric": "Admission latency, completion rate, peak RAM, PSI, service P95 and new OOM events.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w11",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "HOH 실제 작업으로 효과 비교 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Retain the last accepted deployment and failed measurements; roll back through each responsible owner if preregistered criteria fail.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w11",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "HOH 실제 작업으로 효과 비교",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 11,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LOCAL_TEST",
+      "assignedTo": "urn:omc:memory-plan:owner:hoh",
+      "collaborator": [],
+      "dependsOn": [
+        "urn:omc:memory-plan:w10"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w11"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w11",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:flap",
+        "urn:omc:memory-plan:problem:contention",
+        "urn:omc:memory-plan:problem:reservation"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:hoh-check",
+        "urn:omc:memory-plan:path:hoh-guide"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:autopilot-2020",
+        "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "inputContract": "Accepted deployment, exact HOH source/toolchain, comparable workload and preregistered performance criteria.",
+      "outputContract": "Baseline/candidate outcome comparison and an explicit accept/rollback decision.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w11-w10",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w10 precedes w11",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w11",
+      "prerequisite": "urn:omc:memory-plan:w10",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w10 is required before the input contract and acceptance of w11 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w11-autopilot",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "HOH 실제 작업으로 효과 비교 ← autopilot",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w11",
+      "source": "urn:omc:memory-plan:source:autopilot-2020",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "작업별 peak, 판본, 빠른 증가·느린 감소와 실패 표본을 보존한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§3.2",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w11-psi-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "HOH 실제 작업으로 효과 비교 ← psi-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w11",
+      "source": "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "용량과 CPU/memory/I/O stall 시간을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Pressure interface",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w11-how_to",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "HOH 실제 작업으로 효과 비교 ← HOW_TO",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w11",
+      "source": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "이미 발행한 owner 적용안과 권한·효과 미평가 경계를 이어간다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Complete owner-published research artifact",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w12",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "판본별 peak 이력과 다음 예산 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Different workload/revision/domain samples are never merged into false confidence; failed or censored demand cannot lower the safe estimate.",
+      "negativeCases": [
+        "OOM-censored peak",
+        "sampled current mislabeled as peak",
+        "new binary revision",
+        "RAM/UMA/VRAM mixed"
+      ],
+      "verificationMethod": "Existing memory history domain tests and held-out workload comparison.",
+      "metric": "Coverage, underestimation, reservation slack and workload completion.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w12",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "판본별 peak 이력과 다음 예산 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Restore prior prediction policy while preserving immutable observations and owner minimum requirements.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w12",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "판본별 peak 이력과 다음 예산",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 12,
+      "priority": "P1",
+      "status": "PLANNED",
+      "executionClass": "LOCAL_TEST",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [],
+      "dependsOn": [
+        "urn:omc:memory-plan:w11"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w12"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w12",
+      "requiresGate": [],
+      "addresses": [
+        "urn:omc:memory-plan:problem:history"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:memory"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:autopilot-2020",
+        "urn:omc:memory-plan:source:borg-2015",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "inputContract": "Version-bound w11 observations with peak coverage and censored failure labels.",
+      "outputContract": "Conservative next-run demand estimates separated from owner minimums and hard limits.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w12-w11",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w11 precedes w12",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w12",
+      "prerequisite": "urn:omc:memory-plan:w11",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w11 is required before the input contract and acceptance of w12 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w12-autopilot",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "판본별 peak 이력과 다음 예산 ← autopilot",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w12",
+      "source": "urn:omc:memory-plan:source:autopilot-2020",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "작업별 peak, 판본, 빠른 증가·느린 감소와 실패 표본을 보존한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§3.2",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w12-borg",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "판본별 peak 이력과 다음 예산 ← borg",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w12",
+      "source": "urn:omc:memory-plan:source:borg-2015",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "자원 약속과 실제 사용, admission과 실행을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§2.4–2.5",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w12-how_to",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "판본별 peak 이력과 다음 예산 ← HOW_TO",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w12",
+      "source": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "이미 발행한 owner 적용안과 권한·효과 미평가 경계를 이어간다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Complete owner-published research artifact",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w13",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "조건부 다중 자원·다른 worker 배치 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Capacity, owner admission and data locality remain separate; unsupported architectures or absent remote contracts yield a visible hold.",
+      "negativeCases": [
+        "resource available but not granted",
+        "stale worker",
+        "double-counted UMA",
+        "transfer exceeds the expected benefit"
+      ],
+      "verificationMethod": "Planner fixtures then separately scoped owner validation if selected.",
+      "metric": "Feasible placements, fair shares, queue time and transfer cost.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w13",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "조건부 다중 자원·다른 worker 배치 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Keep current placement and previous bindings until destination output and owner release are verified.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w13",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "조건부 다중 자원·다른 worker 배치",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 13,
+      "priority": "CONDITIONAL",
+      "status": "CONDITIONAL",
+      "executionClass": "RESEARCH",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [],
+      "dependsOn": [
+        "urn:omc:memory-plan:w03",
+        "urn:omc:memory-plan:w12"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w13"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w13",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:worker",
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:capacity"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:placement",
+        "urn:omc:memory-plan:problem:reservation"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:planner",
+        "urn:omc:memory-plan:path:rebalance-guide"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:drf-2011",
+        "urn:omc:memory-plan:source:slurm-doc-a7037ebb6504",
+        "urn:omc:memory-plan:source:borg-2015",
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "inputContract": "Verified resource vectors, registered compatible owner workers and data/transfer costs.",
+      "outputContract": "A reviewed placement proposal with reservations and cancellation/recovery conditions.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w13-w03",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w03 precedes w13",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w13",
+      "prerequisite": "urn:omc:memory-plan:w03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w03 is required before the input contract and acceptance of w13 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w13-w12",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w12 precedes w13",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w13",
+      "prerequisite": "urn:omc:memory-plan:w12",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w12 is required before the input contract and acceptance of w13 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w13-drf",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "조건부 다중 자원·다른 worker 배치 ← drf",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w13",
+      "source": "urn:omc:memory-plan:source:drf-2011",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "CPU/RAM을 동일 슬롯 수가 아닌 자원 벡터로 비교한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§4",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w13-slurm-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "조건부 다중 자원·다른 worker 배치 ← slurm-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w13",
+      "source": "urn:omc:memory-plan:source:slurm-doc-a7037ebb6504",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "메모리 예약과 실행 enforcement를 별도 조건으로 다룬다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Memory as consumable resource",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w13-borg",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "조건부 다중 자원·다른 worker 배치 ← borg",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w13",
+      "source": "urn:omc:memory-plan:source:borg-2015",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "자원 약속과 실제 사용, admission과 실행을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§2.4–2.5",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w13-how_to",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "조건부 다중 자원·다른 worker 배치 ← HOW_TO",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w13",
+      "source": "research:work:omc-memory-admission-20261107:HOW_TO",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "이미 발행한 owner 적용안과 권한·효과 미평가 경계를 이어간다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Complete owner-published research artifact",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w14",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "조건부 DAMON 관측·quota 평가 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Monitoring and reclaim authority stay separate; attempted-byte quota is not reported as successful memory recovery.",
+      "negativeCases": [
+        "missing CONFIG",
+        "unreclaimable region",
+        "overlapping controllers",
+        "observability overhead harms workload"
+      ],
+      "verificationMethod": "Capability readback followed only by a separately permitted small evaluation.",
+      "metric": "Access-pattern value, CPU/I/O overhead, actual recovery and refault.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w14",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "조건부 DAMON 관측·quota 평가 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Disable only the owned evaluation scheme; retain the existing reclaim owner and its settings.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w14",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "조건부 DAMON 관측·quota 평가",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 14,
+      "priority": "CONDITIONAL",
+      "status": "CONDITIONAL",
+      "executionClass": "RESEARCH",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [],
+      "dependsOn": [
+        "urn:omc:memory-plan:w11"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w14"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w14",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:damon",
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:evidence"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:credit",
+        "urn:omc:memory-plan:problem:contention"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:ops-guide"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:damo-code-ffa13f9e5910",
+        "urn:omc:memory-plan:source:damo-usage-ffa13f9e5910",
+        "urn:omc:memory-plan:source:damon-doc-add75541b0aa",
+        "urn:omc:memory-plan:source:psi-doc-6994ff647f71"
+      ],
+      "inputContract": "Verified kernel capabilities, target scope and the current sole memory-control owner.",
+      "outputContract": "A bounded access-pattern/overhead assessment and adopt-or-defer decision.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w14-w11",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w11 precedes w14",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w14",
+      "prerequisite": "urn:omc:memory-plan:w11",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w11 is required before the input contract and acceptance of w14 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w14-damo-code",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "조건부 DAMON 관측·quota 평가 ← damo-code",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w14",
+      "source": "urn:omc:memory-plan:source:damo-code-ffa13f9e5910",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "접근 패턴·quota 표현을 실제 코드와 대조한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "DamosQuotas; scheme interface",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w14-damo-usage",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "조건부 DAMON 관측·quota 평가 ← damo-usage",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w14",
+      "source": "urn:omc:memory-plan:source:damo-usage-ffa13f9e5910",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "커널 설정과 대상 interface의 선행 조건을 확인한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Prerequisites; DAMOS quotas",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w14-damon-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "조건부 DAMON 관측·quota 평가 ← damon-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w14",
+      "source": "urn:omc:memory-plan:source:damon-doc-add75541b0aa",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "시간·바이트 quota와 activation 조건을 분리한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "quota_ms; quota_sz; watermarks",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w14-psi-doc",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "조건부 DAMON 관측·quota 평가 ← psi-doc",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w14",
+      "source": "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "용량과 CPU/memory/I/O stall 시간을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Pressure interface",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w15",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "장기 원격 memory 조건 검증 수용 기준",
+      "authority": "SECONDARY_AI",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Source application changes, remote authority, failure recovery and locality costs are explicit before any prototype is selected.",
+      "negativeCases": [
+        "ordinary SSH treated as RDMA",
+        "unmodified opaque app treated as AIFM-aware",
+        "remote outage",
+        "remote memory counted twice"
+      ],
+      "verificationMethod": "Paper/code contract review and future isolated prototype only if prerequisites pass.",
+      "metric": "Compatibility, fault behavior and end-to-end workload latency.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w15",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "장기 원격 memory 조건 검증 복구 경로",
+      "authority": "SECONDARY_AI",
+      "status": "PLANNED",
+      "procedure": "Keep the original local-memory execution path and data; revert only prototype bindings after preserving results.",
+      "preserve": "Preserve user sessions, source pins, prior outcomes, live leases and uncertain intents.",
+      "precondition": "Select exact prior versions and reconcile active consumers before changing an executing path.",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:w15",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "장기 원격 memory 조건 검증",
+      "authority": "SECONDARY_AI",
+      "workRevision": 1,
+      "ordinal": 15,
+      "priority": "CONDITIONAL",
+      "status": "CONDITIONAL",
+      "executionClass": "RESEARCH",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [],
+      "dependsOn": [
+        "urn:omc:memory-plan:w13"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w15"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w15",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:far-memory",
+        "urn:omc:memory-plan:gate:worker",
+        "urn:omc:memory-plan:gate:authorization"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:placement"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:rebalance-guide"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:infiniswap-paper-2017",
+        "urn:omc:memory-plan:source:infiniswap-readme-da7c14bf749c",
+        "urn:omc:memory-plan:source:aifm-paper-2020",
+        "urn:omc:memory-plan:source:aifm-readme-fa4f31ce8275"
+      ],
+      "inputContract": "Selected workload, network/RDMA or application integration contract and failure model.",
+      "outputContract": "A feasibility assessment for an isolated prototype, not a pooled-RAM declaration.",
+      "budget": "Use the current owner-approved resource and action budget. Read-only/fixture phases never allocate GiB-sized stress buffers; live phases require a reviewed finite canary scope.",
+      "attributedTo": "urn:omc:agent:codex",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w15-w13",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w13 precedes w15",
+      "authority": "SECONDARY_AI",
+      "dependent": "urn:omc:memory-plan:w15",
+      "prerequisite": "urn:omc:memory-plan:w13",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "The source-bound output of w13 is required before the input contract and acceptance of w15 can be evaluated.",
+      "derivedFrom": [
+        "research:work:omc-memory-admission-20261107:HOW_TO"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w15-infiniswap-paper",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "장기 원격 memory 조건 검증 ← infiniswap-paper",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w15",
+      "source": "urn:omc:memory-plan:source:infiniswap-paper-2017",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "RDMA 기반 paging의 적용 조건을 확인한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§3–5",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w15-infiniswap-readme",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "장기 원격 memory 조건 검증 ← infiniswap-readme",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w15",
+      "source": "urn:omc:memory-plan:source:infiniswap-readme-da7c14bf749c",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "구현의 kernel/network integration 조건을 고정한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Setup and kernel/network requirements",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w15-aifm-paper",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "장기 원격 memory 조건 검증 ← aifm-paper",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w15",
+      "source": "urn:omc:memory-plan:source:aifm-paper-2020",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "애플리케이션 API 변경과 원격 객체 수명을 구분한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "§4",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:use:w15-aifm-readme",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "장기 원격 memory 조건 검증 ← aifm-readme",
+      "authority": "SECONDARY_AI",
+      "workItem": "urn:omc:memory-plan:w15",
+      "source": "urn:omc:memory-plan:source:aifm-readme-fa4f31ce8275",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "원격 runtime을 도입하기 전 프로그램 통합 조건을 확인한다. 현재 작업의 설계 근거이며 배포 성공이나 실행 권한을 뜻하지 않는다.",
+      "locator": "Application integration",
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:question:next",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "지금 선행 작업 없이 시작할 계획 단위는?",
+      "authority": "SECONDARY_AI",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?label ?owner WHERE { ?id a mp:WorkItem ; mp:status \"PLANNED\" ; mp:priority \"P0\" ; rdfs:label ?label ; mp:assignedTo ?owner . FILTER NOT EXISTS { ?id mp:dependsOn ?p . ?p mp:status ?s . FILTER (?s != \"VERIFIED\") } } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:w01",
+        "urn:omc:memory-plan:w02"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:question:reclaim-evidence",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "회수 계산 보완의 구체적인 출처는?",
+      "authority": "SECONDARY_AI",
+      "status": "REGISTERED",
+      "sparql": "SELECT DISTINCT ?id ?label ?locator WHERE { ?use a mp:EvidenceUse ; mp:workItem <urn:omc:memory-plan:w04> ; mp:source ?id . ?id rdfs:label ?label ; mp:locator ?locator . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:source:audit-b703152e965f",
+        "urn:omc:memory-plan:source:damon-doc-add75541b0aa",
+        "urn:omc:memory-plan:source:kube-eviction-793fefb44e7a",
+        "urn:omc:memory-plan:source:oomd-code-5692370bea54",
+        "urn:omc:memory-plan:source:tmo-2022"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:question:orca-work",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "ORCA_SETTING이 쓰기를 소유하는 작업은?",
+      "authority": "SECONDARY_AI",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?label WHERE { ?id a mp:WorkItem ; mp:assignedTo <urn:omc:memory-plan:owner:orca> ; rdfs:label ?label . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:w01",
+        "urn:omc:memory-plan:w03",
+        "urn:omc:memory-plan:w09"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:question:rollout-prerequisites",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "입운구 controller 배포 전 필요한 모든 작업은?",
+      "authority": "SECONDARY_AI",
+      "status": "REGISTERED",
+      "sparql": "SELECT DISTINCT ?id ?label WHERE { <urn:omc:memory-plan:w10> mp:dependsOn+ ?id . ?id rdfs:label ?label . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:w01",
+        "urn:omc:memory-plan:w02",
+        "urn:omc:memory-plan:w03",
+        "urn:omc:memory-plan:w04",
+        "urn:omc:memory-plan:w05",
+        "urn:omc:memory-plan:w06",
+        "urn:omc:memory-plan:w07",
+        "urn:omc:memory-plan:w08",
+        "urn:omc:memory-plan:w09"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:question:conditional",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "아직 조건부로 남겨 둔 작업은?",
+      "authority": "SECONDARY_AI",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?label WHERE { ?id a mp:WorkItem ; mp:status \"CONDITIONAL\" ; rdfs:label ?label . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:w13",
+        "urn:omc:memory-plan:w14",
+        "urn:omc:memory-plan:w15"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:question:rollback",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "native RAM 예약 구현 실패 시 무엇을 보존하고 되돌리는가?",
+      "authority": "SECONDARY_AI",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?procedure ?preserve WHERE { <urn:omc:memory-plan:w03> mp:rollback ?id . ?id mp:procedure ?procedure ; mp:preserve ?preserve . }",
+      "expectedIds": [
+        "urn:omc:memory-plan:rollback:w03"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:question:papers",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "실제로 확보하고 바이트를 고정한 논문은?",
+      "authority": "SECONDARY_AI",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?label ?sha256 ?path WHERE { ?id a mp:SourceArtifact ; mp:artifactKind \"PAPER\" ; rdfs:label ?label ; mp:sha256 ?sha256 ; mp:path ?path . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:source:aifm-paper-2020",
+        "urn:omc:memory-plan:source:autopilot-2020",
+        "urn:omc:memory-plan:source:borg-2015",
+        "urn:omc:memory-plan:source:drf-2011",
+        "urn:omc:memory-plan:source:infiniswap-paper-2017",
+        "urn:omc:memory-plan:source:tmo-2022"
+      ],
+      "attributedTo": "urn:omc:agent:codex"
+    },
+    {
+      "id": "urn:omc:memory-plan:question:implemented",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "이미 실행 검증을 완료한 구현 작업은?",
+      "authority": "SECONDARY_AI",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id WHERE { ?id a mp:WorkItem ; mp:status \"VERIFIED\" . } ORDER BY ?id",
+      "expectedIds": [],
+      "attributedTo": "urn:omc:agent:codex"
+    }
+  ]
+}
