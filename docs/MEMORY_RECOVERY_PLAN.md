@@ -5,6 +5,73 @@
 
 **6개 작업군 → 15개 담당 작업 → 45개 세부 단계 → 45개 산출물 계약으로 연결했다.** 각 단계는 담당·선행·입력·출력·검사·중단·재개 지점을 가진다. 구현·운영 작업은 아직 실행하지 않았다.
 
+## 2026-11-10 브라우저 메모리 관리 인수인계
+
+사용자 요청(`USER_PRIMARY`, HOH 작업 대화 발췌):
+
+> 그 해당 내용 입운구에 밀어넣어줘봐 ㅇㅇ
+> 일단 codex 는 그 거의다 아마 그 개발 사용중인거일꺼야
+
+사용자는 메모리 최적화를 OMC에 반영하고, 현재 Chrome 창이 모두 필요한지 먼저 판단하도록 요청했다.
+아래는 기존 W01·W02·W04·W05·W11에 연결하는 `SECONDARY_AI` 운영 보완안이다.
+**문서 반영과 읽기 전용 관측까지 완료했으며, 자동 정리 기능의 구현·배포·절감 효과는 미검증이다.**
+기존 JSON-LD의 작업 상태·의존성·출처 pin을 변경하거나 완료로 올리지 않는다.
+
+### 현재 관측과 필요한 상주 범위
+
+2026-11-10 08:58 UTC에 네 자동화 계정의 CDP 창 식별자와 탭 목록을 읽었다.
+창은 계정별 한 개, 총 **4개**였으며 탭은 각각 **6·3·9·1개, 총 19개**였다.
+같은 시각 소유 CLI의 전체 GUI 관측은 앞의 두 계정에서 `GENERATING`, 나머지에서 `IDLE`을 반환했다.
+관측 직후 별도 runtime 조회에는 일부 계정의 `WAITING_USER`가 남아 있었다.
+이 값들은 변하는 시점 관측이며, IDLE·활성 슬롯 0·오래된 탭만으로 완료나 정리 가능성을 확정하지 않는다.
+과거 대화 목록과 열린 탭, 브라우저 창과 renderer/worker 프로세스 수도 구별한다.
+
+네 계정을 유지하는 프로필 격리에는 이유가 있지만, 모든 과거 대화를 계속 열린 탭으로 둘 필요는 없다.
+초기 운영안은 **사용 중인 계정별 대기 탭 0~1개와 진행 중 요청 탭**을 유지하고,
+회수·승인·사용자 입력 대기, 수동 탭과 복구 대상은 별도 보호하는 것이다.
+현재 소유 계약의 계정당 생성 1개는 생성 동시성 조건이지 탭 전체를 임의로 1개로 줄이라는 뜻이 아니다.
+로그인 프로필을 디스크에 보존하는 것과 모든 계정 브라우저를 상시 실행하는 것도 별개다.
+계정의 필요 시 기동은 기존 relay의 준비·배정·복구 계약을 검증한 뒤 검토한다.
+
+### 대상별 정책과 실행 소유자
+
+| 대상 | 판단과 처리 | 담당 경계 |
+| --- | --- | --- |
+| Codex 및 현재 개발 세션 | 이번 정리의 보호 대상. 나이·낮은 CPU 사용률로 종료·정지·메모리 한도 축소하지 않는다. | ORCA_SETTING의 기존 세션/작업 소유 경계 유지 |
+| 완료된 자동화 탭 | 정확한 요청과 탭이 연결되고 결과 회수·전달이 끝났으며 초안·생성·승인·복구 대기가 없을 때 소유 API로 닫는다. | `chatgpt-api`의 `cleanupModel` → `finishOwned` 재사용 |
+| 보관할 유휴 탭 | 저장된 상태로 복원 가능한 탭에 한해 Memory Saver/Discard를 검토한다. 단순 freeze는 메모리 반환과 같은 결과로 세지 않는다. | 브라우저 소유자가 복원 계약과 실제 Chromium 지원 확인 |
+| 종료된 테스트 브라우저 | 작업 종료 receipt와 PID 생성 시각·cgroup 신원으로 자기 자원임을 확인한다. 테스트의 `finally`에서 자기 page/context와 전용 browser를 닫는다. | 테스트 실행기; 공유 계정 브라우저 전체 종료 금지 |
+| 파일·커널 캐시 | 프로세스의 익명 메모리와 구분하고, 허용된 대상에서 제한된 회수 뒤 실제 효과·재읽기 비용을 확인한다. | OMC의 기존 단일 controller와 native owner |
+| 필요한 활성 작업 | 회수할 탭이 없으면 새 작업의 동시성과 배치를 조절한다. 기존 메모리 보호량을 조용히 낮추지 않는다. | OMC 배치 판단 + ORCA_SETTING admission |
+
+OMC는 관측·후보 선정·예산·효과 검증을 맡고, 탭 완료 판정과 실제 종료는 브라우저 소유자가 맡는다.
+기존 `chatgpt-api/scripts/chatgpt_web_relay/src/{relay,browser,provider}.ts`에는 완료·결과 회수·초안 확인 뒤
+자기 탭을 닫는 경로가 있다. 새 정리기를 만들기 전에 이 경로의 누락·실패·남은 요청 상태를 대조한다.
+현재 설치 판본과 source의 동일성, 열린 19개 탭 각각의 정리 적격성은 아직 확인하지 않았다.
+OMC가 PID 이름만 보고 Chrome을 죽이거나 계정의 pause/승인을 해제하지 않는다.
+
+### 다음 구현과 수용 순서
+
+1. **W01·W02 — 읽기 전용 분류.** 계정·탭·요청·실행 owner를 연결하고 진행/회수 대기/정리 가능/미확인을 나눈다.
+   로그에는 대화 본문·초안 내용·인증값을 넣지 않는다. 미확인 대상은 보호한다.
+2. **W02·W05 — 완료 자원 반환.** 기존 소유 잠금 안에서 요청과 현재 탭·초안을 다시 확인한 뒤 한 대상만 처리한다.
+   새 요청·사용자 조작·대상 교체와 경쟁하면 보류한다. 응답 유실은 같은 요청으로 조회하고 중복 종료하지 않는다.
+3. **W04·W05 — 캐시 회수 복구.** 현재 `STOPPED_GUARD`의 정확한 사건·후속 검사·누적 예산을 보존한다.
+   일시적인 I/O 압박, 권한 만료, 무효과, 미확정 실행을 구분해 소유 복구 계약으로 판단한다. 상태 삭제나 서비스 재시작만으로 잠금을 풀지 않는다.
+4. **W11 — 실제 효과 비교.** 최초 소유 탭 1개를 대상으로 정리 전후와 지연 관측을 비교한다.
+   측정값은 브라우저 cgroup의 anon/file/current, 프로세스 PSS, PSI·refault·swap·OOM 변화, 새 요청/복원 성공,
+   HOH 동일 검증 작업의 입장·완료 시간이다. 공유 메모리를 중복 합산하거나 요청 회수량을 절감량으로 기록하지 않는다.
+5. 검증된 결과를 기존 controller와 요청 상태에 반영한다. **Codex 종료 0, 진행 중 요청 손실 0, 결과 회수 누락 0**이 수용 조건이다.
+   성능 악화·불확실 결과가 있으면 확대하지 않고 해당 대상과 시도에서 멈춘다.
+
+### 기술 근거와 적용 한계
+
+- [Chromium 다중 프로세스 구조](https://www.chromium.org/developers/design-documents/multi-process-architecture/): 프로세스 수를 창·작업 수 또는 낭비량으로 해석하지 않는다.
+- [Playwright Browser](https://playwright.dev/docs/api/class-browser#browser-new-context): 직접 만든 context를 명시적으로 닫고, 전용 browser 종료 전에 결과 파일을 마무리한다. 공유 기본 context의 소유와 수명은 별도다.
+- [Chrome Memory Saver](https://support.google.com/chrome/answer/12929150?hl=en)와 [Page Lifecycle](https://developer.chrome.com/docs/web-platform/page-lifecycle-api): discard는 재로드를 수반한다. 입력 중 폼·재생·다운로드 등 보호 조건과 복원 가능성을 확인한다. Google Chrome의 안내를 설치된 자동화 Chromium의 동작 증거로 대신하지 않는다.
+- [Linux cgroup v2](https://docs.kernel.org/admin-guide/cgroup-v2.html), [PSI](https://docs.kernel.org/accounting/psi.html), [PSS](https://www.kernel.org/doc/html/latest/filesystems/proc.html): 익명 메모리·파일·커널 캐시와 공유분을 분리하고 회수 후 지연·재접근 비용을 함께 측정한다. `slab_reclaimable`은 즉시 전량 회수 가능하다는 보장이 아니다.
+- [drop_caches](https://kernel.org/doc/html/latest/admin-guide/sysctl/vm.html#drop-caches)는 상시 최적화 루프로 쓰지 않는다. [DAMON_RECLAIM](https://docs.kernel.org/admin-guide/mm/damon/reclaim.html)은 기존 W14의 커널·소유 제어·비용 검증 뒤 조건부로 검토한다.
+
 ## 정본과 표준 사용
 
 - [정본 JSON-LD](../graph/memory-recovery-plan.jsonld): 347개 노드, RDF 변환 후 5,379개 triple. JSON-LD 1.1의 inline context를 쓴다.
