@@ -1,9 +1,9 @@
 # 입운구 메모리 복구 계획 그래프
 
-2026-11-08 · v2.0.0 · 작성·설계 귀속 SECONDARY_AI. [최초 요청](../records/2026-11-07/memory-plan/user-request.txt)과 [큰 작업 분해 요청](../records/2026-11-08/memory-plan-breakdown/user-request.txt)을 별도 출처로 보존한다.
+2026-11-10 · v2.1.0 · 작성·설계 귀속 SECONDARY_AI. [최초 요청](../records/2026-11-07/memory-plan/user-request.txt)과 [큰 작업 분해 요청](../records/2026-11-08/memory-plan-breakdown/user-request.txt)을 별도 출처로 보존한다.
 독자는 사용자와 OMC/ORCA_SETTING/HOH 담당자다. 그래프를 읽는 실제 소비자는 `scripts/memory_plan.mjs`, 회귀 검사, OMC 전체 그래프 inventory다.
 
-**6개 작업군 → 15개 담당 작업 → 45개 세부 단계 → 45개 산출물 계약으로 연결했다.** 각 단계는 담당·선행·입력·출력·검사·중단·재개 지점을 가진다. 구현·운영 작업은 아직 실행하지 않았다.
+**7개 작업군 → 19개 담당 작업 → 57개 세부 단계 → 57개 산출물 계약으로 연결했다.** 각 단계는 담당·선행·입력·출력·검사·중단·재개 지점을 가진다. 구현·운영 작업은 아직 실행하지 않았다.
 
 ## 2026-11-10 브라우저 메모리 관리 인수인계
 
@@ -14,8 +14,8 @@
 
 사용자는 메모리 최적화를 OMC에 반영하고, 현재 Chrome 창이 모두 필요한지 먼저 판단하도록 요청했다.
 아래는 기존 W01·W02·W04·W05·W11에 연결하는 `SECONDARY_AI` 운영 보완안이다.
-**문서 반영과 읽기 전용 관측까지 완료했으며, 자동 정리 기능의 구현·배포·절감 효과는 미검증이다.**
-기존 JSON-LD의 작업 상태·의존성·출처 pin을 변경하거나 완료로 올리지 않는다.
+**문서·실제 JSON-LD/SHACL 계획에 반영했으며, 자동 정리 기능의 구현·배포·절감 효과는 미검증이다.**
+기존 15개 작업의 UID·상태·의존성·출처 pin을 보존하고 S07에 W16–W19와 12개 단계를 추가했다.
 
 ### 현재 관측과 필요한 상주 범위
 
@@ -72,9 +72,37 @@ OMC가 PID 이름만 보고 Chrome을 죽이거나 계정의 pause/승인을 해
 - [Linux cgroup v2](https://docs.kernel.org/admin-guide/cgroup-v2.html), [PSI](https://docs.kernel.org/accounting/psi.html), [PSS](https://www.kernel.org/doc/html/latest/filesystems/proc.html): 익명 메모리·파일·커널 캐시와 공유분을 분리하고 회수 후 지연·재접근 비용을 함께 측정한다. `slab_reclaimable`은 즉시 전량 회수 가능하다는 보장이 아니다.
 - [drop_caches](https://kernel.org/doc/html/latest/admin-guide/sysctl/vm.html#drop-caches)는 상시 최적화 루프로 쓰지 않는다. [DAMON_RECLAIM](https://docs.kernel.org/admin-guide/mm/damon/reclaim.html)은 기존 W14의 커널·소유 제어·비용 검증 뒤 조건부로 검토한다.
 
+### 그래프에서 실행자가 읽는 브라우저 작업
+
+| 작업 | 쓰기 소유자 | 선행 | 세 단계와 산출물 |
+| --- | --- | --- | --- |
+| W16 요청·탭 분류 | chatgpt-api | 없음 | 목록화 → 분류 계약 → 보호 반례. 본문 없는 신원·상태·보호 사유 |
+| W17 완료 반환·보관 정책 | chatgpt-api | W16 | 기존 경로 대조 → 로컬 구현 → 경쟁·복원 검사. source/fixture 결과 |
+| W18 OMC 연결 | OMC | W02·W17 | 중단·응답 계약 → 기존 controller 연결 → 부분 결과 검사. owner 반환과 예산/episode |
+| W19 한 대상 운영 검증 | chatgpt-api, OMC/HOH 협업 | W17·W18 | 판본·복구점 확인 → 소유 전환·한 탭 처리 → 지연 비용·HOH 결과. 실제 실행 전 모두 미검증 |
+
+`assignedTo`가 실제 파일 writer이며 `collaborator`는 협업 역할이다. W19-S02만 새 브라우저 작업의
+`OWNER_SCOPED` 단계다. Codex 보호는 `COMPATIBILITY` 조건으로 두고 `IDENTITY`·실행 위임과 별도로 검사한다.
+새 조건이 다른 필수 조건을 대신 충족하지 않도록 반례를 둔다. 작업 하나마다 입력·산출물·검사·중단·재개·rollback이 연결된다.
+
+```sh
+node scripts/memory_plan.mjs query browser-owners
+node scripts/memory_plan.mjs query browser-protection
+node scripts/memory_plan.mjs query browser-canary-prerequisites
+node scripts/memory_plan.mjs query browser-source
+node scripts/memory_plan.mjs query browser-live-steps
+node scripts/memory_plan.mjs query browser-implemented
+node scripts/memory_plan.mjs packet w19-s01
+```
+
+질의 결과는 정확한 owner/조건/원문 UID와 선행 W02·W16·W17·W18을 반환하고,
+`browser-implemented`는 빈 목록이다. 문서의 현재 탭 수는 시점 관측이며 계획상의 정리 허가로 변환하지 않았다.
+브라우저 소유 코드는 계속 개발 중이므로 `check.targetDrift`의 현재 차이를 숨기지 않는다.
+실행자는 `packet.targetBaselines`와 실제 설치 판본을 다시 대조한다. 문서·구조 검증은 source drift를 해결하거나 실행을 승인하지 않는다.
+
 ## 정본과 표준 사용
 
-- [정본 JSON-LD](../graph/memory-recovery-plan.jsonld): 347개 노드, RDF 변환 후 5,379개 triple. JSON-LD 1.1의 inline context를 쓴다.
+- [정본 JSON-LD](../graph/memory-recovery-plan.jsonld): 431개 노드, RDF 변환 후 6,720개 triple. JSON-LD 1.1의 inline context를 쓴다.
 - [SHACL Core와 어휘 계약](../graph/memory-recovery-plan.shacl.ttl): 타입·domain/range·기수·필수 필드·권위 경계를 검사한다. dependency DAG와 파일 바이트/owner 발행 pin은 별도 소유 CLI가 검사한다.
 - PROV-O의 `wasDerivedFrom`, `wasAttributedTo`, `hadPrimarySource`로 AI 설계·사용자 원문·공개 자료를 구분한다. 구조 PASS가 실행·효과 PASS를 뜻하지 않는다.
 - `Dependency`, `StepDependency`, `EvidenceUse`는 역할·이유·관계 상태를 보존하는 명시적 노드다. 편의용 `dependsOn`/`afterStep`/`evidence` 투영과 정확히 일치해야 한다. 작업과 세부 단계의 의존성만 각각 비순환이어야 하며 전체 의미 그래프를 DAG로 강제하지 않는다. 실패 재개 `resumeAt`의 자기 참조·순환은 허용한다.
@@ -85,7 +113,7 @@ OMC가 PID 이름만 보고 Chrome을 죽이거나 계정의 pause/승인을 해
 
 ## 실제 확보한 자료
 
-공개 자료 27개(논문 6, 핵심 코드 7, 문서 8, 라이선스 6)와 기존 연구 원문 2개, 이전 read-only 감사 1개, 사용자 원문 2개를 바이트에 결속했다. 총 32개 파일, 7,524,669 bytes다. 기존 논문 파일은 해시를 확인해 재사용했고, 원본은 `.local/rebalance-research/papers/`와 `.local/memory-plan/sources/`에 남는다. 대용량 원문을 Git에 복제하지 않는다.
+기존 공개 자료 27개와 연구 원문 2개, read-only 감사 1개, 사용자 원문 2개를 보존했다. 브라우저 보완에는 Playwright 1.63.0 문서·Chrome lifecycle 문서 snapshot·이번 사용자 원문을 추가했다. 현재 공개 자료 29개(논문 6, 핵심 코드 7, 문서 10, 라이선스 6)와 로컬 원문 6개, 총 **35개 파일, 7,744,273 bytes**를 해시로 검증한다. 기존 논문 파일은 해시를 확인해 재사용했고, 원본은 `.local/rebalance-research/papers/`와 `.local/memory-plan/sources/`에 남는다. 대용량 원문을 Git에 복제하지 않는다.
 
 논문은 TMO, Borg, Autopilot, DRF, Infiniswap, AIFM이다. 코드는 Senpai Python, oomd Senpai, damo, Kubernetes scheduler/kubelet eviction, Kueue scheduler, controller-runtime의 관련 파일이다. 이는 해당 저장소 전체 clone이나 빌드 완료를 뜻하지 않는다. 공개 commit, URL, 논문 연도/DOI, 읽은 절/함수, SHA-256과 바이트 수는 각각 SourceArtifact에 있다.
 
@@ -112,6 +140,11 @@ flowchart TD
   w03 --> w13
   w11 --> w14[W14 조건부 DAMON 평가]
   w13 --> w15[W15 장기 원격 memory]
+  w16[W16 브라우저 분류] --> w17[W17 소유 반환 구현]
+  w02 --> w18[W18 OMC 연결]
+  w17 --> w18
+  w17 --> w19[W19 한 대상 운영 검증]
+  w18 --> w19
 ```
 
 | 작업 | 담당 | 선행 | 산출물·완료를 판단할 핵심 |
@@ -132,7 +165,7 @@ flowchart TD
 | W14 DAMON 평가 | OMC, 조건부 | W11 | 커널 capability·제어권·관측 overhead를 확인한 채택/보류 결정 |
 | W15 원격 memory | OMC, 조건부 | W13 | RDMA/네트워크 또는 앱 API 변경과 장애 복구를 포함한 실험 가능성 |
 
-원격 memory의 검토는 DAMON을 필수 선행으로 요구하지 않는다. v1.0.1의 15개 작업 UID·의존성·출처 pin을 보존하며 아래에 세부 단계를 붙였다. 이전 판본은 Git `81a9313`이며 정본 `previousGraphCommit`에 전체 commit ID를 고정했다.
+원격 memory의 검토는 DAMON을 필수 선행으로 요구하지 않는다. v1.0.1의 15개 작업 UID·의존성·출처 pin을 보존하며 아래에 세부 단계를 붙였다. v2.0.0의 그래프를 포함하는 직전 commit `490c543`을 `previousGraphCommit`에 고정했다.
 
 W01·W02와 W03·W04는 각각 서로 독립적인 선행 단위다. 이는 계획의 의존성 설명이며 agent를 자동 생성하거나 작업을 병렬 실행하는 명령이 아니다.
 
@@ -159,9 +192,9 @@ node --test tests/test_memory_plan.mjs
 python3 -m unittest tests.test_graph_checks.SourceChecksTests
 ```
 
-현재 `next`는 W01·W02, `next-steps`는 W01-S01·W02-S01을 반환한다. 이는 선행 의존성이 없는 계획 단위라는 뜻이며 runtime 실행 허가가 아니다. `packet`은 선택 단계의 부모·출처·수용 기준·rollback·합쳐진 gate·입출력 계약을 함께 반환한다. `implemented`의 답은 빈 배열이다. gate 검증·실행 효과·새 상태 기록을 이 CLI가 대신 수행하지 않는다.
+현재 `next`는 W01·W02·W16, `next-steps`는 W01-S01·W02-S01·W16-S01을 반환한다. 이는 선행 의존성이 없는 계획 단위라는 뜻이며 runtime 실행 허가가 아니다. `packet`은 선택 단계의 부모·출처·수용 기준·rollback·합쳐진 gate·입출력 계약을 함께 반환한다. `implemented`의 답은 빈 배열이다. gate 검증·실행 효과·새 상태 기록을 이 CLI가 대신 수행하지 않는다.
 
-검사는 13개 competency question의 정확한 답과 source role을 비교한다. 기존 8개 질문(다음 작업, 회수 근거, ORCA 소유 작업, 배포 전 선행, 조건부 작업, rollback, 논문, 검증된 구현)에 작업군, 다음 세부 단계, 예약 구현 분해, 실제 효과를 요구하는 단계, 생산자→소비자 인수인계를 추가했다.
+검사는 19개 competency question의 정확한 답과 source role을 비교한다. 기존 8개 질문(다음 작업, 회수 근거, ORCA 소유 작업, 배포 전 선행, 조건부 작업, rollback, 논문, 검증된 구현)에 작업군, 다음 세부 단계, 예약 구현 분해, 실제 효과를 요구하는 단계, 생산자→소비자 인수인계를 추가했다.
 
 읽기 전용 query는 선언된 graph 구조·국소 SELECT만 사용한다. 원문 바이트와 owner 발행 pin의 현재 일치는 `check`/`sources`에서 확인한다. 현재 구현 파일이 baseline SHA와 달라지면 `targetDrift`에 표시한다. 이전 관측이 새 코드의 증거가 되지 않도록 실제 착수 때 owner가 다시 기준선을 잡아야 한다.
 
@@ -186,13 +219,15 @@ RDF 도구는 기존 `../HSWM/src/hswm/effect-runtime/package.json`에서 제3�
 
 ## 검증과 남은 단계
 
-347개 노드/5,379개 triple의 실제 RDF 변환, SHACL Core, 32개 source bytes, owner 발행 pin, 13개 SPARQL 질의가 통과했다. 전용 65개와 기존 inventory/source 경계 6개 검사가 통과했다. 별도 `river-graph`의 pySHACL도 동일 RDF/SHACL을 통과했다. 공용 도구의 구조 PASS는 owner 의미 검증의 대체물이 아니다.
+v2.1.0의 **431개 노드/6,720개 triple**, 실제 RDF 왕복·SHACL Core, **35개 원문 해시**, **19개 SPARQL 질의**, **78개 검사**가 통과했다. 커밋할 정확한 검사기 판본도 별도로 실행했다. 브라우저 보호 제거·다른 owner 전환은 JS와 독립 RDF 변이/SHACL에서 거절했다. 최초 새 반례에서 보호 조건이 IDENTITY 검사를 대신 충족하는 분류 오류를 발견해 COMPATIBILITY로 분리했으며, 수정 후 78개가 통과했다.
+
+v2.0.0의 65개 검사·별도 inventory/source 6개 및 `river-graph` pySHACL 통과는 이전 판본의 이력이다. 이번에는 그 별도 엔진 검사를 재실행하지 않았다. 공용 도구의 구조 PASS는 owner 의미 검증의 대체물이 아니다.
 
 중복 ID, 끊긴 끝점, 잘못된 owner, 의존성 cycle, 누락 rollback/반례, 부모 선행 우회, 허구의 추가 선행, 미전달 산출물, 미래 출력 소비, read-only 아래 actuation 숨기기, 조건부 단계의 ready 승격, 미완료 자식을 둔 부모 완료, 권위 승격, byte 손상·누락·경로 탈출, 틀린 질의 답을 거절했다. 완료 evidence는 단계/부모 revision·검사 목록·출력 digest와 결속해야 한다.
 
-이번 readback에서 `scripts/ops.py`와 `docs/AI_OPERATIONS.md`가 v1 기준 SHA에서 달라졌다. 원래 pin을 자동 갱신하지 않았으며, 실제 착수 때 현재 owner 변경분을 다시 확인해야 한다. 이 drift는 계획 검사의 실패나 runtime 검증 성공을 뜻하지 않는다.
+이번 readback의 `targetDrift`에는 기존 credit·ops·feedback·ops-guide와 새 browser-relay 기준선, 총 5개 차이가 표시됐다. 원래 pin을 자동 갱신하지 않았으며, 실제 착수 때 현재 owner 변경분과 설치 판본을 다시 확인해야 한다. 계획 구조 검증과 실제 코드 판본의 실행 준비 상태를 구분한다.
 
-이 결과는 계획 구조와 출처 연결의 검증이다. 메모리 복구·예약 구현, 운영 성능 개선, kernel reclaim, controller 재시작, 원격 작업 배정은 이번 구축에서 실행하지 않았다. 다음 소비자는 `next`와 `why`로 W01·W02의 입력을 확인한 뒤 각 owner의 작업 범위에서 착수한다.
+이 결과는 계획 구조와 출처 연결의 검증이다. 메모리 복구·예약 구현, 운영 성능 개선, kernel reclaim, controller 재시작, 원격 작업 배정은 이번 구축에서 실행하지 않았다. 다음 소비자는 `next`와 `why`로 W01·W02·W16의 입력을 확인한 뒤 각 owner의 작업 범위에서 착수한다.
 
 ## 큰 작업의 인수인계 계약
 
@@ -204,16 +239,17 @@ RDF 도구는 기존 `../HSWM/src/hswm/effect-runtime/package.json`에서 제3�
 | S04 소유자별 전환과 HOH 효과 | W09–W11, 9단계 | ORCA → OMC 실제 판본 readback과 동일 HOH workload 비교 |
 | S05 판본별 수요 예산 | W12, 3단계 | OOM 검열 표본·시간 분리 평가·희소 표본 fallback |
 | S06 조건부 확장 연구 | W13–W15, 9단계 | 선택 분기별 worker·kernel·network 조건과 채택/보류 이유 |
+| S07 브라우저 수명과 반환 | W16–W19, 12단계 | Codex 보호, 소유 cleanup, OMC 연결, 한 대상 canary와 지연 효과 |
 
 작업군은 읽기 위한 묶음이며 새 순서 제약이 아니다. 각 부모의 첫 단계는 기존 `dependsOn`의 마지막 단계 출력을 받으며 내부 단계는 자기 부모 안에서 이어진다. 세부 단계의 쓰기 소유자와 대상 경로는 부모 범위를 넘지 못한다. `OutputContract`는 앞으로 만들 산출물의 필드·검사 규칙이며, 이미 확보한 `SourceArtifact`와 구분한다.
 
-조건부 연구 3개는 선행 완료만으로 ready에 포함되지 않는다. W08/W09/W10/W14/W15의 S02는 실제 owner 효과가 있는 단계이며 권한·신원·자원·검증 gate를 상속한다. 나머지 단계의 로컬 문서·코드·시험 출력은 운영 actuator 효과로 분류하지 않는다. 출력은 모두 EXPECTED, 완료 관문은 모두 NOT_EVALUATED다.
+조건부 연구 3개는 선행 완료만으로 ready에 포함되지 않는다. W08/W09/W10/W14/W15/W19의 S02는 실제 owner 효과가 있는 단계이며 권한·신원·자원·검증 gate를 상속한다. 나머지 단계의 로컬 문서·코드·시험 출력은 운영 actuator 효과로 분류하지 않는다. 출력은 모두 EXPECTED, 완료 관문은 모두 NOT_EVALUATED다.
 
 실행자는 `packet <단계>`를 읽고 fresh 관측·현재 owner 정책으로 시간/표본/RAM 예산을 구체화한다. 단계마다 정해진 입력 계약·산출물·검증 묶음까지만 진행하며, 실패 기록을 남긴 뒤 해당 `resumeAt`에서 입력을 다시 확인한다. 의존성상 함께 가능한 작업을 자동 agent 생성이나 고정 동시 슬롯 수로 바꾸지 않는다.
 
-시각화는 [.local의 전체 작업 SVG](../.local/memory-plan/breakdown-20261108/work-proposed.svg)와 [45단계 SVG](../.local/memory-plan/breakdown-20261108/steps-proposed.svg)로 생성했다. SVG 화살표는 정본과 같이 **후행 → 선행**을 가리킨다. 위 Mermaid는 진행 순서를 읽기 쉽게 반대로 그린 표시다. JSON view는 원래 노드·관계 UID·이유를 보존한 표시용 투영이며 정본이나 실행 입력이 아니다. 생성 그림은 Git에 보관하지 않는다.
+v2.0.0의 이전 15개 작업 시각화는 [.local의 전체 작업 SVG](../.local/memory-plan/breakdown-20261108/work-proposed.svg)와 [45단계 SVG](../.local/memory-plan/breakdown-20261108/steps-proposed.svg)로 생성했다. SVG 화살표는 정본과 같이 **후행 → 선행**을 가리킨다. 위 Mermaid는 진행 순서를 읽기 쉽게 반대로 그린 표시다. JSON view는 원래 노드·관계 UID·이유를 보존한 표시용 투영이며 정본이나 실행 입력이 아니다. 생성 그림은 Git에 보관하지 않는다.
 
-## 45개 세부 단계
+## 기존 45개 세부 단계
 
 | 단계 | 작업 | 예상 산출물 | 완료 조건 |
 | --- | --- | --- | --- |

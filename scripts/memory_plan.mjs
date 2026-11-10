@@ -43,7 +43,7 @@ const FIELDS={
  OutputContract:['expectedProducer','assignedTo','format','requiredFields','consumerIntent','verificationRule'],
  StepDependency:['dependentStep','prerequisiteStep','relationshipStatus','rationale']
 };
-const PUBLIC_HOSTS=new Set(['raw.githubusercontent.com','www.cs.cmu.edu','tangchq74.github.io','john.e-wilkes.com','static.usenix.org','www.usenix.org','docs.kernel.org','kubernetes.io','kueue.sigs.k8s.io','slurm.schedmd.com']);
+const PUBLIC_HOSTS=new Set(['raw.githubusercontent.com','www.cs.cmu.edu','tangchq74.github.io','john.e-wilkes.com','static.usenix.org','www.usenix.org','docs.kernel.org','kubernetes.io','kueue.sigs.k8s.io','slurm.schedmd.com','developer.chrome.com']);
 export const kind=n=>Array.isArray(n.type)?n.type[0]:n.type;
 const list=v=>v===undefined?[]:Array.isArray(v)?v:[v];
 const relativePath=p=>typeof p==='string'&&p.length>0&&p.length<=512&&!isAbsolute(p)&&!p.split(/[\\/]/).includes('..')&&!p.includes('\\');
@@ -51,7 +51,7 @@ function url(value){const u=new URL(value);assert(u.protocol==='https:'&&!u.user
 export function validateModel(m){
  assert.deepEqual(Object.keys(m).sort(),['@context','@graph'],'Unknown graph envelope field');
  assert.deepEqual(m['@context'],CONTEXT,'Only the inline owner context is accepted');
- assert(Array.isArray(m['@graph'])&&m['@graph'].length>0&&m['@graph'].length<=400,'Graph node bound');
+ assert(Array.isArray(m['@graph'])&&m['@graph'].length>0&&m['@graph'].length<=512,'Graph node bound');
  const nodes=new Map();
  for(const n of m['@graph']){
   assert(typeof n.id==='string'&&/^(urn:omc:|omc:knowledge:|research:work:)/.test(n.id)&&!nodes.has(n.id),'Duplicate or invalid node ID');
@@ -78,7 +78,7 @@ export function validateModel(m){
    if(n.artifactKind==='USER_MESSAGE')assert(n.authority==='USER_PRIMARY'&&typeof n.quote==='string','User quote provenance');
    else assert(n.authority===(['RESEARCH','OBSERVATION','EXECUTION_RECORD'].includes(n.artifactKind)?'SECONDARY_AI':'SOURCE_DOCUMENT'),'Source content authority mismatch');
   }
-  if(kind(n)==='Owner')assert(['OMC','ORCA_SETTING','HOH','THE_GREAT_FLOW'].includes(n.ownerKey),'Unknown owner');
+  if(kind(n)==='Owner')assert(['OMC','ORCA_SETTING','HOH','THE_GREAT_FLOW','CHATGPT_API'].includes(n.ownerKey),'Unknown owner');
   if(kind(n)==='RuntimePath')assert(relativePath(n.path)&&/^[a-f0-9]{64}$/.test(n.baselineSha256),'Runtime baseline pin required');
   if(kind(n)==='Gate')assert(n.status==='UNVERIFIED'&&typeof n.condition==='string'&&n.condition.trim(),'Plan cannot grant execution permission');
   if(kind(n)==='AcceptanceCriterion'){
@@ -87,6 +87,7 @@ export function validateModel(m){
   }
   if(kind(n)==='RollbackPlan')for(const k of ['procedure','preserve','precondition'])assert(typeof n[k]==='string'&&n[k].trim(),'Missing rollback '+k);
   if(kind(n)==='WorkItem'){
+   if(n.inStream===NS+'stream:s07')assert(list(n.requiresGate).includes(NS+'gate:development-protection'),'Browser work must preserve development protection');
    assert(['PLANNED','CONDITIONAL','VERIFIED'].includes(n.status)&&['P0','P1','CONDITIONAL'].includes(n.priority),'Work status/priority');
    assert(['READ_ONLY','LOCAL_TEST','SHADOW','LIVE_CHANGE','RESEARCH'].includes(n.executionClass),'Execution class');
    assert(Number.isSafeInteger(n.workRevision)&&n.workRevision>0&&n.assignedTo,'Work revision/owner');
@@ -185,7 +186,7 @@ export async function shacl(compiled,root=ROOT){
  const report=await new rdf.SHACLValidator(shapes,{importGraph:async()=>{throw Error('Shape imports disabled');}}).validate(store);
  return {conforms:report.conforms,results:report.results.map(r=>({focus:r.focusNode?.value,path:r.path?.value,message:r.message.map(x=>x.value)}))};
 }
-function ownerRoots(root){return new Map([[NS+'owner:omc',root],[NS+'owner:orca',resolve(root,'../ORCA_SETTING')],[NS+'owner:hoh',resolve(root,'../HOH')],[NS+'owner:research',resolve(root,'../THE_GREAT_FLOW')]]);}
+function ownerRoots(root){return new Map([[NS+'owner:omc',root],[NS+'owner:orca',resolve(root,'../ORCA_SETTING')],[NS+'owner:hoh',resolve(root,'../HOH')],[NS+'owner:research',resolve(root,'../THE_GREAT_FLOW')],[NS+'owner:chatgpt-api',resolve(root,'../chatgpt-api')]]);}
 async function checkedPath(base,path,missing=false){
  assert(relativePath(path),'Path traversal');const target=resolve(base,path);assert(!relative(base,target).startsWith('..'),'Source leaves approved root');
  let cursor=base;for(const segment of path.split('/')){cursor=join(cursor,segment);try{assert(!(await lstat(cursor)).isSymbolicLink(),'Source symlink');}catch(e){if(e.code==='ENOENT'&&missing)return target;throw e;}}

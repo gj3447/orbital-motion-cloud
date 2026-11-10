@@ -18,7 +18,7 @@ for(const question of model['@graph'].filter(n=>kind(n)==='CompetencyQuestion'))
  assert.deepEqual([...new Set(result.rows.map(r=>r.id))].sort(),question.expectedIds.slice().sort());
 });
 test('dependency phases preserve owner order and keep conditional research last',()=>{
- const phases=sequence(model);assert.deepEqual(phases[0].map(n=>n.id),[NS+'w01',NS+'w02']);
+ const phases=sequence(model);assert.deepEqual(phases[0].map(n=>n.id),[NS+'w01',NS+'w02',NS+'w16']);
  const index=new Map(phases.flatMap((phase,i)=>phase.map(n=>[n.id,i])));
  for(const work of model['@graph'].filter(n=>kind(n)==='WorkItem'))for(const dep of work.dependsOn)assert(index.get(dep)<index.get(work.id));
  assert(index.get(NS+'w09')<index.get(NS+'w10'));assert(index.get(NS+'w11')<index.get(NS+'w12'));
@@ -64,7 +64,7 @@ async function fixture(fn){
   await fn({m,root,owners,ledger});
  }finally{await rm(base,{recursive:true,force:true});}
 }
-test('source fixture verifies every identity and research publication binding',()=>fixture(async({m,root})=>{const r=await verifySources(m,root);assert.equal(r.files,32);}));
+test('source fixture verifies every identity and research publication binding',()=>fixture(async({m,root})=>{const r=await verifySources(m,root);assert.equal(r.files,35);}));
 test('corrupt bytes fail without repinning or overwriting',()=>fixture(async({m,root,owners})=>{
  const n=m['@graph'].find(n=>n.artifactKind==='CODE'),p=join(owners[n.storedBy],n.path),raw=await readFile(p);raw[0]^=1;await writeFile(p,raw);
  await assert.rejects(verifySources(m,root),/digest differs/);await assert.rejects(hydrate(m,root),/never overwrite/);assert.deepEqual(await readFile(p),raw);
@@ -89,14 +89,14 @@ test('far-memory feasibility does not require the optional DAMON path',()=>{
 });
 
 test('workstream organization and step packets retain evidence and owner handoff',()=>{
- const r=roadmap(model);assert.equal(r.streams.length,6);assert.equal(r.streams.flatMap(s=>s.work).length,15);assert.equal(r.streams.flatMap(s=>s.work.flatMap(w=>w.steps)).length,45);
+ const r=roadmap(model);assert.equal(r.streams.length,7);assert.equal(r.streams.flatMap(s=>s.work).length,19);assert.equal(r.streams.flatMap(s=>s.work.flatMap(w=>w.steps)).length,57);
  const p=packet(model,'w06-s01');assert.deepEqual(p.prerequisites.map(s=>s.id),[NS+'step:w03-s03',NS+'step:w05-s03']);assert.equal(p.inputOutputs.length,2);assert(p.sourcePins.length>0&&p.criteria.length>0&&p.rollback.length>0);assert.equal(p.executionAuthorized,false);
  const canary=packet(model,'w08-s02');assert.equal(canary.step.runtimeEffect,'OWNER_SCOPED');assert.deepEqual([...new Set(canary.gates.map(g=>g.gateKind))].sort(),['AUTHORIZATION','EVIDENCE','IDENTITY','RESOURCE']);
 });
 test('views preserve canonical edge direction, identity and rationale',()=>{
- const v=view(model,'step');assert.equal(v.nodes.length,45);assert.equal(v.edgeDirection,'dependent_to_prerequisite');
+ const v=view(model,'step');assert.equal(v.nodes.length,57);assert.equal(v.edgeDirection,'dependent_to_prerequisite');
  const e=v.edges.find(e=>e.source===NS+'step:w03-s01');assert.equal(e.target,NS+'step:w01-s03');assert.equal(e.record.dependentStep,e.source);assert(e.record.rationale);assert.equal(v.scope,'DISPLAY_PROJECTION_NOT_CANONICAL');
- assert.equal(view(model).nodes.length,15);assert.throws(()=>view(model,'runtime'),/Unknown view/);
+ assert.equal(view(model).nodes.length,19);assert.throws(()=>view(model,'runtime'),/Unknown view/);
 });
 invalid('step writer cannot exceed parent owner',m=>node(m,'step:w03-s02').assignedTo=NS+'owner:omc',/writer must match/);
 invalid('step cannot target unrelated owner files',m=>node(m,'step:w03-s02').targets=[NS+'path:ops'],/targets exceed/);
@@ -136,3 +136,23 @@ test('step completion evidence must match current revision, checks and output',(
  await write();await verifySources(m,root);record.stepRevision++;await write();await assert.rejects(verifySources(m,root),/Step completion binding mismatch/);
  record.stepRevision--;record.passedChecks=[];await write();await assert.rejects(verifySources(m,root),/lacks output or checks/);
 }));
+
+invalid('browser work cannot omit protected development sessions',m=>node(m,'w17').requiresGate=[],/development protection/);
+invalid('OMC cannot become the writer of browser targets',m=>node(m,'w17').assignedTo=NS+'owner:omc',/writer differs/);
+invalid('browser canary cannot omit target identity',m=>{node(m,'w19').requiresGate=node(m,'w19').requiresGate.filter(x=>x!==NS+'gate:identity');for(const s of m['@graph'].filter(s=>s.parentWork===NS+'w19'))s.requiresGate=s.requiresGate.filter(x=>x!==NS+'gate:identity');},/missing inherited owner gate: IDENTITY/);
+invalid('planned browser cleanup is not a verified outcome',m=>node(m,'w17').status='VERIFIED',/execution evidence/);
+test('browser packet preserves owner handoff and protected sessions',()=>{
+ const p=packet(model,'w19-s01');assert.equal(p.parent.assignedTo,NS+'owner:chatgpt-api');
+ assert.deepEqual(p.prerequisites.map(s=>s.id).sort(),[NS+'step:w17-s03',NS+'step:w18-s03']);
+ assert(p.gates.some(g=>g.id===NS+'gate:development-protection'));assert.equal(p.executionAuthorized,false);
+});
+test('independent SHACL rejects missing Codex protection on a browser work',async()=>{
+ const {DataFactory:{namedNode}}=compiled.rdf,store=new compiled.rdf.Store([...compiled.store]);
+ store.removeQuads(store.getQuads(namedNode(NS+'w17'),namedNode(V+'requiresGate'),namedNode(NS+'gate:development-protection'),null));
+ const result=await shacl({...compiled,store});assert.equal(result.conforms,false);assert(result.results.some(r=>r.focus===NS+'w17'));
+});
+test('independent SHACL rejects a different browser canary writer',async()=>{
+ const {DataFactory:{namedNode,quad}}=compiled.rdf,store=new compiled.rdf.Store([...compiled.store]);
+ store.removeQuads(store.getQuads(namedNode(NS+'w19'),namedNode(V+'assignedTo'),null,null));store.addQuad(quad(namedNode(NS+'w19'),namedNode(V+'assignedTo'),namedNode(NS+'owner:omc')));
+ assert.equal((await shacl({...compiled,store})).conforms,false);
+});

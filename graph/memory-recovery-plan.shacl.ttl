@@ -154,3 +154,13 @@ mp:StepDependencyShape a sh:NodeShape ; sh:targetClass mp:StepDependency ;
  sh:property [ sh:path mp:prerequisiteStep ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkStep ] ;
  sh:property [ sh:path mp:relationshipStatus ; sh:hasValue "PROPOSED" ] ;
  sh:property [ sh:path mp:rationale ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
+
+# Browser lifecycle uses the existing vocabulary. This implication selects all
+# WorkItems, so a missing protection on stream s07 is tested independently of JS.
+mp:BrowserProtectionShape a sh:NodeShape ; sh:targetClass mp:WorkItem ;
+ sh:or (
+  [ sh:not [ sh:property [ sh:path mp:inStream ; sh:hasValue <urn:omc:memory-plan:stream:s07> ] ] ]
+  [ sh:property [ sh:path mp:requiresGate ; sh:hasValue <urn:omc:memory-plan:gate:development-protection> ] ]
+ ) .
+mp:BrowserCanaryOwnerShape a sh:NodeShape ; sh:targetNode <urn:omc:memory-plan:w19> ;
+ sh:property [ sh:path mp:assignedTo ; sh:hasValue <urn:omc:memory-plan:owner:chatgpt-api> ] .

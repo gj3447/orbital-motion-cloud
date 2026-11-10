@@ -944,19 +944,20 @@
       "authority": "SECONDARY_AI",
       "scope": "OWNER_LOCAL_PLAN",
       "executionStatus": "NOT_STARTED",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "status": "PROPOSED",
-      "recordedAt": "2026-11-08T00:12:31.119Z",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
       "attributedTo": "urn:omc:agent:codex",
       "relatedResource": "omc:knowledge:resource:memory",
       "derivedFrom": [
         "urn:omc:memory-plan:source:user-7adedab4627f",
         "research:work:omc-memory-admission-20261107:WHAT_IS",
         "research:work:omc-memory-admission-20261107:HOW_TO",
-        "urn:omc:memory-plan:source:breakdown-user-24afc357d3c0"
+        "urn:omc:memory-plan:source:breakdown-user-24afc357d3c0",
+        "urn:omc:memory-plan:source:browser-user-20261110"
       ],
-      "description": "6 workstreams, 15 owner work items, 45 bounded steps with explicit output handoffs. Research remains design evidence. No runtime effect or completion is inferred.",
-      "previousGraphCommit": "81a931391566ddb97a377221bdb36c500eb6b589"
+      "description": "7 workstreams, 19 owner work items, 57 steps. Browser lifecycle extends the existing memory plan; all implementation/effect states remain unverified.",
+      "previousGraphCommit": "490c543a7402a1d80fb24f9e8c173f83c753aa35"
     },
     {
       "id": "urn:omc:memory-plan:problem:flap",
@@ -3727,7 +3728,8 @@
       "sparql": "SELECT ?id ?label ?owner WHERE { ?id a mp:WorkItem ; mp:status \"PLANNED\" ; mp:priority \"P0\" ; rdfs:label ?label ; mp:assignedTo ?owner . FILTER NOT EXISTS { ?id mp:dependsOn ?p . ?p mp:status ?s . FILTER (?s != \"VERIFIED\") } } ORDER BY ?id",
       "expectedIds": [
         "urn:omc:memory-plan:w01",
-        "urn:omc:memory-plan:w02"
+        "urn:omc:memory-plan:w02",
+        "urn:omc:memory-plan:w16"
       ],
       "attributedTo": "urn:omc:agent:codex"
     },
@@ -8118,7 +8120,8 @@
         "urn:omc:memory-plan:stream:s03",
         "urn:omc:memory-plan:stream:s04",
         "urn:omc:memory-plan:stream:s05",
-        "urn:omc:memory-plan:stream:s06"
+        "urn:omc:memory-plan:stream:s06",
+        "urn:omc:memory-plan:stream:s07"
       ]
     },
     {
@@ -8135,7 +8138,8 @@
       "sparql": "SELECT ?id ?label ?owner WHERE { ?id a mp:WorkStep ; mp:status \"PLANNED\" ; mp:parentWork ?w ; rdfs:label ?label ; mp:assignedTo ?owner . ?w mp:status \"PLANNED\" ; mp:priority \"P0\" . FILTER NOT EXISTS { ?id mp:afterStep ?p . ?p mp:status ?s . FILTER (?s != \"VERIFIED\") } } ORDER BY ?id",
       "expectedIds": [
         "urn:omc:memory-plan:step:w01-s01",
-        "urn:omc:memory-plan:step:w02-s01"
+        "urn:omc:memory-plan:step:w02-s01",
+        "urn:omc:memory-plan:step:w16-s01"
       ]
     },
     {
@@ -8173,7 +8177,8 @@
         "urn:omc:memory-plan:step:w09-s02",
         "urn:omc:memory-plan:step:w10-s02",
         "urn:omc:memory-plan:step:w14-s02",
-        "urn:omc:memory-plan:step:w15-s02"
+        "urn:omc:memory-plan:step:w15-s02",
+        "urn:omc:memory-plan:step:w19-s02"
       ]
     },
     {
@@ -8191,6 +8196,2023 @@
       "expectedIds": [
         "urn:omc:memory-plan:output:w03-s02"
       ]
+    },
+    {
+      "id": "urn:omc:memory-plan:source:browser-user-20261110",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Codex 보호·브라우저 관리·표준 그래프 요청 원문",
+      "authority": "USER_PRIMARY",
+      "artifactKind": "USER_MESSAGE",
+      "sourceStatus": "PINNED_BYTES",
+      "path": "records/2026-11-10/browser-memory-plan/user-request.txt",
+      "bytes": 449,
+      "sha256": "90922f7d5b0f6e10ce3de58c57bf57a67bc886c8a687ae54949aa9513d3cc0e7",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "OWNER_LOCAL",
+      "observedAt": "2026-11-10T09:11:45.223231+00:00",
+      "locator": "HOH 대화의 연속 두 사용자 메시지; 구분용 빈 줄 외 원문 보존",
+      "quote": "그 해당 내용 입운구에 밀어넣어줘봐 ㅇㅇ 일단 지금 메모리 그 안쓰는 메모리 관리 어케해야할지 생각해줘봐 일단 codex 는 그 거의다 아마 그 개발 사용중인거일꺼야 chrome 은 잘 모르겟고 그런데 chrome 창이 저렇게 많이 떠잇을 필요가 있냐 지금 여기 환경에서 ㅇㅇ?\n\n표준 그래프 엔지니어링으로 제대로 잘 구축해놓은거지 작업계획 ㅇㅇ?"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:playwright-browser-1.63.0",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Playwright 1.63.0 Browser lifecycle",
+      "authority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "path": ".local/memory-plan/sources/playwright-browser-v1.63.0.md",
+      "bytes": 12803,
+      "sha256": "8cc3af686f650489b0db94f23fa2315138e3cfa2dc094bf1f2a12f7082765438",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-10T09:11:45.223231+00:00",
+      "locator": "Browser.close and Browser.newContext lifecycle notes",
+      "url": "https://raw.githubusercontent.com/microsoft/playwright/v1.63.0/docs/src/api/class-browser.md"
+    },
+    {
+      "id": "urn:omc:memory-plan:source:chrome-lifecycle-20261110",
+      "type": [
+        "SourceArtifact",
+        "prov:Entity"
+      ],
+      "label": "Chrome Page Lifecycle selected snapshot",
+      "authority": "SOURCE_DOCUMENT",
+      "artifactKind": "DOCUMENT",
+      "sourceStatus": "PINNED_BYTES",
+      "path": ".local/memory-plan/sources/chrome-page-lifecycle-20261110.html",
+      "bytes": 206352,
+      "sha256": "b6c787daa57c2e46475efecdb3c9a300f7a81dd6a7cc9712bb63ec3ae6e86cb5",
+      "storedBy": "urn:omc:memory-plan:owner:omc",
+      "acquisitionMode": "PUBLIC_HTTPS",
+      "observedAt": "2026-11-10T09:11:45.223231+00:00",
+      "locator": "Frozen/discarded states and developer recommendations; snapshot, not installed Chromium proof",
+      "url": "https://developer.chrome.com/docs/web-platform/page-lifecycle-api"
+    },
+    {
+      "id": "urn:omc:memory-plan:owner:chatgpt-api",
+      "type": [
+        "Owner",
+        "prov:Entity"
+      ],
+      "label": "chatgpt-api browser lifecycle writer",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "ownerKey": "CHATGPT_API",
+      "repository": "https://github.com/gj3447/chatgpt-api"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:browser-browser",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "Browser owner browser",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "maintainedBy": "urn:omc:memory-plan:owner:chatgpt-api",
+      "path": "scripts/chatgpt_web_relay/src/browser.ts",
+      "baselineSha256": "c9db5a6053f0de1ee7e574e17daedc85954b41f8f06a31a39d27d2f482a7f21f",
+      "baselineRevision": "WORKTREE_OBSERVED_2026-11-10T09:11:45.223231+00:00",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:browser-relay",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "Browser owner relay",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "maintainedBy": "urn:omc:memory-plan:owner:chatgpt-api",
+      "path": "scripts/chatgpt_web_relay/src/relay.ts",
+      "baselineSha256": "2f1fed7d5c5af283a96150df1662f8c35dd48ff538cc6255655154e3ac54542b",
+      "baselineRevision": "WORKTREE_OBSERVED_2026-11-10T09:11:45.223231+00:00",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:path:browser-provider",
+      "type": [
+        "RuntimePath",
+        "prov:Entity"
+      ],
+      "label": "Browser owner provider",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "maintainedBy": "urn:omc:memory-plan:owner:chatgpt-api",
+      "path": "scripts/chatgpt_web_relay/src/provider.ts",
+      "baselineSha256": "8d6ec08b8a92dbf6b34b494141ee3020c91708539f9198860bc280fb8c137e2b",
+      "baselineRevision": "WORKTREE_OBSERVED_2026-11-10T09:11:45.223231+00:00",
+      "status": "SOURCE_PRESENT_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "urn:omc:memory-plan:gate:development-protection",
+      "type": [
+        "Gate",
+        "prov:Entity"
+      ],
+      "label": "Codex 개발 세션과 비소유 작업 보호",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "gateKind": "COMPATIBILITY",
+      "status": "UNVERIFIED",
+      "condition": "Codex/development sessions are protected: no kill, stop or cap reduction based on age/idle. Preserve human tabs, unknown requests, drafts, approval/collection/recovery fences. Revalidate exact browser owner and target incarnation under its lock before any effect.",
+      "derivedFrom": [
+        "urn:omc:memory-plan:source:browser-user-20261110"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:problem:browser-retention",
+      "type": [
+        "Problem",
+        "prov:Entity"
+      ],
+      "label": "완료 탭 반환과 보호 대상의 결속 누락 가능성",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "detail": "Process count is not tab count or waste. Classification and installed source verification must precede cleanup. No current tab is declared disposable by this plan.",
+      "evidence": [
+        "urn:omc:memory-plan:source:browser-user-20261110",
+        "urn:omc:memory-plan:source:playwright-browser-1.63.0",
+        "urn:omc:memory-plan:source:chrome-lifecycle-20261110"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:stream:s07",
+      "type": [
+        "Workstream",
+        "prov:Entity"
+      ],
+      "label": "브라우저 수명과 메모리 반환",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "ordinal": 7,
+      "status": "PLANNED",
+      "objective": "Codex와 진행 중 작업을 보존하며 브라우저의 완료 자원 반환을 기존 OMC에 연결한다.",
+      "entryCondition": "소유 API와 요청·탭 신원을 읽고 정확한 설치 판본을 확인할 수 있다.",
+      "exitCondition": "소유 cleanup 경로와 OMC 정책이 검증되고 한 대상의 제한 canary 및 지연 비용이 확인된다.",
+      "selectionMode": "CORE",
+      "milestone": "urn:omc:memory-plan:milestone:s07",
+      "stopWhen": [
+        "미확정 요청·초안·승인·소유 불일치",
+        "Codex 영향 또는 지연/메모리 회귀",
+        "현재 owner admission 거절"
+      ],
+      "rationale": "기존 캐시 회수 작업과 별개인 browser owner 수명 경로; W02의 중단 기준선을 재사용하고 이전 의존성은 보존한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:w16",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "브라우저 요청·탭·보호 대상 분류",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "workRevision": 1,
+      "ordinal": 16,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "READ_ONLY",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "collaborator": [
+        "urn:omc:memory-plan:owner:omc",
+        "urn:omc:memory-plan:owner:hoh"
+      ],
+      "dependsOn": [],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w16"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w16",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:browser-retention"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:browser-user-20261110",
+        "urn:omc:memory-plan:source:playwright-browser-1.63.0",
+        "urn:omc:memory-plan:source:chrome-lifecycle-20261110"
+      ],
+      "inputContract": "Current owner source/installed revision, fresh identity, complete request state and predecessor outputs; unknown is preserved.",
+      "outputContract": "본문·인증값 없는 분류; UNKNOWN과 IDLE을 정리 적격으로 승격하지 않음",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "derivedFrom": [
+        "urn:omc:memory-plan:source:browser-user-20261110"
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s07"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w16",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "브라우저 요청·탭·보호 대상 분류 수용",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "NOT_EVALUATED",
+      "successCondition": "본문·인증값 없는 분류; UNKNOWN과 IDLE을 정리 적격으로 승격하지 않음",
+      "negativeCases": [
+        "Codex 또는 다른 세션을 유휴 프로세스로 잘못 종료",
+        "결과 미회수/초안/승인/복구 대기인데 IDLE만으로 종료",
+        "PID/탭 교체 및 동시 새 요청",
+        "실행 응답 유실을 성공 또는 자동 재시도로 처리"
+      ],
+      "verificationMethod": "Exact owner revision fixtures, typed owner/source checks and scoped canary only after prerequisites; delayed before/after readback.",
+      "metric": "protected_session_loss=0; active_request_loss=0; uncollected_result_loss=0; observed memory/PSI and latency separately recorded"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w16",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "브라우저 요청·탭·보호 대상 분류 복구",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "procedure": "추가 처리를 중단하고 이전 owner source/설정으로 되돌린다. 결과·episode·예산을 되감지 않고 기존 operation을 조회한다. 닫힌 탭 복원은 회수된 결과와 알려진 소유 경로로만 하며 원 요청을 재전송하지 않는다.",
+      "preserve": "Codex, human tabs, login profiles, original request/results, uncertain intents, previous release and cumulative budget",
+      "precondition": "Same owner and operation identity; no unknown effect or concurrent writer; recoverability verified before any live closure"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w16-1",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w16 source 1",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w16",
+      "source": "urn:omc:memory-plan:source:browser-user-20261110",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "HOH 대화의 연속 두 사용자 메시지; 구분용 빈 줄 외 원문 보존"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w16-2",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w16 source 2",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w16",
+      "source": "urn:omc:memory-plan:source:playwright-browser-1.63.0",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "Browser.close and Browser.newContext lifecycle notes"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w16-3",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w16 source 3",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w16",
+      "source": "urn:omc:memory-plan:source:chrome-lifecycle-20261110",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "Frozen/discarded states and developer recommendations; snapshot, not installed Chromium proof"
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w16-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "창/탭/프로세스/계정/요청의 원천 시각과 신원을 목록화",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w16",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "INSPECT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "afterStep": [],
+      "expectsOutput": "urn:omc:memory-plan:output:w16-s01",
+      "requiresOutput": [],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "창/탭/프로세스/계정/요청의 원천 시각과 신원을 목록화의 구체 입력과 결과를 대조하고 본문·인증값 없는 분류; UNKNOWN과 IDLE을 정리 적격으로 승격하지 않음",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w16-s01",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w16-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "창/탭/프로세스/계정/요청의 원천 시각과 신원을 목록화 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w16-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "request_ref",
+        "account_ref",
+        "target_incarnation",
+        "observed_at",
+        "collection_state",
+        "draft_present",
+        "owner",
+        "protected_reason"
+      ],
+      "consumerIntent": "완료·회수 대기·보관·미확인의 분류 계약 고정",
+      "verificationRule": "본문·인증값 없는 분류; UNKNOWN과 IDLE을 정리 적격으로 승격하지 않음; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w16-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "완료·회수 대기·보관·미확인의 분류 계약 고정",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w16",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w16-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w16-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w16-s01"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "완료·회수 대기·보관·미확인의 분류 계약 고정의 구체 입력과 결과를 대조하고 본문·인증값 없는 분류; UNKNOWN과 IDLE을 정리 적격으로 승격하지 않음",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w16-s02",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w16-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "완료·회수 대기·보관·미확인의 분류 계약 고정 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w16-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "request_ref",
+        "account_ref",
+        "target_incarnation",
+        "observed_at",
+        "collection_state",
+        "draft_present",
+        "owner",
+        "protected_reason"
+      ],
+      "consumerIntent": "초안·수동 탭·IDLE 미완료·대상 교체 반례 검증",
+      "verificationRule": "본문·인증값 없는 분류; UNKNOWN과 IDLE을 정리 적격으로 승격하지 않음; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w16-s02-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w16-s02 follows w16-s01",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w16-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w16-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w16-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "초안·수동 탭·IDLE 미완료·대상 교체 반례 검증",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w16",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w16-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w16-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w16-s02"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "초안·수동 탭·IDLE 미완료·대상 교체 반례 검증의 구체 입력과 결과를 대조하고 본문·인증값 없는 분류; UNKNOWN과 IDLE을 정리 적격으로 승격하지 않음",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w16-s03",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w16-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "초안·수동 탭·IDLE 미완료·대상 교체 반례 검증 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w16-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "request_ref",
+        "account_ref",
+        "target_incarnation",
+        "observed_at",
+        "collection_state",
+        "draft_present",
+        "owner",
+        "protected_reason"
+      ],
+      "consumerIntent": "W17 owner implementation",
+      "verificationRule": "본문·인증값 없는 분류; UNKNOWN과 IDLE을 정리 적격으로 승격하지 않음; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w16-s03-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w16-s03 follows w16-s02",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w16-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w16-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:w17",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "소유 브라우저의 완료 반환·보관 정책 구현",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "workRevision": 1,
+      "ordinal": 17,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LOCAL_TEST",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "collaborator": [
+        "urn:omc:memory-plan:owner:omc",
+        "urn:omc:memory-plan:owner:hoh"
+      ],
+      "dependsOn": [
+        "urn:omc:memory-plan:w16"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w17"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w17",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:browser-retention"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:browser-user-20261110",
+        "urn:omc:memory-plan:source:playwright-browser-1.63.0",
+        "urn:omc:memory-plan:source:chrome-lifecycle-20261110"
+      ],
+      "inputContract": "Current owner source/installed revision, fresh identity, complete request state and predecessor outputs; unknown is preserved.",
+      "outputContract": "성공/실패/취소 경로의 자기 자원 반환; 공유 기본 context와 Codex 세션 영향 0",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "derivedFrom": [
+        "urn:omc:memory-plan:source:browser-user-20261110"
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s07"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w17",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "소유 브라우저의 완료 반환·보관 정책 구현 수용",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "NOT_EVALUATED",
+      "successCondition": "성공/실패/취소 경로의 자기 자원 반환; 공유 기본 context와 Codex 세션 영향 0",
+      "negativeCases": [
+        "Codex 또는 다른 세션을 유휴 프로세스로 잘못 종료",
+        "결과 미회수/초안/승인/복구 대기인데 IDLE만으로 종료",
+        "PID/탭 교체 및 동시 새 요청",
+        "실행 응답 유실을 성공 또는 자동 재시도로 처리"
+      ],
+      "verificationMethod": "Exact owner revision fixtures, typed owner/source checks and scoped canary only after prerequisites; delayed before/after readback.",
+      "metric": "protected_session_loss=0; active_request_loss=0; uncollected_result_loss=0; observed memory/PSI and latency separately recorded"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w17",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "소유 브라우저의 완료 반환·보관 정책 구현 복구",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "procedure": "추가 처리를 중단하고 이전 owner source/설정으로 되돌린다. 결과·episode·예산을 되감지 않고 기존 operation을 조회한다. 닫힌 탭 복원은 회수된 결과와 알려진 소유 경로로만 하며 원 요청을 재전송하지 않는다.",
+      "preserve": "Codex, human tabs, login profiles, original request/results, uncertain intents, previous release and cumulative budget",
+      "precondition": "Same owner and operation identity; no unknown effect or concurrent writer; recoverability verified before any live closure"
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w17-w16",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w17 requires w16",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependent": "urn:omc:memory-plan:w17",
+      "prerequisite": "urn:omc:memory-plan:w16",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "후행의 입력 계약이 선행의 검증된 분류/owner 구현 또는 중단 기준선을 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w17-1",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w17 source 1",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w17",
+      "source": "urn:omc:memory-plan:source:browser-user-20261110",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "HOH 대화의 연속 두 사용자 메시지; 구분용 빈 줄 외 원문 보존"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w17-2",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w17 source 2",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w17",
+      "source": "urn:omc:memory-plan:source:playwright-browser-1.63.0",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "Browser.close and Browser.newContext lifecycle notes"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w17-3",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w17 source 3",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w17",
+      "source": "urn:omc:memory-plan:source:chrome-lifecycle-20261110",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "Frozen/discarded states and developer recommendations; snapshot, not installed Chromium proof"
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w17-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "기존 cleanupModel/finishOwned의 누락·실패와 설치 판본 대조",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w17",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "INSPECT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w16-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w17-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w16-s03"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "기존 cleanupModel/finishOwned의 누락·실패와 설치 판본 대조의 구체 입력과 결과를 대조하고 성공/실패/취소 경로의 자기 자원 반환; 공유 기본 context와 Codex 세션 영향 0",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w17-s01",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w17-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "기존 cleanupModel/finishOwned의 누락·실패와 설치 판본 대조 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w17-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "request_ref",
+        "target_incarnation",
+        "result_collection_proof",
+        "cleanup_outcome",
+        "retention_reason",
+        "source_revision",
+        "failure_reason"
+      ],
+      "consumerIntent": "소유 잠금과 결과 회수 조건에 따른 cleanup·보관 정책 구현",
+      "verificationRule": "성공/실패/취소 경로의 자기 자원 반환; 공유 기본 context와 Codex 세션 영향 0; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w17-s01-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w17-s01 follows w16-s03",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w17-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w16-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w17-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "소유 잠금과 결과 회수 조건에 따른 cleanup·보관 정책 구현",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w17",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "IMPLEMENT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w17-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w17-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w17-s01"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "소유 잠금과 결과 회수 조건에 따른 cleanup·보관 정책 구현의 구체 입력과 결과를 대조하고 성공/실패/취소 경로의 자기 자원 반환; 공유 기본 context와 Codex 세션 영향 0",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w17-s02",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w17-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "소유 잠금과 결과 회수 조건에 따른 cleanup·보관 정책 구현 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w17-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "request_ref",
+        "target_incarnation",
+        "result_collection_proof",
+        "cleanup_outcome",
+        "retention_reason",
+        "source_revision",
+        "failure_reason"
+      ],
+      "consumerIntent": "새 요청 경쟁·초안·중단·유실 응답·복원 fixture 검증",
+      "verificationRule": "성공/실패/취소 경로의 자기 자원 반환; 공유 기본 context와 Codex 세션 영향 0; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w17-s02-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w17-s02 follows w17-s01",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w17-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w17-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w17-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "새 요청 경쟁·초안·중단·유실 응답·복원 fixture 검증",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w17",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w17-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w17-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w17-s02"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "새 요청 경쟁·초안·중단·유실 응답·복원 fixture 검증의 구체 입력과 결과를 대조하고 성공/실패/취소 경로의 자기 자원 반환; 공유 기본 context와 Codex 세션 영향 0",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w17-s03",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w17-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "새 요청 경쟁·초안·중단·유실 응답·복원 fixture 검증 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w17-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "request_ref",
+        "target_incarnation",
+        "result_collection_proof",
+        "cleanup_outcome",
+        "retention_reason",
+        "source_revision",
+        "failure_reason"
+      ],
+      "consumerIntent": "successor work / owner rollout / HOH W11 comparison",
+      "verificationRule": "성공/실패/취소 경로의 자기 자원 반환; 공유 기본 context와 Codex 세션 영향 0; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w17-s03-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w17-s03 follows w17-s02",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w17-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w17-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:w18",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "OMC의 브라우저 후보·예산·효과 소비 연결",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "workRevision": 1,
+      "ordinal": 18,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LOCAL_TEST",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "collaborator": [
+        "urn:omc:memory-plan:owner:chatgpt-api",
+        "urn:omc:memory-plan:owner:orca"
+      ],
+      "dependsOn": [
+        "urn:omc:memory-plan:w02",
+        "urn:omc:memory-plan:w17"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w18"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w18",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:browser-retention"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:browser-user-20261110",
+        "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+        "urn:omc:memory-plan:source:psi-doc-6994ff647f71"
+      ],
+      "inputContract": "Current owner source/installed revision, fresh identity, complete request state and predecessor outputs; unknown is preserved.",
+      "outputContract": "새 daemon 없이 기존 owner를 호출; 캐시 STOPPED_GUARD를 탭 정리로 우회하거나 초기화하지 않음",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "derivedFrom": [
+        "urn:omc:memory-plan:source:browser-user-20261110"
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s07"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w18",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "OMC의 브라우저 후보·예산·효과 소비 연결 수용",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "NOT_EVALUATED",
+      "successCondition": "새 daemon 없이 기존 owner를 호출; 캐시 STOPPED_GUARD를 탭 정리로 우회하거나 초기화하지 않음",
+      "negativeCases": [
+        "Codex 또는 다른 세션을 유휴 프로세스로 잘못 종료",
+        "결과 미회수/초안/승인/복구 대기인데 IDLE만으로 종료",
+        "PID/탭 교체 및 동시 새 요청",
+        "실행 응답 유실을 성공 또는 자동 재시도로 처리"
+      ],
+      "verificationMethod": "Exact owner revision fixtures, typed owner/source checks and scoped canary only after prerequisites; delayed before/after readback.",
+      "metric": "protected_session_loss=0; active_request_loss=0; uncollected_result_loss=0; observed memory/PSI and latency separately recorded"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w18",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "OMC의 브라우저 후보·예산·효과 소비 연결 복구",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "procedure": "추가 처리를 중단하고 이전 owner source/설정으로 되돌린다. 결과·episode·예산을 되감지 않고 기존 operation을 조회한다. 닫힌 탭 복원은 회수된 결과와 알려진 소유 경로로만 하며 원 요청을 재전송하지 않는다.",
+      "preserve": "Codex, human tabs, login profiles, original request/results, uncertain intents, previous release and cumulative budget",
+      "precondition": "Same owner and operation identity; no unknown effect or concurrent writer; recoverability verified before any live closure"
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w18-w02",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w18 requires w02",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependent": "urn:omc:memory-plan:w18",
+      "prerequisite": "urn:omc:memory-plan:w02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "후행의 입력 계약이 선행의 검증된 분류/owner 구현 또는 중단 기준선을 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w18-w17",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w18 requires w17",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependent": "urn:omc:memory-plan:w18",
+      "prerequisite": "urn:omc:memory-plan:w17",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "후행의 입력 계약이 선행의 검증된 분류/owner 구현 또는 중단 기준선을 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w18-1",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w18 source 1",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w18",
+      "source": "urn:omc:memory-plan:source:browser-user-20261110",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "HOH 대화의 연속 두 사용자 메시지; 구분용 빈 줄 외 원문 보존"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w18-2",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w18 source 2",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w18",
+      "source": "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "memory.reclaim; memory.high; memory.max"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w18-3",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w18 source 3",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w18",
+      "source": "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "Pressure interface"
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w18-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "기존 cache 중단 상태와 browser owner 응답 계약 분리",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w18",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w02-s03",
+        "urn:omc:memory-plan:step:w17-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w18-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w02-s03",
+        "urn:omc:memory-plan:output:w17-s03"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "기존 cache 중단 상태와 browser owner 응답 계약 분리의 구체 입력과 결과를 대조하고 새 daemon 없이 기존 owner를 호출; 캐시 STOPPED_GUARD를 탭 정리로 우회하거나 초기화하지 않음",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w18-s01",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w18-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "기존 cache 중단 상태와 browser owner 응답 계약 분리 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w18-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "owner_reply",
+        "observation_time",
+        "action_budget",
+        "episode",
+        "pending_intent",
+        "native_result",
+        "anon_bytes",
+        "file_bytes",
+        "psi",
+        "refault_delta"
+      ],
+      "consumerIntent": "단일 controller에서 소유 후보와 결과를 소비하는 연결 구현",
+      "verificationRule": "새 daemon 없이 기존 owner를 호출; 캐시 STOPPED_GUARD를 탭 정리로 우회하거나 초기화하지 않음; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w18-s01-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w18-s01 follows w02-s03",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w18-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w02-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w18-s01-2",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w18-s01 follows w17-s03",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w18-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w17-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w18-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "단일 controller에서 소유 후보와 결과를 소비하는 연결 구현",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w18",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "IMPLEMENT",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w18-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w18-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w18-s01"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "단일 controller에서 소유 후보와 결과를 소비하는 연결 구현의 구체 입력과 결과를 대조하고 새 daemon 없이 기존 owner를 호출; 캐시 STOPPED_GUARD를 탭 정리로 우회하거나 초기화하지 않음",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w18-s02",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w18-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "단일 controller에서 소유 후보와 결과를 소비하는 연결 구현 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w18-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "owner_reply",
+        "observation_time",
+        "action_budget",
+        "episode",
+        "pending_intent",
+        "native_result",
+        "anon_bytes",
+        "file_bytes",
+        "psi",
+        "refault_delta"
+      ],
+      "consumerIntent": "중단 보존·누적 예산·관측 stale·부분 결과 반례 검증",
+      "verificationRule": "새 daemon 없이 기존 owner를 호출; 캐시 STOPPED_GUARD를 탭 정리로 우회하거나 초기화하지 않음; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w18-s02-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w18-s02 follows w18-s01",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w18-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w18-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w18-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "중단 보존·누적 예산·관측 stale·부분 결과 반례 검증",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w18",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "TEST",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "targets": [
+        "urn:omc:memory-plan:path:ops",
+        "urn:omc:memory-plan:path:feedback"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w18-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w18-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w18-s02"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "중단 보존·누적 예산·관측 stale·부분 결과 반례 검증의 구체 입력과 결과를 대조하고 새 daemon 없이 기존 owner를 호출; 캐시 STOPPED_GUARD를 탭 정리로 우회하거나 초기화하지 않음",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w18-s03",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w18-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "중단 보존·누적 예산·관측 stale·부분 결과 반례 검증 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w18-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:omc",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "owner_reply",
+        "observation_time",
+        "action_budget",
+        "episode",
+        "pending_intent",
+        "native_result",
+        "anon_bytes",
+        "file_bytes",
+        "psi",
+        "refault_delta"
+      ],
+      "consumerIntent": "successor work / owner rollout / HOH W11 comparison",
+      "verificationRule": "새 daemon 없이 기존 owner를 호출; 캐시 STOPPED_GUARD를 탭 정리로 우회하거나 초기화하지 않음; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w18-s03-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w18-s03 follows w18-s02",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w18-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w18-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:w19",
+      "type": [
+        "WorkItem",
+        "prov:Entity"
+      ],
+      "label": "소유 판본 전환과 한 탭 canary·HOH 효과 확인",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "workRevision": 1,
+      "ordinal": 19,
+      "priority": "P0",
+      "status": "PLANNED",
+      "executionClass": "LIVE_CHANGE",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "collaborator": [
+        "urn:omc:memory-plan:owner:omc",
+        "urn:omc:memory-plan:owner:hoh"
+      ],
+      "dependsOn": [
+        "urn:omc:memory-plan:w17",
+        "urn:omc:memory-plan:w18"
+      ],
+      "acceptance": [
+        "urn:omc:memory-plan:accept:w19"
+      ],
+      "rollback": "urn:omc:memory-plan:rollback:w19",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence",
+        "urn:omc:memory-plan:gate:development-protection"
+      ],
+      "addresses": [
+        "urn:omc:memory-plan:problem:browser-retention"
+      ],
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "evidence": [
+        "urn:omc:memory-plan:source:browser-user-20261110",
+        "urn:omc:memory-plan:source:playwright-browser-1.63.0",
+        "urn:omc:memory-plan:source:chrome-lifecycle-20261110",
+        "urn:omc:memory-plan:source:psi-doc-6994ff647f71"
+      ],
+      "inputContract": "Current owner source/installed revision, fresh identity, complete request state and predecessor outputs; unknown is preserved.",
+      "outputContract": "Codex 종료 0·진행 중 요청 손실 0·결과 회수 누락 0, 지연 비용과 관측 절감량을 분리; HOH 운영 배포 완료로 확대하지 않음",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "derivedFrom": [
+        "urn:omc:memory-plan:source:browser-user-20261110"
+      ],
+      "inStream": "urn:omc:memory-plan:stream:s07"
+    },
+    {
+      "id": "urn:omc:memory-plan:accept:w19",
+      "type": [
+        "AcceptanceCriterion",
+        "prov:Entity"
+      ],
+      "label": "소유 판본 전환과 한 탭 canary·HOH 효과 확인 수용",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "NOT_EVALUATED",
+      "successCondition": "Codex 종료 0·진행 중 요청 손실 0·결과 회수 누락 0, 지연 비용과 관측 절감량을 분리; HOH 운영 배포 완료로 확대하지 않음",
+      "negativeCases": [
+        "Codex 또는 다른 세션을 유휴 프로세스로 잘못 종료",
+        "결과 미회수/초안/승인/복구 대기인데 IDLE만으로 종료",
+        "PID/탭 교체 및 동시 새 요청",
+        "실행 응답 유실을 성공 또는 자동 재시도로 처리"
+      ],
+      "verificationMethod": "Exact owner revision fixtures, typed owner/source checks and scoped canary only after prerequisites; delayed before/after readback.",
+      "metric": "protected_session_loss=0; active_request_loss=0; uncollected_result_loss=0; observed memory/PSI and latency separately recorded"
+    },
+    {
+      "id": "urn:omc:memory-plan:rollback:w19",
+      "type": [
+        "RollbackPlan",
+        "prov:Entity"
+      ],
+      "label": "소유 판본 전환과 한 탭 canary·HOH 효과 확인 복구",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "procedure": "추가 처리를 중단하고 이전 owner source/설정으로 되돌린다. 결과·episode·예산을 되감지 않고 기존 operation을 조회한다. 닫힌 탭 복원은 회수된 결과와 알려진 소유 경로로만 하며 원 요청을 재전송하지 않는다.",
+      "preserve": "Codex, human tabs, login profiles, original request/results, uncertain intents, previous release and cumulative budget",
+      "precondition": "Same owner and operation identity; no unknown effect or concurrent writer; recoverability verified before any live closure"
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w19-w17",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w19 requires w17",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependent": "urn:omc:memory-plan:w19",
+      "prerequisite": "urn:omc:memory-plan:w17",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "후행의 입력 계약이 선행의 검증된 분류/owner 구현 또는 중단 기준선을 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:dependency:w19-w18",
+      "type": [
+        "Dependency",
+        "prov:Entity"
+      ],
+      "label": "w19 requires w18",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependent": "urn:omc:memory-plan:w19",
+      "prerequisite": "urn:omc:memory-plan:w18",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "후행의 입력 계약이 선행의 검증된 분류/owner 구현 또는 중단 기준선을 소비한다."
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w19-1",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w19 source 1",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w19",
+      "source": "urn:omc:memory-plan:source:browser-user-20261110",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "HOH 대화의 연속 두 사용자 메시지; 구분용 빈 줄 외 원문 보존"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w19-2",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w19 source 2",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w19",
+      "source": "urn:omc:memory-plan:source:playwright-browser-1.63.0",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "Browser.close and Browser.newContext lifecycle notes"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w19-3",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w19 source 3",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w19",
+      "source": "urn:omc:memory-plan:source:chrome-lifecycle-20261110",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "Frozen/discarded states and developer recommendations; snapshot, not installed Chromium proof"
+    },
+    {
+      "id": "urn:omc:memory-plan:evidence:w19-4",
+      "type": [
+        "EvidenceUse",
+        "prov:Entity"
+      ],
+      "label": "w19 source 4",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "workItem": "urn:omc:memory-plan:w19",
+      "source": "urn:omc:memory-plan:source:psi-doc-6994ff647f71",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "사용자 보호 요구 또는 해당 기능의 설계 근거; 배포/절감 증거가 아님.",
+      "locator": "Pressure interface"
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w19-s01",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "정확한 판본·계정·요청·복구점·한 대상 예산 확인",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w19",
+      "ordinal": 1,
+      "stepRevision": 1,
+      "stepKind": "DEFINE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w17-s03",
+        "urn:omc:memory-plan:step:w18-s03"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w19-s01",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w17-s03",
+        "urn:omc:memory-plan:output:w18-s03"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "정확한 판본·계정·요청·복구점·한 대상 예산 확인의 구체 입력과 결과를 대조하고 Codex 종료 0·진행 중 요청 손실 0·결과 회수 누락 0, 지연 비용과 관측 절감량을 분리; HOH 운영 배포 완료로 확대하지 않음",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w19-s01",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence",
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w19-s01",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "정확한 판본·계정·요청·복구점·한 대상 예산 확인 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w19-s01",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "release_revision",
+        "request_ref",
+        "target_incarnation",
+        "operation_id",
+        "before_after_memory",
+        "delayed_psi",
+        "recovery_outcome",
+        "hoh_wait_time",
+        "preserved_sessions"
+      ],
+      "consumerIntent": "owner 절차의 판본 전환과 적격 자동화 탭 하나 처리",
+      "verificationRule": "Codex 종료 0·진행 중 요청 손실 0·결과 회수 누락 0, 지연 비용과 관측 절감량을 분리; HOH 운영 배포 완료로 확대하지 않음; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w19-s01-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w19-s01 follows w17-s03",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w19-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w17-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w19-s01-2",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w19-s01 follows w18-s03",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w19-s01",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w18-s03",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w19-s02",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "owner 절차의 판본 전환과 적격 자동화 탭 하나 처리",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w19",
+      "ordinal": 2,
+      "stepRevision": 1,
+      "stepKind": "ACTUATE",
+      "runtimeEffect": "OWNER_SCOPED",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w19-s01"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w19-s02",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w19-s01"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "owner 절차의 판본 전환과 적격 자동화 탭 하나 처리의 구체 입력과 결과를 대조하고 Codex 종료 0·진행 중 요청 손실 0·결과 회수 누락 0, 지연 비용과 관측 절감량을 분리; HOH 운영 배포 완료로 확대하지 않음",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w19-s02",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence",
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w19-s02",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "owner 절차의 판본 전환과 적격 자동화 탭 하나 처리 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w19-s02",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "release_revision",
+        "request_ref",
+        "target_incarnation",
+        "operation_id",
+        "before_after_memory",
+        "delayed_psi",
+        "recovery_outcome",
+        "hoh_wait_time",
+        "preserved_sessions"
+      ],
+      "consumerIntent": "지연 메모리·복원·새 요청·HOH 입장 결과 되읽기",
+      "verificationRule": "Codex 종료 0·진행 중 요청 손실 0·결과 회수 누락 0, 지연 비용과 관측 절감량을 분리; HOH 운영 배포 완료로 확대하지 않음; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w19-s02-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w19-s02 follows w19-s01",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w19-s02",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w19-s01",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:step:w19-s03",
+      "type": [
+        "WorkStep",
+        "prov:Entity"
+      ],
+      "label": "지연 메모리·복원·새 요청·HOH 입장 결과 되읽기",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "recordedAt": "2026-11-10T09:11:45.223231+00:00",
+      "status": "PLANNED",
+      "parentWork": "urn:omc:memory-plan:w19",
+      "ordinal": 3,
+      "stepRevision": 1,
+      "stepKind": "OBSERVE",
+      "runtimeEffect": "NONE",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "targets": [
+        "urn:omc:memory-plan:path:browser-browser",
+        "urn:omc:memory-plan:path:browser-relay",
+        "urn:omc:memory-plan:path:browser-provider"
+      ],
+      "afterStep": [
+        "urn:omc:memory-plan:step:w19-s02"
+      ],
+      "expectsOutput": "urn:omc:memory-plan:output:w19-s03",
+      "requiresOutput": [
+        "urn:omc:memory-plan:output:w19-s02"
+      ],
+      "inputContract": "소유 판본과 단계 선행 산출물; protected/unknown state remains explicit.",
+      "doneWhen": "지연 메모리·복원·새 요청·HOH 입장 결과 되읽기의 구체 입력과 결과를 대조하고 Codex 종료 0·진행 중 요청 손실 0·결과 회수 누락 0, 지연 비용과 관측 절감량을 분리; HOH 운영 배포 완료로 확대하지 않음",
+      "checks": [
+        "request/target incarnation 및 owner/판본 일치",
+        "Codex·수동 탭·미회수/초안/승인·UNKNOWN 보호",
+        "성공·실패·미실행·불확실 구분과 결과 출처 결속"
+      ],
+      "stopWhen": [
+        "대상 교체·새 요청·초안·불확실 실행",
+        "소유 예산/현재 admission 거절",
+        "보호 세션 영향 또는 성능 회귀"
+      ],
+      "onFailure": "기존 결과와 실패 입력을 보존하고 이 owner 단계의 입력을 다시 확인한다. 미확정 효과는 재실행하지 않는다.",
+      "resumeAt": "urn:omc:memory-plan:step:w19-s03",
+      "budget": "한 소유 범위, 요청/결과 내용을 제외한 bounded metadata; live 단계는 적격 탭 최대 1개, 즉시/지연 관측 각 1회와 현재 owner의 RAM/시간 한도를 고정. 불확실·무진전은 자동 확대하지 않는다.",
+      "requiresGate": [
+        "urn:omc:memory-plan:gate:authorization",
+        "urn:omc:memory-plan:gate:identity",
+        "urn:omc:memory-plan:gate:capacity",
+        "urn:omc:memory-plan:gate:evidence",
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:output:w19-s03",
+      "type": [
+        "OutputContract",
+        "prov:Entity"
+      ],
+      "label": "지연 메모리·복원·새 요청·HOH 입장 결과 되읽기 산출물 계약",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "EXPECTED",
+      "expectedProducer": "urn:omc:memory-plan:step:w19-s03",
+      "assignedTo": "urn:omc:memory-plan:owner:chatgpt-api",
+      "format": "Existing owner request/attempt metadata or source/test result references; no duplicate journal",
+      "requiredFields": [
+        "step_id",
+        "step_revision",
+        "source_revision",
+        "release_revision",
+        "request_ref",
+        "target_incarnation",
+        "operation_id",
+        "before_after_memory",
+        "delayed_psi",
+        "recovery_outcome",
+        "hoh_wait_time",
+        "preserved_sessions"
+      ],
+      "consumerIntent": "successor work / owner rollout / HOH W11 comparison",
+      "verificationRule": "Codex 종료 0·진행 중 요청 손실 0·결과 회수 누락 0, 지연 비용과 관측 절감량을 분리; HOH 운영 배포 완료로 확대하지 않음; 실제 산출물이 없는 EXPECTED 계약을 실행 결과로 사용하지 않는다."
+    },
+    {
+      "id": "urn:omc:memory-plan:step-dependency:w19-s03-1",
+      "type": [
+        "StepDependency",
+        "prov:Entity"
+      ],
+      "label": "w19-s03 follows w19-s02",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "dependentStep": "urn:omc:memory-plan:step:w19-s03",
+      "prerequisiteStep": "urn:omc:memory-plan:step:w19-s02",
+      "relationshipStatus": "PROPOSED",
+      "rationale": "정확한 선행 output contract를 requiresOutput으로 소비하는 owner 인수인계."
+    },
+    {
+      "id": "urn:omc:memory-plan:milestone:s07",
+      "type": [
+        "Milestone",
+        "prov:Entity"
+      ],
+      "label": "브라우저 메모리 반환 수용",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "forStream": "urn:omc:memory-plan:stream:s07",
+      "requiredWorks": [
+        "urn:omc:memory-plan:w16",
+        "urn:omc:memory-plan:w17",
+        "urn:omc:memory-plan:w18",
+        "urn:omc:memory-plan:w19"
+      ],
+      "coverageMode": "ALL_MEMBERS",
+      "status": "NOT_EVALUATED",
+      "successCondition": "네 작업의 소유 계약과 보호 반례, 한 대상의 실제 효과가 확인된다.",
+      "evidenceRequired": [
+        "고정 판본의 source/fixture 검사",
+        "브라우저 owner canary와 지연 비용",
+        "보호 세션·요청·결과 손실 0"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:browser-owners",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "브라우저 작업을 실제로 쓰는 owner는?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "REGISTERED",
+      "sparql": "SELECT DISTINCT ?id ?label WHERE { ?work a mp:WorkItem ; mp:inStream <urn:omc:memory-plan:stream:s07> ; mp:assignedTo ?id . ?id rdfs:label ?label . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:owner:chatgpt-api",
+        "urn:omc:memory-plan:owner:omc"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:browser-protection",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "브라우저 작업에 공통으로 적용하는 Codex 보호 조건과 원문은?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "REGISTERED",
+      "sparql": "SELECT DISTINCT ?id ?condition ?source WHERE { ?work mp:inStream <urn:omc:memory-plan:stream:s07> ; mp:requiresGate ?id . ?id mp:condition ?condition ; <http://www.w3.org/ns/prov#wasDerivedFrom> ?source . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:gate:development-protection"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:browser-canary-prerequisites",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "한 탭 canary 전에 필요한 소유 작업은?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "REGISTERED",
+      "sparql": "SELECT DISTINCT ?id ?owner WHERE { <urn:omc:memory-plan:w19> mp:dependsOn+ ?id . ?id mp:assignedTo ?owner . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:w02",
+        "urn:omc:memory-plan:w16",
+        "urn:omc:memory-plan:w17",
+        "urn:omc:memory-plan:w18"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:browser-source",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "브라우저 보호·반환 설계의 직접 원천은?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "REGISTERED",
+      "sparql": "SELECT DISTINCT ?id ?authority ?sha WHERE { ?work mp:inStream <urn:omc:memory-plan:stream:s07> ; mp:evidence ?id . ?id mp:authority ?authority ; mp:sha256 ?sha . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:source:browser-user-20261110",
+        "urn:omc:memory-plan:source:playwright-browser-1.63.0",
+        "urn:omc:memory-plan:source:chrome-lifecycle-20261110",
+        "urn:omc:memory-plan:source:cgroup-doc-9c7ea0827bdc",
+        "urn:omc:memory-plan:source:psi-doc-6994ff647f71"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:browser-live-steps",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "브라우저 운영 효과를 수행하는 단계와 담당자는?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id ?owner WHERE { ?work mp:inStream <urn:omc:memory-plan:stream:s07> . ?id mp:parentWork ?work ; mp:runtimeEffect \"OWNER_SCOPED\" ; mp:assignedTo ?owner . } ORDER BY ?id",
+      "expectedIds": [
+        "urn:omc:memory-plan:step:w19-s02"
+      ]
+    },
+    {
+      "id": "urn:omc:memory-plan:question:browser-implemented",
+      "type": [
+        "CompetencyQuestion",
+        "prov:Entity"
+      ],
+      "label": "실제 완료 근거가 있는 브라우저 메모리 작업은?",
+      "authority": "SECONDARY_AI",
+      "attributedTo": "urn:omc:agent:codex",
+      "status": "REGISTERED",
+      "sparql": "SELECT ?id WHERE { ?id a mp:WorkItem ; mp:inStream <urn:omc:memory-plan:stream:s07> ; mp:status \"VERIFIED\" . } ORDER BY ?id",
+      "expectedIds": []
     }
   ]
 }
