@@ -1,0 +1,1403 @@
+{
+ "@context": {
+  "@version": 1.1,
+  "@vocab": "https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/",
+  "dp": "https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/",
+  "mp": "https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/",
+  "prov": "http://www.w3.org/ns/prov#",
+  "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+  "xsd": "http://www.w3.org/2001/XMLSchema#",
+  "id": "@id",
+  "type": "@type",
+  "label": "rdfs:label",
+  "recordedAt": {
+   "@type": "xsd:dateTime"
+  },
+  "Plan": "mp:Plan",
+  "WorkItem": "mp:WorkItem",
+  "SourceArtifact": "mp:SourceArtifact",
+  "Owner": "mp:Owner",
+  "OutputContract": "mp:OutputContract",
+  "AcceptanceCriterion": "mp:AcceptanceCriterion",
+  "CompetencyQuestion": "mp:CompetencyQuestion",
+  "assignedTo": {
+   "@id": "mp:assignedTo",
+   "@type": "@id"
+  },
+  "dependsOn": {
+   "@id": "mp:dependsOn",
+   "@type": "@id"
+  },
+  "acceptance": {
+   "@id": "mp:acceptance",
+   "@type": "@id"
+  },
+  "evidence": {
+   "@id": "mp:evidence",
+   "@type": "@id"
+  },
+  "expectsOutput": {
+   "@id": "mp:expectsOutput",
+   "@type": "@id"
+  },
+  "requiresOutput": {
+   "@id": "mp:requiresOutput",
+   "@type": "@id"
+  },
+  "expectedProducer": {
+   "@id": "mp:expectedProducer",
+   "@type": "@id"
+  },
+  "workItems": {
+   "@id": "dp:workItems",
+   "@type": "@id"
+  },
+  "realizes": {
+   "@id": "dp:realizes",
+   "@type": "@id"
+  },
+  "delegatesTo": {
+   "@id": "dp:delegatesTo",
+   "@type": "@id"
+  },
+  "derivedFrom": {
+   "@id": "prov:wasDerivedFrom",
+   "@type": "@id"
+  },
+  "attributedTo": {
+   "@id": "prov:wasAttributedTo",
+   "@type": "@id"
+  },
+  "owner": {
+   "@id": "dp:owner",
+   "@type": "@id"
+  },
+  "ownsPaths": {
+   "@id": "dp:ownsPaths",
+   "@type": "@id"
+  }
+ },
+ "@graph": [
+  {
+   "id": "urn:omc:agent:claude",
+   "type": "prov:SoftwareAgent",
+   "label": "Claude: 계획 작성자",
+   "authority": "SECONDARY_AI"
+  },
+  {
+   "id": "urn:omc:memory-plan:owner:omc",
+   "type": "Owner",
+   "label": "omc",
+   "authority": "SECONDARY_AI",
+   "repository": "https://github.com/gj3447/orbital-motion-cloud"
+  },
+  {
+   "id": "urn:omc:memory-plan:owner:hoh",
+   "type": "Owner",
+   "label": "hoh",
+   "authority": "SECONDARY_AI",
+   "repository": "https://github.com/gj3447/HOH"
+  },
+  {
+   "id": "urn:omc:development-plan:owner:mhc",
+   "type": "Owner",
+   "label": "mhc",
+   "authority": "SECONDARY_AI",
+   "repository": "https://github.com/gj3447/MHC"
+  },
+  {
+   "id": "urn:omc:memory-plan:owner:chatgpt-api",
+   "type": "Owner",
+   "label": "chatgpt-api",
+   "authority": "SECONDARY_AI",
+   "repository": "https://github.com/gj3447/chatgpt-api"
+  },
+  {
+   "id": "urn:omc:memory-plan:owner:orca",
+   "type": "Owner",
+   "label": "orca",
+   "authority": "SECONDARY_AI",
+   "repository": "https://github.com/gj3447/ORCA_SETTING"
+  },
+  {
+   "id": "urn:omc:development-plan:role:omc",
+   "type": "RoleBoundary",
+   "label": "입운구: 실행",
+   "authority": "SECONDARY_AI",
+   "owner": "urn:omc:memory-plan:owner:omc",
+   "checkout": ".",
+   "responsibilities": [
+    "노드 준비·관측",
+    "자원 선택·배정·예약",
+    "worker 실행·입력 전달·결과 회수",
+    "상태·재시도·반납",
+    "실측을 다음 선택에 반영",
+    "OMC 저장소 파일 수정"
+   ],
+   "excludes": [
+    "HOH 검증 묶음·합격 기준 결정",
+    "HOH 릴리스·화면 수정",
+    "MHC 지급 규칙 결정"
+   ],
+   "ownsPaths": [
+    "urn:omc:workload-mobility:path:launch",
+    "urn:omc:workload-mobility:path:nodes",
+    "urn:omc:workload-mobility:path:windows",
+    "urn:omc:workload-mobility:path:selection",
+    "urn:omc:memory-plan:path:ops",
+    "urn:omc:memory-plan:path:feedback",
+    "urn:omc:memory-plan:path:memory",
+    "urn:omc:memory-plan:path:planner",
+    "urn:omc:memory-plan:path:ops-guide",
+    "urn:omc:memory-plan:path:rebalance-guide"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:role-request",
+    "urn:omc:development-plan:source:operating-model"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:role:hoh",
+   "type": "RoleBoundary",
+   "label": "HOH: 작업 주인과 개인 화면",
+   "authority": "SECONDARY_AI",
+   "owner": "urn:omc:memory-plan:owner:hoh",
+   "checkout": "../HOH",
+   "responsibilities": [
+    "HOH 검증 묶음·테스트 식별자 고정",
+    "HOH 합격 기준",
+    "HOH 릴리스·공개 되읽기",
+    "개인 관측·기여 화면"
+   ],
+   "excludes": [
+    "실행 노드 선택·배정·예약",
+    "OMC worker·전달·회수·재시도 경로",
+    "OMC 저장소 파일 수정"
+   ],
+   "ownsPaths": [
+    "urn:omc:workload-mobility:path:verifier",
+    "urn:omc:workload-mobility:path:browser",
+    "urn:omc:workload-mobility:path:release",
+    "urn:omc:memory-plan:path:hoh-check",
+    "urn:omc:memory-plan:path:hoh-guide"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:role-request",
+    "urn:omc:development-plan:source:operating-model"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:role:mhc",
+   "type": "RoleBoundary",
+   "label": "MHC: 정산",
+   "authority": "SECONDARY_AI",
+   "owner": "urn:omc:development-plan:owner:mhc",
+   "checkout": "../metahumocoin",
+   "responsibilities": [
+    "검증된 결과에 대한 견적·계약·지급·반납"
+   ],
+   "excludes": [
+    "OMC 배정·실행 경로 수정",
+    "사용률만으로 지급"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:role-request",
+    "urn:omc:development-plan:source:operating-model"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:role:chatgpt-api",
+   "type": "RoleBoundary",
+   "label": "chatgpt-api: 브라우저 수명",
+   "authority": "SECONDARY_AI",
+   "owner": "urn:omc:memory-plan:owner:chatgpt-api",
+   "checkout": "../chatgpt-api",
+   "responsibilities": [
+    "브라우저 탭·요청 수명과 그 소유자 API"
+   ],
+   "excludes": [
+    "OMC 운영 주기 결정",
+    "HOH 화면 수정"
+   ],
+   "ownsPaths": [
+    "urn:omc:memory-plan:path:browser-browser",
+    "urn:omc:memory-plan:path:browser-relay",
+    "urn:omc:memory-plan:path:browser-provider"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:role-request",
+    "urn:omc:development-plan:source:operating-model"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:role:orca",
+   "type": "RoleBoundary",
+   "label": "ORCA_SETTING: 저장소 가드",
+   "authority": "SECONDARY_AI",
+   "owner": "urn:omc:memory-plan:owner:orca",
+   "checkout": "../ORCA_SETTING",
+   "responsibilities": [
+    "저장소 가드·캐시 크레딧"
+   ],
+   "excludes": [
+    "OMC 배정·실행 경로 수정"
+   ],
+   "ownsPaths": [
+    "urn:omc:memory-plan:path:guard",
+    "urn:omc:memory-plan:path:credit"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:role-request",
+    "urn:omc:development-plan:source:operating-model"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:source:request",
+   "type": "SourceArtifact",
+   "label": "이 계획의 사용자 요청",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "INLINE_QUOTE",
+   "quote": [
+    "파편화 된거 묶어주고 어케 그 개발을 진행해야할지 감좀 잡아줄수 있겟냐 ㅇㅇ?",
+    "일단 작업 계획 표준그래프 엔지니어링으로 계획 수립해줘봐봐 ㅇㅇ"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:source:agent-cloud",
+   "type": "SourceArtifact",
+   "label": "agent 시대의 cloud 정의",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-17/continuous-tool-growth/user-agent-cloud.txt",
+   "sha256": "e0856aec8eb47a47153984c055e0488655ac6d34a2209d0f46f299f0b8890751",
+   "bytes": 138
+  },
+  {
+   "id": "urn:omc:development-plan:source:tool-growth",
+   "type": "SourceArtifact",
+   "label": "도구가 계속 증가하는 구조라는 정정",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-17/continuous-tool-growth/user-correction.txt",
+   "sha256": "31a8ccffd230ce00c17bd7ae02773d9c897f4a20a366a8dbf011c3e874a15c09",
+   "bytes": 229
+  },
+  {
+   "id": "urn:omc:development-plan:source:rebalancing",
+   "type": "SourceArtifact",
+   "label": "최적화 리밸런싱이 핵심 동작",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-17/agent-cloud-research/user-rebalancing.txt",
+   "sha256": "1d841fbb7fec8d01e9c5df0d1a41c9597eac3f477c9987c7f401c6ded50ac8f0",
+   "bytes": 56
+  },
+  {
+   "id": "urn:omc:development-plan:source:rebalancer-priority",
+   "type": "SourceArtifact",
+   "label": "리밸런서가 가장 중요하다는 지시",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-16/rebalancer-priority/user-verbatim.txt",
+   "sha256": "7b0e07e5742cfd67515074262fcc0c327167d63676a874d529ba6293382376b0",
+   "bytes": 712
+  },
+  {
+   "id": "urn:omc:development-plan:source:placement",
+   "type": "SourceArtifact",
+   "label": "하드웨어 상황에 맞춘 데이터 배치 지시",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-10/hardware-adaptive-placement/user-verbatim.txt",
+   "sha256": "98f4b5a3e21b740542111410fd2efbb843031b3c9fee7b61823402642fe7eb97",
+   "bytes": 449
+  },
+  {
+   "id": "urn:omc:development-plan:source:hardware-native",
+   "type": "SourceArtifact",
+   "label": "하드웨어에 맞춰 AI가 각각 다르게 돌린다는 구상",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-10/hardware-software-fit/user-verbatim.txt",
+   "sha256": "0ed24bd3d36fd55d7655d6ac41d8c29393c4335f3543cf453333e8f331cf57ef",
+   "bytes": 716
+  },
+  {
+   "id": "urn:omc:development-plan:source:resource-credit",
+   "type": "SourceArtifact",
+   "label": "자원 제공·크레딧·P2P 자유 경제 합의",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-10/resource-credit-shared-intelligence/user-verbatim.txt",
+   "sha256": "f8c80dee3a5b14738cb94c18ba90df48dd31d620fc6d28c15e060ebdc5b46e5b",
+   "bytes": 421
+  },
+  {
+   "id": "urn:omc:development-plan:source:bhgman",
+   "type": "SourceArtifact",
+   "label": "기여→코인→비행기맨에게 지식",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-10/bhgman-contribution-knowledge/user-verbatim.txt",
+   "sha256": "74a265348c4d3d32478dfad7c36a0e86ea2d856dcc8b401c7b725ba7e49a001b",
+   "bytes": 391
+  },
+  {
+   "id": "urn:omc:development-plan:source:perspectives",
+   "type": "SourceArtifact",
+   "label": "세 관점이 각각 다르다는 발화",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-10/mind-omc-perspectives/user-verbatim.txt",
+   "sha256": "4b770fb2cec50e6452370695f655fa8d3b995b185b7741ed945f2659c6710715",
+   "bytes": 173
+  },
+  {
+   "id": "urn:omc:development-plan:source:flywheel-premise",
+   "type": "SourceArtifact",
+   "label": "토큰 대비 지능 플라이휠의 전제",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-10-10/token-efficiency-flywheel/premise-verbatim.txt",
+   "sha256": "4c5e36cd609db6005e7ecb80bd5bfc0e3c4f516c2c01f7e842eac6f318a27fe1",
+   "bytes": 312
+  },
+  {
+   "id": "urn:omc:development-plan:source:memory-request",
+   "type": "SourceArtifact",
+   "label": "메모리 작업 계획 요청",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-11-07/memory-plan/user-request.txt",
+   "sha256": "7adedab4627fb7fe53b65c69d75133a8f896637c7faa6db571f37d6a40a80a38",
+   "bytes": 135
+  },
+  {
+   "id": "urn:omc:development-plan:source:physical-mhc",
+   "type": "SourceArtifact",
+   "label": "느슨한 결합·이동 속도·신뢰도·MHC 기록",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "RECORD_WITH_USER_QUOTE",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "records/2026-11-10/physical-resource-mhc/README.md",
+   "sha256": "b7e2144d10fc1220c6d14031b18bd9d0b82a24882d2a819460bd0642f791365b",
+   "bytes": 12198,
+   "locator": "#user-source 절만 사용자 원문, 나머지는 AI 적용"
+  },
+  {
+   "id": "urn:omc:development-plan:source:apostle-sources",
+   "type": "SourceArtifact",
+   "label": "사도 8번 자료집",
+   "authority": "SOURCE_DOCUMENT",
+   "sourceKind": "ARCHIVE_DOCUMENT",
+   "sourceStatus": "PINNED_BYTES",
+   "path": "sources/SYMPOSIUM/METAHUMOTONIC/ORBITAL_MOTION_CLOUD/SOURCES.md",
+   "sha256": "7186217061c13a847cb84584ee61facd1051e6edab77047c4596646f3e6b1cc5",
+   "bytes": 22931
+  },
+  {
+   "id": "urn:omc:development-plan:source:what-is",
+   "type": "SourceArtifact",
+   "label": "정의 색인",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "OWNER_DOCUMENT",
+   "sourceStatus": "LIVE_PATH",
+   "path": "docs/WHAT_IS.md"
+  },
+  {
+   "id": "urn:omc:development-plan:source:memory-plan-doc",
+   "type": "SourceArtifact",
+   "label": "메모리 복구 계획",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "OWNER_DOCUMENT",
+   "sourceStatus": "LIVE_PATH",
+   "path": "docs/MEMORY_RECOVERY_PLAN.md"
+  },
+  {
+   "id": "urn:omc:development-plan:source:mobility-doc",
+   "type": "SourceArtifact",
+   "label": "HOH 검증 작업 이동 계획",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "OWNER_DOCUMENT",
+   "sourceStatus": "LIVE_PATH",
+   "path": "docs/WORKLOAD_MOBILITY_PLAN.md"
+  },
+  {
+   "id": "urn:omc:development-plan:source:selection-doc",
+   "type": "SourceArtifact",
+   "label": "비용·신뢰도·견적·피드백 구현",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "OWNER_DOCUMENT",
+   "sourceStatus": "LIVE_PATH",
+   "path": "docs/RESOURCE_SELECTION.md"
+  },
+  {
+   "id": "urn:omc:development-plan:source:rebalancer-doc",
+   "type": "SourceArtifact",
+   "label": "리밸런서 설계와 실측",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "OWNER_DOCUMENT",
+   "sourceStatus": "LIVE_PATH",
+   "path": "docs/REBALANCER.md"
+  },
+  {
+   "id": "urn:omc:development-plan:source:validation-doc",
+   "type": "SourceArtifact",
+   "label": "도구 증가·리밸런싱 4조건 비교 설계",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "OWNER_DOCUMENT",
+   "sourceStatus": "LIVE_PATH",
+   "path": "docs/OPENSOURCE_VALIDATION.md"
+  },
+  {
+   "id": "urn:omc:development-plan:source:p2p-doc",
+   "type": "SourceArtifact",
+   "label": "P2P 전송 경로",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "OWNER_DOCUMENT",
+   "sourceStatus": "LIVE_PATH",
+   "path": "docs/P2P_TRANSPORT.md"
+  },
+  {
+   "id": "urn:omc:development-plan:source:execution-doc",
+   "type": "SourceArtifact",
+   "label": "실행 후보 비교와 실측",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "OWNER_DOCUMENT",
+   "sourceStatus": "LIVE_PATH",
+   "path": "docs/EXECUTION_PLANNING.md"
+  },
+  {
+   "id": "urn:omc:development-plan:source:role-request",
+   "type": "SourceArtifact",
+   "label": "입운구·HOH 역할 구분 요청",
+   "authority": "USER_PRIMARY",
+   "sourceKind": "USER_MESSAGE",
+   "sourceStatus": "INLINE_QUOTE",
+   "quote": [
+    "그 입운구 역할이랑 hoh 역할이랑 제대로 나눠줘야하는거 알지 ㅇㅇ?",
+    "ㅇㅇ 둘다 진행해줘 명확하게 역할구분 드가자 ㅇㅇ"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:source:operating-model",
+   "type": "SourceArtifact",
+   "label": "OMC 운영 모델의 책임 배분",
+   "authority": "SECONDARY_AI",
+   "sourceKind": "OWNER_DOCUMENT",
+   "sourceStatus": "LIVE_PATH",
+   "path": "docs/OMC_OPERATING_MODEL.md"
+  },
+  {
+   "id": "urn:omc:development-plan:def:identity",
+   "type": "DefinitionElement",
+   "label": "12사도 8번, 약칭 OMC",
+   "authority": "SECONDARY_AI",
+   "elementKind": "IDENTITY",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:apostle-sources"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:agent-cloud",
+   "type": "DefinitionElement",
+   "label": "agent 시대의 cloud: 요청이 HSWM·HOH·기존 연구와 이어져 실행됨",
+   "authority": "SECONDARY_AI",
+   "elementKind": "PROJECT",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:agent-cloud"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:philosophy",
+   "type": "DefinitionElement",
+   "label": "존재의 사도, 원리를 동작하게 하는 에너지",
+   "authority": "SECONDARY_AI",
+   "elementKind": "PERSPECTIVE",
+   "developmentScope": "NOT_A_DEVELOPMENT_TARGET",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:apostle-sources",
+    "urn:omc:development-plan:source:perspectives"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:dw-view",
+   "type": "DefinitionElement",
+   "label": "디멘션 워커가 보는 OMC",
+   "authority": "SECONDARY_AI",
+   "elementKind": "PERSPECTIVE",
+   "developmentScope": "OPEN_USER_UNDEFINED",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:perspectives"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:participation",
+   "type": "DefinitionElement",
+   "label": "자유·경제·합의 아래 자원을 기여하고 지능을 이용",
+   "authority": "SECONDARY_AI",
+   "elementKind": "PURPOSE",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:resource-credit",
+    "urn:omc:development-plan:source:bhgman"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:settlement",
+   "type": "DefinitionElement",
+   "label": "기여와 이용을 MHC로 정산",
+   "authority": "SECONDARY_AI",
+   "elementKind": "LOOP_SEGMENT",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:physical-mhc",
+    "urn:omc:development-plan:source:bhgman"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:selection",
+   "type": "DefinitionElement",
+   "label": "느슨하게 결합한 자원을 비용·이동 속도·기기 신뢰도로 선택",
+   "authority": "SECONDARY_AI",
+   "elementKind": "LOOP_SEGMENT",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:physical-mhc"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:placement-execution",
+   "type": "DefinitionElement",
+   "label": "의미와 연결은 그대로 두고 하드웨어 상황에 맞춰 배치·실행",
+   "authority": "SECONDARY_AI",
+   "elementKind": "LOOP_SEGMENT",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:placement"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:feedback",
+   "type": "DefinitionElement",
+   "label": "검증된 결과가 다음 선택의 조건으로 돌아옴",
+   "authority": "SECONDARY_AI",
+   "elementKind": "LOOP_SEGMENT",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:flywheel-premise",
+    "urn:omc:development-plan:source:physical-mhc"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:hardware-native",
+   "type": "DefinitionElement",
+   "label": "AI가 하드웨어에 맞춰 소프트웨어를 각각 다르게 구성",
+   "authority": "SECONDARY_AI",
+   "elementKind": "STRUCTURE",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:hardware-native"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:rebalancing",
+   "type": "DefinitionElement",
+   "label": "메모리·CPU·GPU 최적화 리밸런싱",
+   "authority": "SECONDARY_AI",
+   "elementKind": "OPERATION",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:rebalancer-priority",
+    "urn:omc:development-plan:source:rebalancing"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:tool-growth",
+   "type": "DefinitionElement",
+   "label": "사용 중 도구가 계속 증가",
+   "authority": "SECONDARY_AI",
+   "elementKind": "OPERATION",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:tool-growth"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:def:foundation",
+   "type": "DefinitionElement",
+   "label": "순환을 돌릴 장비의 메모리 안정",
+   "authority": "SECONDARY_AI",
+   "elementKind": "FOUNDATION",
+   "developmentScope": "IN_PLAN",
+   "derivedFrom": [
+    "urn:omc:development-plan:source:memory-request"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:existing:memory",
+   "type": "ExistingWork",
+   "label": "메모리 복구 계획의 선행 없는 시작 작업",
+   "authority": "SECONDARY_AI",
+   "graphPath": "graph/memory-recovery-plan.jsonld",
+   "externalPlan": "urn:omc:memory-plan:plan:20261107",
+   "externalIds": [
+    "urn:omc:memory-plan:w01",
+    "urn:omc:memory-plan:w02",
+    "urn:omc:memory-plan:w16"
+   ],
+   "identityMerge": false
+  },
+  {
+   "id": "urn:omc:development-plan:existing:mobility-loop",
+   "type": "ExistingWork",
+   "label": "작업 이동 계획 W01–W08: 준비·배정·실행·검증·장애 수용",
+   "authority": "SECONDARY_AI",
+   "graphPath": "graph/workload-mobility-plan.jsonld",
+   "externalPlan": "urn:omc:workload-mobility:plan:20261110",
+   "externalIds": [
+    "urn:omc:workload-mobility:w01",
+    "urn:omc:workload-mobility:w02",
+    "urn:omc:workload-mobility:w03",
+    "urn:omc:workload-mobility:w04",
+    "urn:omc:workload-mobility:w05",
+    "urn:omc:workload-mobility:w06",
+    "urn:omc:workload-mobility:w07",
+    "urn:omc:workload-mobility:w08"
+   ],
+   "identityMerge": false
+  },
+  {
+   "id": "urn:omc:development-plan:existing:mobility-feedback",
+   "type": "ExistingWork",
+   "label": "작업 이동 계획 W09: 실측을 다음 배정에 반영",
+   "authority": "SECONDARY_AI",
+   "graphPath": "graph/workload-mobility-plan.jsonld",
+   "externalPlan": "urn:omc:workload-mobility:plan:20261110",
+   "externalIds": [
+    "urn:omc:workload-mobility:w09"
+   ],
+   "identityMerge": false
+  },
+  {
+   "id": "urn:omc:development-plan:d01",
+   "type": "WorkItem",
+   "label": "장비 메모리 안정화",
+   "authority": "SECONDARY_AI",
+   "status": "PLANNED",
+   "relationshipStatus": "PROPOSED",
+   "ordinal": 1,
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "dependsOn": [],
+   "realizes": [
+    "urn:omc:development-plan:def:foundation"
+   ],
+   "evidence": [
+    "urn:omc:development-plan:source:memory-plan-doc",
+    "urn:omc:development-plan:source:memory-request"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:request",
+    "urn:omc:development-plan:source:what-is"
+   ],
+   "attributedTo": "urn:omc:agent:claude",
+   "executionClass": "DELEGATED_PLAN",
+   "targetPaths": [
+    "scripts/memory_plan.mjs"
+   ],
+   "inputContract": "메모리 복구 계획 v2.1.0의 현재 판본과 fresh 관측. 세부 단계·담당·보호 대상은 그 계획을 따른다.",
+   "expectsOutput": "urn:omc:development-plan:output:d01",
+   "requiresOutput": [],
+   "acceptance": "urn:omc:development-plan:accept:d01",
+   "budget": "위임한 계획의 단계별 예산을 그대로 따른다. 이 계획에서 새 예산을 만들지 않는다.",
+   "onFailure": "위임한 계획의 실패·재개 지점을 따른다. 이 작업은 그 결과만 읽는다.",
+   "stopWhen": [
+    "보호 세션 영향",
+    "owner 입장 거절"
+   ],
+   "userDecision": "NONE",
+   "delegatesTo": [
+    "urn:omc:development-plan:existing:memory"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:output:d01",
+   "type": "OutputContract",
+   "label": "장비 메모리 안정화 산출물",
+   "authority": "SECONDARY_AI",
+   "status": "EXPECTED",
+   "expectedProducer": "urn:omc:development-plan:d01",
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "requiredFields": [
+    "memory_plan_revision",
+    "completed_work_ids",
+    "effect_comparison_ref",
+    "observed_at"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:accept:d01",
+   "type": "AcceptanceCriterion",
+   "label": "장비 메모리 안정화 판정",
+   "authority": "SECONDARY_AI",
+   "status": "NOT_EVALUATED",
+   "successCondition": "메모리 계획의 효과 비교 작업(w11)이 같은 HOH 작업의 전후 결과를 내고, 이후 측정을 막는 입장 거절이 사라졌는지 관측으로 확인된다.",
+   "negativeCases": [
+    "계획 검사 통과를 효과로 집계",
+    "Codex·보호 세션을 정리 대상으로 분류",
+    "오래된 관측으로 판정"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:d02",
+   "type": "WorkItem",
+   "label": "기준 작업 한 바퀴: 준비→선택→배치·실행→검증·회수",
+   "authority": "SECONDARY_AI",
+   "status": "PLANNED",
+   "relationshipStatus": "PROPOSED",
+   "ordinal": 2,
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "dependsOn": [],
+   "realizes": [
+    "urn:omc:development-plan:def:agent-cloud",
+    "urn:omc:development-plan:def:selection",
+    "urn:omc:development-plan:def:placement-execution"
+   ],
+   "evidence": [
+    "urn:omc:development-plan:source:mobility-doc",
+    "urn:omc:development-plan:source:selection-doc"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:request",
+    "urn:omc:development-plan:source:what-is"
+   ],
+   "attributedTo": "urn:omc:agent:claude",
+   "executionClass": "DELEGATED_PLAN",
+   "targetPaths": [
+    "scripts/workload_plan.py",
+    "scripts/program_launch.py",
+    "scripts/resource_selection.py"
+   ],
+   "inputContract": "기준 작업은 작업 이동 계획이 정한 HOH 합성 검증으로 둔다. 사용자가 다른 반복 작업을 지정하면 교체한다.",
+   "expectsOutput": "urn:omc:development-plan:output:d02",
+   "requiresOutput": [],
+   "acceptance": "urn:omc:development-plan:accept:d02",
+   "budget": "작업 이동 계획의 제안 예산(job당 최대 3 attempts·전체 30분)과 owner의 더 작은 한도를 따른다.",
+   "onFailure": "작업 이동 계획의 실패 정책을 따른다. 제품 실패와 기반 실패를 구분해 넘긴다.",
+   "stopWhen": [
+    "부모 시간·횟수 소진",
+    "owner 입장 거절"
+   ],
+   "userDecision": "NONE",
+   "delegatesTo": [
+    "urn:omc:development-plan:existing:mobility-loop"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:output:d02",
+   "type": "OutputContract",
+   "label": "기준 작업 한 바퀴: 준비→선택→배치·실행→검증·회수 산출물",
+   "authority": "SECONDARY_AI",
+   "status": "EXPECTED",
+   "expectedProducer": "urn:omc:development-plan:d02",
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "requiredFields": [
+    "reference_workload_id",
+    "job_id",
+    "selected_node",
+    "selection_reasons",
+    "result_digest",
+    "evidence_manifest",
+    "reservation_released"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:accept:d02",
+   "type": "AcceptanceCriterion",
+   "label": "기준 작업 한 바퀴: 준비→선택→배치·실행→검증·회수 판정",
+   "authority": "SECONDARY_AI",
+   "status": "NOT_EVALUATED",
+   "successCondition": "같은 작업이 다른 물리 호스트에서 선택·실행·검증·회수·반납까지 끝나고, 응답 유실·취소 뒤에도 중복 효과가 없다.",
+   "negativeCases": [
+    "같은 물리 호스트의 다른 VM을 분산으로 집계",
+    "결과 누락을 통과로 처리",
+    "실행 여부 불명 상태에서 재제출"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:d03",
+   "type": "WorkItem",
+   "label": "실측을 다음 선택에 반영",
+   "authority": "SECONDARY_AI",
+   "status": "PLANNED",
+   "relationshipStatus": "PROPOSED",
+   "ordinal": 3,
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "dependsOn": [
+    "urn:omc:development-plan:d02"
+   ],
+   "realizes": [
+    "urn:omc:development-plan:def:feedback",
+    "urn:omc:development-plan:def:selection"
+   ],
+   "evidence": [
+    "urn:omc:development-plan:source:mobility-doc",
+    "urn:omc:development-plan:source:selection-doc"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:request",
+    "urn:omc:development-plan:source:what-is"
+   ],
+   "attributedTo": "urn:omc:agent:claude",
+   "executionClass": "DELEGATED_PLAN",
+   "targetPaths": [
+    "scripts/resource_selection.py"
+   ],
+   "inputContract": "D02의 job·결과·시간·실패 기록.",
+   "expectsOutput": "urn:omc:development-plan:output:d03",
+   "requiresOutput": [
+    "urn:omc:development-plan:output:d02"
+   ],
+   "acceptance": "urn:omc:development-plan:accept:d03",
+   "budget": "로컬 검사 범위. 추가 실물 실행은 D02의 남은 예산 안에서만.",
+   "onFailure": "반영 전 선택 상태를 보존하고 D02의 결과 계약부터 다시 확인한다.",
+   "stopWhen": [
+    "D02 결과 계약 불일치"
+   ],
+   "userDecision": "NONE",
+   "delegatesTo": [
+    "urn:omc:development-plan:existing:mobility-feedback"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:output:d03",
+   "type": "OutputContract",
+   "label": "실측을 다음 선택에 반영 산출물",
+   "authority": "SECONDARY_AI",
+   "status": "EXPECTED",
+   "expectedProducer": "urn:omc:development-plan:d03",
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "requiredFields": [
+    "source_job_ids",
+    "values_used_by_next_selection",
+    "selection_before",
+    "selection_after"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:accept:d03",
+   "type": "AcceptanceCriterion",
+   "label": "실측을 다음 선택에 반영 판정",
+   "authority": "SECONDARY_AI",
+   "status": "NOT_EVALUATED",
+   "successCondition": "다음 선택이 D02의 완료 시간·신뢰도·이동 비용을 실제로 읽어 썼다는 것이 선택 근거에 드러난다.",
+   "negativeCases": [
+    "기록만 하고 다음 선택이 읽지 않음",
+    "검증 안 된 결과를 신뢰도에 반영",
+    "미관측을 0으로 채움"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:d04",
+   "type": "WorkItem",
+   "label": "같은 작업의 MHC 정산 연결",
+   "authority": "SECONDARY_AI",
+   "status": "PLANNED",
+   "relationshipStatus": "PROPOSED",
+   "ordinal": 4,
+   "assignedTo": "urn:omc:development-plan:owner:mhc",
+   "dependsOn": [
+    "urn:omc:development-plan:d02"
+   ],
+   "realizes": [
+    "urn:omc:development-plan:def:settlement",
+    "urn:omc:development-plan:def:participation"
+   ],
+   "evidence": [
+    "urn:omc:development-plan:source:selection-doc",
+    "urn:omc:development-plan:source:physical-mhc",
+    "urn:omc:development-plan:source:bhgman"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:request",
+    "urn:omc:development-plan:source:what-is"
+   ],
+   "attributedTo": "urn:omc:agent:claude",
+   "executionClass": "OWNER_RUNTIME_CHANGE",
+   "targetPaths": [
+    "../metahumocoin/tools/market_service.py"
+   ],
+   "inputContract": "D02의 검증된 결과(output:d02)와 기존 내부 시장의 계약 경로. OMC 쪽 실행 기록은 그 산출물로만 받고 OMC 경로는 고치지 않는다. 시험용 크레딧만 사용한다.",
+   "expectsOutput": "urn:omc:development-plan:output:d04",
+   "requiresOutput": [
+    "urn:omc:development-plan:output:d02"
+   ],
+   "acceptance": "urn:omc:development-plan:accept:d04",
+   "budget": "시험용 크레딧 한도 안. 실제 화폐·외부 결제는 범위 밖.",
+   "onFailure": "계약을 취소·환불 상태로 되돌리고 기존 시장 상태를 보존한다.",
+   "stopWhen": [
+    "MHC owner 계약과 불일치",
+    "실제 결제 경로 접촉"
+   ],
+   "userDecision": "NONE"
+  },
+  {
+   "id": "urn:omc:development-plan:output:d04",
+   "type": "OutputContract",
+   "label": "같은 작업의 MHC 정산 연결 산출물",
+   "authority": "SECONDARY_AI",
+   "status": "EXPECTED",
+   "expectedProducer": "urn:omc:development-plan:d04",
+   "assignedTo": "urn:omc:development-plan:owner:mhc",
+   "requiredFields": [
+    "contract_id",
+    "job_id",
+    "verified_result_ref",
+    "metered_resources",
+    "credit_delta_provider",
+    "credit_delta_consumer",
+    "refund_or_release"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:accept:d04",
+   "type": "AcceptanceCriterion",
+   "label": "같은 작업의 MHC 정산 연결 판정",
+   "authority": "SECONDARY_AI",
+   "status": "NOT_EVALUATED",
+   "successCondition": "D02와 같은 job이 기존 시장 계약으로 견적→계약→검증된 결과에 대한 지급→반납까지 이어지고, 검증 실패 시 지급되지 않는다.",
+   "negativeCases": [
+    "사용률만으로 지급",
+    "검증 전 지급",
+    "AI 토큰 수와 MHC 수량을 같은 값으로 기록",
+    "실제 결제 발생"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:d05",
+   "type": "WorkItem",
+   "label": "리밸런싱·하드웨어별 실행 변형의 이득 실증",
+   "authority": "SECONDARY_AI",
+   "status": "PLANNED",
+   "relationshipStatus": "PROPOSED",
+   "ordinal": 5,
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "dependsOn": [
+    "urn:omc:development-plan:d01",
+    "urn:omc:development-plan:d03"
+   ],
+   "realizes": [
+    "urn:omc:development-plan:def:rebalancing",
+    "urn:omc:development-plan:def:hardware-native",
+    "urn:omc:development-plan:def:placement-execution"
+   ],
+   "evidence": [
+    "urn:omc:development-plan:source:rebalancer-doc",
+    "urn:omc:development-plan:source:execution-doc",
+    "urn:omc:development-plan:source:rebalancer-priority"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:request",
+    "urn:omc:development-plan:source:what-is"
+   ],
+   "attributedTo": "urn:omc:agent:claude",
+   "executionClass": "MEASUREMENT",
+   "targetPaths": [
+    "scripts/rebalance.py",
+    "scripts/rebalance_feedback_loop.py",
+    "scripts/execution_measure.py"
+   ],
+   "inputContract": "D02의 기준 작업과 D03 이후의 선택 상태, D01 이후의 안정된 장비. 비교 전에 판정 문턱을 고정한다.",
+   "expectsOutput": "urn:omc:development-plan:output:d05",
+   "requiresOutput": [
+    "urn:omc:development-plan:output:d01",
+    "urn:omc:development-plan:output:d03"
+   ],
+   "acceptance": "urn:omc:development-plan:accept:d05",
+   "budget": "기존 제한형 비교 루프의 회차·시간 한도 안. 무개선이면 회차를 늘리지 않고 가설을 고친다.",
+   "onFailure": "기준선 배치로 되돌리고 실패한 비교를 보존한다.",
+   "stopWhen": [
+    "바인딩 깨짐",
+    "보호 세션 성능 회귀"
+   ],
+   "userDecision": "NONE"
+  },
+  {
+   "id": "urn:omc:development-plan:output:d05",
+   "type": "OutputContract",
+   "label": "리밸런싱·하드웨어별 실행 변형의 이득 실증 산출물",
+   "authority": "SECONDARY_AI",
+   "status": "EXPECTED",
+   "expectedProducer": "urn:omc:development-plan:d05",
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "requiredFields": [
+    "workload_id",
+    "baseline_runs",
+    "candidate_runs",
+    "preregistered_threshold",
+    "paired_gain",
+    "decision"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:accept:d05",
+   "type": "AcceptanceCriterion",
+   "label": "리밸런싱·하드웨어별 실행 변형의 이득 실증 판정",
+   "authority": "SECONDARY_AI",
+   "status": "NOT_EVALUATED",
+   "successCondition": "같은 작업·같은 예산에서 리밸런싱 또는 변형을 쓴 쪽이 사전에 정한 문턱을 넘는 이득을 내거나, 넘지 못했다는 결과가 기준선 유지와 함께 남는다.",
+   "negativeCases": [
+    "문턱을 결과를 본 뒤 정함",
+    "재시도를 독립 표본으로 집계",
+    "음수 이득을 누락",
+    "HSWM·USL 바인딩 변경"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:d06",
+   "type": "WorkItem",
+   "label": "도구 증가 효능 4조건 비교",
+   "authority": "SECONDARY_AI",
+   "status": "PLANNED",
+   "relationshipStatus": "PROPOSED",
+   "ordinal": 6,
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "dependsOn": [
+    "urn:omc:development-plan:d02"
+   ],
+   "realizes": [
+    "urn:omc:development-plan:def:tool-growth"
+   ],
+   "evidence": [
+    "urn:omc:development-plan:source:validation-doc",
+    "urn:omc:development-plan:source:tool-growth"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:request",
+    "urn:omc:development-plan:source:what-is"
+   ],
+   "attributedTo": "urn:omc:agent:claude",
+   "executionClass": "MEASUREMENT",
+   "targetPaths": [
+    "scripts/continuous_tools.mjs"
+   ],
+   "inputContract": "D02의 기준 작업과 이미 설계된 4조건(도구 증가 유무 × 리밸런싱 유무), 같은 과제·자원 예산.",
+   "expectsOutput": "urn:omc:development-plan:output:d06",
+   "requiresOutput": [
+    "urn:omc:development-plan:output:d02"
+   ],
+   "acceptance": "urn:omc:development-plan:accept:d06",
+   "budget": "설계 문서의 과제·자원 예산 안.",
+   "onFailure": "생성된 도구를 격리 상태로 두고 기존 도구 목록을 보존한다.",
+   "stopWhen": [
+    "검증 안 된 도구가 다음 작업에 편입"
+   ],
+   "userDecision": "NONE"
+  },
+  {
+   "id": "urn:omc:development-plan:output:d06",
+   "type": "OutputContract",
+   "label": "도구 증가 효능 4조건 비교 산출물",
+   "authority": "SECONDARY_AI",
+   "status": "EXPECTED",
+   "expectedProducer": "urn:omc:development-plan:d06",
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "requiredFields": [
+    "task_set_id",
+    "condition_results",
+    "tools_created",
+    "tools_reused_later",
+    "preregistered_criterion",
+    "decision"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:accept:d06",
+   "type": "AcceptanceCriterion",
+   "label": "도구 증가 효능 4조건 비교 판정",
+   "authority": "SECONDARY_AI",
+   "status": "NOT_EVALUATED",
+   "successCondition": "앞선 작업에서 생긴 도구가 뒤 작업에서 실제로 쓰였는지와 그 효과가 4조건 비교로 나온다.",
+   "negativeCases": [
+    "도구 개수를 효능으로 집계",
+    "학습에 쓴 과제로 평가",
+    "조건마다 예산이 다름"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:d07",
+   "type": "WorkItem",
+   "label": "외부 참여자의 기여·이용 경로",
+   "authority": "SECONDARY_AI",
+   "status": "PLANNED",
+   "relationshipStatus": "PROPOSED",
+   "ordinal": 7,
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "dependsOn": [
+    "urn:omc:development-plan:d04",
+    "urn:omc:development-plan:d05"
+   ],
+   "realizes": [
+    "urn:omc:development-plan:def:participation"
+   ],
+   "evidence": [
+    "urn:omc:development-plan:source:p2p-doc",
+    "urn:omc:development-plan:source:resource-credit"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:request",
+    "urn:omc:development-plan:source:what-is"
+   ],
+   "attributedTo": "urn:omc:agent:claude",
+   "executionClass": "OWNER_RUNTIME_CHANGE",
+   "targetPaths": [
+    "scripts/p2p_transfer.py"
+   ],
+   "inputContract": "D04의 정산 경로와 D05의 선택·배치 결과. 참여 범위는 사용자 결정에 따른다.",
+   "expectsOutput": "urn:omc:development-plan:output:d07",
+   "requiresOutput": [
+    "urn:omc:development-plan:output:d04",
+    "urn:omc:development-plan:output:d05"
+   ],
+   "acceptance": "urn:omc:development-plan:accept:d07",
+   "budget": "착수 때 정한다. 사용자 결정 전에는 예산 없음.",
+   "onFailure": "참여를 철회 상태로 되돌리고 정산을 반납한다.",
+   "stopWhen": [
+    "사용자 결정 없음",
+    "소스·데이터 공개 범위 초과"
+   ],
+   "userDecision": "어떤 기기·사람까지 참여시키고 무엇을 밖에 공개할지"
+  },
+  {
+   "id": "urn:omc:development-plan:output:d07",
+   "type": "OutputContract",
+   "label": "외부 참여자의 기여·이용 경로 산출물",
+   "authority": "SECONDARY_AI",
+   "status": "EXPECTED",
+   "expectedProducer": "urn:omc:development-plan:d07",
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "requiredFields": [
+    "participant_scope",
+    "offer_terms",
+    "contribution_record",
+    "settlement_ref",
+    "withdrawal_path"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:accept:d07",
+   "type": "AcceptanceCriterion",
+   "label": "외부 참여자의 기여·이용 경로 판정",
+   "authority": "SECONDARY_AI",
+   "status": "NOT_EVALUATED",
+   "successCondition": "허용된 한 참여 기기가 범위·기간·예산을 정해 기여하고, 정산되고, 철회할 수 있다.",
+   "negativeCases": [
+    "동의 범위를 넘는 자원 사용",
+    "철회 불가",
+    "내부 기기끼리의 결과를 외부 참여로 집계"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:d08",
+   "type": "WorkItem",
+   "label": "정의를 KG와 모듈 선언에 반영하는 변경안",
+   "authority": "SECONDARY_AI",
+   "status": "PLANNED",
+   "relationshipStatus": "PROPOSED",
+   "ordinal": 8,
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "dependsOn": [],
+   "realizes": [
+    "urn:omc:development-plan:def:identity"
+   ],
+   "evidence": [
+    "urn:omc:development-plan:source:what-is",
+    "urn:omc:development-plan:source:apostle-sources"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:request",
+    "urn:omc:development-plan:source:what-is"
+   ],
+   "attributedTo": "urn:omc:agent:claude",
+   "executionClass": "PROPOSAL",
+   "targetPaths": [
+    "APOSTLE_MODULE.json",
+    "docs/WHAT_IS.md"
+   ],
+   "inputContract": "정의 색인과 KG의 현재 레코드·판정 이력.",
+   "expectsOutput": "urn:omc:development-plan:output:d08",
+   "requiresOutput": [],
+   "acceptance": "urn:omc:development-plan:accept:d08",
+   "budget": "문서·조회 범위.",
+   "onFailure": "변경안만 폐기한다. KG와 모듈 선언은 그대로다.",
+   "stopWhen": [
+    "KG 쓰기 경로 없음"
+   ],
+   "userDecision": "정의들이 공존인지 대체인지, 변경안을 KG에 올릴지"
+  },
+  {
+   "id": "urn:omc:development-plan:output:d08",
+   "type": "OutputContract",
+   "label": "정의를 KG와 모듈 선언에 반영하는 변경안 산출물",
+   "authority": "SECONDARY_AI",
+   "status": "EXPECTED",
+   "expectedProducer": "urn:omc:development-plan:d08",
+   "assignedTo": "urn:omc:memory-plan:owner:omc",
+   "requiredFields": [
+    "subject_uid",
+    "proposed_changes",
+    "source_refs",
+    "unresolved_items"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:accept:d08",
+   "type": "AcceptanceCriterion",
+   "label": "정의를 KG와 모듈 선언에 반영하는 변경안 판정",
+   "authority": "SECONDARY_AI",
+   "status": "NOT_EVALUATED",
+   "successCondition": "KG 엔티티와 모듈 선언에 넣을 정의 변경안이 원문 참조와 함께 준비되고, 사용자 판정이 필요한 항목이 분리돼 있다.",
+   "negativeCases": [
+    "AI 요약을 사용자 정전으로 승격",
+    "대체 여부를 AI가 확정",
+    "쓰기 권한 없이 KG 변경"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:question:next",
+   "type": "CompetencyQuestion",
+   "label": "선행 작업 없이 지금 시작할 수 있는 작업은?",
+   "authority": "SECONDARY_AI",
+   "sparql": "PREFIX mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> PREFIX dp: <https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/> SELECT DISTINCT ?id WHERE { ?id a mp:WorkItem . FILTER NOT EXISTS { ?id mp:dependsOn ?p } }",
+   "expectedIds": [
+    "urn:omc:development-plan:d01",
+    "urn:omc:development-plan:d02",
+    "urn:omc:development-plan:d08"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:question:delegated",
+   "type": "CompetencyQuestion",
+   "label": "기존 계획에 맡기고 새로 만들지 않는 작업은?",
+   "authority": "SECONDARY_AI",
+   "sparql": "PREFIX mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> PREFIX dp: <https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/> SELECT DISTINCT ?id WHERE { ?id a mp:WorkItem ; dp:delegatesTo ?x }",
+   "expectedIds": [
+    "urn:omc:development-plan:d01",
+    "urn:omc:development-plan:d02",
+    "urn:omc:development-plan:d03"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:question:new",
+   "type": "CompetencyQuestion",
+   "label": "이 계획에서 새로 정의한 작업은?",
+   "authority": "SECONDARY_AI",
+   "sparql": "PREFIX mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> PREFIX dp: <https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/> SELECT DISTINCT ?id WHERE { ?id a mp:WorkItem . FILTER NOT EXISTS { ?id dp:delegatesTo ?x } }",
+   "expectedIds": [
+    "urn:omc:development-plan:d04",
+    "urn:omc:development-plan:d05",
+    "urn:omc:development-plan:d06",
+    "urn:omc:development-plan:d07",
+    "urn:omc:development-plan:d08"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:question:unrealized",
+   "type": "CompetencyQuestion",
+   "label": "개발 작업에 연결하지 않은 정의 요소는?",
+   "authority": "SECONDARY_AI",
+   "sparql": "PREFIX mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> PREFIX dp: <https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/> SELECT DISTINCT ?id WHERE { ?id a dp:DefinitionElement . FILTER NOT EXISTS { ?w dp:realizes ?id } }",
+   "expectedIds": [
+    "urn:omc:development-plan:def:philosophy",
+    "urn:omc:development-plan:def:dw-view"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:question:decision",
+   "type": "CompetencyQuestion",
+   "label": "사용자 결정이 있어야 하는 작업은?",
+   "authority": "SECONDARY_AI",
+   "sparql": "PREFIX mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> PREFIX dp: <https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/> SELECT DISTINCT ?id WHERE { ?id a mp:WorkItem ; dp:userDecision ?v . FILTER(?v != \"NONE\") }",
+   "expectedIds": [
+    "urn:omc:development-plan:d07",
+    "urn:omc:development-plan:d08"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:question:effect",
+   "type": "CompetencyQuestion",
+   "label": "효과를 측정으로 판정하는 작업은?",
+   "authority": "SECONDARY_AI",
+   "sparql": "PREFIX mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> PREFIX dp: <https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/> SELECT DISTINCT ?id WHERE { ?id a mp:WorkItem ; dp:executionClass \"MEASUREMENT\" }",
+   "expectedIds": [
+    "urn:omc:development-plan:d05",
+    "urn:omc:development-plan:d06"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:question:rebalancing",
+   "type": "CompetencyQuestion",
+   "label": "리밸런싱 정의를 실제 동작으로 옮기는 작업과 그 모든 선행은?",
+   "authority": "SECONDARY_AI",
+   "sparql": "PREFIX mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> PREFIX dp: <https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/> SELECT DISTINCT ?id WHERE { ?w dp:realizes <urn:omc:development-plan:def:rebalancing> . ?w mp:dependsOn* ?id }",
+   "expectedIds": [
+    "urn:omc:development-plan:d01",
+    "urn:omc:development-plan:d02",
+    "urn:omc:development-plan:d03",
+    "urn:omc:development-plan:d05"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:question:settlement",
+   "type": "CompetencyQuestion",
+   "label": "MHC 정산 정의를 옮기는 작업과 그 모든 선행은?",
+   "authority": "SECONDARY_AI",
+   "sparql": "PREFIX mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> PREFIX dp: <https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/> SELECT DISTINCT ?id WHERE { ?w dp:realizes <urn:omc:development-plan:def:settlement> . ?w mp:dependsOn* ?id }",
+   "expectedIds": [
+    "urn:omc:development-plan:d02",
+    "urn:omc:development-plan:d04"
+   ]
+  },
+  {
+   "id": "urn:omc:development-plan:plan:20261110",
+   "type": "Plan",
+   "label": "입운구 정의를 한 바퀴의 동작으로 옮기는 개발 순서",
+   "authority": "SECONDARY_AI",
+   "status": "PROPOSED",
+   "executionStatus": "NOT_STARTED",
+   "runtimeEffects": false,
+   "recordedAt": "2026-11-10T10:49:35Z",
+   "workItems": [
+    "urn:omc:development-plan:d01",
+    "urn:omc:development-plan:d02",
+    "urn:omc:development-plan:d03",
+    "urn:omc:development-plan:d04",
+    "urn:omc:development-plan:d05",
+    "urn:omc:development-plan:d06",
+    "urn:omc:development-plan:d07",
+    "urn:omc:development-plan:d08"
+   ],
+   "derivedFrom": [
+    "urn:omc:development-plan:source:request",
+    "urn:omc:development-plan:source:what-is"
+   ],
+   "attributedTo": "urn:omc:agent:claude",
+   "scope": "OWNER_LOCAL_PLAN",
+   "description": "정의 색인의 기술 요소를 요청→선택→배치·실행→검증→정산→반영의 순환으로 읽고, 기존 메모리·작업 이동 계획을 재사용해 빈 구간만 새 작업으로 둔 순서. 질의 결과는 구조상 순서이며 실행 허가나 자원 예약이 아니다."
+  }
+ ]
+}

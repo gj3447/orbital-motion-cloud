@@ -1,0 +1,79 @@
+@prefix mp: <https://gj3447.github.io/orbital_motion_cloud/memory-plan/v1/> .
+@prefix dp: <https://gj3447.github.io/orbital_motion_cloud/development-plan/v1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dp:WorkShape a sh:NodeShape ; sh:targetClass mp:WorkItem ;
+ sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:authority ; sh:hasValue "SECONDARY_AI" ; sh:maxCount 1 ] ;
+ sh:property [ sh:path dp:status ; sh:hasValue "PLANNED" ; sh:maxCount 1 ] ;
+ sh:property [ sh:path dp:relationshipStatus ; sh:hasValue "PROPOSED" ; sh:maxCount 1 ] ;
+ sh:property [ sh:path dp:ordinal ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 1 ] ;
+ sh:property [ sh:path mp:assignedTo ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Owner ] ;
+ sh:property [ sh:path mp:dependsOn ; sh:class mp:WorkItem ] ;
+ sh:property [ sh:path dp:realizes ; sh:minCount 1 ; sh:class dp:DefinitionElement ] ;
+ sh:property [ sh:path dp:delegatesTo ; sh:class dp:ExistingWork ] ;
+ sh:property [ sh:path mp:evidence ; sh:minCount 1 ; sh:class mp:SourceArtifact ] ;
+ sh:property [ sh:path mp:expectsOutput ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:OutputContract ] ;
+ sh:property [ sh:path mp:requiresOutput ; sh:class mp:OutputContract ] ;
+ sh:property [ sh:path mp:acceptance ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:AcceptanceCriterion ] ;
+ sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:class mp:SourceArtifact ] ;
+ sh:property [ sh:path prov:wasAttributedTo ; sh:minCount 1 ; sh:maxCount 1 ; sh:class prov:SoftwareAgent ] ;
+ sh:property [ sh:path dp:executionClass ; sh:minCount 1 ; sh:maxCount 1 ;
+  sh:in ( "DELEGATED_PLAN" "OWNER_RUNTIME_CHANGE" "MEASUREMENT" "PROPOSAL" ) ] ;
+ sh:property [ sh:path dp:targetPaths ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:inputContract ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:budget ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:onFailure ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:stopWhen ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:userDecision ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
+
+dp:ElementShape a sh:NodeShape ; sh:targetClass dp:DefinitionElement ;
+ sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:authority ; sh:hasValue "SECONDARY_AI" ; sh:maxCount 1 ] ;
+ sh:property [ sh:path dp:elementKind ; sh:minCount 1 ; sh:maxCount 1 ;
+  sh:in ( "IDENTITY" "PROJECT" "PERSPECTIVE" "PURPOSE" "STRUCTURE" "LOOP_SEGMENT" "OPERATION" "FOUNDATION" ) ] ;
+ sh:property [ sh:path dp:developmentScope ; sh:minCount 1 ; sh:maxCount 1 ;
+  sh:in ( "IN_PLAN" "NOT_A_DEVELOPMENT_TARGET" "OPEN_USER_UNDEFINED" ) ] ;
+ sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:class mp:SourceArtifact ] .
+
+dp:ExistingWorkShape a sh:NodeShape ; sh:targetClass dp:ExistingWork ;
+ sh:property [ sh:path dp:graphPath ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path dp:externalPlan ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path dp:externalIds ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path dp:identityMerge ; sh:hasValue false ; sh:maxCount 1 ] .
+
+dp:OutputShape a sh:NodeShape ; sh:targetClass mp:OutputContract ;
+ sh:property [ sh:path dp:status ; sh:hasValue "EXPECTED" ; sh:maxCount 1 ] ;
+ sh:property [ sh:path mp:expectedProducer ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:WorkItem ] ;
+ sh:property [ sh:path mp:assignedTo ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Owner ] ;
+ sh:property [ sh:path dp:requiredFields ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+
+dp:AcceptanceShape a sh:NodeShape ; sh:targetClass mp:AcceptanceCriterion ;
+ sh:property [ sh:path dp:status ; sh:hasValue "NOT_EVALUATED" ; sh:maxCount 1 ] ;
+ sh:property [ sh:path dp:successCondition ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:negativeCases ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+
+dp:PlanShape a sh:NodeShape ; sh:targetClass mp:Plan ;
+ sh:property [ sh:path dp:status ; sh:hasValue "PROPOSED" ; sh:maxCount 1 ] ;
+ sh:property [ sh:path dp:executionStatus ; sh:hasValue "NOT_STARTED" ; sh:maxCount 1 ] ;
+ sh:property [ sh:path dp:runtimeEffects ; sh:hasValue false ; sh:maxCount 1 ] ;
+ sh:property [ sh:path dp:recordedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+ sh:property [ sh:path dp:workItems ; sh:minCount 1 ; sh:class mp:WorkItem ] .
+
+dp:SourceShape a sh:NodeShape ; sh:targetClass mp:SourceArtifact ;
+ sh:property [ sh:path dp:sourceStatus ; sh:minCount 1 ; sh:maxCount 1 ;
+  sh:in ( "PINNED_BYTES" "LIVE_PATH" "INLINE_QUOTE" ) ] ;
+ sh:property [ sh:path dp:sha256 ; sh:maxCount 1 ; sh:pattern "^[a-f0-9]{64}$" ] .
+
+dp:RoleShape a sh:NodeShape ; sh:targetClass dp:RoleBoundary ;
+ sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:authority ; sh:hasValue "SECONDARY_AI" ; sh:maxCount 1 ] ;
+ sh:property [ sh:path dp:owner ; sh:minCount 1 ; sh:maxCount 1 ; sh:class mp:Owner ] ;
+ sh:property [ sh:path dp:checkout ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:responsibilities ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:excludes ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+ sh:property [ sh:path dp:ownsPaths ; sh:nodeKind sh:IRI ] ;
+ sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:class mp:SourceArtifact ] .
